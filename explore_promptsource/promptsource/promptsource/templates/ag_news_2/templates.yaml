@@ -1,0 +1,23 @@
+dataset: ag_news_2
+templates:
+  24e44a81-a18a-42dd-a71c-5b31b2d2cb39: !Template
+    answer_choices: Politik Dunia ||| Olahraga ||| Bisnis ||| Sains dan Teknologi
+    id: 24e44a81-a18a-42dd-a71c-5b31b2d2cb39
+    jinja: '
+    {% set _blank1 = ["menjelaskan", "memaparkan", "menerangkan"] |random%}
+    
+    Label apa yang paling baik dalam {{_blank1}} artikel berita ini?\n{{text}} 
+    
+    ||| 
+    
+    \n{{answer_choices[label]}}
+    '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: classify_question_first
+    reference: ''
