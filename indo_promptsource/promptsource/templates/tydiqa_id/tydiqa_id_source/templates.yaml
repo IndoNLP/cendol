@@ -4,15 +4,9 @@ templates:
   30a1ae78-a58c-4605-8a5d-db5b7716681b: !Template
     answer_choices: null
     id: 30a1ae78-a58c-4605-8a5d-db5b7716681b
-    jinja: '{% set lang = id.split(''-'')[0] %}
-
-      {% if lang == "indonesian" %}
-
-      Extract in the passage of the answer to the question: {{question}}
-
-      Context: {{context}}
-
-      {% endif %}'
+    jinja: "{% set lang = id.split('-')[0] %}\n{% if lang == \"indonesian\" %}\nDari\
+      \ paragraf ini:\n{{context}}\n\nApakah jawaban dari pertanyaan: \n{{question}}\n\
+      \nJawaban: ||| {{label}}\n{% endif %}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
