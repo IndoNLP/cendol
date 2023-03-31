@@ -323,7 +323,7 @@ def run_app():
             def get_dataset(path, conf=None):
                 "Get a dataset from name and conf."
                 try:
-                    return conhelps.filtered(lambda x: path in x.dataset_name and conf in x.config.name)[0].load_dataset()
+                    return conhelps.filtered(lambda x: path in x.dataset_name and conf in x.config.name)[0].load_dataset(split="train[:20]")
                 except Exception as err:
                     raise err
 
@@ -335,12 +335,12 @@ def run_app():
                     f"\\n\nOriginal error:\n{str(e)}"
                 )
 
-            splits = list(dataset.keys())
-            index = 0
-            if "train" in splits:
-                index = splits.index("train")
-            split = st.sidebar.selectbox("Split", splits, key="split_select", index=index)
-            dataset = dataset[split]
+            # splits = list(dataset.keys())
+            # index = 0
+            # if "train" in splits:
+            #     index = splits.index("train")
+            # split = st.sidebar.selectbox("Split", splits, key="split_select", index=index)
+            # dataset = dataset[split]
             dataset = renameDatasetColumn(dataset)
 
             #
@@ -374,7 +374,7 @@ def run_app():
                         help="Select the prompt to visualize.",
                     )
 
-                step = 50
+                step = 10
                 example_index = st.sidebar.number_input(
                     f"Select the example index (Size = {len(dataset)})",
                     min_value=0,

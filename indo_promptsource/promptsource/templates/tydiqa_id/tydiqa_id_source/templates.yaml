@@ -16,3 +16,20 @@ templates:
       original_task: true
     name: extract_answer
     reference: Ask question with context
+  9dc84895-37bb-41b8-85dc-e3f82478eb85: !Template
+    answer_choices: null
+    id: 9dc84895-37bb-41b8-85dc-e3f82478eb85
+    jinja: 'Context: {{context}}
+
+      Q: {{question}}
+
+      A: |||{{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: simple_context_question_answer
+    reference: Simple Q&A

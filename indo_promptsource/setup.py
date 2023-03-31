@@ -11,10 +11,13 @@ requirements = [
     "pytest",
     "pyyaml>=5",
     "streamlit==0.82",
+    "wheel==0.38.4",
     "jinja2==2.5",
     "plotly",
-    "requests",
-    "pandas",
+    "requests==2.28.2",
+    "pandas==1.5.3",
+    "protobuf==3.20.*",
+    "pygments",
     ##############################################################
     # Dependencies in this section are added for specific datasets
     ##############################################################
