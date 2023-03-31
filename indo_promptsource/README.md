@@ -12,7 +12,7 @@ pip install -e .
 ```
 pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 ```
-3. Ensure you are in the `indo_promptsource directory`
+3. Ensure you are in the `indo_promptsource` directory
 4. Run streamlit
 ```
 streamlit run promptsource/app.py
