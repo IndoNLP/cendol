@@ -22,7 +22,7 @@ requirements = [
     # Dependencies in this section are added for specific datasets
     ##############################################################
     "py7zr",
-    "nusacrowd @ git+https://github.com/IndoNLP/nusa-crowd.git@release_exp"
+    # "nusacrowd @ git+https://github.com/IndoNLP/nusa-crowd.git@release_exp"
     ##############################################################
     # End of dataset-specific dependencies
     ##############################################################
