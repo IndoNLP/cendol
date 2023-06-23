@@ -6,7 +6,7 @@ We only download the first 10 samples from the training set of each dataset to s
 If you do not intend to modify prompts, you can simply run:
 1. Install required packages
 ```bash
-pip install -e .
+pip install -r requirements.txt
 ```
 2. Install nusacrowd
 ```
