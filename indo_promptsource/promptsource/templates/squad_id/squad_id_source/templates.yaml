@@ -1,0 +1,23 @@
+dataset: squad_id
+subset: squad_id_source
+templates:
+  55eaa89a-c1bc-4a3b-8f78-0b538899416f: !Template
+    answer_choices: null
+    id: 55eaa89a-c1bc-4a3b-8f78-0b538899416f
+    jinja: '{% set tmp_ans = answer[0] | str_to_dict %}
+
+
+      {{context}}
+
+      Q: {{question}}
+
+      A: ||| {{tmp_ans["text"]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: given_context_answer_with_question_variation
+    reference: https://github.com/bigscience-workshop/promptsource/blob/main/promptsource/templates/squad/templates.yaml
