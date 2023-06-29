@@ -2,9 +2,9 @@ dataset: code_mixed_jv_id
 subset: code_mixed_jv_id_id_nusantara_text
 templates:
   0c882d58-2bf5-461e-a243-8380371d38e6: !Template
-    answer_choices: "positif ||| neural ||| n\xE9gatif"
+    answer_choices: negatif ||| neural ||| positif
     id: 0c882d58-2bf5-461e-a243-8380371d38e6
-    jinja: apakah sentimen dari teks berikut? {{text}} ||| {{answer_choices[label]}}
+    jinja: apakah teks berikut positif, netral, atau negatif? {{text}} ||| {{answer_choices[label]}}
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
