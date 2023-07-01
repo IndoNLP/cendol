@@ -1,6 +1,21 @@
 dataset: id_hoax_news
 subset: id_hoax_news_nusantara_text
 templates:
+  0268369d-d3a7-4d29-9c0d-8548dddf1722: !Template
+    answer_choices: iya|||tidak
+    id: 0268369d-d3a7-4d29-9c0d-8548dddf1722
+    jinja: 'Apakah berita berikut hoax?
+
+      Berita: {{text}}|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: berita_noopt
+    reference: ''
   1691c3f6-15f7-45ae-804d-6a6b20f10e33: !Template
     answer_choices: hoax|||tidak hoax alias valid
     id: 1691c3f6-15f7-45ae-804d-6a6b20f10e33
@@ -18,4 +33,140 @@ templates:
       - Accuracy
       original_task: true
     name: zs_text_classification
+    reference: ''
+  1ff8f7bd-47ba-4ef9-a2e9-09063302aa52: !Template
+    answer_choices: hoax|||valid
+    id: 1ff8f7bd-47ba-4ef9-a2e9-09063302aa52
+    jinja: 'Apakah informasi yang ada di berita berikut ini {{answer_choices[0]}}/{{answer_choices[1]}}?
+
+      Berita: {{text}}|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hoax_or_valid_zs_noopt_apakah
+    reference: ''
+  36a12899-04ad-4428-b26d-23aaca703f9c: !Template
+    answer_choices: hoax|||valid
+    id: 36a12899-04ad-4428-b26d-23aaca703f9c
+    jinja: 'Berdasarkan konteks yang diberikan, jawab pertanyaan.
+
+      Konteks: {{text}}
+
+      Pertanyaan: Kategori apa yang cocok untuk konteks di atas.
+
+      Pilihan kategori:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: zero_shot_style
+    reference: ''
+  4ff2c090-cffd-48b5-be54-33d315ff7b65: !Template
+    answer_choices: null
+    id: 4ff2c090-cffd-48b5-be54-33d315ff7b65
+    jinja: Buat paragraf dengan informasi {% if label == 0 %}Valid{% else %}Hoax{%
+      endif %}.|||{{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: gen_paragraph
+    reference: ''
+  593a92be-0922-4ce2-be47-55a309715ca6: !Template
+    answer_choices: iya|||tidak
+    id: 593a92be-0922-4ce2-be47-55a309715ca6
+    jinja: 'Menurutmu, apakah teks berikut: {{text}}, termasuk hoax atau tidak?|||{%
+      if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hoax_or_valid_zs_opt_kategori
+    reference: ''
+  8ba9bced-f558-44d7-8240-b80aa95a47ae: !Template
+    answer_choices: valid|||hoax
+    id: 8ba9bced-f558-44d7-8240-b80aa95a47ae
+    jinja: 'Menurut lu berita berikut ini {{answer_choices[0]}}/{{answer_choices[1]}}?
+
+      Berita: {{text}}|||{% if label == 0 or label == "Valid"  %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: informal_style
+    reference: ''
+  a78bebdf-28aa-48ea-a883-fbfd943392d2: !Template
+    answer_choices: null
+    id: a78bebdf-28aa-48ea-a883-fbfd943392d2
+    jinja: 'Lanjutkan paragraf ini dengan informasi {% if label == 0 %}Valid{% else
+      %}Hoax{% endif %}:
+
+      Paragraf: {{text[0:50]}}|||{{text[50:]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: gen_paragraph_startswith
+    reference: ''
+  f9d59fd1-3881-4506-98b2-c678eb7d543f: !Template
+    answer_choices: iya|||tidak
+    id: f9d59fd1-3881-4506-98b2-c678eb7d543f
+    jinja: 'Jawab pertanyaan berdasarkan konteks yang diberikan.
+
+      Konteks: {{text}}
+
+      Pertanyaan: Apakah berita di atas hoaks?
+
+      Pilihan Jawaban:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: berita_opt
+    reference: ''
+  fd179968-ad77-4d3e-a421-7a9a1c3b3a3d: !Template
+    answer_choices: iya|||tidak
+    id: fd179968-ad77-4d3e-a421-7a9a1c3b3a3d
+    jinja: 'Dalam konteks ini, apakah teks yang mengandung kata-kata seperti: {{text}},
+      termasuk hoax?|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hoax_or_valid_zs_opt_contains
     reference: ''
