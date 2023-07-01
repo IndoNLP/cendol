@@ -1,6 +1,32 @@
 dataset: code_mixed_jv_id
 subset: code_mixed_jv_id_id_nusantara_text
 templates:
+  0a0750c1-0b31-4371-8535-9778c4f61554: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 0a0750c1-0b31-4371-8535-9778c4f61554
+    jinja: Kalimat ini {{text}} dapat diasosiasikan dengan sentimen apa? ||| {{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_5
+    reference: ''
+  0ae1035c-d60d-4451-bd87-520d65deda09: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 0ae1035c-d60d-4451-bd87-520d65deda09
+    jinja: Apa sentimen yang cocok dengan kalimat {{text}}? ||| {{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_6
+    reference: ''
   0c882d58-2bf5-461e-a243-8380371d38e6: !Template
     answer_choices: negatif ||| neural ||| positif
     id: 0c882d58-2bf5-461e-a243-8380371d38e6
@@ -14,6 +40,32 @@ templates:
       original_task: true
     name: sentiment_analysis_2
     reference: ''
+  2371e80c-9403-49e0-9665-f2312f368ed8: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 2371e80c-9403-49e0-9665-f2312f368ed8
+    jinja: Diberikan teks {{text}}, sentimen apa yang sesuai? ||| {{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_9
+    reference: ''
+  37e0efc7-4db8-4d3a-be00-c5bb77452cd2: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 37e0efc7-4db8-4d3a-be00-c5bb77452cd2
+    jinja: Kalimat ini {{text}} cocok dengan suatu nilai sentimen?
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_7
+    reference: ''
   96305ac8-cd58-44cc-bbe8-31a85175ee42: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 96305ac8-cd58-44cc-bbe8-31a85175ee42
@@ -26,4 +78,56 @@ templates:
       - Accuracy
       original_task: true
     name: sentiment_analysis_1
+    reference: ''
+  9e90d17f-9ccb-4901-9a6e-5c1332ed8ac9: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 9e90d17f-9ccb-4901-9a6e-5c1332ed8ac9
+    jinja: '{{text}}. Berikan sentimen untuk text tersebut! ||| {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_8
+    reference: ''
+  bcef72b5-214f-490a-9ec1-778dfe5ef1da: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: bcef72b5-214f-490a-9ec1-778dfe5ef1da
+    jinja: 'Prediksi sentimen yang paling pas dari kalimat berikut: {{text}} ||| {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_4
+    reference: ''
+  d98f3022-3e22-4506-bbf6-85e3f3f81dc9: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: d98f3022-3e22-4506-bbf6-85e3f3f81dc9
+    jinja: Dengan kalimat ini, {{text}}, tebak sentimennya ||| {{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_3
+    reference: ''
+  da2d28e3-0b56-4c4d-9de0-2a8b9c7dacee: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: da2d28e3-0b56-4c4d-9de0-2a8b9c7dacee
+    jinja: Dengan kalimat ini, {{text}}, tebak sentimennya ||| {{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_10
     reference: ''
