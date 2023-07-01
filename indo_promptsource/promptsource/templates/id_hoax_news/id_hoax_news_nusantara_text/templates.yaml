@@ -1,0 +1,21 @@
+dataset: id_hoax_news
+subset: id_hoax_news_nusantara_text
+templates:
+  1691c3f6-15f7-45ae-804d-6a6b20f10e33: !Template
+    answer_choices: hoax|||tidak hoax alias valid
+    id: 1691c3f6-15f7-45ae-804d-6a6b20f10e33
+    jinja: 'Klasifikasikan teks berikut "{% if news %}{{news}}{% else %}{{text}}{%
+      endif %}" menjadi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: zs_text_classification
+    reference: ''
