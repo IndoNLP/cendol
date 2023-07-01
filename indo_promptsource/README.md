@@ -2,6 +2,16 @@
 **IndoPromptSource is a toolkit for creating, sharing and using natural language prompts for NusaCrowd Datasets.**
 We only download the first 10 samples from the training set of each dataset to speed up the prompt designing process.
 
+## Environment Setup
+1. Create a new environment named `promptsource`
+```
+conda create --name promptsource python=3.10.11
+```
+2. Activate the environment.
+```
+conda activate promptsource
+```
+
 ## Setup
 If you do not intend to modify prompts, you can simply run:
 1. Install required packages
@@ -16,6 +26,10 @@ pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 4. Run streamlit
 ```
 streamlit run promptsource/app.py
+```
+If you are using Github Codespaces, you will find your promptsource will stuck on `Please Wait`. You can try this command:
+```
+streamlit run promptsource/app.py --server.enableCORS false --server.enableXsrfProtection false
 ```
 
 ## How to create/edit/view prompt design
