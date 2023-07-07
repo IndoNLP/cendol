@@ -1,0 +1,185 @@
+dataset: id_am2ico
+subset: id_am2ico_nusantara_pairs
+templates:
+  2c99133f-2b40-4456-bc8c-985440f8c49c: !Template
+    answer_choices: iya||||tidak
+    id: 2c99133f-2b40-4456-bc8c-985440f8c49c
+    jinja: Tentukan apakah kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}"
+      dalam kalimat "{{text_1}}" digunakan dengan arti yang sama dengan kata "{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      dalam kalimat "{{text_2}}"?|||{{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: tentukan
+    reference: Sanh et al. 2021
+  558e173d-e672-4321-8a5e-bb31f7b9922d: !Template
+    answer_choices: benar|||salah
+    id: 558e173d-e672-4321-8a5e-bb31f7b9922d
+    jinja: 'Kalimat A: {{text_1}}
+
+      Kalimat B: {{text_2}}
+
+      Kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}" dari kalimat
+      A memiliki arti yang sama dengan kata "{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      dari kalimat B. benar atau salah?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: benar atau salah
+    reference: Sanh et al. 2021
+  89f365a3-754a-41f4-aac7-cba62dc501c0: !Template
+    answer_choices: iya|||tidak
+    id: 89f365a3-754a-41f4-aac7-cba62dc501c0
+    jinja: 'Apakah kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}"
+      dari kalimat 1 di bawah digunakan dengan konteks yang sama dengan kata"{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      dari kalimat 2? iya atau tidak?
+
+      Kalimat 1: {{text_1}}.
+
+      Kalimat 2: {{text_2}}.|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: konteks yang sama
+    reference: ''
+  97401280-b5c0-47d3-bcee-a6097d6e1fc4: !Template
+    answer_choices: sama|||tidak sama
+    id: 97401280-b5c0-47d3-bcee-a6097d6e1fc4
+    jinja: 'Tentukan apakah kata ''{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}''
+      di kalimat pertama digunakan dengan cara yang sama pada kata ''{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}''
+      di kalimat kedua.
+
+      kalimat di bawah.
+
+      {{text_1}}.
+
+      {{text_2}}. sama atau tidak sama?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: determine whether post
+    reference: Sanh et al. 2021
+  a57f0d6e-3303-42a4-b86d-368febd94ad6: !Template
+    answer_choices: iya|||tidak
+    id: a57f0d6e-3303-42a4-b86d-368febd94ad6
+    jinja: 'Kalimat 1: {{text_1}}
+
+      Kalimat 2: {{text_2}}
+
+      Pertanyaan: Apakah kata ''{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}''
+      dari kalimat 1 digunakan dalam arti yang sama dengan kata ''{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}''?
+      iya atau tidak?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: same sense
+    reference: Brown et al. 2020
+  b32ef61a-4aaf-4bb2-aefd-94ef79c3254a: !Template
+    answer_choices: iya|||tidak
+    id: b32ef61a-4aaf-4bb2-aefd-94ef79c3254a
+    jinja: Apakah kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}"
+      dari kalimat "{{text_1}}" memiliki arti yang sama dengan kata  "{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      dari kalimat "{{text_2}}"? iya atau tidak?|||{{answer_choices[label]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: same meaning
+    reference: Sanh et al. 2021
+  bedcd9b5-bbd9-4446-baee-04ad6a377bde: !Template
+    answer_choices: iya|||tidak
+    id: bedcd9b5-bbd9-4446-baee-04ad6a377bde
+    jinja: 'Teks 1: {{text_1}}
+
+      Teks 2: {{text_2}}
+
+      Pengertian serupa dari kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}"
+      dan "{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"? iya atau tidak?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: similar sense
+    reference: Sanh et al. 2021
+  c5961b9c-475b-49ca-bdcf-1c69fb0e38a8: !Template
+    answer_choices: iya|||tidak
+    id: c5961b9c-475b-49ca-bdcf-1c69fb0e38a8
+    jinja: 'Kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}" dari
+      kalimat 1 memiliki banyak arti. Apakah memiliki arti yang sama dengan kata ""{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      dari kalimat 2? iya atau tidak?
+
+      Kalimat 1: {{text_1}}
+
+      Kalimat 2: {{text_2}}|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages: []
+      metrics:
+      - Accuracy
+      original_task: true
+    name: multiple meanings
+    reference: Sanh et al. 2021
+  e5af2208-033b-4a43-aadd-822d5dc45ca8: !Template
+    answer_choices: iya|||tidak
+    id: e5af2208-033b-4a43-aadd-822d5dc45ca8
+    jinja: 'Kalimat 1: {{text_1}}
+
+      Kalimat 2: {{text_2}}
+
+      Apakah kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}" dari
+      kalimat 1 memiliki arti yang sama dengan kata "{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      dari kalimat 2? iya atau tidak?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: berdasarkan
+    reference: Sanh et al. 2021
+  ee7e0c55-917e-4e42-9c44-217ef8eaabc6: !Template
+    answer_choices: iya|||tidak
+    id: ee7e0c55-917e-4e42-9c44-217ef8eaabc6
+    jinja: 'Kalimat 1: {{text_1}}
+
+      Kalimat 2: {{text_2}}
+
+      Tentukan apakah kata "{{text_1[text_1.find("<word>")+6:text_1.find("</word>")]}}"
+      dari kalimat 1 digunakan dalam arti yang sama dengan kata "{{text_2[text_2.find("<word>")+6:text_2.find("</word>")]}}"
+      di kalimat 2? iya atau tidak?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: determine whether
+    reference: Sanh et al. 2021
