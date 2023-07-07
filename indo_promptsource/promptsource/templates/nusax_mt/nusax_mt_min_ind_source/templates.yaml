@@ -1,0 +1,121 @@
+dataset: nusax_mt
+subset: nusax_mt_min_ind_source
+templates:
+  15eea955-6542-4ede-8537-dbe88f7c870f: !Template
+    answer_choices: '{{text_2}}'
+    id: 15eea955-6542-4ede-8537-dbe88f7c870f
+    jinja: Terjemahanin Bahasa Minang ini {{text_1}}!
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_9
+    reference: ''
+  1a929618-bf13-4fd2-b28f-3067510dc4dd: !Template
+    answer_choices: '{{text_2}}'
+    id: 1a929618-bf13-4fd2-b28f-3067510dc4dd
+    jinja: 'Saya butuh bantuan untuk menerjemahkan kalimat berikut ke Bahasa Indonesia:
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_5
+    reference: ''
+  3e38e514-530e-4fc9-acdd-1d956d841700: !Template
+    answer_choices: '{{text_2}}'
+    id: 3e38e514-530e-4fc9-acdd-1d956d841700
+    jinja: 'Bagaimana terjemahan Bahasa Minang ini ke dalam Bahasa Indonesia:  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_4
+    reference: ''
+  40a7a530-4203-4b33-bb00-b105b5a259e5: !Template
+    answer_choices: '{{text_2}}'
+    id: 40a7a530-4203-4b33-bb00-b105b5a259e5
+    jinja: 'Silahkan terjemahkan Bahasa Minang ini ke dalam Indonesia:  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_3
+    reference: ''
+  54982678-9b4b-45d8-8ebc-b30c14e894c9: !Template
+    answer_choices: '{{text_2}}'
+    id: 54982678-9b4b-45d8-8ebc-b30c14e894c9
+    jinja: 'Terjemahan dari Bahasa Minang berikut: "{{text_1}}" adalah'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_7
+    reference: ''
+  7ff60239-c1c6-4e95-b96b-e4563519452b: !Template
+    answer_choices: '{{text_2}}'
+    id: 7ff60239-c1c6-4e95-b96b-e4563519452b
+    jinja: 'Coba terjemahkan Bahasa Minang ini ke dalam Bahasa Indonesia:  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_2
+    reference: ''
+  8195f750-15e3-46b9-828b-edc96ae348a1: !Template
+    answer_choices: '{{text_2}}'
+    id: 8195f750-15e3-46b9-828b-edc96ae348a1
+    jinja: Apa terjemahan Bahasa Indonesia dari Bahasa Minangkabau berikut ini? {{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: true
+    name: nusax_mt_min_ind_source_1
+    reference: ''
+  9a473484-b4b9-4f55-9f99-104be68eb383: !Template
+    answer_choices: '{{text_2}}'
+    id: 9a473484-b4b9-4f55-9f99-104be68eb383
+    jinja: Apa translate Bahasa Indonesia dari kalimat berikut ini? {{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_6
+    reference: ''
+  dcf15174-dd67-47fb-a4ea-6be5209558f5: !Template
+    answer_choices: '{{text_2}}'
+    id: dcf15174-dd67-47fb-a4ea-6be5209558f5
+    jinja: 'Tolong terjemahkan kalimat berikut ini ke dalam Bahasa Indonesia: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_8
+    reference: ''
+  fdbb0dca-088b-4575-bd6d-a9c382f767db: !Template
+    answer_choices: '{{text_2}}'
+    id: fdbb0dca-088b-4575-bd6d-a9c382f767db
+    jinja: Bisa nggak translasi ke bahasa Bahasa Indonesia? {{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_min_ind_source_10
+    reference: ''
