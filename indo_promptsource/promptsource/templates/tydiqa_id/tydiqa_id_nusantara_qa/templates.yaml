@@ -1,0 +1,157 @@
+dataset: tydiqa_id
+subset: tydiqa_id_nusantara_qa
+templates:
+  2653df74-fec1-4984-a80c-8153994f737e: !Template
+    answer_choices: null
+    id: 2653df74-fec1-4984-a80c-8153994f737e
+    jinja: Buat 1 pertanyaan berdasarkan teks "{{context}}" yang jawabannya adalah
+      "{{answer}}":|||{{question}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: false
+    name: generate_question_based_on_context_and_answer
+    reference: ''
+  26e0c090-5ac7-4818-9646-a0dfc81d51b8: !Template
+    answer_choices: null
+    id: 26e0c090-5ac7-4818-9646-a0dfc81d51b8
+    jinja: Ada yang nanya ke gw "{{question}}" , berdasarkan paragraf "{{context}}".
+      Menurut lu jawabannya apa?|||{{answer[0]}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: ada_yang_nanya
+    reference: ''
+  2ba3c84f-fdff-4e38-adda-996006d24690: !Template
+    answer_choices: null
+    id: 2ba3c84f-fdff-4e38-adda-996006d24690
+    jinja: 'Potongan paragraf: {{context}}
+
+      Saya tahu bahwa jawaban atas pertanyaan "{{question}}" berdasarkan teks di atas
+      adalah: ||| {{answer[0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: can_you_answer_the_question
+    reference: ''
+  607c8549-9015-4c5b-ac98-49b18931837c: !Template
+    answer_choices: null
+    id: 607c8549-9015-4c5b-ac98-49b18931837c
+    jinja: "Saya mencoba mencari jawaban untuk pertanyaan \"{{question}}\". Saya menemukan\
+      \ teks berikut ini. \nTeks: {{context}}\nApakah jawabannya?|||{{answer[0]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: can_you_tell_me_the_answer
+    reference: ''
+  6a266cb4-a385-4125-a828-813ed3221c13: !Template
+    answer_choices: null
+    id: 6a266cb4-a385-4125-a828-813ed3221c13
+    jinja: 'Buat 1 pertanyaan berdasarkan teks berikut: {{context}}|||{{question}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: false
+    name: generate_question_based_on_question
+    reference: ''
+  9ad6310e-bb31-4810-bfd6-bf5a51489f15: !Template
+    answer_choices: null
+    id: 9ad6310e-bb31-4810-bfd6-bf5a51489f15
+    jinja: 'Konteks: {{context}}
+
+      Pertanyaan: {{question}}
+
+      Answer: |||{{answer[0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: simple_qa_konteks
+    reference: ''
+  bf59f083-d927-40aa-92bd-0f590f756a8e: !Template
+    answer_choices: null
+    id: bf59f083-d927-40aa-92bd-0f590f756a8e
+    jinja: 'Saya selalu bertanya-tanya pertanyaan berikut: {{question}}.
+
+      Saya menemukan paragraf sumber: {{context}}.
+
+      Apa jawaban dari pertanyaannya?|||{{answer[0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: whats_the_answer
+    reference: ''
+  c707f1d3-de05-4f1d-ad61-2be8525b10f7: !Template
+    answer_choices: null
+    id: c707f1d3-de05-4f1d-ad61-2be8525b10f7
+    jinja: 'Saya sedang menguji pengetahuan siswa saya. Berdasarkan konteks berikut:
+      ({{context}}), inilah pertanyaan untuk dijawab: {{question}}.Jawabannya ada
+      di dalam konteks.|||{{answer[0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: testing_students
+    reference: ''
+  f49f526a-d454-440b-8439-eefff928a734: !Template
+    answer_choices: null
+    id: f49f526a-d454-440b-8439-eefff928a734
+    jinja: 'Paragraf: {{context}}
+
+      Pertanyaan: {{question}}
+
+      Jawaban: |||{{answer[0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: simple_qa
+    reference: ''
+  fe6d8ddc-ec18-44d9-9b42-4693bb1096bf: !Template
+    answer_choices: null
+    id: fe6d8ddc-ec18-44d9-9b42-4693bb1096bf
+    jinja: 'Ekstrak jawaban atas pertanyaan dari teks berikut: {{question}}
+
+      Teks: {{context}}|||{{answer[0]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Squad
+      original_task: true
+    name: extract_answer
+    reference: ''
