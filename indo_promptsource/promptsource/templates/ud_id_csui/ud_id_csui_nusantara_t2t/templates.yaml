@@ -1,0 +1,119 @@
+dataset: ud_id_csui
+subset: ud_id_csui_nusantara_t2t
+templates:
+  0a9ac06c-18fd-4307-b1d1-3681f28d75ca: !Template
+    answer_choices: null
+    id: 0a9ac06c-18fd-4307-b1d1-3681f28d75ca
+    jinja: 'Apakah Anda bisa menerjemahkan kalimat ini ke dalam Bahasa Inggris? {{text_1}}
+      ||| Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 1
+    reference: ''
+  116db97c-a87a-4d65-be0f-6f64f03d1757: !Template
+    answer_choices: null
+    id: 116db97c-a87a-4d65-be0f-6f64f03d1757
+    jinja: 'Apakah Anda bisa menerjemahkan kalimat ini ke dalam Bahasa Inggris? {{text_1}}
+      ||| Terjemahan Bahasa Inggris: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 9
+    reference: ''
+  2cfed599-8dda-445d-81dc-8639b50c8abd: !Template
+    answer_choices: null
+    id: 2cfed599-8dda-445d-81dc-8639b50c8abd
+    jinja: 'Translate dong ke inggris {{text_1}} ||| Bahasa inggrisnya: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 5
+    reference: ''
+  3d8a8e9c-35d2-4151-adeb-0710715af4ec: !Template
+    answer_choices: null
+    id: 3d8a8e9c-35d2-4151-adeb-0710715af4ec
+    jinja: 'Apakah Anda bisa menerjemahkan kalimat ini ke dalam Inggris? {{text_1}}
+      ||| Terjemahan : {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 7
+    reference: ''
+  41c5ba98-68c6-4419-af31-4d24a38bdbe2: !Template
+    answer_choices: null
+    id: 41c5ba98-68c6-4419-af31-4d24a38bdbe2
+    jinja: Bantu translate ke Bahasa Inggris? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 6
+    reference: ''
+  8b9ab497-e4d0-4132-aa21-ae063ea84d1f: !Template
+    answer_choices: null
+    id: 8b9ab497-e4d0-4132-aa21-ae063ea84d1f
+    jinja: 'Terjemahkan kalimat ini ke dalam Bahasa Inggris? {{text_1}} ||| Terjemahan
+      Bahasa Inggris: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 10
+    reference: ''
+  8bcb7ccd-d683-428f-bc03-0577f10958be: !Template
+    answer_choices: null
+    id: 8bcb7ccd-d683-428f-bc03-0577f10958be
+    jinja: 'Tolong dong terjemahin kalimat ini ke dalam Bahasa Inggris? {{text_1}}
+      ||| Terjemahan Bahasa Inggris: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 8
+    reference: ''
+  9b24a865-f7fc-4e75-8dba-e03ac4b6048a: !Template
+    answer_choices: null
+    id: 9b24a865-f7fc-4e75-8dba-e03ac4b6048a
+    jinja: 'Bahasa Inggrisnya ini apa? {{text_1}} ||| Terjemahan Bahasa Inggris: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 2
+    reference: ''
+  dfb54b45-81dd-4ad6-90ee-26946c8954fe: !Template
+    answer_choices: null
+    id: dfb54b45-81dd-4ad6-90ee-26946c8954fe
+    jinja: 'Apakah Anda bisa menerjemahkan kalimat ini ke dalam Bahasa Inggris? {{text_1}}
+      ||| Terjemahan Bahasa Inggris: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 4
+    reference: ''
+  e16f1fb0-83a6-4e8a-a947-a666bcbd3694: !Template
+    answer_choices: null
+    id: e16f1fb0-83a6-4e8a-a947-a666bcbd3694
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini ke Inggris? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ud_id_csui / ud_id_csui_nusantara_t2t 3
+    reference: ''

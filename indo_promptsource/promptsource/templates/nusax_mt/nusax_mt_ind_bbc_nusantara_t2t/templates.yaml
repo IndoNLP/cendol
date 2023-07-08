@@ -1,0 +1,116 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_bbc_nusantara_t2t
+templates:
+  2b4c751b-dde2-4293-a10b-9fd89745e6aa: !Template
+    answer_choices: null
+    id: 2b4c751b-dde2-4293-a10b-9fd89745e6aa
+    jinja: Bisa nggak terjemahin ke Bahasa Batak? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 10
+    reference: ''
+  4b54ffec-c5f2-403f-88fc-d5d9e7765aad: !Template
+    answer_choices: null
+    id: 4b54ffec-c5f2-403f-88fc-d5d9e7765aad
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Batak, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 7
+    reference: ''
+  620d6c82-36fe-4419-9aca-419a04fd8958: !Template
+    answer_choices: null
+    id: 620d6c82-36fe-4419-9aca-419a04fd8958
+    jinja: Bahasa Bataknya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 6
+    reference: ''
+  625ec974-39cb-4ae8-9840-332d3e3ec4aa: !Template
+    answer_choices: null
+    id: 625ec974-39cb-4ae8-9840-332d3e3ec4aa
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Batak. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 4
+    reference: ''
+  6b60da0f-f0da-4fc1-832c-921e5933f0ff: !Template
+    answer_choices: null
+    id: 6b60da0f-f0da-4fc1-832c-921e5933f0ff
+    jinja: 'Apa Bahasa Batak: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 1
+    reference: ''
+  7d7dd4df-938a-4c7d-850d-2e4027ac979f: !Template
+    answer_choices: null
+    id: 7d7dd4df-938a-4c7d-850d-2e4027ac979f
+    jinja: Translate ke Bahasa Batak {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 8
+    reference: ''
+  8495c1ce-9a97-4b37-8210-8f9f1fba6242: !Template
+    answer_choices: null
+    id: 8495c1ce-9a97-4b37-8210-8f9f1fba6242
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Batak? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 3
+    reference: ''
+  a9dedddc-ac17-4865-a182-5878703bd9c3: !Template
+    answer_choices: null
+    id: a9dedddc-ac17-4865-a182-5878703bd9c3
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Batak? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 2
+    reference: ''
+  c11eccc3-66b7-4b53-87e5-6e029f654a12: !Template
+    answer_choices: null
+    id: c11eccc3-66b7-4b53-87e5-6e029f654a12
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Batak: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 5
+    reference: ''
+  eaafba30-7f1c-4941-be3c-664b26fb5262: !Template
+    answer_choices: null
+    id: eaafba30-7f1c-4941-be3c-664b26fb5262
+    jinja: Terjemahkan ke Bahasa Batak {{text_1}} ||| {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bbc_nusantara_t2t 9
+    reference: ''
