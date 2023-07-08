@@ -1,0 +1,77 @@
+dataset: id_qqp
+subset: id_qqp_nusantara_t2t
+templates:
+  3b7964f8-0efd-4001-9171-65038d8cdc04: !Template
+    answer_choices: null
+    id: 3b7964f8-0efd-4001-9171-65038d8cdc04
+    jinja: '{% set _blank1 = ["Tolong", "Silahkan", "Coba"] |random%}  {% set _blank2
+      = ["parafrase", "paraphrase"] |random%} {% set _blank3 = ["kalimat", "pertanyaan"]
+      |random%} {{_blank1}} {{_blank2}} {{_blank3}} berikut: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_1
+    reference: ''
+  4ec4b702-a602-46f4-92c4-e489cb6e503e: !Template
+    answer_choices: null
+    id: 4ec4b702-a602-46f4-92c4-e489cb6e503e
+    jinja: '{% set _blank1 = ["Tolong", "Silahkan", "Coba"] |random%}  {% set _blank2
+      = ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "senada"]
+      |random%} {% set _blank3 = ["kalimat", "pertanyaan"] |random%} {{_blank1}} berikan
+      {{_blank3}} yang {{_blank2}} {{_blank3}} berikut: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: paraphrase_3
+    reference: ''
+  ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096: !Template
+    answer_choices: null
+    id: ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096
+    jinja: 'Bisa parafrase pertanyaan ini nggak "{{text_1}}"? ||| Bisa, ini hasilnya:
+      {{text2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_5
+    reference: ''
+  baed8301-b16d-4d98-98d8-1ed3dea28c2c: !Template
+    answer_choices: null
+    id: baed8301-b16d-4d98-98d8-1ed3dea28c2c
+    jinja: '{% set _blank1 = ["Tolong", "Silahkan", "Coba"] |random%}  {% set _blank2
+      = ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "senada"]
+      |random%} {% set _blank3 = ["kalimat", "pertanyaan"] |random%} {{_blank1}} berikan
+      {{_blank3}} yang {{_blank2}} {{_blank3}} berikut: {{text_2}} ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_4
+    reference: ''
+  ff8107e7-00c2-4e96-991d-11cfd3705557: !Template
+    answer_choices: null
+    id: ff8107e7-00c2-4e96-991d-11cfd3705557
+    jinja: '{% set _blank1 = ["Tolong", "Silahkan", "Coba"] |random%}  {% set _blank2
+      = ["parafrase", "paraphrase"] |random%} {% set _blank3 = ["kalimat", "pertanyaan"]
+      |random%} {{_blank1}} {{_blank2}} {{_blank3}} berikut: {{text_2}} ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: false
+    name: paraphrase_2
+    reference: ''

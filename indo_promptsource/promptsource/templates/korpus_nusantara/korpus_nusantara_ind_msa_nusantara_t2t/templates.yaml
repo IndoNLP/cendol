@@ -1,0 +1,112 @@
+dataset: korpus_nusantara
+subset: korpus_nusantara_ind_msa_nusantara_t2t
+templates:
+  2c9ca9bf-24ab-4eb7-9801-5aca513dddb5: !Template
+    answer_choices: null
+    id: 2c9ca9bf-24ab-4eb7-9801-5aca513dddb5
+    jinja: Apa terjemahan Bahasa Malay berikut ke Bahasa Indonesia? {{text_2}} |||
+      {{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: false
+    name: mt4
+    reference: ''
+  434e03e4-94b8-4eff-8c46-882bac98c3ad: !Template
+    answer_choices: null
+    id: 434e03e4-94b8-4eff-8c46-882bac98c3ad
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: generate_sentence_2
+    reference: ''
+  4c91eed2-eb8a-4a49-988e-d40b0bfe1886: !Template
+    answer_choices: null
+    id: 4c91eed2-eb8a-4a49-988e-d40b0bfe1886
+    jinja: 'Tebak bahasa dari teks berikut: {{text_2}} ||| Malay'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: guess_lang_2
+    reference: ''
+  ad95a4b8-2c9a-436f-9934-d1ca46849e78: !Template
+    answer_choices: null
+    id: ad95a4b8-2c9a-436f-9934-d1ca46849e78
+    jinja: '{% set _blank1 = ["Buatlah", "Berikan contoh", "Buatkan", "Generate"]
+      |random%} {{_blank1}} kalimat dalam bahasa Malay ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: false
+    name: generate_sentence_1
+    reference: ''
+  b4dbb102-9384-4803-9b8a-c4c021cdfe08: !Template
+    answer_choices: null
+    id: b4dbb102-9384-4803-9b8a-c4c021cdfe08
+    jinja: 'Apa terjemahan kalimat Bahasa Indonesia berikut ke bahasa Malay? {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: mt3
+    reference: ''
+  c8101f42-3b00-4ce6-a11b-66425f9bd04b: !Template
+    answer_choices: null
+    id: c8101f42-3b00-4ce6-a11b-66425f9bd04b
+    jinja: '{% set _blank1 = ["", "Tolong", "Silahkan", "Coba"] |random%} {% set _blank2
+      = ["terjemahkan", "translate"] |random%} {{_blank1}} {{_blank2}} kalimat bahasa
+      Malay berikut ke Bahasa Indonesia: {{text_2}} ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: mt2
+    reference: ''
+  ca17ab03-efb7-4ddc-a694-7850208c09fb: !Template
+    answer_choices: null
+    id: ca17ab03-efb7-4ddc-a694-7850208c09fb
+    jinja: '{% set _blank1 = ["", "Tolong", "Silahkan", "Coba"] |random%} {% set _blank2
+      = ["terjemahkan", "translate"] |random%} {{_blank1}} {{_blank2}} kalimat Bahasa
+      Indonesia berikut ke bahasa Malay: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: mt1
+    reference: ''
+  ed10e574-2f1c-4c27-a240-27d8df02e25f: !Template
+    answer_choices: null
+    id: ed10e574-2f1c-4c27-a240-27d8df02e25f
+    jinja: Apa bahasa dari teks berikut? {{text_2}} ||| Malay
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: guess_lang_1
+    reference: ''
