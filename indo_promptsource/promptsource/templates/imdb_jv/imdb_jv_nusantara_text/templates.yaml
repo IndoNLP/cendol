@@ -4,8 +4,13 @@ templates:
   0a0750c1-0b31-4371-8535-9778c4f61554: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 0a0750c1-0b31-4371-8535-9778c4f61554
-    jinja: Kalimat {% set _blank1 = ["bahasa", "berbahasa"] |random%} Jawa ini {{text}}
-      dapat diasosiasikan dengan sentimen apa? ||| {{answer_choices[label]}}
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {% set _diasosiasikan = ["diasosiasikan", "dihubungkan"] |random%}
+      {% set _emosi = ["emosi", "sentimen"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      {{_kalimat}}{{_bahasa}} {{_berikut}}: {{text}}
+      dapat diasosiasikan dengan {{_emosi}} apa? ||| {{_kalimat}}{{_bahasa}} {{_berikut}} dapat
+      {{_diasosiasikan}} dengan {{_emosi}} {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -18,7 +23,12 @@ templates:
   0ae1035c-d60d-4451-bd87-520d65deda09: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 0ae1035c-d60d-4451-bd87-520d65deda09
-    jinja: Apa sentimen yang cocok dengan kalimat{% set _blank1 = ["bahasa", "berbahasa"] |random%} Jawa ini? {{text}} ||| {{answer_choices[label]}}
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _paling = ["",
+      "paling"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set _cocok
+      = ["cocok", "pas", "sesuai"] |random%} {% set _emosi = ["emosi", "sentimen"]
+      |random%} {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      Apa {{_emosi}} yang {{_paling}} {{_cocok}} dengan {{_kalimat}}{{_bahasa}} {{_berikut}}:
+      {{text}}? ||| {{_emosi}} yang {{_paling}} {{_cocok}} adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -29,9 +39,18 @@ templates:
     name: sentiment_analysis_6
     reference: ''
   0c882d58-2bf5-461e-a243-8380371d38e6: !Template
-    answer_choices: negatif ||| neural ||| positif
+    answer_choices: negatif ||| netral ||| positif
     id: 0c882d58-2bf5-461e-a243-8380371d38e6
-    jinja: apakah teks berikut positif, netral, atau negatif? {{text}} ||| {{answer_choices[label]}}
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {% set _mengandung = ["", "mengandung sentimen", "mengandung
+      emosi"] |random%} {% set _mengandung = ["", "mengandung sentimen", "mengandung
+      emosi"] |random%} {% set _choice = [ "positif, netral, atau negatif", "positif,
+      negatif, atau netral", "negatif, netral, atau positif", "negatif, positif, atau
+      netral", "netral, positif, atau negatif", "netral, negatif, atau positif", ]
+      |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      apakah {{_kalimat}}{{_bahasa}} {{_berikut}} {{_mengandung}} {{_choice}}? {{text}}
+      ||| {{_kalimat}}{{_bahasa}} {{_berikut}} {{_mengandung}} {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -44,8 +63,14 @@ templates:
   2371e80c-9403-49e0-9665-f2312f368ed8: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 2371e80c-9403-49e0-9665-f2312f368ed8
-    jinja: Diberikan teks {% set _blank1 = ["bahasa", "berbahasa"] |random%} Jawa
-      {{text}}, sentimen apa yang sesuai? ||| {{answer_choices[label]}}
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _cocok = ["cocok",
+      "pas", "sesuai"] |random%} {% set _diberikan = ["diberikan", "dengan"] |random%}
+      {% set _paling = ["", "paling"] |random%}
+      {% set _emosi = ["emosi", "sentimen"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%}
+      {{_diberikan}} {{_kalimat}}{{_bahasa}} {{text}},
+      {{_emosi}} apa yang {{_paling}}
+      {{_cocok}}? ||| {{_emosi}} yang {{_paling}} {{_cocok}} adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -58,8 +83,13 @@ templates:
   37e0efc7-4db8-4d3a-be00-c5bb77452cd2: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 37e0efc7-4db8-4d3a-be00-c5bb77452cd2
-    jinja: Kalimat {% set _blank1 = ["bahasa", "berbahasa"] |random%} Jawa ini {{text}}
-      cocok dengan suatu nilai sentimen?
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _paling = ["",
+      "paling"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set _cocok
+      = ["cocok", "pas", "sesuai"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      {{_kalimat}}{{_bahasa}} {{_berikut}} {{text}} {{_paling}}
+      {{_cocok}} dengan suatu nilai sentimen? ||| {{_kalimat}}{{_bahasa}} {{_berikut}} {{_paling}}
+      {{_cocok}} dengan nilai sentimen {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -69,23 +99,34 @@ templates:
       original_task: true
     name: sentiment_analysis_7
     reference: ''
-  4309b329-237f-4a78-bb22-adb515cd49ee: !Template
-    answer_choices: null
-    id: 4309b329-237f-4a78-bb22-adb515cd49ee
-    jinja: '{% set _blank1 = ["Buatlah", "Berikan contoh", "Buatkan", "Generate"] |random%} {{_blank1}} review film dalam bahasa Jawa ||| {{text}}'
+  77aea9a6-6358-4d2e-bee6-528291481a34: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 77aea9a6-6358-4d2e-bee6-528291481a34
+    jinja: '{% set _emosi = ["emosi", "perasaan", "sentimen"] |random%} {% set _ingin
+      = ["", "ingin", "mau"] |random%} {% set _ditunjukkan = ["ditunjukkan", "diutarakan",
+      "diekspresikan"] |random%} {% set _kalimat = ["kalimat", "teks", "review film"] |random%} {%
+      set _berikut = ["berikut", "ini"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      Apa {{_emosi}} yang {{_ingin}} {{_ditunjukkan}}
+      oleh penulis saat menulis {{_kalimat}}{{_bahasa}} {{_berikut}}: {{text}} ||| answer_choice[label]'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
       - id
       metrics:
-      - BLEU
-      original_task: false
-    name: gen_lang_1
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_12
     reference: ''
   96305ac8-cd58-44cc-bbe8-31a85175ee42: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 96305ac8-cd58-44cc-bbe8-31a85175ee42
-    jinja: '{% set _blank1 = ["bahasa", "berbahasa"] |random%} apakah sentimen dari teks {{_blank1}} Jawa berikut? {{text}} ||| {{answer_choices[label]}}'
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} 
+      {% set _berikut = ["berikut",
+      "ini"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      apakah sentimen dari {{_kalimat}}{{_bahasa}} {{_berikut}}? {{text}} |||
+      sentimen untuk {{_kalimat}}{{_bahasa}} {{_berikut}} adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -95,10 +136,36 @@ templates:
       original_task: true
     name: sentiment_analysis_1
     reference: ''
+  98501ac8-8bbb-4626-b177-f38b19730cd5: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 98501ac8-8bbb-4626-b177-f38b19730cd5
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini", "tersebut"] |random%} {% set _prediksi = ["prediksi", "berikan", "tentukan",
+      "tebak"] {% set _emosi = ["emosi", "perasaan", "sentimen"] |random%} {% set
+      _ditunjukkan = ["ditunjukkan", "diutarakan", "diekspresikan"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      {{_prediksi}}
+      {{_emosi}} yang {{_ditunjukkan}} dari {{_kalimat}}{{_bahasa}} {{_berikut}}: {{text}} |||
+      {{_emosi}} yang {{_ditunjukkan}} dari {{_kalimat}}{{_bahasa}} {{_berikut}} adalah {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_10
+    reference: ''
   9e90d17f-9ccb-4901-9a6e-5c1332ed8ac9: !Template
     answer_choices: negatif ||| netral ||| positif
     id: 9e90d17f-9ccb-4901-9a6e-5c1332ed8ac9
-    jinja: '{% set _blank1 = ["bahasa", "berbahasa"] |random%} {{text}}. Berikan sentimen untuk teks {{_blank1}} Jawa tersebut! ||| {{answer_choices[label]}}'
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini", "tersebut"] |random%} {% set _prediksi = ["prediksi", "berikan", "tentukan",
+      "tebak"] |random%} {% set _emosi = ["emosi", "sentimen"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
+      {{text}}.
+      {{_prediksi}} {{_emosi}} dari {{_kalimat}}{{_bahasa}} {{_berikut}}! ||| {{_emosi}} dari
+      {{_kalimat}}{{_bahasa}} {{_berikut}} adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -108,11 +175,55 @@ templates:
       original_task: true
     name: sentiment_analysis_8
     reference: ''
+  9ef05596-df16-424a-a1f9-d08d937ba0b5: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: 9ef05596-df16-424a-a1f9-d08d937ba0b5
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini", "tersebut"] |random%} {% set _emosi = ["emosi", "sentimen"] |random%}
+      {% set _jika = ["jika", "kalau"] |random%} {% set _ada = ["ada", "diberikan"]
+      |random%} {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%}
+      {{_jika}} {{_ada}} {{_kalimat}}{{_bahasa}} seperti {{_berikut}}: "{{text}}",
+      apa {{_emosi}}nya? ||| {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_13
+    reference: ''
+  b0f92daf-8746-4919-8461-671a3f03f8dd: !Template
+    answer_choices: negatif ||| netral ||| positif
+    id: b0f92daf-8746-4919-8461-671a3f03f8dd
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini", "tersebut"] |random%} {% set _emosi = ["emosi", "perasaan", "sentimen"]
+      |random%} {% set _ditunjukkan = ["ditunjukkan", "diutarakan", "diekspresikan"]
+      |random%} {% set _ingin = ["", "ingin", "mau"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%}
+      {{_emosi}} apa yang
+      {{_ingin}} {{_ditunjukkan}} oleh {{_kalimat}}{{_bahasa}} {{_berikut}}? {{text}} ||| {{_emosi}}
+      yang {{_ingin}} {{_ditunjukkan}} oleh {{_kalimat}}{{_bahasa}} {{_berikut}} adalah {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: sentiment_analysis_11
+    reference: ''
   bcef72b5-214f-490a-9ec1-778dfe5ef1da: !Template
     answer_choices: negatif ||| netral ||| positif
     id: bcef72b5-214f-490a-9ec1-778dfe5ef1da
-    jinja: 'Prediksi sentimen yang paling pas dari kalimat {% set _blank1 = ["bahasa",
-      "berbahasa"] |random%} Jawa berikut: {{text}} ||| {{answer_choices[label]}}'
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} 
+      {% set _berikut = ["berikut",
+      "ini", "tersebut"] |random%} {% set _cocok = ["cocok", "pas", "sesuai"] |random%}
+      {% set _paling = ["", "paling"] |random%} {% set _prediksi = ["prediksi", "tentukan",
+      "tebak"] |random%} {% set _emosi = ["emosi", "perasaan", "sentimen"] |random%}
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%}
+      {{_prediksi}} {{_emosi}} yang {{_paling}} {{_cocok}} dari {{_kalimat}}{{_bahasa}} {{_berikut}}!
+      {{text}} ||| {{_emosi}} yang {{_paling}} {{_cocok}} adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -125,8 +236,15 @@ templates:
   d98f3022-3e22-4506-bbf6-85e3f3f81dc9: !Template
     answer_choices: negatif ||| netral ||| positif
     id: d98f3022-3e22-4506-bbf6-85e3f3f81dc9
-    jinja: Dengan kalimat {% set _blank1 = ["bahasa", "berbahasa"] |random%} Jawa
-      ini, {{text}}, tebak sentimennya ||| {{answer_choices[label]}}
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini", "tersebut"] |random%} {% set _diberikan = ["diberikan", "dengan"] |random%}
+      {% set _prediksi = ["prediksi", "tentukan", "tebak"] |random%} {% set _emosi
+      = ["emosi", "sentimen"] |random%} 
+      {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%}
+      {{_diberikan}} {{_kalimat}}{{_bahasa}} {{_berikut}},
+      {{text}}, {{_prediksi}} {{_emosi}}nya ||| {{_emosi}} dari {{_kalimat}}{{_bahasa}} 
+      {{_berikut}}
+      adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -139,7 +257,9 @@ templates:
   ed10e574-2f1c-4c27-a240-27d8df02e25f: !Template
     answer_choices: null
     id: ed10e574-2f1c-4c27-a240-27d8df02e25f
-    jinja: Apa bahasa dari teks berikut? {{text}} ||| Jawa
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {% set _jawa = ["Jawa"] |random%} Apa bahasa dari {{_kalimat}}
+      {{_berikut}}? {{text_2}} ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_jawa}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -149,10 +269,29 @@ templates:
       original_task: false
     name: guess_lang_1
     reference: ''
+  43acb49d-bbc6-4e8d-a351-490ac86a8d35: !Template
+    answer_choices: null
+    id: 43acb49d-bbc6-4e8d-a351-490ac86a8d35
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {% set _jawa = ["Jawa"] |random%} {% set _menurut = ["", "Menurut
+      anda, ", "Menurut pendapat anda, "] |random%} {{_menurut}}{{_kalimat}} {{_berikut}}
+      berbahasa apa? {{text_2}} ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_jawa}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: false
+    name: guess_lang_3
+    reference: ''
   4c91eed2-eb8a-4a49-988e-d40b0bfe1886: !Template
     answer_choices: null
     id: 4c91eed2-eb8a-4a49-988e-d40b0bfe1886
-    jinja: 'Tebak bahasa dari teks berikut: {{text}} ||| Jawa'
+    jinja: '{% set _kalimat = ["kalimat", "teks", "review film"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {% set _jawa = ["Jawa"] |random%} {% set _tebak = ["Tebak",
+      "Perkirakan"] |random%} {{_tebak}} bahasa dari {{_kalimat}} {{_berikut}}: {{text_2}}!
+      ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_jawa}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -161,4 +300,20 @@ templates:
       - Accuracy
       original_task: false
     name: guess_lang_2
+    reference: ''
+  ad95a4b8-2c9a-436f-9934-d1ca46849e78: !Template
+    answer_choices: null
+    id: ad95a4b8-2c9a-436f-9934-d1ca46849e78
+    jinja: '{% set _buatlah = ["Buatlah", "Berikan contoh", "Berikan satu contoh",
+      "Buatkan", "Generate"] |random%} {% set _berbahasa = ["berbahasa", "dalam bahasa"]
+      |random%} {% set _jawa = ["Jawa"] |random%} {% set _kalimat = ["kalimat", "teks", "review film"]
+      |random%} {{_buatlah}} {{_kalimat}} {{_berbahasa}} {{_jawa}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: false
+    name: generate_sentence_1
     reference: ''

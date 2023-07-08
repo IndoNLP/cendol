@@ -18,23 +18,12 @@ templates:
       original_task: false
     name: mt4
     reference: ''
-  434e03e4-94b8-4eff-8c46-882bac98c3ad: !Template
-    answer_choices: null
-    id: 434e03e4-94b8-4eff-8c46-882bac98c3ad
-    jinja: ''
-    metadata: !TemplateMetadata
-      choices_in_prompt: null
-      languages: null
-      metrics: null
-      original_task: null
-    name: generate_sentence_2
-    reference: ''
   43acb49d-bbc6-4e8d-a351-490ac86a8d35: !Template
     answer_choices: null
     id: 43acb49d-bbc6-4e8d-a351-490ac86a8d35
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
       "ini"] |random%} {% set _khek = ["khek"] |random%} {% set _menurut = ["", "Menurut
-      anda, ", "Menurut pendapat anda, "] |random%} {{_menurut}} {{_kalimat}} {{_berikut}}
+      anda, ", "Menurut pendapat anda, "] |random%} {{_menurut}}{{_kalimat}} {{_berikut}}
       berbahasa apa? {{text_2}} ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_khek}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -139,7 +128,7 @@ templates:
       = ["terjemahkan", "translate", "artikan"] |random%} {% set _bahasa = ["bahasa",
       "berbahasa"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set
       _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _khek = ["khek"] |random%}
-      {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}} {{_terjemahkan}}
+      {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}}{{_terjemahkan}}
       {{_kalimat}} {{_bahasa}} {{_khek}} {{_berikut}} {{_ke}} bahasa Indonesia: {{text_2}}
       ||| {{text_1}}'
     metadata: !TemplateMetadata
@@ -158,7 +147,7 @@ templates:
       = ["terjemahkan", "translate", "artikan"] |random%} {% set _bahasa = ["bahasa",
       "berbahasa"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set
       _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _khek = ["khek"] |random%}
-      {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}} {{_terjemahkan}}
+      {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}}{{_terjemahkan}}
       {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} {{_ke}} bahasa {{_khek}}: {{text_1}}
       ||| {{text_2}}'
     metadata: !TemplateMetadata
