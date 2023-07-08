@@ -1,14 +1,14 @@
 dataset: korpus_nusantara
-subset: korpus_nusantara_ind_msa_nusantara_t2t
+subset: korpus_nusantara_khek_ind_nusantara_t2t
 templates:
   2c9ca9bf-24ab-4eb7-9801-5aca513dddb5: !Template
     answer_choices: null
     id: 2c9ca9bf-24ab-4eb7-9801-5aca513dddb5
     jinja: '{% set _bahasa = ["bahasa", "berbahasa"] |random%} {% set _berikut = ["berikut",
       "ini"] |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set
-      _malay = ["malay", "melayu"] |random%} {% set _kalimat = ["kalimat", "teks"]
-      |random%} Apa terjemahan {{_kalimat}} {{_bahasa}} {{_malay}} {{_berikut}} ke
-      bahasa Indonesia? {{text_2}} ||| {{text_1}}'
+      _khek = ["khek"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%} Apa
+      terjemahan {{_kalimat}} {{_bahasa}} {{_khek}} {{_berikut}} ke bahasa Indonesia?
+      {{text_1}} ||| {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -33,10 +33,9 @@ templates:
     answer_choices: null
     id: 43acb49d-bbc6-4e8d-a351-490ac86a8d35
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
-      "ini"] |random%} {% set _malay = ["malay", "melayu"] |random%} {% set _menurut
-      = ["", "Menurut anda, ", "Menurut pendapat anda, "] |random%} {{_menurut}} {{_kalimat}}
-      {{_berikut}} berbahasa apa? {{text_2}} ||| Bahasa dari {{_kalimat}} {{_berikut}}
-      adalah {{_malay}}'
+      "ini"] |random%} {% set _khek = ["khek"] |random%} {% set _menurut = ["", "Menurut
+      anda, ", "Menurut pendapat anda, "] |random%} {{_menurut}} {{_kalimat}} {{_berikut}}
+      berbahasa apa? {{text_1}} ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_khek}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -50,9 +49,9 @@ templates:
     answer_choices: null
     id: 4c91eed2-eb8a-4a49-988e-d40b0bfe1886
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
-      "ini"] |random%} {% set _malay = ["malay", "melayu"] |random%} {% set _tebak
-      = ["Tebak", "Perkirakan"] |random%} {{_tebak}} bahasa dari {{_kalimat}} {{_berikut}}:
-      {{text_2}}! ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_malay}}'
+      "ini"] |random%} {% set _khek = ["khek"] |random%} {% set _tebak = ["Tebak",
+      "Perkirakan"] |random%} {{_tebak}} bahasa dari {{_kalimat}} {{_berikut}}: {{text_1}}!
+      ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_khek}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -67,9 +66,9 @@ templates:
     id: 64f0a273-b482-45a5-ab9a-f2a3d51bbe4e
     jinja: '{% set _bahasa = ["bahasa", "berbahasa"] |random%} {% set _berikut = ["berikut",
       "ini"] |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set
-      _malay = ["malay", "melayu"] |random%} {% set _kalimat = ["kalimat", "teks"]
-      |random%} Apa arti dari {{_kalimat}} {{_bahasa}} {{_malay}} {{_berikut}} dalam
-      bahasa Indonesia? {{text_2}} ||| {{text_1}}'
+      _khek = ["khek"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%} Apa
+      arti dari {{_kalimat}} {{_bahasa}} {{_khek}} {{_berikut}} dalam bahasa Indonesia?
+      {{text_1}} ||| {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -84,8 +83,8 @@ templates:
     id: ad95a4b8-2c9a-436f-9934-d1ca46849e78
     jinja: '{% set _buatlah = ["Buatlah", "Berikan contoh", "Berikan satu contoh",
       "Buatkan", "Generate"] |random%} {% set _berbahasa = ["berbahasa", "dalam bahasa"]
-      |random%} {% set _malay = ["malay", "melayu"] |random%} {% set _kalimat = ["kalimat",
-      "teks"] |random%} {{_buatlah}} {{_kalimat}} {{_berbahasa}} {{_malay}} ||| {{text_2}}'
+      |random%} {% set _khek = ["khek"] |random%} {% set _kalimat = ["kalimat", "teks"]
+      |random%} {{_buatlah}} {{_kalimat}} {{_berbahasa}} {{_khek}} ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -100,9 +99,9 @@ templates:
     id: b4dbb102-9384-4803-9b8a-c4c021cdfe08
     jinja: '{% set _bahasa = ["bahasa", "berbahasa"] |random%} {% set _berikut = ["berikut",
       "ini"] |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set
-      _malay = ["malay", "melayu"] |random%} {% set _kalimat = ["kalimat", "teks"]
-      |random%} Apa terjemahan {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} ke
-      bahasa {{_malay}}? {{text_1}} ||| {{text_2}}'
+      _khek = ["khek"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%} Apa
+      terjemahan {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} ke bahasa {{_khek}}?
+      {{text_2}} ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -117,13 +116,13 @@ templates:
     id: b81d928f-6498-4f0d-9166-e342305a9f28
     jinja: '{% set _jika = ["Jika", "Kalau"] |random%} {% set _kalimat = ["kalimat",
       "teks"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set _terjemahkan
-      = ["terjemahkan", "artikan", "translate"] |random%} {% set _malay = ["malay",
-      "melayu"] |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {%
-      set _berbahasa = ["berbahasa", "dalam bahasa"] |random%} {% set _terjemahan
-      = ["terjemahan", "arti"] |random%} {{_jika}} {{_kalimat}} {{_berikut}} {{_berbahasa}}
-      {{_malay}}, terjemahkan {{_ke}} bahasa Indonesia: {{text_2}} ||| {{_kalimat}}
-      {{_berikut}} benar {{_berbahasa}} {{_malay}}, {{_berikut}} {{_terjemahan}}nya
-      dalam bahasa Indonesia: {{text_1}}'
+      = ["terjemahkan", "artikan", "translate"] |random%} {% set _khek = ["khek"]
+      |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _berbahasa
+      = ["berbahasa", "dalam bahasa"] |random%} {% set _terjemahan = ["terjemahan",
+      "arti"] |random%} {{_jika}} {{_kalimat}} {{_berikut}} {{_berbahasa}} {{_khek}},
+      terjemahkan {{_ke}} bahasa Indonesia: {{text_1}} ||| {{_kalimat}} {{_berikut}}
+      benar {{_berbahasa}} {{_khek}}, {{_berikut}} {{_terjemahan}}nya dalam bahasa
+      Indonesia: {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -139,10 +138,10 @@ templates:
     jinja: '{% set _tolong = ["", "Tolong", "Silahkan", "Coba"] |random%} {% set _terjemahkan
       = ["terjemahkan", "translate", "artikan"] |random%} {% set _bahasa = ["bahasa",
       "berbahasa"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set
-      _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _malay = ["malay", "melayu"]
-      |random%} {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}} {{_terjemahkan}}
-      {{_kalimat}} {{_bahasa}} {{_malay}} {{_berikut}} {{_ke}} bahasa Indonesia: {{text_2}}
-      ||| {{text_1}}'
+      _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _khek = ["khek"] |random%}
+      {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}} {{_terjemahkan}}
+      {{_kalimat}} {{_bahasa}} {{_khek}} {{_berikut}} {{_ke}} bahasa Indonesia: {{text_1}}
+      ||| {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -158,10 +157,10 @@ templates:
     jinja: '{% set _tolong = ["", "Tolong", "Silahkan", "Coba"] |random%} {% set _terjemahkan
       = ["terjemahkan", "translate", "artikan"] |random%} {% set _bahasa = ["bahasa",
       "berbahasa"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set
-      _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _malay = ["malay", "melayu"]
-      |random%} {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}} {{_terjemahkan}}
-      {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} {{_ke}} bahasa {{_malay}}: {{text_1}}
-      ||| {{text_2}}'
+      _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set _khek = ["khek"] |random%}
+      {% set _kalimat = ["kalimat", "teks"] |random%} {{_tolong}} {{_terjemahkan}}
+      {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} {{_ke}} bahasa {{_khek}}: {{text_2}}
+      ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -176,11 +175,11 @@ templates:
     id: dfc287ca-30a5-4adc-99b3-d8b5763e1967
     jinja: '{% set _jika = ["Jika", "Kalau"] |random%} {% set _kalimat = ["kalimat",
       "teks"] |random%} {% set _berikut = ["berikut", "ini"] |random%} {% set _terjemahkan
-      = ["terjemahkan", "artikan", "translate"] |random%} {% set _malay = ["malay",
+      = ["terjemahkan", "artikan", "translate"] |random%} {% set _khek = ["malay",
       "melayu"] |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {%
       set _berbahasa = ["berbahasa", "dalam bahasa"] |random%} {{_jika}} {{_kalimat}}
-      {{_berikut}} berbahasa {{_malay}}, {{_terjemahkan}} {{_ke}} bahasa Indonesia:
-      {{text_1}} ||| Teks {{_berikut}} sudah {{_berbahasa}} Indonesia'
+      {{_berikut}} berbahasa {{_khek}}, {{_terjemahkan}} {{_ke}} bahasa Indonesia:
+      {{text_2}} ||| Teks {{_berikut}} sudah {{_berbahasa}} Indonesia'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -195,9 +194,9 @@ templates:
     id: ea2c5968-1291-46ac-a8c7-dcc1cdd57bbb
     jinja: '{% set _bahasa = ["bahasa", "berbahasa"] |random%} {% set _berikut = ["berikut",
       "ini"] |random%} {% set _ke = ["ke", "ke dalam", "menjadi"] |random%} {% set
-      _malay = ["malay", "melayu"] |random%} {% set _kalimat = ["kalimat", "teks"]
-      |random%} Apa arti dari {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} dalam
-      bahasa {{_malay}}? {{text_1}} ||| {{text_2}}'
+      _khek = ["khek"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%} Apa
+      arti dari {{_kalimat}} {{_bahasa}} Indonesia {{_berikut}} dalam bahasa {{_khek}}?
+      {{text_2}} ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -211,9 +210,8 @@ templates:
     answer_choices: null
     id: ed10e574-2f1c-4c27-a240-27d8df02e25f
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
-      "ini"] |random%} {% set _malay = ["malay", "melayu"] |random%} Apa bahasa dari
-      {{_kalimat}} {{_berikut}}? {{text_2}} ||| Bahasa dari {{_kalimat}} {{_berikut}}
-      adalah {{_malay}}'
+      "ini"] |random%} {% set _khek = ["khek"] |random%} Apa bahasa dari {{_kalimat}}
+      {{_berikut}}? {{text_1}} ||| Bahasa dari {{_kalimat}} {{_berikut}} adalah {{_khek}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
