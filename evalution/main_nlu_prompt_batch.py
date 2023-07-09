@@ -13,15 +13,17 @@ from numpy import argmax, stack
 import pandas as pd
 from tqdm import tqdm
 from sklearn.metrics import classification_report, precision_recall_fscore_support
-from nlu_prompt import get_prompt
 
 import torch
 import torch.nn.functional as F
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM
 from nusacrowd import NusantaraConfigHelper
+from nusacrowd.utils.constants import Tasks
 
-from data_utils import load_xnli_dataset, load_nusa_menulis_dataset, load_nlu_tasks
+from prompt_utils import get_prompt
+from data_utils import load_nlu_datasets
+
 #!pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 #!pip install transformers
 #!pip install sentencepiece
@@ -48,7 +50,7 @@ def to_prompt(input, prompt, labels, prompt_lang):
     return prompt
 
 
-@torch.no_grad()
+@torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
     input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
@@ -57,15 +59,14 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     logits = outputs.logits
     
     if model.config.is_encoder_decoder:
-        logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn
-        return (logprobs.squeeze(dim=-1) / label_attn.sum(dim=-1, keepdims=True)).sum(dim=-1).cpu().detach().numpy()
+        logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn # Zero-out Padding Token
+        return logprobs.squeeze(dim=-1).sum(dim=-1).cpu().detach().numpy()
     else:
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
         logprobs[input_ids == tokenizer.pad_token_id] = 0
-        num_tokens = (input_ids != tokenizer.pad_token_id).sum(dim=-1, keepdims=True)
-        return (logprobs.squeeze(dim=-1) / num_tokens).sum(dim=1).cpu().detach().numpy()
+        return logprobs.squeeze(dim=-1).sum(dim=1).cpu().detach().numpy()
 
-@torch.no_grad()
+@torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
     if model.config.is_encoder_decoder:
         labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt')
@@ -88,26 +89,26 @@ def predict_classification(model, tokenizer, prompts, labels):
     return probs
 
 if __name__ == '__main__':
-    if len(sys.argv) != 4:
-        raise ValueError('main_nlu_prompt.py <prompt_lang> <model_path_or_name> <batch_size>')
+    if len(sys.argv) < 4:
+        raise ValueError('main_nlu_prompt.py <prompt_lang> <model_path_or_name> <batch_size> <save_every (OPTIONAL)>')
 
     prompt_lang = sys.argv[1]
     MODEL = sys.argv[2]
     BATCH_SIZE = int(sys.argv[3])
+    
+    SAVE_EVERY = 10
+    if len(sys.argv) == 5:
+        SAVE_EVERY = int(sys.argv[4])
 
-    os.makedirs('./outputs', exist_ok=True) 
+    os.makedirs('./outputs_nlu', exist_ok=True) 
+    os.makedirs('./metrics', exist_ok=True) 
 
     # Load Prompt
-    DATA_TO_PROMPT = get_prompt(prompt_lang)
+    TASK_TYPE_TO_PROMPT = get_prompt(prompt_lang)
 
     # Load Dataset
     print('Load NLU Datasets...')
-    nlu_datasets = load_nlu_tasks()
-    nusa_menulis_dataset = load_nusa_menulis_dataset()
-    xnli_dataset = load_xnli_dataset()
-
-    nlu_datasets.update(nusa_menulis_dataset)
-    nlu_datasets.update(xnli_dataset)
+    nlu_datasets = load_nlu_datasets()
 
     print(f'Loaded {len(nlu_datasets)} NLU datasets')
     for i, dset_subset in enumerate(nlu_datasets.keys()):
@@ -128,74 +129,102 @@ if __name__ == '__main__':
     labels = []
     for i, dset_subset in enumerate(nlu_datasets.keys()):
         print(f'{i} {dset_subset}')
-        if dset_subset not in DATA_TO_PROMPT or DATA_TO_PROMPT[dset_subset] is None:
+        nlu_dset, task_type = nlu_datasets[dset_subset]
+        print(TASK_TYPE_TO_PROMPT.keys())
+        if task_type.value not in TASK_TYPE_TO_PROMPT:
             print('SKIP')
             continue
 
-        if 'test' in nlu_datasets[dset_subset]:
-            data = nlu_datasets[dset_subset]['test']
+        # Retrieve metadata
+        split = 'test'
+        if 'test' in nlu_dset.keys():
+            test_dset = nlu_dset['test']
         else:
-            data = nlu_datasets[dset_subset]['train']
+            test_dset = nlu_dset['train']
+            split = 'train'
+        print(f'Processing {dset_subset}')
 
-        if DEBUG:
-            print(dset_subset)
-
+        # Retrieve & preprocess labels
         try:
-            label_names = data.features['label'].names
+            label_names = test_dset.features['label'].names
         except:
-            label_names = list(set(data['label']))
-        label_to_id_dict = { l : i for i, l in enumerate(label_names) }
-
-        # normalize some labels for more natural prompt:
-        if dset_subset == 'imdb_jv_nusantara_text':
-            label_names = ['positive', 'negative']
-        elif dset_subset == 'indonli_nusantara_pairs':
-            label_names = ['no', 'yes', 'maybe']
-        elif 'xnli' in dset_subset:
-            xnli_map = {'neutral': 'inconclusive', 'contradiction': 'false', 'entailment': 'true'}
-            label_names = list(map(lambda x: xnli_map[x], label_names))
-
-        en_id_label_map = {
-            '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5',	'special': 'khusus', 'general': 'umum',
-            'no': 'tidak', 'yes': 'ya', 'maybe': 'mungkin', 'negative': 'negatif', 'positive': 'positif', 
-            'east': 'timur', 'standard': 'standar', 'ngapak': 'ngapak', 'unknown': 'unknown',
-            'neutral': 'netral', 'love': 'cinta', 'fear': 'takut', 'happy': 'senang', 'sad': 'sedih',
-            'sadness': 'sedih', 'disgust': 'jijik', 'anger': 'marah', 'surprise': 'terkejut', 'joy': 'senang',
-            'reject': 'ditolak', 'tax': 'pajak', 'partial': 'sebagian', 'others': 'lain-lain',
-            'granted': 'dikabulkan', 'fulfill': 'penuh', 'correction': 'koreksi',
-            'not abusive': 'tidak abusive', 'abusive': 'abusive', 'abusive and offensive': 'abusive dan offensive',
-            'support': 'mendukung', 'against': 'bertentangan', 
-        }
-        
-        # preprocess label (lower case & translate)
+            label_names = list(set(test_dset['label']))
         label_names = [str(label).lower().replace("_"," ") for label in label_names]
-        labels += label_names
-        
-        if 'ID' in prompt_lang:
-            label_names = list(map(lambda lab: en_id_label_map[lab], label_names))
+        label_to_id_dict = { l : i for i, l in enumerate(label_names)}
+            
+        for prompt_id, prompt_template in enumerate(TASK_TYPE_TO_PROMPT[task_type.value]):
+            inputs, preds, golds = [], [], []
+            
+            # Check saved data
+            if exists(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
+                print("Output exist, use partial log instead")
+                with open(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                    reader = csv.DictReader(csvfile)
+                    for row in reader:
+                        inputs.append(row["Input"])
+                        preds.append(row["Pred"])
+                        golds.append(row["Gold"])
+                print(f"Skipping until {len(preds)}")
 
-        # sample prompt
-        print("LABEL NAME = ")
-        print(label_names)
-        print("SAMPLE PROMPT = ")
-        print(to_prompt(data[0], DATA_TO_PROMPT[dset_subset], label_names, prompt_lang))
-        print("\n")
+            # normalize some labels for more natural prompt:
+            if dset_subset == 'imdb_jv_nusantara_text':
+                label_names = ['positive', 'negative']
+            elif dset_subset == 'indonli_nusantara_pairs':
+                label_names = ['no', 'yes', 'maybe']
 
-        inputs = []
-        preds = []
-        golds = []        
-        # zero-shot inference
-        prompts = []
-        labels = []
-        with torch.inference_mode():
-            for sample in tqdm(data):
-                # Add to buffer
-                prompt_text = to_prompt(sample, DATA_TO_PROMPT[dset_subset], label_names, prompt_lang)
-                prompts.append(prompt_text)
-                labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
-                
-                # Batch Inference
-                if len(prompts) == BATCH_SIZE:
+            en_id_label_map = {
+                '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5',	'special': 'khusus', 'general': 'umum',
+                'no': 'tidak', 'yes': 'ya', 'maybe': 'mungkin', 'negative': 'negatif', 'positive': 'positif', 
+                'east': 'timur', 'standard': 'standar', 'ngapak': 'ngapak', 'unknown': 'unknown',
+                'neutral': 'netral', 'love': 'cinta', 'fear': 'takut', 'happy': 'senang', 'sad': 'sedih',
+                'sadness': 'sedih', 'disgust': 'jijik', 'anger': 'marah', 'surprise': 'terkejut', 'joy': 'senang',
+                'reject': 'ditolak', 'tax': 'pajak', 'partial': 'sebagian', 'others': 'lain-lain',
+                'granted': 'dikabulkan', 'fulfill': 'penuh', 'correction': 'koreksi',
+                'not abusive': 'tidak abusive', 'abusive': 'abusive', 'abusive and offensive': 'abusive dan offensive',
+                'support': 'mendukung', 'against': 'bertentangan', 
+            }
+
+            if prompt_lang == 'ind':
+                label_names = list(map(lambda lab: en_id_label_map[lab], label_names))
+
+            # sample prompt
+            print("LABEL NAME = ")
+            print(label_names)
+            print("SAMPLE PROMPT = ")
+            print(to_prompt(tset_dset[0], prompt_template, label_names, prompt_lang))
+            print("\n")
+
+            # zero-shot inference
+            prompts, labels = [], []
+            count = 0
+            with torch.inference_mode():
+                for sample in tqdm(test_dset):
+                    if e < len(preds):
+                        continue
+
+                    # Add to buffer
+                    prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
+                    prompts.append(prompt_text)
+                    labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
+
+                    # Batch Inference
+                    if len(prompts) == BATCH_SIZE:
+                        out = predict_classification(model, tokenizer, prompts, label_names)
+                        hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
+                        for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
+                            inputs.append(prompt_text)
+                            preds.append(hyp)
+                            golds.append(label)
+                        prompts, labels = [], []
+                        count += 1
+                        
+                    if count == SAVE_EVERY:
+                        # partial saving
+                        inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
+                        inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+                        count = 0
+                        
+                if len(prompts) > 0:
                     out = predict_classification(model, tokenizer, prompts, label_names)
                     hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
                     for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
@@ -204,59 +233,9 @@ if __name__ == '__main__':
                         golds.append(label)
                     prompts, labels = [], []
 
-            if len(prompts) > 0:
-                out = predict_classification(model, tokenizer, prompts, label_names)
-                hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
-                for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
-                    inputs.append(prompt_text)
-                    preds.append(hyp)
-                    golds.append(label)
-                prompts, labels = [], []
-
-        inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-        print(inference_df) 
-
-#         if not exists(f'outputs/{dset_subset}_{prompt_lang}_{MODEL.split("/")[-1]}.csv'):
-#             prompts = []
-#             labels = []
-#             with torch.inference_mode():
-#                 for sample in tqdm(data):
-#                     # Add to buffer
-#                     prompt_text = to_prompt(sample, DATA_TO_PROMPT[dset_subset], label_names, prompt_lang)
-#                     prompts.append(prompt_text)
-#                     labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
-
-#                     # Batch Inference
-#                     if len(prompts) == BATCH_SIZE:
-#                         out = predict_classification(model, tokenizer, prompts, label_names)
-#                         hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
-#                         for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
-#                             inputs.append(prompt_text)
-#                             preds.append(hyp)
-#                             golds.append(label)
-#                         prompts, labels = [], []
-
-#                 if len(prompts) > 0:
-#                     out = predict_classification(model, tokenizer, prompts, label_names)
-#                     hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
-#                     for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
-#                         inputs.append(prompt_text)
-#                         preds.append(hyp)
-#                         golds.append(label)
-#                     prompts, labels = [], []
-     
-#             inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-#             print(inference_df)
-#             inference_df.to_csv(f'outputs/{dset_subset}_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
-#         # if output log exists, skip
-#         else:
-#             print("Output exist, use existing log instead")
-#             with open(f'outputs/{dset_subset}_{prompt_lang}_{MODEL.split("/")[-1]}.csv') as csvfile:
-#                 reader = csv.DictReader(csvfile)
-#                 for row in reader:
-#                     inputs.append(row["Input"])
-#                     preds.append(row["Pred"])
-#                     golds.append(row["Gold"])
+            # partial saving
+            inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
+            inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
 
         cls_report = classification_report(golds, preds, output_dict=True)
         micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
@@ -280,4 +259,4 @@ if __name__ == '__main__':
             'weighted_f1_score': cls_report['weighted avg']['f1-score'],
         }
 
-    # pd.DataFrame.from_dict(metrics).T.reset_index().to_csv(f'metrics/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
+    pd.DataFrame.from_dict(metrics).T.reset_index().to_csv(f'metrics/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
