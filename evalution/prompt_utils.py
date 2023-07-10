@@ -2,47 +2,51 @@ TASK_TO_PROMPT = {
     'eng': {
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
-            'Classify the sentiment of the text below.\n[INPUT] => Emotion: [LABELS_CHOICE]',
-            'Predict the sentiment of the following text.\nText: [INPUT] => Emotion: [LABELS_CHOICE]',
+            'Classify the sentiment of the text below.\n[INPUT] => Sentiment: [LABELS_CHOICE]',
+            'Predict the sentiment of the following text.\nText: [INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nWhat would be the sentiment of the text above? [LABELS_CHOICE]',
-            'What is the sentiment of this text?\nText: [INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the sentiment of above text. Emotion: [LABELS_CHOICE]',
+            'What is the sentiment of this text?\nText: [INPUT]\nSentiment: [LABELS_CHOICE]',
+            'Text: [INPUT]\nPlease classify the sentiment of above text. Sentiment: [LABELS_CHOICE]',
         ],
         # Tasks.SHORT_ANSWER_GRADING
         'SAG': [
-            'Classify the grade of the test answer below.\n[INPUT] => Emotion: [LABELS_CHOICE]',
-            'Predict the grade of the following test answer.\nINPUT] => Emotion: [LABELS_CHOICE]',
+            'Estimate the grade of the test answer below.\n[INPUT] => Grade: [LABELS_CHOICE]',
+            'Predict the grade of the following test answer.\n[INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nWhat would be the grade of the test answer above? [LABELS_CHOICE]',
             'What is the grade of this test answer?\[INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the grade of above test answer. Emotion: [LABELS_CHOICE]',
+            'Text: [INPUT]\nPlease estimate the grade of above test answer. Grade: [LABELS_CHOICE]',
         ],
         # Tasks.EMOTION_CLASSIFICATION
         'EC': [
             'Classify the emotion of the text below.\n[INPUT] => Emotion: [LABELS_CHOICE]',
-            'Predict the emotion of the following text.\nText: [INPUT] => Emotion: [LABELS_CHOICE]',
+            'Predict the emotion of the following text.\nText: [INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nWhat would be the emotion of the text above? [LABELS_CHOICE]',
             'What is the emotion of this text?\nText: [INPUT]\nAnswer: [LABELS_CHOICE]',
             'Text: [INPUT]\nPlease classify the emotion of above text. Emotion: [LABELS_CHOICE]',
         ],
         # Tasks.LEGAL_CLASSIFICATION
         'LC':  [
-            'Classify the verdict of the legal statement below.\n[INPUT] => Topic: [LABELS_CHOICE]',
-            'Predict the verdict of the following legal statement.\nText: [INPUT] => Topic: [LABELS_CHOICE]',
+            'Classify the verdict of the legal statement below.\n[INPUT] => Verdict: [LABELS_CHOICE]',
+            'Predict the verdict of the following legal statement.\n[INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nWhat would be the verdict of the legal statement above? [LABELS_CHOICE]',
-            'What is the verdict of this legal statement?\nText: [INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the verdict of above legal statement. Topic: [LABELS_CHOICE]',
+            'What is the verdict of the following legal statement?\n[INPUT]\nVerdict: [LABELS_CHOICE]',
+            '[INPUT]\nPlease classify the verdict of above legal statement. Verdict: [LABELS_CHOICE]',
         ],
         # Tasks.TEXTUAL_ENTAILMENT
         'TE': [
-            '[INPUT_A]\nBased on the previous passage, is it true that "[INPUT_B]"? Yes, no, or maybe? [OPTIONS]? [LABELS_CHOICE]',
-            '[INPUT_A]\n\nQuestion: Does this imply that "[INPUT_B]"? Yes, no, or maybe? [LABELS_CHOICE]',
-            'Given that [INPUT_A]. Does it follow that [INPUT_B]? Yes, no, or maybe? [LABELS_CHOICE]',
+            'Hypothesis: [INPUT_A]\nPremise: [INPUT_B]\nQuestion: What is the relation between the hypothesis and the premise? [LABELS_CHOICE]',
+            'Given the following premise and hypothesis:\nHypothesis: [INPUT_A]\nPremise: [INPUT_B]\nDetermine the logical relationship: [LABELS_CHOICE]',
+            'Choose the most appropriate relationship between the premise and hypothesis:\nRelationship between "[INPUT_B]" and "[INPUT_A]": [LABELS_CHOICE]',
+            'Identify the relationship between the premise and hypothesis:\nHypothesis: [INPUT_A]\nPremise: [INPUT_B]\nLabel: [LABELS_CHOICE]',
+            'Classify the relationship between the premise and hypothesis:\nPremise: [INPUT_B]\nHypothesis: [INPUT_A]\nRelationship: [LABELS_CHOICE]',
         ],
         # Tasks.NEXT_SENTENCE_PREDICTION
         'NSP': [
-            'Given two tweets\nA: [INPUT_A]\nB: [INPUT_B]\n\nIs tweet B is a continuation of tweet A? [OPTIONS]? [LABELS_CHOICE]',
-            'Is tweet "[INPUT_B]" a continuation of tweet "[INPUT_A]"? [LABELS_CHOICE]',
-            'First Tweet: [INPUT_A].\nWould "[INPUT_B]" a continuation of the first tweet? [LABELS_CHOICE]',
+            'Is tweet "[INPUT_B]" a continuation of tweet "[INPUT_A]"?',
+            'Does tweet "[INPUT_B]" a logical continuation of tweet "[INPUT_A]"?',
+            'Do tweet "[INPUT_A]" and tweet "[INPUT_B]" form a coherent sequence?',
+            'Is tweet "[INPUT_B]" a relevant continuation of tweet "[INPUT_A]"?',
+            'Can tweet "[INPUT_B]" be considered a direct continuation to tweet "[INPUT_A]"?'
         ],
 
         # Tasks.MACHINE_TRANSLATION
@@ -81,47 +85,51 @@ TASK_TO_PROMPT = {
     'ind': {
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
-            'Classify the sentiment of the text below.\n[INPUT] => Emotion: [LABELS_CHOICE]',
-            'Predict the sentiment of the following text.\nText: [INPUT] => Emotion: [LABELS_CHOICE]',
-            '[INPUT]\nWhat would be the sentiment of the text above? [LABELS_CHOICE]',
-            'What is the sentiment of this text?\nText: [INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the sentiment of above text. Emotion: [LABELS_CHOICE]',
+            'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen: [LABELS_CHOICE]'
+            'Prediksikan sentimen dari kalimat berikut.\nText: [INPUT] => [LABELS_CHOICE]',
+            '[INPUT]\nApakah sentimen dari kalimat diatas? [LABELS_CHOICE]',
+            'Apakah sentimen dari teks berikut?\nTeks: [INPUT]\nSentimen: [LABELS_CHOICE]',
+            'Teks: [INPUT]\nTolong klasifikasikan sentimen dari teks diatas. Sentimen: [LABELS_CHOICE]',
         ],
         # Tasks.SHORT_ANSWER_GRADING
         'SAG': [
-            'Classify the grade of the test answer below.\n[INPUT] => Emotion: [LABELS_CHOICE]',
-            'Predict the grade of the following test answer.\nINPUT] => Emotion: [LABELS_CHOICE]',
-            '[INPUT]\nWhat would be the grade of the test answer above? [LABELS_CHOICE]',
-            'What is the grade of this test answer?\[INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the grade of above test answer. Emotion: [LABELS_CHOICE]',
+            'Klasifikasikan nilai dari jawaban ujian berikut.\n[INPUT] => Nilai: [LABELS_CHOICE]'
+            'Prediksikan nilai dari jawaban ujian berikut.\n[INPUT] => [LABELS_CHOICE]',
+            '[INPUT]\nApakah nilai dari jawaban ujian diatas? [LABELS_CHOICE]',
+            'Apakah nilai dari jawaban ujian berikut?\nJawaban: [INPUT]\nNilai: [LABELS_CHOICE]',
+            'Teks: [INPUT]\nTolong klasifikasikan sentimen dari teks diatas. Nilai: [LABELS_CHOICE]',
         ],
         # Tasks.EMOTION_CLASSIFICATION
         'EC': [
-            'Classify the emotion of the text below.\n[INPUT] => Emotion: [LABELS_CHOICE]',
-            'Predict the emotion of the following text.\nText: [INPUT] => Emotion: [LABELS_CHOICE]',
-            '[INPUT]\nWhat would be the emotion of the text above? [LABELS_CHOICE]',
-            'What is the emotion of this text?\nText: [INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the emotion of above text. Emotion: [LABELS_CHOICE]',
+            'Klasifikasikan emosi dari kalimat berikut.\n[INPUT] => Emosi: [LABELS_CHOICE]'
+            'Prediksikan emosi dari kalimat berikut.\nText: [INPUT] => [LABELS_CHOICE]',
+            '[INPUT]\nApakah emosi dari kalimat diatas? [LABELS_CHOICE]',
+            'Apakah emosi dari teks berikut?\nTeks: [INPUT]\nEmosi: [LABELS_CHOICE]',
+            'Teks: [INPUT]\nTolong klasifikasikan emosi dari teks diatas. Emosi: [LABELS_CHOICE]',
         ],
         # Tasks.LEGAL_CLASSIFICATION
         'LC':  [
-            'Classify the verdict of the legal statement below.\n[INPUT] => Topic: [LABELS_CHOICE]',
-            'Predict the verdict of the following legal statement.\nText: [INPUT] => Topic: [LABELS_CHOICE]',
-            '[INPUT]\nWhat would be the verdict of the legal statement above? [LABELS_CHOICE]',
-            'What is the verdict of this legal statement?\nText: [INPUT]\nAnswer: [LABELS_CHOICE]',
-            'Text: [INPUT]\nPlease classify the verdict of above legal statement. Topic: [LABELS_CHOICE]',
+            'Klasifikasikan keputusan dari pernyataan hukum berikut.\n[INPUT] => Keputusan: [LABELS_CHOICE]',
+            'Prediksikan keputusan dari pernyataan hukum berikut.\n[INPUT] => [LABELS_CHOICE]',
+            '[INPUT]\nApakah keputusan dari pernyataan hukum diatas? [LABELS_CHOICE]',
+            'Apakah keputusan dari pernyataan hukum berikut?\n[INPUT]\nKeputusan: [LABELS_CHOICE]',
+            '[INPUT]\nTolong klasifikasikan keputusan dari pernyataan hukum diatas. Keputusan: [LABELS_CHOICE]',
         ],
         # Tasks.TEXTUAL_ENTAILMENT
         'TE': [
-            '[INPUT_A]\nBased on the previous passage, is it true that "[INPUT_B]"? Yes, no, or maybe? [OPTIONS]? [LABELS_CHOICE]',
-            '[INPUT_A]\n\nQuestion: Does this imply that "[INPUT_B]"? Yes, no, or maybe? [LABELS_CHOICE]',
-            'Given that [INPUT_A]. Does it follow that [INPUT_B]? Yes, no, or maybe? [LABELS_CHOICE]',
+            'Hipotesis: [INPUT_A]\nPremis: [INPUT_B]\nPertanaan: Apakah hubungan antara hipotesis dan premis diatas? [LABELS_CHOICE]',
+            'Diberikan hipotesis dan premis sebagai berikut:\nHipotesis: [INPUT_A]\nPremis: [INPUT_B]\nTentukan hubungan logis dari kedua kalimat tersebut: [LABELS_CHOICE]',
+            'Pilih hubungan yang paling cocok antara premis dan hipotesis berikut:\nHubungan antara "[INPUT_B]" dan "[INPUT_A]": [LABELS_CHOICE]',
+            'Identifikasi hubungan antara premis dan hipotesis berikut:\nHipotesis: [INPUT_A]\nPremis: [INPUT_B]\nLabel: [LABELS_CHOICE]',
+            'Klasifikasikan hubungan antara premis dan hypothesis berikut:\nPremis: [INPUT_B]\nHipotesis: [INPUT_A]\nHubungan: [LABELS_CHOICE]',
         ],
         # Tasks.NEXT_SENTENCE_PREDICTION
         'NSP': [
-            'Given two tweets\nA: [INPUT_A]\nB: [INPUT_B]\n\nIs tweet B is a continuation of tweet A? [OPTIONS]? [LABELS_CHOICE]',
-            'Is tweet "[INPUT_B]" a continuation of tweet "[INPUT_A]"? [LABELS_CHOICE]',
-            'First Tweet: [INPUT_A].\nWould "[INPUT_B]" a continuation of the first tweet? [LABELS_CHOICE]',
+            'Apakah tweet "[INPUT_B]" kelanjutan dari tweet "[INPUT_A]"?',
+            'Apakah tweet "[INPUT_B]" merupakan kelanjutan logis dari tweet "[INPUT_A]"?',
+            'Apakah tweet "[INPUT_A]" dan tweet "[INPUT_B]" membentuk sebuah urutan yang koheren?',
+            'Apakah tweet "[INPUT_B]" merupakan sambungan yang relevan dengan tweet "[INPUT_A]"?',
+            'Bisakah tweet "[INPUT_B]" dianggap sebagai sambunagn langsung dari tweet "[INPUT_A]"?'
         ],
 
         # Tasks.MACHINE_TRANSLATION
@@ -181,8 +189,8 @@ LABEL_LANG_MAP ={
 		'ind': {1: '1', 2: '2', 3: '3', 4: '4', 5: '5'}
 	},
 	'id_stance_nusantara_pairs': {
-		'eng': {'for': 'entail', 'against': 'contradict', 'no': 'irrelevant'},
-		'ind': {'for': 'sesuai', 'against': 'berlawanan', 'no': 'tidak berkaitan'}
+		'eng': {'for': 'entailment', 'against': 'contradiction', 'no': 'irrelevant'},
+		'ind': {'for': 'saling mendukung', 'against': 'saling berlawanan', 'no': 'tidak berhubungan'}
 	},
 	'indo_law_nusantara_text': {
 		'eng': {'pidana-khusus': 'special crime', 'pidana-umum': 'ordinary crime'},
@@ -226,7 +234,7 @@ LABEL_LANG_MAP ={
 	}
 }
 
-def get_nlu_label(dset_subset, prompt_lang):
+def get_label_mapping(dset_subset, prompt_lang):
     return LABEL_LANG_MAP[dset_subset][prompt_lang]
 
 def get_prompt(prompt_lang):

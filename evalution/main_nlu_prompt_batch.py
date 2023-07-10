@@ -17,11 +17,11 @@ from sklearn.metrics import classification_report, precision_recall_fscore_suppo
 import torch
 import torch.nn.functional as F
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM, set_seed
 from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
 
-from prompt_utils import get_prompt
+from prompt_utils import get_prompt, get_label_mapping
 from data_utils import load_nlu_datasets
 
 #!pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
@@ -114,6 +114,9 @@ if __name__ == '__main__':
     for i, dset_subset in enumerate(nlu_datasets.keys()):
         print(f'{i} {dset_subset}')
 
+    # Set seed before initializing model.
+    set_seed(42)
+
     # Load Model
     tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', padding_side='right')
     if "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL:
@@ -130,7 +133,6 @@ if __name__ == '__main__':
     for i, dset_subset in enumerate(nlu_datasets.keys()):
         print(f'{i} {dset_subset}')
         nlu_dset, task_type = nlu_datasets[dset_subset]
-        print(TASK_TYPE_TO_PROMPT.keys())
         if task_type.value not in TASK_TYPE_TO_PROMPT:
             print('SKIP')
             continue
@@ -149,9 +151,13 @@ if __name__ == '__main__':
             label_names = test_dset.features['label'].names
         except:
             label_names = list(set(test_dset['label']))
-        label_names = [str(label).lower().replace("_"," ") for label in label_names]
-        label_to_id_dict = { l : i for i, l in enumerate(label_names)}
             
+        # normalize some labels for more natural prompt:
+        label_mapping = get_label_mapping(dset_subset, prompt_lang)
+        label_names = list(map(lambda x: label_mapping[x], label_mapping))
+
+        label_to_id_dict = { l : i for i, l in enumerate(label_names)}
+        
         for prompt_id, prompt_template in enumerate(TASK_TYPE_TO_PROMPT[task_type.value]):
             inputs, preds, golds = [], [], []
             
@@ -166,39 +172,19 @@ if __name__ == '__main__':
                         golds.append(row["Gold"])
                 print(f"Skipping until {len(preds)}")
 
-            # normalize some labels for more natural prompt:
-            if dset_subset == 'imdb_jv_nusantara_text':
-                label_names = ['positive', 'negative']
-            elif dset_subset == 'indonli_nusantara_pairs':
-                label_names = ['no', 'yes', 'maybe']
-
-            en_id_label_map = {
-                '0': '0', '1': '1', '2': '2', '3': '3', '4': '4', '5': '5',	'special': 'khusus', 'general': 'umum',
-                'no': 'tidak', 'yes': 'ya', 'maybe': 'mungkin', 'negative': 'negatif', 'positive': 'positif', 
-                'east': 'timur', 'standard': 'standar', 'ngapak': 'ngapak', 'unknown': 'unknown',
-                'neutral': 'netral', 'love': 'cinta', 'fear': 'takut', 'happy': 'senang', 'sad': 'sedih',
-                'sadness': 'sedih', 'disgust': 'jijik', 'anger': 'marah', 'surprise': 'terkejut', 'joy': 'senang',
-                'reject': 'ditolak', 'tax': 'pajak', 'partial': 'sebagian', 'others': 'lain-lain',
-                'granted': 'dikabulkan', 'fulfill': 'penuh', 'correction': 'koreksi',
-                'not abusive': 'tidak abusive', 'abusive': 'abusive', 'abusive and offensive': 'abusive dan offensive',
-                'support': 'mendukung', 'against': 'bertentangan', 
-            }
-
-            if prompt_lang == 'ind':
-                label_names = list(map(lambda lab: en_id_label_map[lab], label_names))
 
             # sample prompt
             print("LABEL NAME = ")
             print(label_names)
             print("SAMPLE PROMPT = ")
-            print(to_prompt(tset_dset[0], prompt_template, label_names, prompt_lang))
+            print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
             # zero-shot inference
             prompts, labels = [], []
             count = 0
             with torch.inference_mode():
-                for sample in tqdm(test_dset):
+                for e, sample in tqdm(enumerate(test_dset)):
                     if e < len(preds):
                         continue
 
