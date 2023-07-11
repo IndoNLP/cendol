@@ -55,13 +55,17 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
     input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
     
-    outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
-    logits = outputs.logits
-    
     if model.config.is_encoder_decoder:
+        label_ids = label_ids.repeat(input_ids.shape[0], 1)
+        outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=label_ids)
+        logits = outputs.logits
+
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn # Zero-out Padding Token
         return logprobs.squeeze(dim=-1).sum(dim=-1).cpu().detach().numpy()
     else:
+        outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
+        logits = outputs.logits
+        
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
         logprobs[input_ids == tokenizer.pad_token_id] = 0
         return logprobs.squeeze(dim=-1).sum(dim=1).cpu().detach().numpy()
