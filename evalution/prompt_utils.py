@@ -85,7 +85,7 @@ TASK_TO_PROMPT = {
     'ind': {
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
-            'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen: [LABELS_CHOICE]'
+            'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen: [LABELS_CHOICE]',
             'Prediksikan sentimen dari kalimat berikut.\nText: [INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nApakah sentimen dari kalimat diatas? [LABELS_CHOICE]',
             'Apakah sentimen dari teks berikut?\nTeks: [INPUT]\nSentimen: [LABELS_CHOICE]',
@@ -93,7 +93,7 @@ TASK_TO_PROMPT = {
         ],
         # Tasks.SHORT_ANSWER_GRADING
         'SAG': [
-            'Klasifikasikan nilai dari jawaban ujian berikut.\n[INPUT] => Nilai: [LABELS_CHOICE]'
+            'Klasifikasikan nilai dari jawaban ujian berikut.\n[INPUT] => Nilai: [LABELS_CHOICE]',
             'Prediksikan nilai dari jawaban ujian berikut.\n[INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nApakah nilai dari jawaban ujian diatas? [LABELS_CHOICE]',
             'Apakah nilai dari jawaban ujian berikut?\nJawaban: [INPUT]\nNilai: [LABELS_CHOICE]',
@@ -101,7 +101,7 @@ TASK_TO_PROMPT = {
         ],
         # Tasks.EMOTION_CLASSIFICATION
         'EC': [
-            'Klasifikasikan emosi dari kalimat berikut.\n[INPUT] => Emosi: [LABELS_CHOICE]'
+            'Klasifikasikan emosi dari kalimat berikut.\n[INPUT] => Emosi: [LABELS_CHOICE]',
             'Prediksikan emosi dari kalimat berikut.\nText: [INPUT] => [LABELS_CHOICE]',
             '[INPUT]\nApakah emosi dari kalimat diatas? [LABELS_CHOICE]',
             'Apakah emosi dari teks berikut?\nTeks: [INPUT]\nEmosi: [LABELS_CHOICE]',

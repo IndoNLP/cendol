@@ -39,7 +39,7 @@ NLG_TASK_LIST = [
     'xl_sum',
     'xpersona_id',
     'stif_indonesia',
-    'tydiqa_id'
+    'tydiqa_id',
 ]
 
 def load_nlu_datasets():
