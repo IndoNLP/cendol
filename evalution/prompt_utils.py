@@ -67,7 +67,11 @@ TASK_TO_PROMPT = {
         ],
         # Tasks.QUESTION_ANSWERING
         'QA': [
-        
+            'Refer to the passage below and answer the following question:\nPassage: [CONTEXT]\nQuestion: [QUESTION]\nAnswer:',
+            '[CONTEXT]\nBased on the above text, [QUESTION]',
+            '[CONTEXT]\nQuestion: [QUESTION]\nReferring to the passage above, the correct answer to the given question is:',
+            'Paragraph: [CONTEXT]\nQuestion: [QUESTION]\nBased on the paragraph, what is the answer to the question?',
+            'Passage: [CONTEXT]\nQuestion: [QUESTION]\nAnswer:'
         ],
         # Tasks.SUMMARIZATION
         'SUM': [
@@ -146,7 +150,11 @@ TASK_TO_PROMPT = {
         ],
         # Tasks.QUESTION_ANSWERING
         'QA': [
-
+            'Lihat paragraf di bawah ini dan jawab pertanyaannya.\nParagraf: [CONTEXT]\nPertanyaan: [QUESTION]\nJawaban:',
+            '[CONTEXT]\nBerdasarkan teks di atas, [QUESTION]',
+            '[CONTEXT]\nQuestion: [QUESTION]\nMengacu pada teks di atas, jawaban yang benar untuk pertanyaan yang diberikan adalah:',
+            'Paragraf: [CONTEXT]\nPertanyaan: [QUESTION]\nBerdasarkan paragraf di atas, apa jawaban dari pertanyaan yang diberikan?',
+            'Teks: [CONTEXT]\nPertanyaan: [QUESTION]\nJawaban:'
         ],
         # Tasks.SUMMARIZATION
         'SUM': [

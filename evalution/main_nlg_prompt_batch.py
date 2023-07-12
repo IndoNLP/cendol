@@ -10,6 +10,7 @@ from data_utils import load_nlg_datasets
 import torch
 
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM, set_seed
+from nusacrowd.utils.constants import Tasks
 
 from sacremoses import MosesTokenizer
 import datasets
@@ -28,7 +29,6 @@ sacrebleu = datasets.load_metric('sacrebleu')
 chrf = datasets.load_metric('chrf')
 squad_v2_metric = datasets.load_metric('squad_v2')
 mt = MosesTokenizer(lang='id')
-
 
 def generation_metrics_fn(list_hyp, list_label):
     # hyp and label are both list of string
@@ -49,23 +49,30 @@ def generation_metrics_fn(list_hyp, list_label):
     
     return metrics
 
-def to_prompt(input, prompt, prompt_lang, task_name, task_type, with_label=False):
-    prompt = prompt.replace('[INPUT]', input['text_1'])
 
-    if task_type == 'MT':
+def to_prompt(input, prompt, prompt_lang, task_name, task_type, with_label=False):
+    if '[INPUT]' in prompt:
+        prompt = prompt.replace('[INPUT]', input['text_1'])
+
+    if task_type == Tasks.MACHINE_TRANSLATION.value:
         # Extract src and tgt based on nusantara config name
         task_names = task_name.split('_')
         src_lang = task_names[-4]
         tgt_lang = task_names[-3]
 
-        # Replace
+        # Replace src and tgt lang name
         prompt = prompt.replace('[SOURCE]', get_lang_name(prompt_lang, src_lang))
         prompt = prompt.replace('[TARGET]', get_lang_name(prompt_lang, tgt_lang))
     
-    # TODO: support QA?
+    if task_type == Tasks.QUESTION_ANSWERING.value:
+        prompt = prompt.replace('[CONTEXT]', input['context'])
+        prompt = prompt.replace('[QUESTION]', input['question'])
     
     if with_label:
-        prompt += " " + input['text_2']
+        if task_type == Tasks.QUESTION_ANSWERING.value:
+            prompt += " " + input['answer'][0]
+        else:
+            prompt += " " + input['text_2']
     
     return prompt
 
@@ -160,7 +167,7 @@ if __name__ == '__main__':
         if task_type.value not in prompt_templates or nlg_dset is None:
             continue
 
-        data = nlg_dset['train']
+        data = nlg_dset['validation']
         few_shot_data = nlg_dset['train']
 
         for prompt_id, prompt_template in enumerate(prompt_templates[task_type.value]):
@@ -175,7 +182,7 @@ if __name__ == '__main__':
             if N_SHOT > 0:
                 for sample in tqdm(few_shot_data):
                     # Skip shot examples
-                    if len(sample['text_1']) < 20:
+                    if task_type != Tasks.QUESTION_ANSWERING and len(sample['text_1']) < 20:
                         continue
                     few_shot_text_list.append(
                         to_prompt(sample, prompt_template, dset_subset, task_type.value, with_label=True)
@@ -208,7 +215,7 @@ if __name__ == '__main__':
                         prompt_text = to_prompt(sample, prompt_template, prompt_lang, dset_subset, task_type.value)
                         prompt_text = '\n\n'.join(few_shot_text_list + [prompt_text])
                         prompts.append(prompt_text)
-                        batch_golds.append(sample['text_2'])
+                        batch_golds.append(sample['answer'][0] if task_type == Tasks.QUESTION_ANSWERING else sample['text_2'])
 
                         # Batch inference
                         if len(prompts) == N_BATCH:
