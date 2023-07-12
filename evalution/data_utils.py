@@ -3,7 +3,6 @@ from nusacrowd.utils.constants import Tasks
 
 NLU_TASK_LIST = [
     # 'indotacos',
-    'tydiqa_id',
     'id_hsd_nofaaulia',
     'wrete',
     'id_short_answer_grading',
@@ -40,6 +39,7 @@ NLG_TASK_LIST = [
     'xl_sum',
     'xpersona_id',
     'stif_indonesia',
+    'tydiqa_id',
 ]
 
 def load_nlu_datasets():

@@ -138,7 +138,7 @@ if __name__ == '__main__':
         print(f'{i} {dset_subset}')
         nlu_dset, task_type = nlu_datasets[dset_subset]
         if task_type.value not in TASK_TYPE_TO_PROMPT:
-            print('SKIP')
+            print(f'SKIPPING {dset_subset}')
             continue
 
         # Retrieve metadata
@@ -176,11 +176,10 @@ if __name__ == '__main__':
                         golds.append(row["Gold"])
                 print(f"Skipping until {len(preds)}")
 
-
             # sample prompt
-            print("LABEL NAME = ")
+            print("= LABEL NAME =")
             print(label_names)
-            print("SAMPLE PROMPT = ")
+            print("= SAMPLE PROMPT =")
             print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
