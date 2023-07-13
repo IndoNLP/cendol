@@ -54,32 +54,32 @@ TASK_TO_PROMPT = {
             'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
             '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
             'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
+            'Translate the following [SOURCE] text to [TARGET].\nText: [INPUT]\nTranslation:',
             'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
         ],
         # Tasks.PARAPHRASING
         'PARA': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Write a paraphrase the following text.\nText: [INPUT]\nParaphrase:',
+            '[INPUT]\nWrite a paraphrase of the text above.',
+            'Text: [INPUT]\nHow would you rewrite this text?',
+            'Paraphrase this text: [INPUT]\nParaphrase:',
+            '[INPUT]\nRewrite the text above.',
         ],
         # Tasks.QUESTION_ANSWERING
         'QA': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Refer to the passage below and answer the following question:\nPassage: [CONTEXT]\nQuestion: [QUESTION]\nAnswer:',
+            '[CONTEXT]\nBased on the above text, [QUESTION]',
+            '[CONTEXT]\nQuestion: [QUESTION]\nReferring to the passage above, the correct answer to the given question is:',
+            'Paragraph: [CONTEXT]\nQuestion: [QUESTION]\nBased on the paragraph, what is the answer to the question?',
+            'Passage: [CONTEXT]\nQuestion: [QUESTION]\nAnswer:'
         ],
         # Tasks.SUMMARIZATION
         'SUM': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Write a summary from of the following text.\nText: [INPUT]\nSummary:',
+            '[INPUT]\nWrite a summary of the text above.',
+            'Text: [INPUT]\nHow would you summarize this text?',
+            'Summarize this text: [INPUT]\nSummary:',
+            '[INPUT]\nGiven the above document, write one sentence to summarize:',
         ]
     },
     'ind': {
@@ -134,35 +134,35 @@ TASK_TO_PROMPT = {
 
         # Tasks.MACHINE_TRANSLATION
         'MT': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Terjemahkan teks berikut dari bahasa [SOURCE] ke bahasa [TARGET].\nTeks: [INPUT]\nTerjemahan:',
+            '[INPUT]\nTerjemahkan teks di atas dari bahasa [SOURCE] ke bahasa [TARGET].',
+            'Teks dalam bahasa [SOURCE]: [INPUT]\nApa terjemahannya dalam bahasa [TARGET]?',
+            'Terjemahkan teks bahasa [SOURCE] berikut ke bahasa [TARGET].\nTeks: [INPUT]\nTerjemahan:',
+            'Teks dalam bahasa [SOURCE]: [INPUT]\nTeks dalam bahasa [TARGET]:',
         ],
         # Tasks.PARAPHRASING
         'PARA': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Tuliskan parafrasa dari teks berikut.\nTeks: [INPUT]\nParafrasa:',
+            '[INPUT]\nTuliskan parafrasa dari teks di atas.',
+            'Teks: [INPUT]\nApa parafrasa dari teks tersebut?',
+            'Parafrasakan teks berikut: [INPUT]\nParafrasa:',
+            '[INPUT]\nParafrasa dari teks di atas adalah:',
         ],
         # Tasks.QUESTION_ANSWERING
         'QA': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Lihat paragraf di bawah ini dan jawab pertanyaannya.\nParagraf: [CONTEXT]\nPertanyaan: [QUESTION]\nJawaban:',
+            '[CONTEXT]\nBerdasarkan teks di atas, [QUESTION]',
+            '[CONTEXT]\nQuestion: [QUESTION]\nMengacu pada teks di atas, jawaban yang benar untuk pertanyaan yang diberikan adalah:',
+            'Paragraf: [CONTEXT]\nPertanyaan: [QUESTION]\nBerdasarkan paragraf di atas, apa jawaban dari pertanyaan yang diberikan?',
+            'Teks: [CONTEXT]\nPertanyaan: [QUESTION]\nJawaban:'
         ],
         # Tasks.SUMMARIZATION
         'SUM': [
-            'Translate the following text from [SOURCE] to [TARGET].\nText: [INPUT]\nTranslation:',
-            '[INPUT]\nTranslate the text above from [SOURCE] to [TARGET].',
-            'Text in [SOURCE]: [INPUT]\nHow would you translate that in [TARGET]?',
-            'Translate the following [SOURCE] text from to [TARGET].\nText: [INPUT]\nTranslation:',
-            'Text in [SOURCE]: [INPUT]\nText in [TARGET]:',
+            'Tuliskan ringkasan dari teks berikut.\nTeks: [INPUT]\nRingkasan:',
+            '[INPUT]\nTulis ringkasan dari teks di atas.',
+            'Teks: [INPUT]\nApa ringkasan dari teks tersebut?',
+            'Ringkaslah teks berikut: [INPUT]\nRingkasan:',
+            '[INPUT]\nBerdasarkan dokumen di atas, tulis satu kalimat ringkasan:',
         ]
     }
 }
@@ -234,8 +234,34 @@ LABEL_LANG_MAP ={
 	}
 }
 
+LANG_MAP = {
+    'eng': {
+        'ind': 'Indonesian',
+        'xdy': 'Dayak',
+        'bug': 'Buginese',
+        'mad': 'Madurese',
+        'bjn': 'Banjarese',
+        'tiociu': 'Tiociu',
+        'jav': 'Javanese',
+        'sun': 'Sundanese',
+    },
+    'ind': {
+        'ind': 'Indonesia',
+        'xdy': 'Dayak',
+        'bug': 'Bugis',
+        'mad': 'Madura',
+        'bjn': 'Banjar',
+        'tiociu': 'Tiociu',
+        'jav': 'Jawa',
+        'sun': 'Sunda',
+    }
+}
+
 def get_label_mapping(dset_subset, prompt_lang):
     return LABEL_LANG_MAP[dset_subset][prompt_lang]
+
+def get_lang_name(prompt_lang, lang_code):
+    return LANG_MAP[prompt_lang][lang_code]
 
 def get_prompt(prompt_lang):
     prompt_templates = {}
