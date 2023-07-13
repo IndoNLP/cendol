@@ -97,7 +97,7 @@ def predict_generation_gpt(prompt, model_name):
         return response['choices'][0]['text'].strip()
 
 
-def predict_generation(prompts, model_name):
+def predict_generation(prompts, model_name, tokenizer, model):
     if "gpt" in model_name or "text" in model_name:
         # AFAIK, ChatCompletion doesn't support batch input, so use single generation for now
         return [predict_generation_gpt(prompt, model_name) for prompt in prompts]
@@ -105,15 +105,15 @@ def predict_generation(prompts, model_name):
     inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
     input_size = inputs["input_ids"].shape[1]
     
-    if 'mt0' in model_name:
-        outputs = model.generate(**inputs, do_sample=True, 
-            min_length=1, max_length=100)
-        return tokenizer.batch_decode(outputs, skip_special_tokens=True)
+    if model.config.is_encoder_decoder:
+        outputs = model.generate(**inputs, do_sample=True, min_length=1, max_length=100)
+        preds = tokenizer.batch_decode(outputs, skip_special_tokens=True) 
+        return preds
     else:
         outputs = model.generate(**inputs, do_sample=True, 
             min_length=input_size+1, max_length=input_size+100)
-        return tokenizer.batch_decode(outputs[inputs["input_ids"].shape[1]:], skip_special_tokens=True)
-
+        preds = tokenizer.batch_decode(outputs[:,inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+        return preds
 
 if __name__ == '__main__':
     if len(sys.argv) != 5:
@@ -127,6 +127,7 @@ if __name__ == '__main__':
     MODEL = sys.argv[2]
     N_SHOT = int(sys.argv[3])
     N_BATCH = int(sys.argv[4])
+    SAVE_EVERY = 10
 
     # Load prompt
     prompt_templates = get_prompt(prompt_lang)
@@ -167,7 +168,12 @@ if __name__ == '__main__':
         if task_type.value not in prompt_templates or nlg_dset is None:
             continue
 
-        data = nlg_dset['validation']
+        if 'test' in nlg_dset.keys():
+            data = nlg_dset['test']
+        elif 'validation' in nlg_dset.keys():
+            data = nlg_dset['validation']
+        else:
+            data = nlg_dset['train']
         few_shot_data = nlg_dset['train']
 
         for prompt_id, prompt_template in enumerate(prompt_templates[task_type.value]):
@@ -192,9 +198,9 @@ if __name__ == '__main__':
             print(f'FEW SHOT SAMPLES: {few_shot_text_list}')
             
             # Zero-shot inference
-            if exists(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{N_BATCH}_{MODEL.split("/")[-1]}.csv'):        
+            if exists(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv'):        
                 print("Output exist, use existing log instead")
-                with open(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{N_BATCH}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                with open(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
                         inputs.append(row["Input"])
@@ -205,6 +211,7 @@ if __name__ == '__main__':
 
             # If incomplete, continue
             if len(preds) < len(data):
+                count = 0
                 with torch.inference_mode():
                     prompts, batch_golds = [], []
                     for e, sample in enumerate(tqdm(data)):
@@ -219,22 +226,24 @@ if __name__ == '__main__':
 
                         # Batch inference
                         if len(prompts) == N_BATCH:
-                            batch_preds = predict_generation(prompts, MODEL)
+                            batch_preds = predict_generation(prompts, MODEL, tokenizer, model)
                             for (prompt_text, pred, gold) in zip(prompts, batch_preds, batch_golds):
                                 inputs.append(prompt_text)
                                 preds.append(pred)
                                 preds_latin.append(anyascii(pred))
                                 golds.append(gold)
                             prompts, batch_golds = [], []
-                
-                        # Partial saving
-                        if len(preds) % 10 == 0:
+                            count += 1
+
+                        if count == SAVE_EVERY:
+                            # partial saving
                             inference_df = pd.DataFrame(list(zip(inputs, preds, preds_latin, golds)), columns=['Input', 'Pred', 'Pred_Latin', 'Gold'])
-                            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{N_BATCH}_{MODEL.split("/")[-1]}.csv', index=False)
+                            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
+                            count = 0
 
                     # Predict the rest inputs
                     if len(prompts) > 0:
-                        batch_preds = predict_generation(prompts, MODEL)
+                        batch_preds = predict_generation(prompts, MODEL, tokenizer, model)
                         for (prompt_text, pred, gold) in zip(prompts, batch_preds, batch_golds):
                             inputs.append(prompt_text)
                             preds.append(pred)
@@ -244,7 +253,7 @@ if __name__ == '__main__':
             
             # Final save
             inference_df = pd.DataFrame(list(zip(inputs, preds, preds_latin, golds)), columns=['Input', 'Pred', 'Pred_Latin', 'Gold'])
-            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{N_BATCH}_{MODEL.split("/")[-1]}.csv', index=False)
+            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
 
             # To accomodate old bug where list are not properly re-initiated
             inputs = inputs[-len(data):]
@@ -270,4 +279,4 @@ if __name__ == '__main__':
                 metrics[k].append(eval_metric[k])
 
 
-    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'{out_dir}/nlg_results_{N_SHOT}_{N_BATCH}_{MODEL.split("/")[-1]}.csv', index=False)
+    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'{out_dir}/nlg_results_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
