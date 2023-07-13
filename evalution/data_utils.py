@@ -3,13 +3,13 @@ from nusacrowd.utils.constants import Tasks
 
 NLU_TASK_LIST = [
     # 'indotacos',
+    # 'indo_law',
     'id_hsd_nofaaulia',
     'wrete',
     'id_short_answer_grading',
     'id_google_play_review',
     'id_stance',
     'indolem_ntp',
-    'indo_law',
     'id_google_play_review_posneg',
     'jadi_ide',
     'code_mixed_jv_id_jv',

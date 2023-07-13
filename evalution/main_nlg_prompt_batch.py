@@ -198,9 +198,9 @@ if __name__ == '__main__':
             print(f'FEW SHOT SAMPLES: {few_shot_text_list}')
             
             # Zero-shot inference
-            if exists(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv'):        
+            if exists(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv'):        
                 print("Output exist, use existing log instead")
-                with open(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                with open(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
                         inputs.append(row["Input"])
@@ -238,7 +238,7 @@ if __name__ == '__main__':
                         if count == SAVE_EVERY:
                             # partial saving
                             inference_df = pd.DataFrame(list(zip(inputs, preds, preds_latin, golds)), columns=['Input', 'Pred', 'Pred_Latin', 'Gold'])
-                            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
+                            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
                             count = 0
 
                     # Predict the rest inputs
@@ -253,7 +253,7 @@ if __name__ == '__main__':
             
             # Final save
             inference_df = pd.DataFrame(list(zip(inputs, preds, preds_latin, golds)), columns=['Input', 'Pred', 'Pred_Latin', 'Gold'])
-            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
+            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
 
             # To accomodate old bug where list are not properly re-initiated
             inputs = inputs[-len(data):]
@@ -279,4 +279,4 @@ if __name__ == '__main__':
                 metrics[k].append(eval_metric[k])
 
 
-    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'{out_dir}/nlg_results_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
+    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'{out_dir}/nlg_results_{prompt_lang}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)

@@ -53,43 +53,50 @@ def to_prompt(input, prompt, labels, prompt_lang):
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
-    input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
     
     if model.config.is_encoder_decoder:
+        input_ids, output_ids, attn_mask = inputs["input_ids"], inputs["input_ids"], inputs['attention_mask']
         label_ids = label_ids.repeat(input_ids.shape[0], 1)
         outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=label_ids)
         logits = outputs.logits
 
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn # Zero-out Padding Token
-        return logprobs.squeeze(dim=-1).sum(dim=-1).cpu().detach().numpy()
+        return logprobs.sum(dim=-1)
     else:
+        input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
+        num_tokens = attn_mask.sum(dim=-1)
         outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
         logits = outputs.logits
-        
-        logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
-        logprobs[input_ids == tokenizer.pad_token_id] = 0
-        return logprobs.squeeze(dim=-1).sum(dim=1).cpu().detach().numpy()
+
+        f_logits, f_input_ids = [], []
+        for i, ntok in enumerate(num_tokens):
+            f_logits.append(logits[i, ntok - label_ids.shape[-1] - 1: ntok - 1, :]) # -1 for shifted label
+            
+        f_logits = torch.stack(f_logits, dim=0)
+        f_logprobs = torch.gather(
+            F.log_softmax(f_logits, dim=-1), 2, label_ids.repeat(input_ids.shape[0], 1).unsqueeze(2)
+        ).squeeze(dim=-1) * label_attn
+        return f_logprobs.sum(dim=-1)
 
 @torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
+    labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt')
+    list_label_ids = labels_encoded['input_ids'].to('cuda')
+    list_label_attn = labels_encoded['attention_mask'].to('cuda')
+
+    probs = []
     if model.config.is_encoder_decoder:
-        labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt')
-        list_label_ids = labels_encoded['input_ids'].to('cuda')
-        list_label_attn = labels_encoded['attention_mask'].to('cuda')
-        
         inputs = [prompt.replace('[LABELS_CHOICE]', '') for prompt in prompts]
-        probs = []
         for (label_ids, label_attn) in zip(list_label_ids, list_label_attn):
             probs.append(
-                get_logprobs(model, tokenizer, inputs, label_ids.view(1,-1), label_attn.view(1,-1))
+                get_logprobs(model, tokenizer, inputs, label_ids.view(1,-1), label_attn.view(1,-1)).cpu().numpy()
             )
     else:
-        probs = []
-        for label in labels:
-            inputs = []
-            for prompt in prompts:
-                inputs.append(prompt.replace('[LABELS_CHOICE]', label))
-            probs.append(get_logprobs(model, tokenizer, inputs))
+        for (label, label_ids, label_attn) in zip(labels, list_label_ids, list_label_attn):
+            inputs = [prompt.replace('[LABELS_CHOICE]', label) for prompt in prompts]
+            probs.append(
+                get_logprobs(model, tokenizer, inputs, label_ids.view(1,-1), label_attn.view(1,-1)).cpu().numpy()
+            )
     return probs
 
 if __name__ == '__main__':
@@ -166,9 +173,9 @@ if __name__ == '__main__':
             inputs, preds, golds = [], [], []
             
             # Check saved data
-            if exists(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
+            if exists(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
                 print("Output exist, use partial log instead")
-                with open(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                with open(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
                         inputs.append(row["Input"])
@@ -210,7 +217,7 @@ if __name__ == '__main__':
                     if count == SAVE_EVERY:
                         # partial saving
                         inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-                        inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+                        inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
                         count = 0
                         
                 if len(prompts) > 0:
@@ -224,7 +231,7 @@ if __name__ == '__main__':
 
             # partial saving
             inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-            inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+            inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
 
         cls_report = classification_report(golds, preds, output_dict=True)
         micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
