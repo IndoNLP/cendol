@@ -1,0 +1,434 @@
+dataset: bible_en_id
+subset: bible_en_id_nusantara_t2t
+templates:
+  00bde2dc-6d64-467c-9c94-fce3ce9c259e: !Template
+    answer_choices: null
+    id: 00bde2dc-6d64-467c-9c94-fce3ce9c259e
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_19
+    reference: ''
+  1246e35b-c57b-4a96-9fd5-fc5e9cbac06b: !Template
+    answer_choices: null
+    id: 1246e35b-c57b-4a96-9fd5-fc5e9cbac06b
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa inggris ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_4
+    reference: ''
+  26029002-613d-493a-a5ec-ffcee334c203: !Template
+    answer_choices: null
+    id: 26029002-613d-493a-a5ec-ffcee334c203
+    jinja: 'Kalimat: {{text_2}}
+
+      Inggris: ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_8
+    reference: ''
+  26735096-d269-467f-8f05-ee659ba81918: !Template
+    answer_choices: null
+    id: 26735096-d269-467f-8f05-ee659ba81918
+    jinja: 'Indonesian: {{text_2}}
+
+      English: ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_21
+    reference: ''
+  29ffd9e7-b96c-4bdd-91c2-543647b688ec: !Template
+    answer_choices: null
+    id: 29ffd9e7-b96c-4bdd-91c2-543647b688ec
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa inggris nya? ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_5
+    reference: ''
+  37dbb65e-6c57-4ed9-811b-349eb43ef38d: !Template
+    answer_choices: null
+    id: 37dbb65e-6c57-4ed9-811b-349eb43ef38d
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_14
+    reference: ''
+  3cf1be5c-847e-4745-aefa-32ca1b26f494: !Template
+    answer_choices: null
+    id: 3cf1be5c-847e-4745-aefa-32ca1b26f494
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to English ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_22
+    reference: ''
+  40be641d-ad09-4122-b136-3adaa1130574: !Template
+    answer_choices: null
+    id: 40be641d-ad09-4122-b136-3adaa1130574
+    jinja: "Kalimat: {{text_2}}\nTerjemahan inggris: ||| {{text_1}} \n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_7
+    reference: ''
+  50bd6322-9a8f-4d24-a077-866524e492cf: !Template
+    answer_choices: null
+    id: 50bd6322-9a8f-4d24-a077-866524e492cf
+    jinja: 'Tolong translate ke bahasa inggris: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_3
+    reference: ''
+  5d3881a8-e39f-461c-9a4a-42dfba9885cb: !Template
+    answer_choices: null
+    id: 5d3881a8-e39f-461c-9a4a-42dfba9885cb
+    jinja: "Apa kalimat bahasa inggris dari kalimat berikut ini? \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_2
+    reference: ''
+  6668014e-1236-440c-9d3e-4e57efddf589: !Template
+    answer_choices: null
+    id: 6668014e-1236-440c-9d3e-4e57efddf589
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_18
+    reference: ''
+  6d5a659c-d658-4899-b02c-120baf7b37a3: !Template
+    answer_choices: null
+    id: 6d5a659c-d658-4899-b02c-120baf7b37a3
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_13
+    reference: ''
+  829ec047-1766-4753-971d-c73c3da0d18c: !Template
+    answer_choices: null
+    id: 829ec047-1766-4753-971d-c73c3da0d18c
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_20
+    reference: ''
+  87d22dee-33fa-4c2f-a7f6-b8952b14d991: !Template
+    answer_choices: null
+    id: 87d22dee-33fa-4c2f-a7f6-b8952b14d991
+    jinja: 'Sentence: {{text_2}}
+
+      English Translation: ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_24
+    reference: ''
+  916bcf1d-0331-4625-a086-fcd189814641: !Template
+    answer_choices: null
+    id: 916bcf1d-0331-4625-a086-fcd189814641
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_10
+    reference: ''
+  9259eae8-f897-4734-8807-83bce69f10f7: !Template
+    answer_choices: null
+    id: 9259eae8-f897-4734-8807-83bce69f10f7
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the English version? ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_23
+    reference: ''
+  98e2dba6-0117-43b9-a3f5-0aa392c80070: !Template
+    answer_choices: null
+    id: 98e2dba6-0117-43b9-a3f5-0aa392c80070
+    jinja: '{{text_2}}
+
+
+      Apa kalimat bahasa inggris dari kalimat diatas? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_1
+    reference: ''
+  9bc8729a-93a8-4020-b7a0-059e82ac83a9: !Template
+    answer_choices: null
+    id: 9bc8729a-93a8-4020-b7a0-059e82ac83a9
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_15
+    reference: ''
+  b58fc187-c6e5-4932-8630-616c9a058cca: !Template
+    answer_choices: null
+    id: b58fc187-c6e5-4932-8630-616c9a058cca
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_9
+    reference: ''
+  c15ffcbb-0d23-464f-ba5f-1c4839f52807: !Template
+    answer_choices: null
+    id: c15ffcbb-0d23-464f-ba5f-1c4839f52807
+    jinja: "Terjemahkan ke bahasa inggris: \n\n{{text_2}} ||| {{text_1}}\n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_6
+    reference: ''
+  dc9e5c63-79bd-49d7-9d30-92ed1eb0c1a5: !Template
+    answer_choices: null
+    id: dc9e5c63-79bd-49d7-9d30-92ed1eb0c1a5
+    jinja: 'Sentence: {{text_2}}
+
+      English: ||| {{text_1}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_25
+    reference: ''
+  f07e132c-b5ca-417a-9e2a-c34caffdea7b: !Template
+    answer_choices: null
+    id: f07e132c-b5ca-417a-9e2a-c34caffdea7b
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_12
+    reference: ''
+  f351fdd7-32c0-465d-9fb4-ed55fe23fcba: !Template
+    answer_choices: null
+    id: f351fdd7-32c0-465d-9fb4-ed55fe23fcba
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_16
+    reference: ''
+  f79eafe5-c681-47cf-9b6b-292358d5a38a: !Template
+    answer_choices: null
+    id: f79eafe5-c681-47cf-9b6b-292358d5a38a
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}\n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_en_id_prompt_template_17
+    reference: ''
+  f934bc17-0e12-43b6-b05d-ffc88e2d1b88: !Template
+    answer_choices: null
+    id: f934bc17-0e12-43b6-b05d-ffc88e2d1b88
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} \n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_en_id_prompt_template_11
+    reference: ''
