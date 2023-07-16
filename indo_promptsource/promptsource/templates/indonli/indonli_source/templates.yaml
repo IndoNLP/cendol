@@ -1,0 +1,70 @@
+dataset: indonli
+subset: indonli_source
+templates:
+  0e46aa87-6bae-4298-b8b1-1af4dd07499c: !Template
+    answer_choices: entailment|||kontradiksi|||netral
+    id: 0e46aa87-6bae-4298-b8b1-1af4dd07499c
+    jinja: 'Baca yang berikut dan tentukan apakah hipotesis dapat disimpulkan dari
+      premis.
+
+      Premis: {{premise}}
+
+      Hypothesis: {{hypothesis}}
+
+      Opsi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}|||{% if label == "e" %}{{answer_choices[0]}}{% elif
+      label == "c" %}{{answer_choices[1]}}{% else %}{{answer_choices[2]}}{% endif
+      %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: post_premise_hypo
+    reference: ''
+  7adfdc96-9581-4454-8a47-fc9dbde224ac: !Template
+    answer_choices: iya|||tidak|||netral
+    id: 7adfdc96-9581-4454-8a47-fc9dbde224ac
+    jinja: '{{premise}}
+
+      Berdasarkan paragraf di atas, apakah kita bisa menyimpulkan bahwa "{{hypothesis}}"?
+
+      Opsi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}|||{% if label == "e" %}{{answer_choices[0]}}{% elif
+      label == "c" %}{{answer_choices[1]}}{% else %}{{answer_choices[2]}}{% endif
+      %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: basic_zeroshot_nli
+    reference: ''
+  8d9558d8-cb0d-453b-a304-612e972a0d47: !Template
+    answer_choices: benar|||tidak meyakinkan|||salah
+    id: 8d9558d8-cb0d-453b-a304-612e972a0d47
+    jinja: '{{premise}} Berdasarkan informasi itu, apakah klaim "{{hypothesis}}" {{"benar"}},
+      {{"salah"}}, or {{"tidak meyakinkan"}}? |||{% if label == "e" %}{{answer_choices[0]}}{%
+      elif label == "c" %}{{answer_choices[2]}}{% else %}{{answer_choices[1]}}{% endif
+      %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true/false/inconclusive
+    reference: Sanh et al. 2021
