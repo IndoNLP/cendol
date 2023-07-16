@@ -1,0 +1,14 @@
+dataset: id_panl_bppt
+subset: id_panl_bppt_nusantara_t2t
+templates:
+  3b01df54-52ef-4d18-a17b-a11b326df02d: !Template
+    answer_choices: null
+    id: 3b01df54-52ef-4d18-a17b-a11b326df02d
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: id_panl_bppt_template_1
+    reference: ''
