@@ -247,7 +247,7 @@ templates:
 
       =====
 
-      What is the English version? ||| {{text_1}}'
+      What is the Javanese version? ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
