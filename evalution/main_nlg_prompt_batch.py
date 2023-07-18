@@ -281,4 +281,4 @@ if __name__ == '__main__':
                 metrics[k].append(eval_metric[k])
 
 
-    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'metric_dir/nlg_results_{prompt_lang}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
+    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'{metric_dir}/nlg_results_{prompt_lang}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
