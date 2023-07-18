@@ -121,7 +121,9 @@ if __name__ == '__main__':
 
     # TODO: reduce hardcoded vars
     out_dir = './outputs_nlg'
+    metric_dir = './metrics_nlg'
     os.makedirs(out_dir, exist_ok=True)
+    os.makedirs(metric_dir, exist_ok=True)
 
     prompt_lang = sys.argv[1]
     MODEL = sys.argv[2]
@@ -279,4 +281,4 @@ if __name__ == '__main__':
                 metrics[k].append(eval_metric[k])
 
 
-    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'{out_dir}/nlg_results_{prompt_lang}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)
+    pd.DataFrame.from_dict(metrics).reset_index().to_csv(f'metric_dir/nlg_results_{prompt_lang}_{N_SHOT}_{MODEL.split("/")[-1]}.csv', index=False)

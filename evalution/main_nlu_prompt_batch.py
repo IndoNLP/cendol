@@ -111,8 +111,10 @@ if __name__ == '__main__':
     if len(sys.argv) == 5:
         SAVE_EVERY = int(sys.argv[4])
 
-    os.makedirs('./outputs_nlu', exist_ok=True) 
-    os.makedirs('./metrics', exist_ok=True) 
+    out_dir = './outputs_nlu'
+    metric_dir = './metrics_nlu'
+    os.makedirs(out_dir, exist_ok=True) 
+    os.makedirs(metric_dir, exist_ok=True) 
 
     # Load Prompt
     TASK_TYPE_TO_PROMPT = get_prompt(prompt_lang)
@@ -139,7 +141,7 @@ if __name__ == '__main__':
     model.eval()
     torch.no_grad()
 
-    metrics = {}
+    metrics = []
     labels = []
     for i, dset_subset in enumerate(nlu_datasets.keys()):
         print(f'{i} {dset_subset}')
@@ -173,9 +175,9 @@ if __name__ == '__main__':
             inputs, preds, golds = [], [], []
             
             # Check saved data
-            if exists(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
+            if exists(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
                 print("Output exist, use partial log instead")
-                with open(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                with open(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
                         inputs.append(row["Input"])
@@ -217,7 +219,7 @@ if __name__ == '__main__':
                     if count == SAVE_EVERY:
                         # partial saving
                         inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-                        inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+                        inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
                         count = 0
                         
                 if len(prompts) > 0:
@@ -231,28 +233,31 @@ if __name__ == '__main__':
 
             # partial saving
             inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-            inference_df.to_csv(f'outputs_nlu/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
 
-        cls_report = classification_report(golds, preds, output_dict=True)
-        micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
-        print(dset_subset)
-        print('accuracy', cls_report['accuracy'])
-        print('f1 micro', micro_f1)
-        print('f1 macro', cls_report['macro avg']['f1-score'])
-        print('f1 weighted', cls_report['weighted avg']['f1-score'])
-        print("===\n\n")       
-        
-        metrics[dset_subset] = {
-            'accuracy': cls_report['accuracy'], 
-            'micro_prec': micro_prec,
-            'micro_rec': micro_rec,
-            'micro_f1_score': micro_f1,
-            'macro_prec': cls_report['macro avg']['precision'],
-            'macro_rec': cls_report['macro avg']['recall'],
-            'macro_f1_score': cls_report['macro avg']['f1-score'],
-            'weighted_prec': cls_report['weighted avg']['precision'],
-            'weighted_rec': cls_report['weighted avg']['recall'],
-            'weighted_f1_score': cls_report['weighted avg']['f1-score'],
-        }
+            cls_report = classification_report(golds, preds, output_dict=True)
+            micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
+            print(dset_subset)
+            print('accuracy', cls_report['accuracy'])
+            print('f1 micro', micro_f1)
+            print('f1 macro', cls_report['macro avg']['f1-score'])
+            print('f1 weighted', cls_report['weighted avg']['f1-score'])
+            print("===\n\n")       
 
-    pd.DataFrame.from_dict(metrics).T.reset_index().to_csv(f'metrics/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
+            metrics.append({
+                'dataset': dset_subset,
+                'prompt_id': prompt_id,
+                'prompt_lang': prompt_lang,
+                'accuracy': cls_report['accuracy'], 
+                'micro_prec': micro_prec,
+                'micro_rec': micro_rec,
+                'micro_f1_score': micro_f1,
+                'macro_prec': cls_report['macro avg']['precision'],
+                'macro_rec': cls_report['macro avg']['recall'],
+                'macro_f1_score': cls_report['macro avg']['f1-score'],
+                'weighted_prec': cls_report['weighted avg']['precision'],
+                'weighted_rec': cls_report['weighted avg']['recall'],
+                'weighted_f1_score': cls_report['weighted avg']['f1-score'],
+            })
+
+    pd.DataFrame(metrics).reset_index().to_csv(f'{metric_dir}/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)

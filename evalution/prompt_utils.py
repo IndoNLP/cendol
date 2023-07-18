@@ -80,7 +80,15 @@ TASK_TO_PROMPT = {
             'Text: [INPUT]\nHow would you summarize this text?',
             'Summarize this text: [INPUT]\nSummary:',
             '[INPUT]\nGiven the above document, write one sentence to summarize:',
-        ]
+        ],
+        # Tasks.DIALOGUE_SYSTEM
+        'DS': [
+            'Write a response to continue the following dialogue.\n[INPUT]\nResponse:',
+            '[INPUT]\n\nWrite an appropriate response to continue the conversation above.',
+            '[INPUT]\n\nHow would you response to the above dialogue?',
+            'Provide the response for this dialogue:\n[INPUT]\nResponse:',
+            '[INPUT]\nGiven the above conversation, write the response to continue the conversation:',
+        ],
     },
     'ind': {
         # Tasks.SENTIMENT_ANALYSIS
@@ -163,7 +171,15 @@ TASK_TO_PROMPT = {
             'Teks: [INPUT]\nApa ringkasan dari teks tersebut?',
             'Ringkaslah teks berikut: [INPUT]\nRingkasan:',
             '[INPUT]\nBerdasarkan dokumen di atas, tulis satu kalimat ringkasan:',
-        ]
+        ],
+        # Tasks.DIALOGUE_SYSTEM
+        'DS': [
+            'Tulis respon untuk melanjutkan dialog berikut.\n[INPUT]\nRespon:',
+            '[INPUT]\n\nTulis respon yang sesuai untuk melanjukan percakapan diatas.',
+            '[INPUT]\n\nBagaimana kamu merespon dialog diatas?',
+            'Berikan respon untuk dialog berikut:\n[INPUT]\nRespon:',
+            '[INPUT]\nDiberikan sebuah percakapan, tuliskan respon yang sesuai untuk melanjutkan percakapan tersebut:',
+        ],
     }
 }
 
