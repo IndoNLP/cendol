@@ -42,15 +42,14 @@ templates:
     answer_choices: negatif ||| netral ||| positif
     id: 0c882d58-2bf5-461e-a243-8380371d38e6
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
-      "ini"] |random%} {% set _mengandung = ["", "mengandung sentimen", "mengandung
-      emosi"] |random%} {% set _mengandung = ["", "mengandung sentimen", "mengandung
+      "ini"] |random%} {% set _mengandung = ["", " mengandung sentimen", " mengandung
       emosi"] |random%} {% set _choice = [ "positif, netral, atau negatif", "positif,
       negatif, atau netral", "negatif, netral, atau positif", "negatif, positif, atau
       netral", "netral, positif, atau negatif", "netral, negatif, atau positif", ]
       |random%} 
       {% set _bahasa = ["", " bahasa Madura", " berbahasa Madura"] |random%} 
-      apakah {{_kalimat}}{{_bahasa}} {{_berikut}} {{_mengandung}} {{_choice}}? {{text}}
-      ||| {{_kalimat}}{{_bahasa}} {{_berikut}} {{_mengandung}} {{answer_choices[label]}}'
+      apakah {{_kalimat}}{{_bahasa}} {{_berikut}}{{_mengandung}} {{_choice}}? {{text}}
+      ||| {{_kalimat}}{{_bahasa}} {{_berikut}}{{_mengandung}} {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
