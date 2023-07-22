@@ -1,35 +1,69 @@
 dataset: tydiqa_id
 subset: tydiqa_id_source
 templates:
-  30a1ae78-a58c-4605-8a5d-db5b7716681b: !Template
+  69db074f-452f-4067-93c2-7888de02ad28: !Template
     answer_choices: null
-    id: 30a1ae78-a58c-4605-8a5d-db5b7716681b
-    jinja: "{% set lang = id.split('-')[0] %}\n{% if lang == \"indonesian\" %}\nBerdasarkan\
-      \ paragraf di bawah ini:\n{{context}}\n\nApakah jawaban dari pertanyaan: \n\
-      {{question}}\n\nJawaban: ||| {{label}}\n{% endif %}"
+    id: 69db074f-452f-4067-93c2-7888de02ad28
+    jinja: "{{context}}\n\nJawablah pertanyaan berikut berdasarkan konteks yang diatas\n\
+      Pertanyaan: \"{{question}}\"\n\n||| \n{{ label }}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Squad
-      original_task: true
-    name: extract_answer
-    reference: Ask question with context
-  9dc84895-37bb-41b8-85dc-e3f82478eb85: !Template
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_1
+    reference: ''
+  a577b9a5-5a01-4cfe-9c00-29d11c8ed3b9: !Template
     answer_choices: null
-    id: 9dc84895-37bb-41b8-85dc-e3f82478eb85
-    jinja: 'Context: {{context}}
-
-      Q: {{question}}
-
-      A: |||{{label}}'
+    id: a577b9a5-5a01-4cfe-9c00-29d11c8ed3b9
+    jinja: "{{context}} Berdasarkan konteks tersebut, {{question}}\n\n||| \n{{ label\
+      \ }}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Squad
-      original_task: true
-    name: simple_context_question_answer
-    reference: Simple Q&A
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_2
+    reference: ''
+  e344cade-aa70-4dd4-9b3d-7ac63b00babc: !Template
+    answer_choices: null
+    id: e344cade-aa70-4dd4-9b3d-7ac63b00babc
+    jinja: "Berdasarkan konteks berikut\n\n{{context}}\n\nApa jawaban dari pertanyaan:\
+      \ \n\n{{question}}\n\n||| \n{{ label }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_3
+    reference: ''
+  f27d9dab-032a-4926-a075-7f89b66040b4: !Template
+    answer_choices: null
+    id: f27d9dab-032a-4926-a075-7f89b66040b4
+    jinja: "Jawab pertanyaan berikut berdasarkan konteks yang diberikan\nKonteks:\
+      \ {{context}};\nPertanyaan: {{question}};\n\n||| \n{{ label }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_4
+    reference: ''
+  f2c604e8-6490-4134-955f-5201f156018b: !Template
+    answer_choices: null
+    id: f2c604e8-6490-4134-955f-5201f156018b
+    jinja: 'Konteks: {{context}};
+
+      Apa jawaban dari {{question}} berdasarkan konteks diatas?
+
+
+      |||
+
+      {{ label }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_5
+    reference: ''

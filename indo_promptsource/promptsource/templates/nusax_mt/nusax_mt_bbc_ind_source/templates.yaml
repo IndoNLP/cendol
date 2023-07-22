@@ -1,0 +1,137 @@
+dataset: nusax_mt
+subset: nusax_mt_bbc_ind_source
+templates:
+  298c10b9-76ce-4a88-b36b-6b04c25ea37f: !Template
+    answer_choices: null
+    id: 298c10b9-76ce-4a88-b36b-6b04c25ea37f
+    jinja: 'Dapatkah Anda menerjemahkan teks toba batak berikut ke dalam Bahasa Indonesia?
+      {{text_1}}
+
+      |||
+
+      Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_2
+    reference: ''
+  3ed78d7d-d7ab-45cd-aaec-ca7ff6ab5fb3: !Template
+    answer_choices: null
+    id: 3ed78d7d-d7ab-45cd-aaec-ca7ff6ab5fb3
+    jinja: 'Translate ke bahasa toba batak {{text_2}}
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_9
+    reference: ''
+  9abda9ba-7ead-477b-865e-488930a1c146: !Template
+    answer_choices: null
+    id: 9abda9ba-7ead-477b-865e-488930a1c146
+    jinja: 'Coba terjemahkan paragraf ini ke Bahasa Toba Batak, {{text_2}}
+
+      |||
+
+      Terjemahannya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_7
+    reference: ''
+  aa98c592-fc29-4dc0-876f-c0951c4078f3: !Template
+    answer_choices: null
+    id: aa98c592-fc29-4dc0-876f-c0951c4078f3
+    jinja: 'Bahasa Toba Batak dari kalimat ini {{text_2}} apa?
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_6
+    reference: ''
+  cb99da22-c6a3-4791-a8ec-ab3c5fa79feb: !Template
+    answer_choices: null
+    id: cb99da22-c6a3-4791-a8ec-ab3c5fa79feb
+    jinja: "Apa Bahasa Indonesia dari kalimat berikut: {{text_1}} \n|||\n{{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_1
+    reference: ''
+  d0e7a8ae-dc60-412c-aadb-49ae69d14542: !Template
+    answer_choices: null
+    id: d0e7a8ae-dc60-412c-aadb-49ae69d14542
+    jinja: 'Translate Toba Batak ke bahasa indonesia {{text_1}}
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_8
+    reference: ''
+  d347e054-37b3-4093-a220-76c2f21365d8: !Template
+    answer_choices: null
+    id: d347e054-37b3-4093-a220-76c2f21365d8
+    jinja: 'Mohon bantu terjemahkan paragraf toba batak ini ke dalam Bahasa Indonesia.
+      {{text_1}}
+
+      |||
+
+      Terjemahannya: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_4
+    reference: ''
+  df1ebfd9-d01f-46ec-8d3c-e4f9607501a8: !Template
+    answer_choices: null
+    id: df1ebfd9-d01f-46ec-8d3c-e4f9607501a8
+    jinja: 'Tolong terjemahkan kalimat toba batak ini ke dalam Bahasa Indonesia: {{text_1}}
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_5
+    reference: ''
+  fdf082f6-ef5e-4eac-a5d9-c0140a7b31d3: !Template
+    answer_choices: null
+    id: fdf082f6-ef5e-4eac-a5d9-c0140a7b31d3
+    jinja: 'Apakah Anda bisa menerjemahkan kalimat toba batak ini menjadi Bahasa Indonesia?
+      {{text_1}}
+
+      |||
+
+      Terjemahan ke Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_bbc_ind_3
+    reference: ''

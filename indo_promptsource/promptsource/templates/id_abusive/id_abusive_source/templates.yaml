@@ -1,0 +1,52 @@
+dataset: id_abusive
+subset: id_abusive_source
+templates:
+  4dcca527-bda4-48a5-a14b-2a3a81101b02: !Template
+    answer_choices: null
+    id: 4dcca527-bda4-48a5-a14b-2a3a81101b02
+    jinja: 'Apakah kalimat {{tweet}} bersifat abusive?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: id_abusive_3
+    reference: ''
+  6eed6c3b-7f8c-498b-b922-00e414770395: !Template
+    answer_choices: null
+    id: 6eed6c3b-7f8c-498b-b922-00e414770395
+    jinja: '{{tweet}}
+
+      Apakah kalimat diatas mengandung unsur abusive atau tidak?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: id_abusive_2
+    reference: ''
+  707f561a-2a35-4c33-88c0-fbce20e70666: !Template
+    answer_choices: null
+    id: 707f561a-2a35-4c33-88c0-fbce20e70666
+    jinja: 'Tentukan apakah kalimat berikut terindikasi abusive dan offensif
+
+      Kalimat: {{tweet}}
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: id_abusive_1
+    reference: ''
