@@ -41,7 +41,7 @@ def to_prompt(input, prompt, labels, prompt_lang):
     # replace [OPTIONS] to A, B, or C
     if "[OPTIONS]" in prompt:
         new_labels = [f'{l}' for l in labels]
-        new_labels[-1] = ("or " if 'EN' in prompt_lang else  "atau ") + new_labels[-1] 
+        new_labels[-1] = ("or " if 'eng' in prompt_lang else  "atau ") + new_labels[-1] 
         if len(new_labels) > 2:
             prompt = prompt.replace('[OPTIONS]', ', '.join(new_labels))
         else:
