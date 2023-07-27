@@ -9,7 +9,7 @@ from data_utils import load_nlg_datasets
 
 import torch
 
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM, set_seed
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM, BloomTokenizerFast, set_seed
 from nusacrowd.utils.constants import Tasks
 
 from sacremoses import MosesTokenizer
@@ -147,16 +147,21 @@ if __name__ == '__main__':
 
     # Load Model
     tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left') if ("gpt" not in MODEL and "text" not in MODEL) else None
+    if isinstance(tokenizer, BloomTokenizerFast) and tokenizer.padding_side == 'right':
+        # this is quick fix for bloomz model (esp. bloomz-3b)
+        # among all bloomz model, only 3b version that has `padding_side='right'` params by default
+        tokenizer.padding_side = 'left'
+    
     if "gpt" in MODEL or "text" in MODEL:
         model = None
     elif 'mt0' in MODEL:
         if "xxl" in MODEL:
-            model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto")
+            model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", torch_dtype=torch.float16, resume_download=True)
         else:
-            model = AutoModelForSeq2SeqLM.from_pretrained(MODEL)
+            model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, resume_download=True)
             model = model.to('cuda')
     else:
-        model = AutoModelForCausalLM.from_pretrained(MODEL)
+        model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True)
         model = model.to('cuda')
     
     if model is not None:
