@@ -1,0 +1,121 @@
+dataset: ted_en_id
+subset: ted_en_id_nusantara_t2t
+templates:
+  054aec6e-2a30-4246-9e31-be8f837d0eca: !Template
+    answer_choices: null
+    id: 054aec6e-2a30-4246-9e31-be8f837d0eca
+    jinja: Translate ini ke Bahasa Indonesia? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 1
+    reference: ''
+  08c1acc7-b3d1-474f-8b24-66c39bf7ee70: !Template
+    answer_choices: null
+    id: 08c1acc7-b3d1-474f-8b24-66c39bf7ee70
+    jinja: '"Apakah Anda bisa menerjemahkan kalimat ini ke dalam Bahasa Indonesia?
+      {{text_1}} ||| Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 10
+    reference: ''
+  213fad5c-2ede-4a4b-8e00-1d397f61b3d1: !Template
+    answer_choices: null
+    id: 213fad5c-2ede-4a4b-8e00-1d397f61b3d1
+    jinja: 'Apa terjemahan Bahasa Indonesia dari: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 3
+    reference: ''
+  26b3abeb-c4bd-4e1e-a722-b55c37866680: !Template
+    answer_choices: null
+    id: 26b3abeb-c4bd-4e1e-a722-b55c37866680
+    jinja: 'Apa terjemahan Bahasa Indonesia dari kalimat berikut? {{text_1}} ||| Terjemahan
+      Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 6
+    reference: ''
+  2a57b5ac-3d49-412f-a084-db6894798ab1: !Template
+    answer_choices: null
+    id: 2a57b5ac-3d49-412f-a084-db6894798ab1
+    jinja: Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia? {{text_1}} |||
+      {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 4
+    reference: ''
+  7cc3b77e-4273-4741-99db-37d33de215b0: !Template
+    answer_choices: null
+    id: 7cc3b77e-4273-4741-99db-37d33de215b0
+    jinja: 'Tolong translate kalimat Bahasa Inggris ke dalam Bahasa Indonesia: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 2
+    reference: ''
+  816b8ad8-c8cb-4f5b-a05d-42ea9ed64ec5: !Template
+    answer_choices: null
+    id: 816b8ad8-c8cb-4f5b-a05d-42ea9ed64ec5
+    jinja: 'Tolong berikan terjemahan Bahasa Indonesia dari kalimat berikut: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 5
+    reference: ''
+  819374ba-92c5-40e2-83bc-e29593b0cbe3: !Template
+    answer_choices: null
+    id: 819374ba-92c5-40e2-83bc-e29593b0cbe3
+    jinja: 'Silakan terjemahkan kalimat berikut ke dalam Bahasa Indonesia: {{text_1}}
+      ||| Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 7
+    reference: ''
+  e232878d-f128-43d5-a3b6-4d049b96375a: !Template
+    answer_choices: null
+    id: e232878d-f128-43d5-a3b6-4d049b96375a
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia: {{text_1}} |||
+      Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 9
+    reference: ''
+  f187697c-46d5-4a6e-b8b5-d7ee15640889: !Template
+    answer_choices: null
+    id: f187697c-46d5-4a6e-b8b5-d7ee15640889
+    jinja: 'Bagaimana cara mengatakan kalimat berikut ini dalam Bahasa Indonesia?
+      {{text_1}} ||| Kalimat dalam Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: ted_en_id / ted_en_id_nusantara_t2t 8
+    reference: ''

@@ -1,0 +1,117 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_mad_nusantara_t2t
+templates:
+  39c327da-91db-4b2e-a584-8f4e78aa66a7: !Template
+    answer_choices: null
+    id: 39c327da-91db-4b2e-a584-8f4e78aa66a7
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Madura, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 7
+    reference: ''
+  6953f528-cd6e-4364-9bdd-99cbf6a8f2cc: !Template
+    answer_choices: null
+    id: 6953f528-cd6e-4364-9bdd-99cbf6a8f2cc
+    jinja: Bisa nggak terjemahin ke Bahasa Madura? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 10
+    reference: ''
+  8cf3e91d-cfc9-41b3-b7f4-a354d2183248: !Template
+    answer_choices: null
+    id: 8cf3e91d-cfc9-41b3-b7f4-a354d2183248
+    jinja: Bahasa Maduranya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 6
+    reference: ''
+  994dee00-33a5-475e-b03b-de2359b545d5: !Template
+    answer_choices: null
+    id: 994dee00-33a5-475e-b03b-de2359b545d5
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Madura? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 2
+    reference: ''
+  abb6795a-ed1f-41f8-9898-e33d35daf541: !Template
+    answer_choices: null
+    id: abb6795a-ed1f-41f8-9898-e33d35daf541
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Madura: {{text_1}} |||
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 5
+    reference: ''
+  c8ff48e1-386e-4808-9f55-0e1626cd98cf: !Template
+    answer_choices: null
+    id: c8ff48e1-386e-4808-9f55-0e1626cd98cf
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Madura? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 3
+    reference: ''
+  cae03f46-1129-424e-9ec4-7b2d81996871: !Template
+    answer_choices: null
+    id: cae03f46-1129-424e-9ec4-7b2d81996871
+    jinja: Translate ke Bahasa Madura {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 8
+    reference: ''
+  cd87072a-eda6-41a3-9f78-cffa517e1f4f: !Template
+    answer_choices: null
+    id: cd87072a-eda6-41a3-9f78-cffa517e1f4f
+    jinja: 'Apa Bahasa Madura: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 1
+    reference: ''
+  e7f74714-6e63-429e-94d5-59985dd65ae4: !Template
+    answer_choices: null
+    id: e7f74714-6e63-429e-94d5-59985dd65ae4
+    jinja: Terjemahkan ke Bahasa Madura {{text_1}} ||| {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 9
+    reference: ''
+  ebecc9e2-9e82-44b1-a743-ada5c2717e5e: !Template
+    answer_choices: null
+    id: ebecc9e2-9e82-44b1-a743-ada5c2717e5e
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Madura. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_mad_nusantara_t2t 4
+    reference: ''

@@ -1,0 +1,131 @@
+dataset: nusax_mt
+subset: nusax_mt_eng_ind_source
+templates:
+  008348a7-5709-4d83-80bd-0e68c52aff5d: !Template
+    answer_choices: null
+    id: 008348a7-5709-4d83-80bd-0e68c52aff5d
+    jinja: Apakah Anda dapat menerjemahkan kalimat ini ke dalam Bahasa Indonesia?
+      {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_4
+    reference: ''
+  144e98eb-c0c4-4377-889b-fc7005aa9fd1: !Template
+    answer_choices: null
+    id: 144e98eb-c0c4-4377-889b-fc7005aa9fd1
+    jinja: Apa terjemahan Bahasa Indonesia dari kalimat berikut? {{text_1}}  ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_6
+    reference: ''
+  261caef6-376b-4cdf-bd39-8c30183d643a: !Template
+    answer_choices: null
+    id: 261caef6-376b-4cdf-bd39-8c30183d643a
+    jinja: Dapatkah Anda menerjemahkan kalimat ini ke dalam Bahasa Indonesia? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_1
+    reference: ''
+  40927d62-c349-4376-8234-85687bab7ac4: !Template
+    answer_choices: null
+    id: 40927d62-c349-4376-8234-85687bab7ac4
+    jinja: '"Apakah Anda bisa menerjemahkan kalimat ini ke dalam Bahasa Indonesia?
+      {{text_1}} ||| {{text_2}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_10
+    reference: ''
+  701c6aa6-9712-4db1-a48e-dcd861515556: !Template
+    answer_choices: null
+    id: 701c6aa6-9712-4db1-a48e-dcd861515556
+    jinja: 'Mohon bantu terjemahkan kalimat berikut ke dalam Bahasa Indonesia: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_2
+    reference: ''
+  b8191ee4-6c34-4187-b18c-6b5ad95cc600: !Template
+    answer_choices: null
+    id: b8191ee4-6c34-4187-b18c-6b5ad95cc600
+    jinja: Bagaimana cara mengatakan kalimat berikut ini dalam Bahasa Indonesia? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_8
+    reference: ''
+  b98aa2c7-0742-47dd-a4a9-2c524dda2877: !Template
+    answer_choices: null
+    id: b98aa2c7-0742-47dd-a4a9-2c524dda2877
+    jinja: 'Silakan terjemahkan kalimat berikut ke dalam Bahasa Indonesia: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_7
+    reference: ''
+  db929460-3014-48fb-a931-af57e337d030: !Template
+    answer_choices: null
+    id: db929460-3014-48fb-a931-af57e337d030
+    jinja: 'Tolong berikan terjemahan Bahasa Indonesia dari kalimat berikut: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_5
+    reference: ''
+  eb18cf62-ab9f-4a82-9d36-4f00c46a1a01: !Template
+    answer_choices: null
+    id: eb18cf62-ab9f-4a82-9d36-4f00c46a1a01
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia: {{text_1}} |||
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_9
+    reference: ''
+  f63843ea-94a7-4412-81b2-0c137aeb0747: !Template
+    answer_choices: null
+    id: f63843ea-94a7-4412-81b2-0c137aeb0747
+    jinja: 'Saya ingin mengetahui terjemahan Bahasa Indonesia dari kalimat ini: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_eng_ind_source_3
+    reference: ''

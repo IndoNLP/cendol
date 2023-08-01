@@ -1,0 +1,116 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_ban_source
+templates:
+  08adbfe6-3790-43e7-a63a-b4f1124bc6b7: !Template
+    answer_choices: null
+    id: 08adbfe6-3790-43e7-a63a-b4f1124bc6b7
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Bali, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 7
+    reference: ''
+  205eca3e-e7ba-48b6-8b4c-346181bfab76: !Template
+    answer_choices: null
+    id: 205eca3e-e7ba-48b6-8b4c-346181bfab76
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Bali: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 5
+    reference: ''
+  332eae17-7f3e-4723-969d-ae473def1635: !Template
+    answer_choices: null
+    id: 332eae17-7f3e-4723-969d-ae473def1635
+    jinja: 'Apa Bahasa Bali dari: {{text_1}} ?  ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 1
+    reference: ''
+  3aa8f149-6d3f-481e-a40f-d46df11287c8: !Template
+    answer_choices: null
+    id: 3aa8f149-6d3f-481e-a40f-d46df11287c8
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Bali? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 2
+    reference: ''
+  42804034-a14d-4676-b48d-313ecf091167: !Template
+    answer_choices: null
+    id: 42804034-a14d-4676-b48d-313ecf091167
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Bali? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 3
+    reference: ''
+  457bfa23-f969-4e1b-8f9f-8a1d93de64f6: !Template
+    answer_choices: null
+    id: 457bfa23-f969-4e1b-8f9f-8a1d93de64f6
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Bali. {{text_1}} |||
+      {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 4
+    reference: ''
+  6e990bed-2ac9-4f61-9748-d85d9ce07d4b: !Template
+    answer_choices: null
+    id: 6e990bed-2ac9-4f61-9748-d85d9ce07d4b
+    jinja: 'Bahasa indo: {{text_1}} ||| bahasa bali: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 9
+    reference: ''
+  8be4a8b2-02f5-44e5-b9c6-aaf9bd61581b: !Template
+    answer_choices: null
+    id: 8be4a8b2-02f5-44e5-b9c6-aaf9bd61581b
+    jinja: Translate ke bahasa Bali {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 8
+    reference: ''
+  a900f397-6f48-4bba-814b-3d4b22f95f45: !Template
+    answer_choices: null
+    id: a900f397-6f48-4bba-814b-3d4b22f95f45
+    jinja: Bahasa Balinya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 6
+    reference: ''
+  c1cd54f4-a1aa-4bb5-ba08-e21ef5830758: !Template
+    answer_choices: null
+    id: c1cd54f4-a1aa-4bb5-ba08-e21ef5830758
+    jinja: Bisa nggak terjemahin ke bahasa Bali? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ban_source 10
+    reference: ''
