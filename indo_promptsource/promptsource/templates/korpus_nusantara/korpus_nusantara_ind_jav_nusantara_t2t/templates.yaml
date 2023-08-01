@@ -1,0 +1,403 @@
+dataset: korpus_nusantara
+subset: korpus_nusantara_ind_jav_nusantara_t2t
+templates:
+  080a8b2c-eb6c-459e-a84v-35939645f53u: !Template
+    answer_choices: null
+    id: 080a8b2c-eb6c-459e-a84v-35939645f53u
+    jinja: "Apa kalimat bahasa Jawa dari kalimat berikut ini? \n\n{{text_1}} ||| {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_2
+    reference: ''
+  187c17e5-a423-4f01-a66v-e2e9a9961d3u: !Template
+    answer_choices: null
+    id: 187c17e5-a423-4f01-a66v-e2e9a9961d3u
+    jinja: 'Sentence: {{text_2}}
+
+      Translated version in Indonesian: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_19
+    reference: ''
+  1f4bacd8-3abd-49f1-9f4v-c7ee869c859u: !Template
+    answer_choices: null
+    id: 1f4bacd8-3abd-49f1-9f4v-c7ee869c859u
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_13
+    reference: ''
+  240197db-69b5-424f-84av-0f535c05408u: !Template
+    answer_choices: null
+    id: 240197db-69b5-424f-84av-0f535c05408u
+    jinja: "Terjemahkan ke bahasa Jawa: \n\n{{text_1}} ||| {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_6
+    reference: ''
+  28730706-6b8f-4969-b80v-ad82f5dfa2au: !Template
+    answer_choices: null
+    id: 28730706-6b8f-4969-b80v-ad82f5dfa2au
+    jinja: 'Sentence: {{text_1}}
+
+      Please translate to Javanese ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_22
+    reference: ''
+  294f8d41-7158-4ca0-a6cv-f038d0afbc8u: !Template
+    answer_choices: null
+    id: 294f8d41-7158-4ca0-a6cv-f038d0afbc8u
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_18
+    reference: ''
+  2bc254c3-2491-427c-9b3v-d22485ea1a2u: !Template
+    answer_choices: null
+    id: 2bc254c3-2491-427c-9b3v-d22485ea1a2u
+    jinja: 'Indonesian: {{text_1}}
+
+      Javanese: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_21
+    reference: ''
+  313667cb-06e2-4fdb-8cav-c01ecb786b6u: !Template
+    answer_choices: null
+    id: 313667cb-06e2-4fdb-8cav-c01ecb786b6u
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_2}} |||\
+      \ {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_17
+    reference: ''
+  41dc7bd7-a0d0-4fd2-965v-3bd490e57adu: !Template
+    answer_choices: null
+    id: 41dc7bd7-a0d0-4fd2-965v-3bd490e57adu
+    jinja: 'Kalimat: {{text_1}}
+
+      Jawa: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_8
+    reference: ''
+  527f1d11-5461-446c-b99v-715b12a9b36u: !Template
+    answer_choices: null
+    id: 527f1d11-5461-446c-b99v-715b12a9b36u
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_12
+    reference: ''
+  550ea102-d4f4-4073-a3dv-27c15265bf7u: !Template
+    answer_choices: null
+    id: 550ea102-d4f4-4073-a3dv-27c15265bf7u
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Jawa: ||| {{text_2}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_7
+    reference: ''
+  63677e90-aa30-4e16-a51v-37dbb65c5b6u: !Template
+    answer_choices: null
+    id: 63677e90-aa30-4e16-a51v-37dbb65c5b6u
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Jawa nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_5
+    reference: ''
+  700a8ddb-58fd-4abd-915v-0ee775ff63eu: !Template
+    answer_choices: null
+    id: 700a8ddb-58fd-4abd-915v-0ee775ff63eu
+    jinja: 'Sentence: {{text_1}}
+
+      Javanese Translation: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_24
+    reference: ''
+  72dfee03-985c-4013-addv-bf41027ffacu: !Template
+    answer_choices: null
+    id: 72dfee03-985c-4013-addv-bf41027ffacu
+    jinja: 'Tolong translate ke bahasa Jawa: {{text_1}} |||  {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_3
+    reference: ''
+  77d68545-bda5-4c74-8bcv-87e7a34b617u: !Template
+    answer_choices: null
+    id: 77d68545-bda5-4c74-8bcv-87e7a34b617u
+    jinja: 'Sentence: {{text_2}}
+
+      Indonesian: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_20
+    reference: ''
+  798d78b3-ad94-4dfd-aabv-8c0df8429f6u: !Template
+    answer_choices: null
+    id: 798d78b3-ad94-4dfd-aabv-8c0df8429f6u
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Javanese version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_23
+    reference: ''
+  7f1a1b01-2830-4e54-8b9v-70bd81c2558u: !Template
+    answer_choices: null
+    id: 7f1a1b01-2830-4e54-8b9v-70bd81c2558u
+    jinja: '{{text_1}}
+
+
+      Apa kalimat bahasa Jawa dari kalimat diatas? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_1
+    reference: ''
+  7ff8e1cf-4871-44af-9a7v-6c7b9fb502du: !Template
+    answer_choices: null
+    id: 7ff8e1cf-4871-44af-9a7v-6c7b9fb502du
+    jinja: '{{text_2}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_10
+    reference: ''
+  839886ed-d49a-43dd-9dfv-b90b3a6f9aeu: !Template
+    answer_choices: null
+    id: 839886ed-d49a-43dd-9dfv-b90b3a6f9aeu
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_11
+    reference: ''
+  839fea60-61cf-447b-824v-b9da79bbf05u: !Template
+    answer_choices: null
+    id: 839fea60-61cf-447b-824v-b9da79bbf05u
+    jinja: 'Kalimat: {{text_2}}
+
+      Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_14
+    reference: ''
+  99eb5ea9-d789-4f27-bbbv-a6312002645u: !Template
+    answer_choices: null
+    id: 99eb5ea9-d789-4f27-bbbv-a6312002645u
+    jinja: 'Please translate to Indonesian: {{text_2}} ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_16
+    reference: ''
+  b5829943-7e29-4dd1-bdav-85137d3222eu: !Template
+    answer_choices: null
+    id: b5829943-7e29-4dd1-bdav-85137d3222eu
+    jinja: 'Jawa: {{text_2}}
+
+      Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_9
+    reference: ''
+  ed3ba42e-ab30-49ab-9dfv-c39ea69a65fu: !Template
+    answer_choices: null
+    id: ed3ba42e-ab30-49ab-9dfv-c39ea69a65fu
+    jinja: 'Sentence: {{text_1}}
+
+      Javanese: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_25
+    reference: ''
+  f8f53d3b-7aa1-4378-9c9v-6c3b86de015u: !Template
+    answer_choices: null
+    id: f8f53d3b-7aa1-4378-9c9v-6c3b86de015u
+    jinja: 'Kalimat: {{text_1}}
+
+      Tolong translate ke bahasa Jawa ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_4
+    reference: ''
+  ff7c3991-ce53-4711-90bv-ec86154977cu: !Template
+    answer_choices: null
+    id: ff7c3991-ce53-4711-90bv-ec86154977cu
+    jinja: 'Jawa: {{text_2}}
+
+      Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_jav_prompt_template_15
+    reference: ''

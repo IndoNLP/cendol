@@ -1,0 +1,404 @@
+dataset: indo_religious_mt_en_id
+subset: indo_religious_mt_en_id_nusantara_t2t
+templates:
+  0b1efecc-1363-401a-bee2-88b1eb6d25eb: !Template
+    answer_choices: null
+    id: 0b1efecc-1363-401a-bee2-88b1eb6d25eb
+    jinja: "Apa kalimat bahasa inggris dari kalimat berikut ini? \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_2
+    reference: ''
+  0deecb49-08cc-4a6q-80f5-7c8fc5da3a4f: !Template
+    answer_choices: null
+    id: 0deecb49-08cc-4a6q-80f5-7c8fc5da3a4f
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_9
+    reference: ''
+  10e2f552-3af6-462r-8901-9ee86feab37d: !Template
+    answer_choices: null
+    id: 10e2f552-3af6-462r-8901-9ee86feab37d
+    jinja: 'Sentence: {{text_2}}
+
+      English Translation: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_24
+    reference: ''
+  1ab93fdf-29dc-4a6z-bd18-93e3053d5ce5: !Template
+    answer_choices: null
+    id: 1ab93fdf-29dc-4a6z-bd18-93e3053d5ce5
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_19
+    reference: ''
+  1d26ad9b-bd15-45b5-bb65-be75f2404d09: !Template
+    answer_choices: null
+    id: 1d26ad9b-bd15-45b5-bb65-be75f2404d09
+    jinja: 'Tolong translate ke bahasa inggris: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_3
+    reference: ''
+  20276da5-a2ed-498w-af07-6bbf838bb3ff: !Template
+    answer_choices: null
+    id: 20276da5-a2ed-498w-af07-6bbf838bb3ff
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa inggris nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_5
+    reference: ''
+  2fae558d-bde5-41fp-b2fe-7781e3718401: !Template
+    answer_choices: null
+    id: 2fae558d-bde5-41fp-b2fe-7781e3718401
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa inggris ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_4
+    reference: ''
+  504807b3-f1fc-4bd3-9e20-ad93e03b7944: !Template
+    answer_choices: null
+    id: 504807b3-f1fc-4bd3-9e20-ad93e03b7944
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_11
+    reference: ''
+  71f8564f-73b8-4710-93d2-2592300e28af: !Template
+    answer_choices: null
+    id: 71f8564f-73b8-4710-93d2-2592300e28af
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_10
+    reference: ''
+  83268829-b3c2-4848-940f-592320e31496: !Template
+    answer_choices: null
+    id: 83268829-b3c2-4848-940f-592320e31496
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_18
+    reference: ''
+  84124239-2077-47fe-92bm-f72b3e7d82a7: !Template
+    answer_choices: null
+    id: 84124239-2077-47fe-92bm-f72b3e7d82a7
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_13
+    reference: ''
+  8717009d-f0dd-4224-963z-6f211fcfaff3: !Template
+    answer_choices: null
+    id: 8717009d-f0dd-4224-963z-6f211fcfaff3
+    jinja: '{{text_2}}
+
+
+      Apa kalimat bahasa inggris dari kalimat diatas? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_1
+    reference: ''
+  93870b04-59f1-485e-a4ch-35c48ad906bd: !Template
+    answer_choices: null
+    id: 93870b04-59f1-485e-a4ch-35c48ad906bd
+    jinja: 'Sentence: {{text_2}}
+
+      English: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_25
+    reference: ''
+  ab6bf853-d205-4947-984b-1bf4dbdc1e54: !Template
+    answer_choices: null
+    id: ab6bf853-d205-4947-984b-1bf4dbdc1e54
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_12
+    reference: ''
+  aeb43924-5172-4ae6-a21k-d5000fe08d5a: !Template
+    answer_choices: null
+    id: aeb43924-5172-4ae6-a21k-d5000fe08d5a
+    jinja: 'Kalimat: {{text_2}}
+
+      Inggris: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_8
+    reference: ''
+  af23c635-a9d6-4e5l-927b-fed891bd145b: !Template
+    answer_choices: null
+    id: af23c635-a9d6-4e5l-927b-fed891bd145b
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to English ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_22
+    reference: ''
+  b0d1fc50-cab5-42ex-94e2-9ec92f024739: !Template
+    answer_choices: null
+    id: b0d1fc50-cab5-42ex-94e2-9ec92f024739
+    jinja: 'Indonesian: {{text_2}}
+
+      English: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_21
+    reference: ''
+  b84e3fef-d4f1-4f4b-8f9s-2ebef9886b9f: !Template
+    answer_choices: null
+    id: b84e3fef-d4f1-4f4b-8f9s-2ebef9886b9f
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_14
+    reference: ''
+  ba443a1c-bb6f-4bd5-833k-b37e236e90b6: !Template
+    answer_choices: null
+    id: ba443a1c-bb6f-4bd5-833k-b37e236e90b6
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_17
+    reference: ''
+  ba9f89ce-f3a7-4dee-891g-893ab1076ad9: !Template
+    answer_choices: null
+    id: ba9f89ce-f3a7-4dee-891g-893ab1076ad9
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_15
+    reference: ''
+  dfd15359-3f8f-488c-9c06-6bd74fd88ee7: !Template
+    answer_choices: null
+    id: dfd15359-3f8f-488c-9c06-6bd74fd88ee7
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_20
+    reference: ''
+  e1c71f2c-f6d0-443j-8c8d-d194eecd38b5: !Template
+    answer_choices: null
+    id: e1c71f2c-f6d0-443j-8c8d-d194eecd38b5
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan inggris: ||| {{text_1}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_7
+    reference: ''
+  ec5362d2-eb57-4ce7-abd7-cf3b9fe80282: !Template
+    answer_choices: null
+    id: ec5362d2-eb57-4ce7-abd7-cf3b9fe80282
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the English version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_23
+    reference: ''
+  f15edf92-74c1-42ef-95ag-e2a0c7742ad8: !Template
+    answer_choices: null
+    id: f15edf92-74c1-42ef-95ag-e2a0c7742ad8
+    jinja: "Terjemahkan ke bahasa inggris: \n\n{{text_2}} ||| {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_6
+    reference: ''
+  f83f385a-2c1b-4216-96al-deaa9222b8bd: !Template
+    answer_choices: null
+    id: f83f385a-2c1b-4216-96al-deaa9222b8bd
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: indo_religious_mt_en_id_template_16
+    reference: ''

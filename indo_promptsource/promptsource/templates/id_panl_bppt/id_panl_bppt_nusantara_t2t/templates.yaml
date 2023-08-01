@@ -1,0 +1,398 @@
+dataset: id_panl_bppt
+subset: id_panl_bppt_nusantara_t2t
+templates:
+  02ed9702-5c34-49e7-bd93-f792892fe997: !Template
+    answer_choices: null
+    id: 02ed9702-5c34-49e7-bd93-f792892fe997
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_17
+    reference: ''
+  12bfb9c8-665c-40b7-995e-f4c86cdc9ed9: !Template
+    answer_choices: null
+    id: 12bfb9c8-665c-40b7-995e-f4c86cdc9ed9
+    jinja: 'Sentence: {{text_2}}
+
+      English Translation: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_24
+    reference: ''
+  2727db0a-53bb-477f-b1fb-5fcf23a2f09e: !Template
+    answer_choices: null
+    id: 2727db0a-53bb-477f-b1fb-5fcf23a2f09e
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_20
+    reference: ''
+  2bf22819-134d-4cec-97e2-d4ef6a3cef5c: !Template
+    answer_choices: null
+    id: 2bf22819-134d-4cec-97e2-d4ef6a3cef5c
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_15
+    reference: ''
+  33db2f6f-0af7-42ad-9d34-976b2c7fd9eb: !Template
+    answer_choices: null
+    id: 33db2f6f-0af7-42ad-9d34-976b2c7fd9eb
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the English version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_23
+    reference: ''
+  36840672-8970-465b-936b-52705618a618: !Template
+    answer_choices: null
+    id: 36840672-8970-465b-936b-52705618a618
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_19
+    reference: ''
+  3b01df54-52ef-4d18-a17b-a11b326df02d: !Template
+    answer_choices: null
+    id: 3b01df54-52ef-4d18-a17b-a11b326df02d
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: id_panl_bppt_template_1
+    reference: ''
+  45128a37-0dc3-4eb3-8ec7-d68e4662b618: !Template
+    answer_choices: null
+    id: 45128a37-0dc3-4eb3-8ec7-d68e4662b618
+    jinja: 'Indonesian: {{text_2}}
+
+      English: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_21
+    reference: ''
+  45e0fc15-56f6-40cf-af03-7142899571f3: !Template
+    answer_choices: null
+    id: 45e0fc15-56f6-40cf-af03-7142899571f3
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan inggris: ||| {{text_1}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_7
+    reference: ''
+  48dc5b39-f387-4f98-8a94-74c82d90b0c8: !Template
+    answer_choices: null
+    id: 48dc5b39-f387-4f98-8a94-74c82d90b0c8
+    jinja: "Apa kalimat bahasa inggris dari kalimat berikut ini? \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_2
+    reference: ''
+  4ad82ce7-8647-4501-903a-22491c7eff54: !Template
+    answer_choices: null
+    id: 4ad82ce7-8647-4501-903a-22491c7eff54
+    jinja: 'Sentence: {{text_2}}
+
+      English: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_25
+    reference: ''
+  4f081776-6b6c-4ed3-b37e-19d45257377d: !Template
+    answer_choices: null
+    id: 4f081776-6b6c-4ed3-b37e-19d45257377d
+    jinja: "Terjemahkan ke bahasa inggris: \n\n{{text_2}} ||| {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_6
+    reference: ''
+  5c6f119d-1027-4408-8025-bbad4d5e9eeb: !Template
+    answer_choices: null
+    id: 5c6f119d-1027-4408-8025-bbad4d5e9eeb
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_12
+    reference: ''
+  61b1b731-a520-455c-b4e3-14eaf8632705: !Template
+    answer_choices: null
+    id: 61b1b731-a520-455c-b4e3-14eaf8632705
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_16
+    reference: ''
+  655a9aef-1367-4e4e-89b9-524d56029194: !Template
+    answer_choices: null
+    id: 655a9aef-1367-4e4e-89b9-524d56029194
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_11
+    reference: ''
+  73a041a4-3aaf-4172-91ce-afc339544746: !Template
+    answer_choices: null
+    id: 73a041a4-3aaf-4172-91ce-afc339544746
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_13
+    reference: ''
+  7897ce94-2b76-4066-ad7b-ca781bc33b38: !Template
+    answer_choices: null
+    id: 7897ce94-2b76-4066-ad7b-ca781bc33b38
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_10
+    reference: ''
+  83bf01d1-e8a5-4ed5-8765-a0b67ec86b2e: !Template
+    answer_choices: null
+    id: 83bf01d1-e8a5-4ed5-8765-a0b67ec86b2e
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_18
+    reference: ''
+  a6941748-1f74-46bb-903e-57f20bc6ccf3: !Template
+    answer_choices: null
+    id: a6941748-1f74-46bb-903e-57f20bc6ccf3
+    jinja: 'Kalimat: {{text_2}}
+
+      Inggris: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_8
+    reference: ''
+  b1dd3a0f-8075-4d78-bca1-c3963bff6c39: !Template
+    answer_choices: null
+    id: b1dd3a0f-8075-4d78-bca1-c3963bff6c39
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa inggris ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_4
+    reference: ''
+  bbcfe253-a975-4688-8c90-bc09fee13360: !Template
+    answer_choices: null
+    id: bbcfe253-a975-4688-8c90-bc09fee13360
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to English ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_22
+    reference: ''
+  bd468671-ac37-48ad-be5f-1f41887f1462: !Template
+    answer_choices: null
+    id: bd468671-ac37-48ad-be5f-1f41887f1462
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_9
+    reference: ''
+  c44dd88f-7740-4a33-9982-fdb51768c425: !Template
+    answer_choices: null
+    id: c44dd88f-7740-4a33-9982-fdb51768c425
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa inggris nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_5
+    reference: ''
+  f604acc3-7971-453d-9cab-be858d3c77c3: !Template
+    answer_choices: null
+    id: f604acc3-7971-453d-9cab-be858d3c77c3
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_14
+    reference: ''
+  fc531636-9ad5-44b6-b6db-f846532c3e51: !Template
+    answer_choices: null
+    id: fc531636-9ad5-44b6-b6db-f846532c3e51
+    jinja: 'Tolong translate ke bahasa inggris: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: id_panl_bppt_template_3
+    reference: ''
