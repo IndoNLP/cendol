@@ -9,6 +9,7 @@ from data_utils import load_nlg_datasets
 
 import torch
 
+from peft import PeftModel
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM, BloomTokenizerFast, set_seed
 from nusacrowd.utils.constants import Tasks
 
@@ -130,6 +131,9 @@ if __name__ == '__main__':
     N_SHOT = int(sys.argv[3])
     N_BATCH = int(sys.argv[4])
     SAVE_EVERY = 10
+    ADAPTER = ''
+    if 'bactrian' in MODEL:
+        MODEL, ADAPTER = MODEL.split('---')
 
     # Load prompt
     prompt_templates = get_prompt(prompt_lang)
@@ -152,7 +156,11 @@ if __name__ == '__main__':
         # among all bloomz model, only 3b version that has `padding_side='right'` params by default
         tokenizer.padding_side = 'left'
     
-    if "gpt" in MODEL or "text" in MODEL:
+    if ADAPTER != '':
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
+        model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
+        MODEL = ADAPTER # for file naming
+    elif "gpt" in MODEL or "text" in MODEL:
         model = None
     elif 'mt0' in MODEL:
         if "xxl" in MODEL:

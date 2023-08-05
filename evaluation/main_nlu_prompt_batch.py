@@ -17,6 +17,7 @@ from sklearn.metrics import classification_report, precision_recall_fscore_suppo
 import torch
 import torch.nn.functional as F
 
+from peft import PeftModel
 from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, AutoModelForCausalLM, set_seed
 from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
@@ -106,7 +107,10 @@ if __name__ == '__main__':
     prompt_lang = sys.argv[1]
     MODEL = sys.argv[2]
     BATCH_SIZE = int(sys.argv[3])
-    
+    ADAPTER = ''
+    if 'bactrian' in MODEL:
+        MODEL, ADAPTER = MODEL.split('---')
+
     SAVE_EVERY = 10
     if len(sys.argv) == 5:
         SAVE_EVERY = int(sys.argv[4])
@@ -132,7 +136,11 @@ if __name__ == '__main__':
 
     # Load Model
     tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', padding_side='right')
-    if "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL:
+    if ADAPTER != "":
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
+        model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
+        MODEL = ADAPTER # for file naming
+    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL:
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
     else:
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
