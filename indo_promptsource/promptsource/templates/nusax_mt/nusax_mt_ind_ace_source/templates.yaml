@@ -1,0 +1,116 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_ace_source
+templates:
+  20ff7f16-6982-4e7d-b584-93a2f5e64015: !Template
+    answer_choices: null
+    id: 20ff7f16-6982-4e7d-b584-93a2f5e64015
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Aceh, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 7
+    reference: ''
+  251f5c55-352b-4af3-bcc6-b30e88f76118: !Template
+    answer_choices: null
+    id: 251f5c55-352b-4af3-bcc6-b30e88f76118
+    jinja: Translate ke bahasa Aceh {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 8
+    reference: ''
+  5957d3b1-8103-467a-92ce-db73709ab3f5: !Template
+    answer_choices: null
+    id: 5957d3b1-8103-467a-92ce-db73709ab3f5
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Aceh? {{text_1}}  |||
+      {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 3
+    reference: ''
+  5fb52ea3-3248-4fb3-9713-315747ae916c: !Template
+    answer_choices: null
+    id: 5fb52ea3-3248-4fb3-9713-315747ae916c
+    jinja: Translate ke Aceh {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 9
+    reference: ''
+  752c71c0-2287-49c5-8f24-33412a22027a: !Template
+    answer_choices: null
+    id: 752c71c0-2287-49c5-8f24-33412a22027a
+    jinja: 'Apa Bahasa Aceh dari: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 1
+    reference: ''
+  79df8f4d-520e-4d45-85bf-efac3cbcc430: !Template
+    answer_choices: null
+    id: 79df8f4d-520e-4d45-85bf-efac3cbcc430
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Aceh: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 5
+    reference: ''
+  7c7a1d63-2773-468e-a805-b69e33e99427: !Template
+    answer_choices: null
+    id: 7c7a1d63-2773-468e-a805-b69e33e99427
+    jinja: Bahasa Acehnya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 6
+    reference: ''
+  7ef15302-3f8a-4482-845f-eed733619c7a: !Template
+    answer_choices: null
+    id: 7ef15302-3f8a-4482-845f-eed733619c7a
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Aceh? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 2
+    reference: ''
+  a5cf0478-03ab-43e6-baea-6472d661fd78: !Template
+    answer_choices: null
+    id: a5cf0478-03ab-43e6-baea-6472d661fd78
+    jinja: Bisa nggak terjemahin ke bahasa Aceh? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 10
+    reference: ''
+  de6ccc24-0b00-45f5-b29f-f129506065ba: !Template
+    answer_choices: null
+    id: de6ccc24-0b00-45f5-b29f-f129506065ba
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Aceh. {{text_1}} |||
+      {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_source 4
+    reference: ''

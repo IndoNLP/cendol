@@ -1,0 +1,116 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_bug_nusantara_t2t
+templates:
+  0374b11d-6086-45e5-a8c2-c14b0bfeaa53: !Template
+    answer_choices: null
+    id: 0374b11d-6086-45e5-a8c2-c14b0bfeaa53
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Bugis, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 7
+    reference: ''
+  0b428328-cf76-4deb-a351-f865d35e63ff: !Template
+    answer_choices: null
+    id: 0b428328-cf76-4deb-a351-f865d35e63ff
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Bugis? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 2
+    reference: ''
+  2b2fb1c7-f693-4f88-9367-33e4ba4f322e: !Template
+    answer_choices: null
+    id: 2b2fb1c7-f693-4f88-9367-33e4ba4f322e
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Bugis. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 4
+    reference: ''
+  309bcc93-1af3-497d-856f-f2b32dd473e7: !Template
+    answer_choices: null
+    id: 309bcc93-1af3-497d-856f-f2b32dd473e7
+    jinja: Bisa nggak terjemahin ke bahasa bugis? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 10
+    reference: ''
+  4ffeb857-95bc-4efe-b14d-2aa01a1ffac4: !Template
+    answer_choices: null
+    id: 4ffeb857-95bc-4efe-b14d-2aa01a1ffac4
+    jinja: Translate ke bahasa Bugis {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 8
+    reference: ''
+  5488784d-2e64-4f39-9016-d68394a1a128: !Template
+    answer_choices: null
+    id: 5488784d-2e64-4f39-9016-d68394a1a128
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Bugis: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 5
+    reference: ''
+  612839d3-55d5-4f41-80ea-738f5c5f6e3c: !Template
+    answer_choices: null
+    id: 612839d3-55d5-4f41-80ea-738f5c5f6e3c
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Bugis? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 3
+    reference: ''
+  ab8044d3-933b-479e-b7dd-90e8cff56132: !Template
+    answer_choices: null
+    id: ab8044d3-933b-479e-b7dd-90e8cff56132
+    jinja: Terjemahin ke bahasa bugis {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 9
+    reference: ''
+  c0da886f-7394-442d-9cfc-58a2d12ac875: !Template
+    answer_choices: null
+    id: c0da886f-7394-442d-9cfc-58a2d12ac875
+    jinja: Bahasa Bugisnya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 6
+    reference: ''
+  cc279496-b4f2-4ff1-9e36-8a0fca338d9d: !Template
+    answer_choices: null
+    id: cc279496-b4f2-4ff1-9e36-8a0fca338d9d
+    jinja: 'Apa Bahasa Bugis: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bug_nusantara_t2t 1
+    reference: ''
