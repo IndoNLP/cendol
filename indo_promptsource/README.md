@@ -20,7 +20,7 @@ pip install -r requirements.txt
 ```
 2. Install nusacrowd
 ```
-pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
+pip install nusacrowd
 ```
 3. Ensure you are in the `indo_promptsource` directory
 4. Run streamlit
