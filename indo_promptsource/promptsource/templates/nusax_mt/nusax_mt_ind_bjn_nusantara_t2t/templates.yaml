@@ -1,0 +1,117 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_bjn_nusantara_t2t
+templates:
+  0ac3e258-a24f-4102-a570-7492280045e9: !Template
+    answer_choices: null
+    id: 0ac3e258-a24f-4102-a570-7492280045e9
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Banjar: {{text_1}} |||
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 5
+    reference: ''
+  16f61c31-e347-4c0c-ad6b-ae35fd95ae61: !Template
+    answer_choices: null
+    id: 16f61c31-e347-4c0c-ad6b-ae35fd95ae61
+    jinja: Terjemahkan ke bahasa banjar {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 9
+    reference: ''
+  68fd3b0e-d873-401e-bf7d-e39c1fb924a2: !Template
+    answer_choices: null
+    id: 68fd3b0e-d873-401e-bf7d-e39c1fb924a2
+    jinja: Bahasa Indonesianya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 6
+    reference: ''
+  6ed79e5f-d2fc-4a31-9227-5036d01312ae: !Template
+    answer_choices: null
+    id: 6ed79e5f-d2fc-4a31-9227-5036d01312ae
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Banjar? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 3
+    reference: ''
+  8773098c-f6b6-4ee0-ac51-5dcbb042d120: !Template
+    answer_choices: null
+    id: 8773098c-f6b6-4ee0-ac51-5dcbb042d120
+    jinja: Translate ke bahasa banjar {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 8
+    reference: ''
+  9092b4f4-38cf-40a6-894e-074a56048932: !Template
+    answer_choices: null
+    id: 9092b4f4-38cf-40a6-894e-074a56048932
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Banjar. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 4
+    reference: ''
+  a937b5e8-428d-49c6-9907-744b72221b6d: !Template
+    answer_choices: null
+    id: a937b5e8-428d-49c6-9907-744b72221b6d
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Banjar, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 7
+    reference: ''
+  b047be18-e21b-43b7-812a-da14c74e21cd: !Template
+    answer_choices: null
+    id: b047be18-e21b-43b7-812a-da14c74e21cd
+    jinja: 'Apa Bahasa Banjar: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 1
+    reference: ''
+  cae3d86f-5b00-4a5b-89f0-638bbcb9743b: !Template
+    answer_choices: null
+    id: cae3d86f-5b00-4a5b-89f0-638bbcb9743b
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Banjar? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 2
+    reference: ''
+  cdf2be0b-91ea-421e-a302-1f31641f5825: !Template
+    answer_choices: null
+    id: cdf2be0b-91ea-421e-a302-1f31641f5825
+    jinja: Bisa nggak terjemahin ke bahasa banjar? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_nusantara_t2t 10
+    reference: ''

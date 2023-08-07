@@ -48,22 +48,6 @@ templates:
       original_task: true
     name: id_panl_bppt_template_20
     reference: ''
-  2bf22819-134d-4cec-97e2-d4ef6a3cef5c: !Template
-    answer_choices: null
-    id: 2bf22819-134d-4cec-97e2-d4ef6a3cef5c
-    jinja: 'English: {{text_1}}
-
-      Indonesia: ||| {{text_2}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - en
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: id_panl_bppt_template_15
-    reference: ''
   33db2f6f-0af7-42ad-9d34-976b2c7fd9eb: !Template
     answer_choices: null
     id: 33db2f6f-0af7-42ad-9d34-976b2c7fd9eb
@@ -97,17 +81,6 @@ templates:
       - BLEU
       original_task: true
     name: id_panl_bppt_template_19
-    reference: ''
-  3b01df54-52ef-4d18-a17b-a11b326df02d: !Template
-    answer_choices: null
-    id: 3b01df54-52ef-4d18-a17b-a11b326df02d
-    jinja: ''
-    metadata: !TemplateMetadata
-      choices_in_prompt: null
-      languages: null
-      metrics: null
-      original_task: null
-    name: id_panl_bppt_template_1
     reference: ''
   45128a37-0dc3-4eb3-8ec7-d68e4662b618: !Template
     answer_choices: null

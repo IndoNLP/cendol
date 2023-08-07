@@ -1,0 +1,14 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_bug_source
+templates:
+  7fddc8da-cd54-4702-ad8b-9fa5cd04c9f6: !Template
+    answer_choices: null
+    id: 7fddc8da-cd54-4702-ad8b-9fa5cd04c9f6
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: nusax_mt / nusax_mt_ind_bug_source 1
+    reference: ''

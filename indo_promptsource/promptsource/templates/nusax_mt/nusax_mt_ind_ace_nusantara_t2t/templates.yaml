@@ -1,0 +1,118 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_ace_nusantara_t2t
+templates:
+  00e2cc09-287a-4810-bc0a-02bb0e963677: !Template
+    answer_choices: null
+    id: 00e2cc09-287a-4810-bc0a-02bb0e963677
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Aceh? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 2
+    reference: ''
+  123c854f-25e2-47be-befc-f30147667bb1: !Template
+    answer_choices: null
+    id: 123c854f-25e2-47be-befc-f30147667bb1
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Aceh. {{text_1}} |||
+      {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 4
+    reference: ''
+  13e94350-3e94-43a7-9d3a-c5f7536ac58c: !Template
+    answer_choices: null
+    id: 13e94350-3e94-43a7-9d3a-c5f7536ac58c
+    jinja: 'Apa Bahasa Aceh dari: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 1
+    reference: ''
+  4397cd04-92e1-4459-ab4c-0e8d09d82caa: !Template
+    answer_choices: null
+    id: 4397cd04-92e1-4459-ab4c-0e8d09d82caa
+    jinja: Bahasa Acehnya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 6
+    reference: ''
+  7364ec87-46db-4472-8123-378060ee3865: !Template
+    answer_choices: null
+    id: 7364ec87-46db-4472-8123-378060ee3865
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Aceh, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 7
+    reference: ''
+  7ae6e2df-ffb5-4847-bcc1-552331e1b7b4: !Template
+    answer_choices: null
+    id: 7ae6e2df-ffb5-4847-bcc1-552331e1b7b4
+    jinja: Translate ke bahasa Aceh {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 8
+    reference: ''
+  a2bc1bc0-2ead-4c40-9eb0-c88e0aa0d63d: !Template
+    answer_choices: null
+    id: a2bc1bc0-2ead-4c40-9eb0-c88e0aa0d63d
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Aceh: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 5
+    reference: ''
+  a6719e30-19e8-477e-82d9-3e364b15a87b: !Template
+    answer_choices: null
+    id: a6719e30-19e8-477e-82d9-3e364b15a87b
+    jinja: Bisa nggak terjemahin ke bahasa Aceh? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 10
+    reference: ''
+  a748df3a-63ba-4666-932b-c0a54367e982: !Template
+    answer_choices: null
+    id: a748df3a-63ba-4666-932b-c0a54367e982
+    jinja: Translate ke Aceh {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 9
+    reference: ''
+  cd001a80-0664-4a18-9f66-fd8dc1a54d09: !Template
+    answer_choices: null
+    id: cd001a80-0664-4a18-9f66-fd8dc1a54d09
+    jinja: '"Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Aceh? {{text_1}}  |||
+      {{text_2}}
+
+      "'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_ace_nusantara_t2t 3
+    reference: ''

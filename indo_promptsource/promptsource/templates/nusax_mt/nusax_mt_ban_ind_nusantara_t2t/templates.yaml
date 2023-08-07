@@ -1,0 +1,117 @@
+dataset: nusax_mt
+subset: nusax_mt_ban_ind_nusantara_t2t
+templates:
+  134a19f3-4be3-41a2-9066-0406b9c6acf3: !Template
+    answer_choices: null
+    id: 134a19f3-4be3-41a2-9066-0406b9c6acf3
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Indonesia, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 7
+    reference: ''
+  1f521094-bf3e-43b8-9274-c5688b0c8587: !Template
+    answer_choices: null
+    id: 1f521094-bf3e-43b8-9274-c5688b0c8587
+    jinja: Translate ke bahasa indonesia {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 8
+    reference: ''
+  2a108f07-5e7e-4975-96a7-dbe8332192f3: !Template
+    answer_choices: null
+    id: 2a108f07-5e7e-4975-96a7-dbe8332192f3
+    jinja: 'Apa Bahasa Indonesia: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 1
+    reference: ''
+  40fefb16-7b27-4bd2-a4aa-0a5daeb59bd7: !Template
+    answer_choices: null
+    id: 40fefb16-7b27-4bd2-a4aa-0a5daeb59bd7
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Indonesia? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 3
+    reference: ''
+  6035264c-0bfa-4159-b06a-d40c5008d766: !Template
+    answer_choices: null
+    id: 6035264c-0bfa-4159-b06a-d40c5008d766
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Indonesia? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 2
+    reference: ''
+  9593f649-9ba1-43f2-b9ef-3e4b62de284d: !Template
+    answer_choices: null
+    id: 9593f649-9ba1-43f2-b9ef-3e4b62de284d
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia: {{text_1}} |||
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 5
+    reference: ''
+  95b8db89-abfe-4f2b-b937-5941fbf3e09c: !Template
+    answer_choices: null
+    id: 95b8db89-abfe-4f2b-b937-5941fbf3e09c
+    jinja: Translate ke bahasa indo {{text_1}} ||| {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 9
+    reference: ''
+  a4ef158e-c75f-4202-9999-8b5e25d7ee84: !Template
+    answer_choices: null
+    id: a4ef158e-c75f-4202-9999-8b5e25d7ee84
+    jinja: Bahasa Indonesianya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 6
+    reference: ''
+  a72ddf81-bee7-4b92-8258-73f05d9bdf02: !Template
+    answer_choices: null
+    id: a72ddf81-bee7-4b92-8258-73f05d9bdf02
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Indonesia. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 4
+    reference: ''
+  d80003b6-5779-401c-8737-81e833b12dd9: !Template
+    answer_choices: null
+    id: d80003b6-5779-401c-8737-81e833b12dd9
+    jinja: Bisa nggak terjemahin ke bahasa indo? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ban_ind_nusantara_t2t 10
+    reference: ''

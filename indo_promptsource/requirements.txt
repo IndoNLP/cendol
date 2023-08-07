@@ -1,7 +1,8 @@
 # with given reqs, there might be a conflict/error that uses "black" module
-# nusacrowd asked for >=8.0
-# while streamlit forces the ver <1.4.0 to work
+# nusacrowd asked for click>=8.0
+# while streamlit forces the ver click<1.4.0 to work
 # (hence incompatible version of 'black')
+# setuptools==45
 nusacrowd
 datasets>=1.7.0
 flake8

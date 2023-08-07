@@ -17,9 +17,9 @@ templates:
       original_task: true
     name: simple_translation_2
     reference: ''
-  036dfb66-a880-4e7f-956c-5522b4f395be: !Template
+  a249844f-b6b5-40b1-bc49-8d50af722abc: !Template
     answer_choices: null
-    id: 036dfb66-a880-4e7f-956c-5522b4f395be
+    id: a249844f-b6b5-40b1-bc49-8d50af722abc
     jinja: '"{{text_2}}" dalam bahasa Indonesia: |||{{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -76,9 +76,9 @@ templates:
       original_task: true
     name: teks_di_atas
     reference: ''
-  2efda41c-25a7-4db6-bb40-b78af9809edh: !Template
+  b1d376ad-a8b2-4526-a2c8-4bafc1062fae: !Template
     answer_choices: null
-    id: 2efda41c-25a7-4db6-bb40-b78af9809edh
+    id: b1d376ad-a8b2-4526-a2c8-4bafc1062fae
     jinja: Apa itu "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -119,9 +119,9 @@ templates:
       original_task: true
     name: translate_to
     reference: ''
-  436bd474-57c9-412a-897c-b1e638aea32g: !Template
+  dac25ba1-248f-437f-99b9-a9ac9d7d6f18: !Template
     answer_choices: null
-    id: 436bd474-57c9-412a-897c-b1e638aea32g
+    id: dac25ba1-248f-437f-99b9-a9ac9d7d6f18
     jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_2}}|||Madura'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -132,9 +132,9 @@ templates:
       original_task: false
     name: identifikasi_bahasa_2
     reference: ''
-  5025b842-758e-4a83-8e86-9368296e94af: !Template
+  e09185fb-ed66-4a37-ba8b-4ae8b5570b51: !Template
     answer_choices: null
-    id: 5025b842-758e-4a83-8e86-9368296e94af
+    id: e09185fb-ed66-4a37-ba8b-4ae8b5570b51
     jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_1}}"?|||Indonesia'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -145,9 +145,9 @@ templates:
       original_task: false
     name: apa_bahasa
     reference: ''
-  59c14e12-a726-4ddf-8c5b-22b5bc6b654f: !Template
+  151c322a-5956-48b5-862f-01c419124e4f: !Template
     answer_choices: null
-    id: 59c14e12-a726-4ddf-8c5b-22b5bc6b654f
+    id: 151c322a-5956-48b5-862f-01c419124e4f
     jinja: Apa itu "{{text_1}}" dalam bahasa Indonesia?|||{{text_2}}
     metadata: !TemplateMetadata
       choices_in_prompt: false

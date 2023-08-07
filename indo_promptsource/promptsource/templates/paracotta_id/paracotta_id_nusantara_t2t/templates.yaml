@@ -1,0 +1,135 @@
+dataset: paracotta_id
+subset: paracotta_id_nusantara_t2t
+templates:
+  1e42503f-c24c-40a2-ae52-0e4f74afb53c: !Template
+    answer_choices: null
+    id: 1e42503f-c24c-40a2-ae52-0e4f74afb53c
+    jinja: '{% set _parafrase = ["buat alternatif", "buatkan alternatif", "parafrase",
+      "parafrasekan", "paraphrase"] |random%} {% set _kalimat = ["kalimat", "teks"]
+      |random%} Bisa {{_parafrase}} {{_kalimat}} ini nggak "{{text_2}}"? ||| Bisa,
+      ini hasilnya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_6
+    reference: ''
+  3b7964f8-0efd-4001-9171-65038d8cdc04: !Template
+    answer_choices: null
+    id: 3b7964f8-0efd-4001-9171-65038d8cdc04
+    jinja: '{% set _tolong = ["", "Tolong ", "Silahkan ", "Coba "] |random%}  {% set
+      _parafrase = ["buat alternatif", "buatkan alternatif", "parafrase", "parafrasekan",
+      "paraphrase"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%}
+      {% set _baik = ["Baik", "Ok"] |random%} {% set _berikut = ["berikut", "ini"]
+      |random%} {{_tolong}}{{_parafrase}} {{_kalimat}} berikut: {{text_1}} ||| {{_baik}},
+      {{_berikut}} hasilnya: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_1
+    reference: ''
+  4ec4b702-a602-46f4-92c4-e489cb6e503e: !Template
+    answer_choices: null
+    id: 4ec4b702-a602-46f4-92c4-e489cb6e503e
+    jinja: '{% set _tolong = ["", "Tolong ", "Silahkan ", "Coba "] |random%} {% set _mirip
+      = ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "mirip",
+      "kurang lebih sama", "hampir sama", "senada", "sepadan" , "bernada serupa",
+      "artinya serupa", "bermakna serupa"] |random%} {% set _kalimat = ["kalimat", "teks"] 
+      |random%} {% set _berikan = ["kasih", "berikan", "buat alternatif",
+      "buatkan alternatif", "berikan contoh", "berikan satu contoh", "kasih contoh", "kasih satu contoh"] |random%} {% set _dong = ["", "dong!", "ya"] |random%}
+      {% set _berikut = ["berikut", "ini"] |random%} {% set _baik = ["Baik", "Ok"]
+      |random%} {{_tolong}}{{_berikan}} {{_kalimat}} yang {{_mirip}} dengan {{_kalimat}}
+      {{_berikut}} {{_dong}}: {{text_1}} ||| {{_baik}}, {{_berikut}} hasilnya: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_3
+    reference: ''
+  ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096: !Template
+    answer_choices: null
+    id: ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096
+    jinja: '{% set _parafrase = ["buat alternatif", "buatkan alternatif", "parafrase",
+      "parafrasekan", "paraphrase"] |random%} {% set _kalimat = ["kalimat", "teks"]
+      |random%} Bisa {{_parafrase}} {{_kalimat}} ini nggak "{{text_1}}"? ||| Bisa,
+      ini hasilnya: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_5
+    reference: ''
+  baed8301-b16d-4d98-98d8-1ed3dea28c2c: !Template
+    answer_choices: null
+    id: baed8301-b16d-4d98-98d8-1ed3dea28c2c
+    jinja: '{% set _tolong = ["", "Tolong ", "Silahkan ", "Coba "] |random%} {% set _mirip
+      = ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "mirip",
+      "kurang lebih sama", "hampir sama", "senada", "sepadan" , "bernada serupa",
+      "artinya serupa", "bermakna serupa"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikan = ["kasih", "berikan", "buat alternatif",
+      "buatkan alternatif", "berikan contoh", "berikan satu contoh", "kasih contoh", "kasih satu contoh"] |random%} {% set _dong = ["", " dong!", " ya"] |random%}
+      {% set _baik = ["Baik", "Ok"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {{_tolong}}{{_berikan}} {{_kalimat}}
+      yang {{_mirip}} dengan {{_kalimat}} {{_berikut}}{{_dong}}: {{text_2}} ||| {{_baik}},
+      {{_berikut}} hasilnya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_4
+    reference: ''
+  c88d98c8-3401-45c4-b3a9-59cb0a2ddf5e: !Template
+    answer_choices: null
+    id: c88d98c8-3401-45c4-b3a9-59cb0a2ddf5e
+    jinja: '{% set _saya = ["", "Saya ", "Aku "] |random%} {% set _tolong = ["", "tolong ",
+      "coba "] |random%} {% set _bisa = ["bisa", "boleh"] |random%} {% set _mirip =
+      ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "mirip",
+      "kurang lebih sama", "hampir sama", "senada", "sepadan" , "bernada serupa",
+      "artinya serupa", "bermakna serupa"] |random%} {% set _butuh = ["butuh", "perlu",
+      "memerlukan", "membutuhkan"] |random%} {% set _baik = ["Baik", "Ok"] |random%}
+      {% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
+      "ini"] |random%} {{_saya}}{{_butuh}} {{_kalimat}} yang {{_mirip}} dengan ini
+      "{{text_1}}", {{_bisa}} {{_tolong}}dibuatkan? ||| {{_baik}}, {{_berikut}} {{_kalimat}}nya:
+      "{{text_2}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: true
+    name: paraphrase_7
+    reference: ''
+  ff8107e7-00c2-4e96-991d-11cfd3705557: !Template
+    answer_choices: null
+    id: ff8107e7-00c2-4e96-991d-11cfd3705557
+    jinja: '{% set _tolong = ["", "Tolong ", "Silahkan ", "Coba "] |random%}  {% set
+      _parafrase = ["parafrase", "parafrasekan", "buat alternatif", "buatkan alternatif",
+      "paraphrase"] |random%} {% set _kalimat = ["kalimat", "teks"] |random%}
+      {% set _baik = ["Baik", "Ok"] |random%} {% set _berikut = ["berikut", "ini"]
+      |random%} {{_tolong}}{{_parafrase}} {{_kalimat}} {{_berikut}}: {{text_2}} |||
+      {{_baik}}, {{_berikut}} hasilnya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      original_task: false
+    name: paraphrase_2
+    reference: ''

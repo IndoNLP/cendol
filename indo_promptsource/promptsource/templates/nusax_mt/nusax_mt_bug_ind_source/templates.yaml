@@ -1,0 +1,117 @@
+dataset: nusax_mt
+subset: nusax_mt_bug_ind_source
+templates:
+  162dcefc-7a5f-4e21-8c76-0f43c9056b5e: !Template
+    answer_choices: null
+    id: 162dcefc-7a5f-4e21-8c76-0f43c9056b5e
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia: {{text_1}} |||
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_5
+    reference: ''
+  48304865-22b2-4611-a359-c0ccf63b0915: !Template
+    answer_choices: null
+    id: 48304865-22b2-4611-a359-c0ccf63b0915
+    jinja: Bahasa Indonesianya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_6
+    reference: ''
+  5e3f139f-848a-462f-ad4f-c76e87e6adfa: !Template
+    answer_choices: null
+    id: 5e3f139f-848a-462f-ad4f-c76e87e6adfa
+    jinja: Bisa nggak terjemahin ke bahasa indo? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_10
+    reference: ''
+  6aa6265b-0f05-430f-b5cb-fafb322efdfd: !Template
+    answer_choices: null
+    id: 6aa6265b-0f05-430f-b5cb-fafb322efdfd
+    jinja: 'Apa Bahasa Indonesia: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_1
+    reference: ''
+  6becdf97-6a36-4229-b08f-19845ec9e628: !Template
+    answer_choices: null
+    id: 6becdf97-6a36-4229-b08f-19845ec9e628
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Indonesia? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_3
+    reference: ''
+  70b84781-c48c-4953-9904-0e0cdfe1698d: !Template
+    answer_choices: null
+    id: 70b84781-c48c-4953-9904-0e0cdfe1698d
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Indonesia, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_7
+    reference: ''
+  89c2f21c-2f58-49e5-a5db-3087d2095a98: !Template
+    answer_choices: null
+    id: 89c2f21c-2f58-49e5-a5db-3087d2095a98
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Indonesia? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_2
+    reference: ''
+  c262a3c3-f145-4e20-90e0-a10fe82802e0: !Template
+    answer_choices: null
+    id: c262a3c3-f145-4e20-90e0-a10fe82802e0
+    jinja: Translate bahasa bugis ini ke bahasa indonesia {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_8
+    reference: ''
+  d7e84a78-1c16-475b-8aae-fd691bcb0e23: !Template
+    answer_choices: null
+    id: d7e84a78-1c16-475b-8aae-fd691bcb0e23
+    jinja: Translate bugis ke bahasa indo {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_9
+    reference: ''
+  fe6470d5-a473-442a-9ab8-69a1d2e0bd1a: !Template
+    answer_choices: null
+    id: fe6470d5-a473-442a-9ab8-69a1d2e0bd1a
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Indonesia. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_bug_ind_source_4
+    reference: ''

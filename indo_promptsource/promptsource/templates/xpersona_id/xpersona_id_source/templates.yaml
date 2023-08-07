@@ -1,0 +1,87 @@
+dataset: xpersona_id
+subset: xpersona_id_source
+templates:
+  4040b058-2f92-4a31-a181-05711c237fb2: !Template
+    answer_choices: null
+    id: 4040b058-2f92-4a31-a181-05711c237fb2
+    jinja: "{% set n_turn = dialogue|length - 1 %}\nPersona: {% for p in persona %}\
+      \ {{p}} {% endfor %} \n\n===\n\n{% for turn in dialogue[:n_turn] %}\nUser: {{turn[0]}}\n\
+      Bot: {{turn[1]}}\n{% endfor %}\nUser: {{dialogue[n_turn][0]}}\nBot: ||| {{dialogue[n_turn][1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: xpersona_id_template_2
+    reference: ''
+  647a49f1-2bb1-4b08-9d89-997e5255deb4: !Template
+    answer_choices: null
+    id: 647a49f1-2bb1-4b08-9d89-997e5255deb4
+    jinja: "{% set n_turn = dialogue|length - 1 %}\nKarakter: {% for p in persona\
+      \ %} {{p}} {% endfor %} \n\n===\n\n{% for turn in dialogue[:n_turn] %}\nUser:\
+      \ {{turn[0]}}\nBot: {{turn[1]}}\n{% endfor %}\nUser: {{dialogue[n_turn][0]}}\n\
+      Bot: ||| {{dialogue[n_turn][1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: xpersona_id_template_3
+    reference: ''
+  9c0301ab-b2c7-4da0-a13b-51dfdc87a3a9: !Template
+    answer_choices: null
+    id: 9c0301ab-b2c7-4da0-a13b-51dfdc87a3a9
+    jinja: "{% set n_turn = dialogue|length - 1 %}\nPersona: {% for p in persona %}\
+      \ {{p}} {% endfor %} \n\n===\n\n{% for turn in dialogue[:n_turn] %}\nHuman:\
+      \ {{turn[0]}}\nAssistant: {{turn[1]}}\n{% endfor %}\nHuman: {{dialogue[n_turn][0]}}\n\
+      Assistant: ||| {{dialogue[n_turn][1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: xpersona_id_template_1
+    reference: ''
+  f4189513-9fff-468c-96b3-c8b6894f8596: !Template
+    answer_choices: null
+    id: f4189513-9fff-468c-96b3-c8b6894f8596
+    jinja: "{% set n_turn = dialogue|length - 1 %}\nKamu adalah sebuat chatbot dengan\
+      \ karakter atau sifat berikut: \n{% for p in persona %} \n- {{p}} \n{% endfor\
+      \ %} \n\n{% for turn in dialogue[:n_turn] %}\nUser: {{turn[0]}}\nChatbot: {{turn[1]}}\n\
+      {% endfor %}\nUser: {{dialogue[n_turn][0]}}\nChatbot: ||| {{dialogue[n_turn][1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: xpersona_id_template_5
+    reference: ''
+  f7ec2518-9505-44e3-b473-addbbc936cda: !Template
+    answer_choices: null
+    id: f7ec2518-9505-44e3-b473-addbbc936cda
+    jinja: "{% set n_turn = dialogue|length - 1 %}\nKarakter: \n{% for p in persona\
+      \ %} \n- {{p}} \n{% endfor %} \n\n===\n\n{% for turn in dialogue[:n_turn] %}\n\
+      User: {{turn[0]}}\nBot: {{turn[1]}}\n{% endfor %}\nUser: {{dialogue[n_turn][0]}}\n\
+      Bot: ||| {{dialogue[n_turn][1]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: xpersona_id_template_4
+    reference: ''

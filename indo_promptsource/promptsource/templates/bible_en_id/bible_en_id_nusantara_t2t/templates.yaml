@@ -300,24 +300,6 @@ templates:
       original_task: true
     name: bible_en_id_prompt_template_1
     reference: ''
-  9bc8729a-93a8-4020-b7a0-059e82ac83a9: !Template
-    answer_choices: null
-    id: 9bc8729a-93a8-4020-b7a0-059e82ac83a9
-    jinja: 'English: {{text_1}}
-
-      Indonesia: ||| {{text_2}}
-
-      '
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: bible_en_id_prompt_template_15
-    reference: ''
   b58fc187-c6e5-4932-8630-616c9a058cca: !Template
     answer_choices: null
     id: b58fc187-c6e5-4932-8630-616c9a058cca
