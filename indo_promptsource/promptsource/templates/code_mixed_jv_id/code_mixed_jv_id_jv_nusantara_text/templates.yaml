@@ -140,7 +140,7 @@ templates:
     id: 98501ac8-8bbb-4626-b177-f38b19730cd5
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
       "ini", "tersebut"] |random%} {% set _prediksi = ["prediksi", "berikan", "tentukan",
-      "tebak"] {% set _emosi = ["emosi", "perasaan", "sentimen"] |random%} {% set
+      "tebak"] |random%} {% set _emosi = ["emosi", "perasaan", "sentimen"] |random%} {% set
       _ditunjukkan = ["ditunjukkan", "diutarakan", "diekspresikan"] |random%} 
       {% set _bahasa = ["", " bahasa Jawa", " berbahasa Jawa"] |random%} 
       {{_prediksi}}

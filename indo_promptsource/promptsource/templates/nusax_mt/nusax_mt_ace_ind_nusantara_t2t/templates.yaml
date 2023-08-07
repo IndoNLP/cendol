@@ -1,5 +1,4 @@
-dataset: nusax_mt
-subset: nusax_mt_ace_ind_nusantara_t2t
+dataset: nusax_mt/nusax_mt_ace_ind_nusantara_t2t
 templates:
   168c7505-3367-4724-af40-2561c0d06845: !Template
     answer_choices: null

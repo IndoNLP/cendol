@@ -60,30 +60,6 @@ templates:
       original_task: true
     name: paraphrase_3
     reference: ''
-  a1c23450-37d2-4481-923b-ca44dc07799a: !Template
-    answer_choices: null
-    id: a1c23450-37d2-4481-923b-ca44dc07799a
-    jinja: '{% set _saya = ["", "Saya ", "Aku "] |random%} {% set _tolong = ["", "tolong ",
-      "coba "] |random%} {% set _bisa = ["bisa", "boleh"] |random%} {% set _mirip =
-      ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "mirip",
-      "kurang lebih sama", "hampir sama", "senada", "sepadan" , "bernada serupa",
-      "artinya serupa", "bermakna serupa"] |random%} {% set _butuh = ["butuh", "perlu",
-      "memerlukan", "membutuhkan"] |random%} {% set _baik = ["Baik", "Ok"] |random%}
-      {% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut", "ini"]
-      |random%} {{_saya}}{{_butuh}} {{_kalimat}} yang {{_mirip}} dengan ini "{{text_1
-      | replace("[", '''') | replace('']'', '''') | replace("'',", '''') | replace("''",
-      '''')}}", {{_bisa}} {{_tolong}}dibuatkan? ||| {{_baik}}, {{_berikut}} {{_kalimat}}nya:
-      "{{text_2 | replace("[", '''') | replace('']'', '''') | replace("'',", '''')
-      | replace("''", '''')}}"'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - BLEU
-      original_task: true
-    name: paraphrase_8
-    reference: ''
   ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096: !Template
     answer_choices: null
     id: ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096

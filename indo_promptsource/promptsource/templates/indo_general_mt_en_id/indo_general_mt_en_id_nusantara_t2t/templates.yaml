@@ -1,9 +1,9 @@
 dataset: indo_general_mt_en_id
 subset: indo_general_mt_en_id_nusantara_t2t
 templates:
-  0b1efecc-1363-4013-bee2-88b1eb6d25eb: !Template
+  93f7709a-ccfb-4f8e-8e27-04653695906a: !Template
     answer_choices: null
-    id: 0b1efecc-1363-4013-bee2-88b1eb6d25eb
+    id: 93f7709a-ccfb-4f8e-8e27-04653695906a
     jinja: "Apa kalimat bahasa inggris dari kalimat berikut ini? \n\n{{text_2}} |||\
       \ {{text_1}} "
     metadata: !TemplateMetadata
@@ -16,9 +16,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_2
     reference: ''
-  0deecb49-08cc-4a65-80f5-7c8fc5da3a4f: !Template
+  2504cda0-5963-4067-b776-8f07078b1254: !Template
     answer_choices: null
-    id: 0deecb49-08cc-4a65-80f5-7c8fc5da3a4f
+    id: 2504cda0-5963-4067-b776-8f07078b1254
     jinja: 'English: {{text_1}}
 
       Indonesia: ||| {{text_2}}'
@@ -32,9 +32,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_9
     reference: ''
-  10e2f552-3af6-4626-8901-9ee86feab37d: !Template
+  da06cc6e-b59b-4a70-9e53-dfe1bf041545: !Template
     answer_choices: null
-    id: 10e2f552-3af6-4626-8901-9ee86feab37d
+    id: da06cc6e-b59b-4a70-9e53-dfe1bf041545
     jinja: 'Sentence: {{text_2}}
 
       English Translation: ||| {{text_1}}'
@@ -48,9 +48,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_24
     reference: ''
-  1ab93fdf-29dc-4a6c-bd18-93e3053d5ce5: !Template
+  6565c273-f758-4aa4-a265-453b8a810828: !Template
     answer_choices: null
-    id: 1ab93fdf-29dc-4a6c-bd18-93e3053d5ce5
+    id: 6565c273-f758-4aa4-a265-453b8a810828
     jinja: 'Sentence: {{text_1}}
 
       Translated version in Indonesian: ||| {{text_2}}'
@@ -64,9 +64,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_19
     reference: ''
-  1d26ad9b-bd15-45be-bb65-be75f2404d09: !Template
+  6113f1da-aef2-47ea-be65-2eed665a2d68: !Template
     answer_choices: null
-    id: 1d26ad9b-bd15-45be-bb65-be75f2404d09
+    id: 6113f1da-aef2-47ea-be65-2eed665a2d68
     jinja: 'Tolong translate ke bahasa inggris: {{text_2}} |||  {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -78,9 +78,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_3
     reference: ''
-  20276da5-a2ed-498e-af07-6bbf838bb3ff: !Template
+  c640e5da-db1e-4ffb-83a4-2e52deec6635: !Template
     answer_choices: null
-    id: 20276da5-a2ed-498e-af07-6bbf838bb3ff
+    id: c640e5da-db1e-4ffb-83a4-2e52deec6635
     jinja: '{{text_2}}
 
       =====
@@ -96,9 +96,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_5
     reference: ''
-  2fae558d-bde5-41f1-b2fe-7781e3718401: !Template
+  55a40e86-3db6-49d7-aa08-9cf559478ee8: !Template
     answer_choices: null
-    id: 2fae558d-bde5-41f1-b2fe-7781e3718401
+    id: 55a40e86-3db6-49d7-aa08-9cf559478ee8
     jinja: 'Kalimat: {{text_2}}
 
       Tolong translate ke bahasa inggris ||| {{text_1}}'
@@ -112,9 +112,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_4
     reference: ''
-  504807b3-f1fc-4bda-9e20-ad93e03b7944: !Template
+  2f5aec27-9511-4965-a045-8cea2f7b03f4: !Template
     answer_choices: null
-    id: 504807b3-f1fc-4bda-9e20-ad93e03b7944
+    id: 2f5aec27-9511-4965-a045-8cea2f7b03f4
     jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
       \ {{text_2}} "
     metadata: !TemplateMetadata
@@ -127,9 +127,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_11
     reference: ''
-  71f8564f-73b8-471f-93d2-2592300e28af: !Template
+  9dafa8b4-0cc7-4616-a47e-fb11be19af79: !Template
     answer_choices: null
-    id: 71f8564f-73b8-471f-93d2-2592300e28af
+    id: 9dafa8b4-0cc7-4616-a47e-fb11be19af79
     jinja: '{{text_1}}
 
 
@@ -144,9 +144,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_10
     reference: ''
-  83268829-b3c2-484d-940f-592320e31496: !Template
+  c0f89899-d541-4b57-bdda-962d4b9fca1e: !Template
     answer_choices: null
-    id: 83268829-b3c2-484d-940f-592320e31496
+    id: c0f89899-d541-4b57-bdda-962d4b9fca1e
     jinja: '{{text_1}}
 
       =====
@@ -162,9 +162,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_18
     reference: ''
-  84124239-2077-47fe-92be-f72b3e7d82a7: !Template
+  8714e6f1-18b8-42e3-9694-1b59f1f91075: !Template
     answer_choices: null
-    id: 84124239-2077-47fe-92be-f72b3e7d82a7
+    id: 8714e6f1-18b8-42e3-9694-1b59f1f91075
     jinja: 'Kalimat: {{text_1}}
 
       Terjemahan Indonesia: ||| {{text_2}}'
@@ -178,9 +178,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_13
     reference: ''
-  8717009d-f0dd-4224-963b-6f211fcfaff3: !Template
+  7a109914-a8e0-4a5e-b99c-8d5dbf87f0f7: !Template
     answer_choices: null
-    id: 8717009d-f0dd-4224-963b-6f211fcfaff3
+    id: 7a109914-a8e0-4a5e-b99c-8d5dbf87f0f7
     jinja: '{{text_2}}
 
 
@@ -195,9 +195,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_1
     reference: ''
-  93870b04-59f1-485e-a4c6-35c48ad906bd: !Template
+  c3ab8279-a825-4d56-a035-9575630106a9: !Template
     answer_choices: null
-    id: 93870b04-59f1-485e-a4c6-35c48ad906bd
+    id: c3ab8279-a825-4d56-a035-9575630106a9
     jinja: 'Sentence: {{text_2}}
 
       English: ||| {{text_1}}'
@@ -211,9 +211,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_25
     reference: ''
-  ab6bf853-d205-4947-9847-1bf4dbdc1e54: !Template
+  4bead45f-d965-4e82-91c9-7f5c4ac26f7e: !Template
     answer_choices: null
-    id: ab6bf853-d205-4947-9847-1bf4dbdc1e54
+    id: 4bead45f-d965-4e82-91c9-7f5c4ac26f7e
     jinja: '{{text_1}}
 
       =====
@@ -229,9 +229,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_12
     reference: ''
-  aeb43924-5172-4ae6-a21d-d5000fe08d5a: !Template
+  fadefdf0-18b8-45ec-999a-63ab0cd16a0f: !Template
     answer_choices: null
-    id: aeb43924-5172-4ae6-a21d-d5000fe08d5a
+    id: fadefdf0-18b8-45ec-999a-63ab0cd16a0f
     jinja: 'Kalimat: {{text_2}}
 
       Inggris: ||| {{text_1}}'
@@ -245,9 +245,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_8
     reference: ''
-  af23c635-a9d6-4e55-927b-fed891bd145b: !Template
+  1a6f51c6-7cbd-4cea-a6d7-b810138de10a: !Template
     answer_choices: null
-    id: af23c635-a9d6-4e55-927b-fed891bd145b
+    id: 1a6f51c6-7cbd-4cea-a6d7-b810138de10a
     jinja: 'Sentence: {{text_2}}
 
       Please translate to English ||| {{text_1}}'
@@ -261,9 +261,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_22
     reference: ''
-  b0d1fc50-cab5-42eb-94e2-9ec92f024739: !Template
+  94dd90cc-a5ef-4f10-a4f6-9a6e8e2bbe69: !Template
     answer_choices: null
-    id: b0d1fc50-cab5-42eb-94e2-9ec92f024739
+    id: 94dd90cc-a5ef-4f10-a4f6-9a6e8e2bbe69
     jinja: 'Indonesian: {{text_2}}
 
       English: ||| {{text_1}}'
@@ -277,9 +277,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_21
     reference: ''
-  b84e3fef-d4f1-4f4b-8f95-2ebef9886b9f: !Template
+  5ec877b6-9ffc-4b17-8154-f3965827c211: !Template
     answer_choices: null
-    id: b84e3fef-d4f1-4f4b-8f95-2ebef9886b9f
+    id: 5ec877b6-9ffc-4b17-8154-f3965827c211
     jinja: 'Kalimat: {{text_1}}
 
       Indonesia: ||| {{text_2}}'
@@ -293,40 +293,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_14
     reference: ''
-  ba443a1c-bb6f-4bd5-833d-b37e236e90b6: !Template
+  a819219e-db37-40d6-b1a6-3d332a28de1d: !Template
     answer_choices: null
-    id: ba443a1c-bb6f-4bd5-833d-b37e236e90b6
-    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
-      \ {{text_2}}"
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - en
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: indo_general_mt_en_id_template_17
-    reference: ''
-  ba9f89ce-f3a7-4dee-8916-893ab1076ad9: !Template
-    answer_choices: null
-    id: ba9f89ce-f3a7-4dee-8916-893ab1076ad9
-    jinja: 'English: {{text_1}}
-
-      Indonesia: ||| {{text_2}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - en
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: indo_general_mt_en_id_template_15
-    reference: ''
-  dfd15359-3f8b-488c-9c06-6bd74fd88ee7: !Template
-    answer_choices: null
-    id: dfd15359-3f8b-488c-9c06-6bd74fd88ee7
+    id: a819219e-db37-40d6-b1a6-3d332a28de1d
     jinja: 'Sentence: {{text_1}}
 
       Indonesian: ||| {{text_2}}'
@@ -340,9 +309,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_20
     reference: ''
-  e1c71f2c-f6d0-4434-8c8d-d194eecd38b5: !Template
+  1ae54d6a-7d99-4b55-aa33-e99bb3e229ef: !Template
     answer_choices: null
-    id: e1c71f2c-f6d0-4434-8c8d-d194eecd38b5
+    id: 1ae54d6a-7d99-4b55-aa33-e99bb3e229ef
     jinja: 'Kalimat: {{text_2}}
 
       Terjemahan inggris: ||| {{text_1}} '
@@ -356,9 +325,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_7
     reference: ''
-  ec5362d2-eb57-4ce0-abd7-cf3b9fe80282: !Template
+  a8474e41-17b8-40f1-b3bd-a1b82ecea7f7: !Template
     answer_choices: null
-    id: ec5362d2-eb57-4ce0-abd7-cf3b9fe80282
+    id: a8474e41-17b8-40f1-b3bd-a1b82ecea7f7
     jinja: '{{text_2}}
 
       =====
@@ -374,9 +343,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_23
     reference: ''
-  f15edf92-74c1-42ef-95ac-e2a0c7742ad8: !Template
+  c5d1406c-76a0-4243-b3f8-fc28fab8becd: !Template
     answer_choices: null
-    id: f15edf92-74c1-42ef-95ac-e2a0c7742ad8
+    id: c5d1406c-76a0-4243-b3f8-fc28fab8becd
     jinja: "Terjemahkan ke bahasa inggris: \n\n{{text_2}} ||| {{text_1}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -388,9 +357,9 @@ templates:
       original_task: true
     name: indo_general_mt_en_id_template_6
     reference: ''
-  f83f385a-2c1b-4216-96ae-deaa9222b8bd: !Template
+  c3cb25be-5bae-468d-b802-dbab7f15ce1e: !Template
     answer_choices: null
-    id: f83f385a-2c1b-4216-96ae-deaa9222b8bd
+    id: c3cb25be-5bae-468d-b802-dbab7f15ce1e
     jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false

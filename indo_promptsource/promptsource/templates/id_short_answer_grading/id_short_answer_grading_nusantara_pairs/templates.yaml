@@ -152,22 +152,6 @@ templates:
       original_task: true
     name: id_short_answer_grading_template_7
     reference: ''
-  aa2aa945-61fd-4099-a0f1-5fcc4c6049d8: !Template
-    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
-    id: aa2aa945-61fd-4099-a0f1-5fcc4c6049d8
-    jinja: "Pertanyaan: {{text_1}}\nJawaban: {{text_2}}\nRate nilai yang tepat untuk\
-      \ jawaban diatas dengan kategori berikut\n- {{answer_choices[0]}}\n- {{answer_choices[1]}}\n\
-      - {{answer_choices[2]}}\n- {{answer_choices[3]}}\n- {{answer_choices[4]}} \n\
-      \n||| {{answer_choices[label]}}\n"
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: true
-    name: id_short_answer_grading_template_11
-    reference: ''
   c09fc96d-4e97-46b3-a13c-a4612062252b: !Template
     answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
     id: c09fc96d-4e97-46b3-a13c-a4612062252b
@@ -251,26 +235,6 @@ templates:
       - Accuracy
       original_task: true
     name: id_short_answer_grading_template_12
-    reference: ''
-  ece11507-57bc-4c25-9e2c-b5fa8a9992fc: !Template
-    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
-    id: ece11507-57bc-4c25-9e2c-b5fa8a9992fc
-    jinja: 'Gw punya soal ujian {{text_1}}
-
-      Kalo jawabannya {{text_2}}, berapa nilainya dengan kategori {{answer_choices[0]}},
-      {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}, {{answer_choices[4]}}?
-
-
-      ||| {{answer_choices[label]}}
-
-      '
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages: []
-      metrics:
-      - Accuracy
-      original_task: true
-    name: id_short_answer_grading_template_14
     reference: ''
   f74d5aa1-a1af-4e99-8828-0e7ad33b275d: !Template
     answer_choices: null

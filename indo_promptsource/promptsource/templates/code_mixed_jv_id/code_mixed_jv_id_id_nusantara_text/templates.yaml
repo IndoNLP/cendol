@@ -60,9 +60,8 @@ templates:
     id: 2371e80c-9403-49e0-9665-f2312f368ed8
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _cocok = ["cocok",
       "pas", "sesuai"] |random%} {% set _diberikan = ["diberikan", "dengan"] |random%}
-      {% set _paling = ["", "paling"] |random%} 
-      {% set _emosi = ["emosi", "sentimen"] |random%} {{_diberikan}} {{_kalimat}} {{text}}, 
-      {{_emosi}} apa yang {{_paling}}
+      {% set _paling = ["", "paling"] |random%} {% set _emosi = ["emosi", "sentimen"]
+      |random%} {{_diberikan}} {{_kalimat}} {{text}}, {{_emosi}} apa yang {{_paling}}
       {{_cocok}}? ||| {{_emosi}} yang {{_paling}} {{_cocok}} adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -127,10 +126,11 @@ templates:
     id: 98501ac8-8bbb-4626-b177-f38b19730cd5
     jinja: '{% set _kalimat = ["kalimat", "teks"] |random%} {% set _berikut = ["berikut",
       "ini", "tersebut"] |random%} {% set _prediksi = ["prediksi", "berikan", "tentukan",
-      "tebak"] {% set _emosi = ["emosi", "perasaan", "sentimen"] |random%} {% set
-      _ditunjukkan = ["ditunjukkan", "diutarakan", "diekspresikan"] |random%} {{_prediksi}}
-      {{_emosi}} yang {{_ditunjukkan}} dari {{_kalimat}} {{_berikut}}: {{text}} |||
-      {{_emosi}} yang {{_ditunjukkan}} dari {{_kalimat}} {{_berikut}} adalah {{answer_choices[label]}}'
+      "tebak"] |random%} {% set _emosi = ["emosi", "perasaan", "sentimen"] |random%}
+      {% set _ditunjukkan = ["ditunjukkan", "diutarakan", "diekspresikan"] |random%}
+      {{_prediksi}} {{_emosi}} yang {{_ditunjukkan}} dari {{_kalimat}} {{_berikut}}:
+      {{text}} ||| {{_emosi}} yang {{_ditunjukkan}} dari {{_kalimat}} {{_berikut}}
+      adalah {{answer_choices[label]}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
