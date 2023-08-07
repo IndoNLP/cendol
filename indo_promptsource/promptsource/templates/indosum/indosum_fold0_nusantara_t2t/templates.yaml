@@ -251,9 +251,9 @@ templates:
       original_task: true
     name: indosum_fold0_template_7
     reference: ''
-  d44b909a-08c4-4644-ab9d-57a80a99717a: !Template
+  d5b76ce8-84c4-40bf-81f5-004d3cc0c3a8: !Template
     answer_choices: null
-    id: d44b909a-08c4-4644-ab9d-57a80a99717a
+    id: d5b76ce8-84c4-40bf-81f5-004d3cc0c3a8
     jinja: 'Ringkas dokumen berikut ini: {{text_1}} ||| {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false

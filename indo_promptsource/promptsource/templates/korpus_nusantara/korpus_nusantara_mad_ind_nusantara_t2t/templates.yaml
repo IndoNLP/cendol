@@ -17,9 +17,9 @@ templates:
       original_task: true
     name: simple_translation_2
     reference: ''
-  036dfb66-a880-4e7f-956c-5522b4f395eb: !Template
+  6097b45d-8d2a-449d-bff7-297a2bf03a77: !Template
     answer_choices: null
-    id: 036dfb66-a880-4e7f-956c-5522b4f395eb
+    id: 6097b45d-8d2a-449d-bff7-297a2bf03a77
     jinja: '"{{text_1}}" dalam bahasa Indonesia: |||{{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -76,9 +76,9 @@ templates:
       original_task: true
     name: teks_di_atas
     reference: ''
-  2efda41c-25a7-4db6-bb40-b78af9809ehd: !Template
+  431f7930-25b6-40f2-af8d-3aa656e28519: !Template
     answer_choices: null
-    id: 2efda41c-25a7-4db6-bb40-b78af9809ehd
+    id: 431f7930-25b6-40f2-af8d-3aa656e28519
     jinja: Apa itu "{{text_1}}" dalam bahasa Indonesia?|||{{text_2}}
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -119,9 +119,9 @@ templates:
       original_task: true
     name: translate_to
     reference: ''
-  436bd474-57c9-412a-897c-b1e638aea3g2: !Template
+  3b6337ed-d3e7-4662-938b-dff17afe87d7: !Template
     answer_choices: null
-    id: 436bd474-57c9-412a-897c-b1e638aea3g2
+    id: 3b6337ed-d3e7-4662-938b-dff17afe87d7
     jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_1}}|||Madura'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -132,9 +132,9 @@ templates:
       original_task: false
     name: identifikasi_bahasa_2
     reference: ''
-  5025b842-758e-4a83-8e86-9368296e94fa: !Template
+  f45b8386-2a18-4098-bda2-2dbcdbe0e1b3: !Template
     answer_choices: null
-    id: 5025b842-758e-4a83-8e86-9368296e94fa
+    id: f45b8386-2a18-4098-bda2-2dbcdbe0e1b3
     jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_2}}"?|||Indonesia'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -145,9 +145,9 @@ templates:
       original_task: false
     name: apa_bahasa
     reference: ''
-  59c14e12-a726-4ddf-8c5b-22b5bc6b65f4: !Template
+  ae6dcd62-8c81-4202-b21e-dae31eecc286: !Template
     answer_choices: null
-    id: 59c14e12-a726-4ddf-8c5b-22b5bc6b65f4
+    id: ae6dcd62-8c81-4202-b21e-dae31eecc286
     jinja: Apa itu "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
     metadata: !TemplateMetadata
       choices_in_prompt: false

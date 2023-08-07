@@ -19,8 +19,7 @@ templates:
   1691c3f6-15f7-45ae-804d-6a6b20f10e33: !Template
     answer_choices: hoax|||tidak hoax alias valid
     id: 1691c3f6-15f7-45ae-804d-6a6b20f10e33
-    jinja: 'Klasifikasikan teks berikut "{% if news %}{{news}}{% else %}{{text}}{%
-      endif %}" menjadi:
+    jinja: 'Klasifikasikan teks berikut "{{text}}" menjadi:
 
       - {{answer_choices[0]}}
 
