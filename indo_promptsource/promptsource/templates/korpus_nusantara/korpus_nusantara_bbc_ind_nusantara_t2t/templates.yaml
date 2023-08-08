@@ -21,7 +21,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_8
+    name: korpus_nusantara_bbc_ind_mt_8
     reference: ''
   26614f2c-162b-4dbb-8a4c-4895607b881a: !Template
     answer_choices: null
@@ -44,7 +44,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_10
+    name: korpus_nusantara_bbc_ind_mt_10
     reference: ''
   3d8630dc-610f-4098-abb7-9d1c33796d4c: !Template
     answer_choices: null
@@ -65,7 +65,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_1
+    name: korpus_nusantara_bbc_ind_mt_1
     reference: ''
   52ea76f4-bd22-4d4a-b116-576e5f2f008f: !Template
     answer_choices: null
@@ -86,7 +86,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_6
+    name: korpus_nusantara_bbc_ind_mt_6
     reference: ''
   53e98f5f-2584-4354-980c-b2a2508f901f: !Template
     answer_choices: null
@@ -108,7 +108,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_4
+    name: korpus_nusantara_bbc_ind_mt_4
     reference: ''
   a9ba2668-9bc9-4703-8fb0-32907a26c9d3: !Template
     answer_choices: null
@@ -129,7 +129,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_5
+    name: korpus_nusantara_bbc_ind_mt_5
     reference: ''
   bd5877c7-36c5-46ac-acc2-526447aa1671: !Template
     answer_choices: null
@@ -151,7 +151,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_7
+    name: korpus_nusantara_bbc_ind_mt_7
     reference: ''
   cdb53117-c084-4018-9ec2-047e5e6d191f: !Template
     answer_choices: null
@@ -168,7 +168,7 @@ templates:
       - ROUGE
       - BLEU
       original_task: true
-    name: korpus_nusantara_mt_2
+    name: korpus_nusantara_bbc_ind_mt_2
     reference: ''
   de18b66c-3df9-473a-ae8d-a1fb41c9d576: !Template
     answer_choices: null
@@ -189,7 +189,7 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_3
+    name: korpus_nusantara_bbc_ind_mt_3
     reference: ''
   f76c2646-d6f0-47a6-b1c0-5cf763f9b4ca: !Template
     answer_choices: null
@@ -210,5 +210,5 @@ templates:
       - BLEU
       - ROUGE
       original_task: true
-    name: korpus_nusantara_mt_9
+    name: korpus_nusantara_bbc_ind_mt_9
     reference: ''
