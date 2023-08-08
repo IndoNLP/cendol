@@ -473,7 +473,7 @@ def run_app():
                         continue
                     example = dataset[ex_idx]
                     example = removeHyphen(example)
-                    col1, _, col2 = st.beta_columns([12, 1, 12])
+                    col1, _, col2 = st.columns([12, 1, 12])
                     with col1:
                         st.write(example)
                     if num_templates > 0:
@@ -494,7 +494,7 @@ def run_app():
                 #
                 # Create a new template or select an existing one
                 #
-                col1a, col1b, _, col2 = st.beta_columns([9, 9, 1, 6])
+                col1a, col1b, _, col2 = st.columns([9, 9, 1, 6])
 
                 # current_templates_key and state.templates_key are keys for the templates object
                 current_templates_key = (dataset_key, conf_option.name if conf_option else None)
@@ -528,7 +528,7 @@ def run_app():
                     else:
                         state.new_template_name = None
 
-                with col1b, st.beta_expander("or Select Prompt", expanded=True):
+                with col1b, st.expander("or Select Prompt", expanded=True):
                     template_list = dataset_templates.all_template_names
                     if state.template_name:
                         index = template_list.index(state.template_name)
@@ -551,7 +551,7 @@ def run_app():
                 \n- **Implicit situation or contextualization**: how explicit is the query? For instance, *Given this review, would you buy this product?* is an indirect way to ask whether the review is positive.
                 """
 
-                col1, _, _ = st.beta_columns([18, 1, 6])
+                col1, _, _ = st.columns([18, 1, 6])
                 with col1:
                     if state.template_name is not None:
                         show_text(variety_guideline, with_markdown=True)
@@ -559,7 +559,7 @@ def run_app():
                 #
                 # Edit the created or selected template
                 #
-                col1, _, col2 = st.beta_columns([18, 1, 6])
+                col1, _, col2 = st.columns([18, 1, 6])
                 with col1:
                     if state.template_name is not None:
                         template = dataset_templates[state.template_name]
