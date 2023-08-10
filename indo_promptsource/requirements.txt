@@ -3,7 +3,6 @@
 # while streamlit forces the ver click<8.0 to work
 # (hence incompatible version of 'black')
 # setuptools==45
-nusacrowd
 datasets>=1.7.0
 flake8
 isort==5.8.0

@@ -27,11 +27,14 @@ pip install nusacrowd
 ```
 streamlit run promptsource/app.py
 ```
-If you are using Github Codespaces, you will find your promptsource will stuck on `Please Wait`. You can try this command:
+#1 If you are using Github Codespaces, you will find your promptsource will stuck on `Please Wait`. You can try this command:
 ```
 streamlit run promptsource/app.py --server.enableCORS false --server.enableXsrfProtection false
 ```
-
+#2 If you're finding an error of the following `ModuleNotFoundError: No module named '_distutils_hack' \n Remainder of file ignored`, you may run this command to solve it
+```
+pip install -U pip setuptools
+```
 ## How to create/edit/view prompt design
 PromptSource provides a Web-based GUI that enables developers to write prompts in a templating language and immediately view their outputs on different examples.
 
