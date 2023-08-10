@@ -31,7 +31,7 @@ streamlit run promptsource/app.py
 ```
 streamlit run promptsource/app.py --server.enableCORS false --server.enableXsrfProtection false
 ```
-#2 If you're finding an error of the following `ModuleNotFoundError: No module named '_distutils_hack' \n Remainder of file ignored`, you may run this command to solve it
+#2 If you're finding an error of the following `ModuleNotFoundError: No module named '_distutils_hack'. Remainder of file ignored`, you may run this command to solve it
 ```
 pip install -U pip setuptools
 ```
