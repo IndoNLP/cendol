@@ -16,6 +16,23 @@ templates:
       original_task: true
     name: hate_or_noHate_zs_noopt_contains
     reference: ''
+  1eaf7dd3-9a40-4808-9021-de6afc76e78a: !Template
+    answer_choices: iya|||tidak
+    id: 1eaf7dd3-9a40-4808-9021-de6afc76e78a
+    jinja: 'Teks: {{text}}
+
+      Q: Apakah ada unsur benci di teks di atas
+
+      A: {{answer_choices[0]}}/{{answer_choices[1]}}|||{% if label == 1 %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_unsur_benci
+    reference: ''
   20d3bb4f-5b68-4914-940e-154e4c227555: !Template
     answer_choices: iya|||tidak
     id: 20d3bb4f-5b68-4914-940e-154e4c227555
@@ -130,21 +147,6 @@ templates:
       - Accuracy
       original_task: true
     name: hate_or_noHate_zs_noopt_apakah_yes_or_no
-    reference: ''
-  e1535f35-68a4-41b7-96d8-65b120ea0553: !Template
-    answer_choices: null
-    id: e1535f35-68a4-41b7-96d8-65b120ea0553
-    jinja: Hasilkan teks {% if label == 1 %}hate speech{%else%}tidak hate speech{%endif
-      %}|||{{text}}
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - BLEU
-      - ROUGE
-      original_task: false
-    name: generate_hate_or_noHate_text
     reference: ''
   fd489c1d-f519-4d6f-9de4-9a9ed872720a: !Template
     answer_choices: iya|||tidak
