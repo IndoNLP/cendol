@@ -1,0 +1,18 @@
+dataset: indolem_ntp
+subset: indolem_ntp_nusantara_pairs
+templates:
+  0302bc1f-37fc-416c-a4ee-94496ceb7fa2: !Template
+    answer_choices: 0 ||| 1
+    id: 0302bc1f-37fc-416c-a4ee-94496ceb7fa2
+    jinja: "'dalam next tweet prediction diberikan teks berikut:\ntext 1 : \"{{text_1}}\"\
+      \  \ndan kemudian\ntext 2 : \"{{text_2}}\" \nprediksikan jenis prediction next\
+      \ tweetnya!\n|||\n{{ answer_choices[label] }}'"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_1
+    reference: ''
