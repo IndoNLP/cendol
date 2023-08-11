@@ -16,6 +16,23 @@ templates:
       original_task: true
     name: berita_noopt
     reference: ''
+  0339f6d8-4a73-4bb2-9840-fb6e6323b7a0: !Template
+    answer_choices: iya|||tidak
+    id: 0339f6d8-4a73-4bb2-9840-fb6e6323b7a0
+    jinja: 'Teks: {{text}}
+
+      Q: Apakah teks di atas hoax?
+
+      A: |||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: qa_format_without_opt
+    reference: ''
   1691c3f6-15f7-45ae-804d-6a6b20f10e33: !Template
     answer_choices: hoax|||tidak hoax alias valid
     id: 1691c3f6-15f7-45ae-804d-6a6b20f10e33
@@ -71,20 +88,22 @@ templates:
       original_task: true
     name: zero_shot_style
     reference: ''
-  4ff2c090-cffd-48b5-be54-33d315ff7b65: !Template
-    answer_choices: null
-    id: 4ff2c090-cffd-48b5-be54-33d315ff7b65
-    jinja: Buat paragraf dengan informasi {% if label == 0 %}Valid{% else %}Hoax{%
-      endif %}.|||{{text}}
+  4c5588e8-d495-48f6-86fe-5eca726d3308: !Template
+    answer_choices: iya|||tidak
+    id: 4c5588e8-d495-48f6-86fe-5eca726d3308
+    jinja: 'Teks: {{text}}
+
+      Q: Apakah teks di atas hoax?
+
+      A: iya/tidak?|||{% if label == 0 or label == "Valid"  %}{{answer_choices[1]}}{%else%}{{answer_choices[0]}}{%endif%}'
     metadata: !TemplateMetadata
-      choices_in_prompt: false
+      choices_in_prompt: true
       languages:
       - id
       metrics:
-      - BLEU
-      - ROUGE
-      original_task: false
-    name: gen_paragraph
+      - Accuracy
+      original_task: true
+    name: qa_format
     reference: ''
   593a92be-0922-4ce2-be47-55a309715ca6: !Template
     answer_choices: iya|||tidak
@@ -114,23 +133,6 @@ templates:
       - Accuracy
       original_task: true
     name: informal_style
-    reference: ''
-  a78bebdf-28aa-48ea-a883-fbfd943392d2: !Template
-    answer_choices: null
-    id: a78bebdf-28aa-48ea-a883-fbfd943392d2
-    jinja: 'Lanjutkan paragraf ini dengan informasi {% if label == 0 %}Valid{% else
-      %}Hoax{% endif %}:
-
-      Paragraf: {{text[0:50]}}|||{{text[50:]}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - BLEU
-      - ROUGE
-      original_task: false
-    name: gen_paragraph_startswith
     reference: ''
   f9d59fd1-3881-4506-98b2-c678eb7d543f: !Template
     answer_choices: iya|||tidak
