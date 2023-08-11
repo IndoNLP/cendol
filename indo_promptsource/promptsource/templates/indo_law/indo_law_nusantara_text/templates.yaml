@@ -1,0 +1,21 @@
+dataset: indo_law
+subset: indo_law_nusantara_text
+templates:
+  b66b3b47-cb8e-475e-8618-b144bd618e5d: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: b66b3b47-cb8e-475e-8618-b144bd618e5d
+    jinja: 'Jika terdapat narasi teks tentang hukum pidana berikut  "{{text}}",
+      prediksikan jenis pidana yang tepat!
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_1
+    reference: ''
