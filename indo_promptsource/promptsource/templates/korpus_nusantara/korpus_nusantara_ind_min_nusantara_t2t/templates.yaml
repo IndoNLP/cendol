@@ -152,10 +152,16 @@ templates:
   cdb53117-c084-4018-9ec2-047e5e6d191f: !Template
     answer_choices: null
     id: cdb53117-c084-4018-9ec2-047e5e6d191f
-    jinja: Boleh tolong translate-in {{text_1}} dari bahasa {%+ if text_1_name==\"\
-      ind\" +%}Indonesia{%+ elif text_1_name==\"min\" +%}Minangkabau{%+ endif +%}
-      ke\ \ bahasa {%+ if text_2_name==\"ind\" +%}Indonesia{%+ elif text_2_name==\"min\"\
-      \ +%}Minangkabau{% endif %}?\n||| \nYa, hasilnya ini:\n{{text_2}}
+    jinja: 'Boleh tolong translate-in {{text_1}} dari bahasa {%+ if text_1_name=="ind"
+      +%}Indonesia{%+ elif text_1_name=="min" +%}Minangkabau{%+ endif +%} ke bahasa
+      {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min" +%}Minangkabau{%+
+      endif +%}?
+
+      |||
+
+      Ya, hasilnya ini:
+
+      {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
