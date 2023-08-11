@@ -1,0 +1,18 @@
+dataset: jadi_ide
+subset: jadi_ide_nusantara_text
+templates:
+  da9e7e80-6581-463a-bd70-1c34b1e4bb20: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: da9e7e80-6581-463a-bd70-1c34b1e4bb20
+    jinja: 'Dari teks bahasa jawa berikut ini \"{{text}}\",\n      tentukan jenis\
+      \ dialek bahasa jawa yang berasal dari timur, standar atau ngapak!\n|||\n{{\
+      \ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_1
+    reference: ''
