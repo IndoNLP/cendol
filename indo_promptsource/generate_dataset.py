@@ -35,9 +35,23 @@ checkpoint_save_path = "generated_dataset"
 
 dataset_name = args.dataset_name
 subset_name = args.subset_name
+logger.info(f"Input dataset_name: {dataset_name}")
+logger.info(f"Input subset_name: {subset_name}")
 
 # Load dataset
-dset = conhelps.filtered(lambda x: dataset_name in x.dataset_name and subset_name in x.config.name)[0].load_dataset()
+nusa_metadata = conhelps.filtered(lambda x: dataset_name in x.dataset_name and subset_name in x.config.name)[0]
+dataset_name = nusa_metadata.dataset_name
+subset_name = nusa_metadata.config.name
+dset = nusa_metadata.load_dataset()
+logger.info("============================================")
+logger.info(f"## DATASET INFO ##")
+logger.info(f"Real dataset_name: {dataset_name}")
+logger.info(f"Real subset_name: {subset_name}")
+logger.info(f"dset.shape: {dset.shape}")
+example = dset["train"][0]
+logger.info(f"Example dataset: {example}")
+logger.info("============================================")
+
 
 # Load prompt
 prompt = DatasetTemplates(dataset_name, subset_name=subset_name)
