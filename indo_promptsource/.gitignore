@@ -23,6 +23,7 @@ creds.js
 # Private Files
 *.json
 *.csv.gz
+*.csv
 *.tsv
 *.tsv.gz
 *.xlsx

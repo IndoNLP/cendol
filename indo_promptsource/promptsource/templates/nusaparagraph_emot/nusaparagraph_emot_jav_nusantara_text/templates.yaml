@@ -1,0 +1,243 @@
+dataset: nusaparagraph_emot
+subset: nusaparagraph_emot_btk_nusantara_text
+templates:
+  def71532-2ecc-434a-b363-ca9e3cb11b4e: !Template
+    answer_choices: iya|||tidak
+    id: def71532-2ecc-434a-b363-ca9e3cb11b4e
+    jinja: '{% set _unsur = [0, 1, 2, 3, 4, 5, 6] |random %} Q: Apakah teks berikut
+      mengandung unsur {% if _unsur == 0 %}fear{% elif _unsur == 1 %}disgusted{% elif
+      _unsur == 2 %}sad{% elif _unsur == 3 %}happy{% elif _unsur == 4 %}angry{% elif
+      _unsur == 5 %}surprise{% elif _unsur == 6 %}shame{% endif %}?
+
+      Teks: {{text}}
+
+      A: |||{% if label == _unsur %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: unsur_qa_format
+    reference: ''
+  ed397965-46a6-4133-8939-36fbc46a2230: !Template
+    answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
+    id: ed397965-46a6-4133-8939-36fbc46a2230
+    jinja: "Kategorikan teks berikut menjadi salah satu dari kategori: fear, disgusted,\
+      \ sad, happy, angry, surprise, shame. \nTeks: {{text}}\nKategori: ||| {% if\
+      \ label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%\n\
+      \      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%\n\
+      \      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%\n\
+      \      elif label == 6 %}{{answer_choices[6]}}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: kategorikan
+    reference: ''
+  2824f6b9-59eb-4185-839d-6b263b3bd1bb: !Template
+    answer_choices: iya|||tidak
+    id: 2824f6b9-59eb-4185-839d-6b263b3bd1bb
+    jinja: '{% set _unsur = [0, 1, 2, 3, 4, 5, 6] |random %} Apakah teks berikut mengandung
+      unsur {% if _unsur == 0 %}fear{% elif _unsur == 1 %}disgusted{% elif _unsur
+      == 2 %}sad{% elif _unsur == 3 %}happy{% elif _unsur == 4 %}angry{% elif _unsur
+      == 5 %}surprise{% elif _unsur == 6 %}shame{% endif %}
+
+      Teks: {{text}}
+
+      Pilihan jawaban: iya/tidak|||{% if label == _unsur %}{{answer_choices[0]}}{%
+      else %}{{answer_choices[1]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: unsur_with_choices
+    reference: ''
+  ce243186-5367-4575-865c-5515787a2f13: !Template
+    answer_choices: iya|||tidak
+    id: ce243186-5367-4575-865c-5515787a2f13
+    jinja: '{% set _unsur = [0, 1, 2, 3, 4, 5, 6] |random %} Q: Apakah teks berikut
+      mengandung unsur {% if _unsur == 0 %}fear{% elif _unsur == 1 %}disgusted{% elif
+      _unsur == 2 %}sad{% elif _unsur == 3 %}happy{% elif _unsur == 4 %}angry{% elif
+      _unsur == 5 %}surprise{% elif _unsur == 6 %}shame{% endif %}?
+
+      Teks: {{text}}
+
+      Pilihan jawaban: iya/tidak
+
+      A: |||{% if label == _unsur %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: unsur_qa_format_with_choices
+    reference: ''
+  7ee4b8ab-1bbf-4339-9011-f26ed1952f9d: !Template
+    answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
+    id: 7ee4b8ab-1bbf-4339-9011-f26ed1952f9d
+    jinja: 'Teks: {{text}}
+
+      Pertanyaan: Tipe perasaan apa yang paling cocok untuk mendeskripsikan teks di
+      atas? Pilihan perasaan:
+
+      - fear
+
+      - disgusted
+
+      - sad
+
+      - happy
+
+      - angry
+
+      - surprise
+
+      - shame
+
+      A:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% endif %}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context_qa
+    reference: ''
+  c37b0e54-3e87-4b92-813d-44be70892216: !Template
+    answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
+    id: c37b0e54-3e87-4b92-813d-44be70892216
+    jinja: 'Teks: {{text}}
+
+      Pilihan kategori: fear, disgusted, sad, happy, angry, surprise, shame
+
+      Q: Apakah kategori dari pilihan kategori di atas yang paling cocok untuk teks
+      di atas?
+
+      A: ||| {% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: qa_format
+    reference: ''
+  0811d684-4717-4eab-bd1a-5194bd1d057d: !Template
+    answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
+    id: 0811d684-4717-4eab-bd1a-5194bd1d057d
+    jinja: 'Klasifikasikan teks sebagai salah satu kategori berikut:
+
+      - fear
+
+      - disgusted
+
+      - sad
+
+      - happy
+
+      - angry
+
+      - surprise
+
+      - shame
+
+      Teks: {{text}}
+
+      Kategori:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: classification
+    reference: ''
+  742ffbf9-c57f-4f4a-88a2-5ea0c0bac1cd: !Template
+    answer_choices: iya|||tidak
+    id: 742ffbf9-c57f-4f4a-88a2-5ea0c0bac1cd
+    jinja: '{% set _unsur = [0, 1, 2, 3, 4, 5, 6] |random %} Apakah teks berikut mengandung
+      unsur {% if _unsur == 0 %}fear{% elif _unsur == 1 %}disgusted{% elif _unsur
+      == 2 %}sad{% elif _unsur == 3 %}happy{% elif _unsur == 4 %}angry{% elif _unsur
+      == 5 %}surprise{% elif _unsur == 6 %}shame{% endif %}?
+
+      Teks: {{text}}|||{% if label == _unsur %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: unsur
+    reference: ''
+  4e03ca12-88e8-41e6-8612-44b085232728: !Template
+    answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
+    id: 4e03ca12-88e8-41e6-8612-44b085232728
+    jinja: 'Kategori apa yang paling cocok untuk teks berikut?
+
+      Teks: {{text}}
+
+      Pilihan Kategori: fear, disgusted, sad, happy, angry, surprise, shame
+
+      Kategori: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: kategori_cocok
+    reference: ''
+  8792276b-c55c-4f36-bb70-8bdc0680a39a: !Template
+    answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
+    id: 8792276b-c55c-4f36-bb70-8bdc0680a39a
+    jinja: 'Pertanyaan: kategori apa yang cocok untuk teks berikut?
+
+      Pilihan Kategori: fear, disgusted, sad, happy, angry, surprise, shame
+
+      Teks: {{text}}
+
+      Kategori: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: post_qa_format
+    reference: ''
