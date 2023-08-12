@@ -4,15 +4,15 @@ templates:
   0fb92154-1ef1-48e0-ba5b-5f39b66aa95b: !Template
     answer_choices: null
     id: 0fb92154-1ef1-48e0-ba5b-5f39b66aa95b
-    jinja: 'Apa terjemahan bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min"
-      +%}Minang{%+ endif +%} dari bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
-      elif text_1_name=="min" +%}Minang{% endif %}, jika diberikan teks berikut?
+    jinja: 'Apa terjemahan bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="min"
+      +%}Padang{%+ endif +%} dari bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="min" +%}Padang{% endif %}, jika diberikan teks berikut?
 
-      "{{text_1}}"
+      "{{text_2}}"
 
       |||
 
-      "{{text_2}}"'
+      "{{text_1}}"'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -26,16 +26,16 @@ templates:
   26614f2c-162b-4dbb-8a4c-4895607b881a: !Template
     answer_choices: null
     id: 26614f2c-162b-4dbb-8a4c-4895607b881a
-    jinja: 'Apa padanan terjemahan dari bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
-      elif text_1_name=="min" +%}Minang{%+ endif +%} untuk text berikut dalam {%+
-      if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="min" +%}Minang{% endif
-      %}?
+    jinja: 'Apa padanan terjemahan dari bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="min" +%}Minang{%+ endif +%} untuk text berikut dalam
+      {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="min" +%}Minang{%
+      endif %}?
 
-      "{{text_1}}"
+      "{{text_2}}"
 
       |||
 
-      "{{text_2}}"'
+      "{{text_1}}"'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -49,10 +49,13 @@ templates:
   3d8630dc-610f-4098-abb7-9d1c33796d4c: !Template
     answer_choices: null
     id: 3d8630dc-610f-4098-abb7-9d1c33796d4c
-    jinja: "Diberikan teks {{text_1}} dalam bahasa {%+ if text_1_name==\"ind\" +%}Indonesia{%+\
-      \ elif text_1_name==\"min\" +%}Minang{%+ endif +%}, buatkan padanannya dalam\
-      \ bahasa {%+ if text_2_name==\"ind\" +%}Indonesia{%+ elif text_2_name==\"min\"\
-      +%}Minang{%+ endif +%}!\n\n      |||\n\n      {{text_2}}"
+    jinja: 'Diberikan teks {{text_1}} dalam bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
+      elif text_1_name=="min" +%}Minang{%+ endif +%}, buatkan padanannya dalam
+      bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min" +%}Minang{% endif %}!
+
+      |||
+
+      {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -66,10 +69,10 @@ templates:
   52ea76f4-bd22-4d4a-b116-576e5f2f008f: !Template
     answer_choices: null
     id: 52ea76f4-bd22-4d4a-b116-576e5f2f008f
-    jinja: 'Jika teks {{text_1}} dalam bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
-      elif text_1_name=="min" +%}Minang{%+ endif +%} ditranslate kedalam bahasa {%+
-      if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min" +%}Minang{% endif
-      %}, apa hasilnya?
+    jinja: 'Jika teks {{text_2}} dalam bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="min" +%}Minang{%+ endif +%} ditranslate kedalam bahasa
+      {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="min" +%}Minang{%
+      endif +%}, apa hasilnya?
 
       |||
 
@@ -109,14 +112,14 @@ templates:
   a9ba2668-9bc9-4703-8fb0-32907a26c9d3: !Template
     answer_choices: null
     id: a9ba2668-9bc9-4703-8fb0-32907a26c9d3
-    jinja: 'Apa hasil translate teks {{text_1}} berbahasa {%+ if text_1_name=="ind"
-      +%}Indonesia{%+ elif text_1_name=="min" +%}Minangkabau{%+ endif +%} dalam bahasa
-      {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min" +%}Minangkabau{%
+    jinja: 'Apa hasil translate teks {{text_2}} berbahasa {%+ if text_2_name=="ind"
+      +%}Indonesia{%+ elif text_2_name=="min" +%}Minangkabau{%+ endif +%} dalam bahasa
+      {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="min" +%}Minangkabau{%
       endif %}?
 
       |||
 
-      {{text_2}}'
+      {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -130,15 +133,15 @@ templates:
   bd5877c7-36c5-46ac-acc2-526447aa1671: !Template
     answer_choices: null
     id: bd5877c7-36c5-46ac-acc2-526447aa1671
-    jinja: 'Berikan hasil translasi bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
-      elif text_2_name=="min" +%}Minangkabau{%+ endif +%} dari bahasa {%+ if text_1_name=="ind"
-      +%}Indonesia{%+ elif text_1_name=="min" +%}Minangkabau{% endif %}!
+    jinja: 'Berikan hasil translasi bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
+      elif text_1_name=="min" +%}Minangkabau{%+ endif +%} dari bahasa {%+ if text_2_name=="ind"
+      +%}Indonesia{%+ elif text_2_name=="min" +%}Minangkabau{% endif %}!
 
-      "{{text_1}}"
+      "{{text_2}}"
 
       |||
 
-      "{{text_2}}"'
+      "{{text_1}}"'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -197,8 +200,8 @@ templates:
     answer_choices: null
     id: f76c2646-d6f0-47a6-b1c0-5cf763f9b4ca
     jinja: 'Tolong terjemahin teks "{{text_1}}" dong dari bahasa {%+ if text_1_name=="ind"
-      +%}Indonesia{%+ elif text_1_name=="min" +%}Minangkabau{% endif %} ke bahasa
-      {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min" +%}Minangkabau{%+
+      +%}Indonesia{%+ elif text_1_name=="min" +%}Padang{% endif %} ke bahasa {%+
+      if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="min" +%}Padang{%+
       endif +%}.
 
       |||
