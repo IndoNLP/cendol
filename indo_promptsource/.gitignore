@@ -173,4 +173,4 @@ dmypy.json
 cython_debug/
 
 # generated datasets
-generated_dataset/*.csv
+indo_promptsource/generated_dataset/*.csv
