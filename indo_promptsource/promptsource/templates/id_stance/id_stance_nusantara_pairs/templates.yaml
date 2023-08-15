@@ -1,0 +1,225 @@
+dataset: id_stance
+subset: id_stance_nusantara_pairs
+templates:
+  58ce05be-47f2-41cc-8972-d766341ae1ba: !Template
+    answer_choices: for ||| against ||| no
+    id: 58ce05be-47f2-41cc-8972-d766341ae1ba
+    jinja: 'Dalam konteks judul "{{text_1}}"
+
+      dengan isian judul:
+
+      "{{text_2}}"
+
+      tipe intensi apa yang dapat diidentifikasi dalam teks tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_8
+    reference: ''
+  61aff766-63e9-454a-b6e3-30e60dc0ef4f: !Template
+    answer_choices: for ||| against ||| no
+    id: 61aff766-63e9-454a-b6e3-30e60dc0ef4f
+    jinja: 'Terhadap judul "{{text_1}}"
+
+      beserta isinya:
+
+      "{{text_2}}"
+
+      jenis intensi apa yang dapat diidentifikasi dari teks tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_4
+    reference: ''
+  62e4aedc-b80f-4f32-b7f7-52624cb8a5c5: !Template
+    answer_choices: for ||| against ||| no
+    id: 62e4aedc-b80f-4f32-b7f7-52624cb8a5c5
+    jinja: 'Dengan judul "{{text_1}}"
+
+      dan isi dari judul ini:
+
+      "{{text_2}}"
+
+      coba tentukan jenis intensi yang ada dalam teks ini.
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_5
+    reference: ''
+  940ce4b8-a3ae-4f57-a1a9-2c41bf86145b: !Template
+    answer_choices: for ||| against ||| no
+    id: 940ce4b8-a3ae-4f57-a1a9-2c41bf86145b
+    jinja: 'Dari judul "{{text_1}}"
+
+      serta isi dari judul tersebut:
+
+      "{{text_2}}"
+
+      jenis intensi apa yang muncul dalam teks ini?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_2
+    reference: ''
+  9acc19d9-2b4f-40ae-ba71-973d35d67591: !Template
+    answer_choices: for ||| against ||| no
+    id: 9acc19d9-2b4f-40ae-ba71-973d35d67591
+    jinja: 'Tentang judul "{{text_1}}"
+
+      beserta isi yang tertera:
+
+      "{{text_2}}"
+
+      jenis intensi apa yang tampil dalam teks ini?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_10
+    reference: ''
+  b3b7a8a2-502b-45cb-af6c-57bef521346c: !Template
+    answer_choices: for ||| against ||| no
+    id: b3b7a8a2-502b-45cb-af6c-57bef521346c
+    jinja: 'Dari judul "{{text_1}}"
+
+      dan lengkap dengan konten judulnya:
+
+      "{{text_2}}"
+
+      jenis intensi apa yang dapat dipahami dari teks ini?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_9
+    reference: ''
+  b468d84b-5ff9-44f9-bd35-c92fc981480d: !Template
+    answer_choices: for ||| against ||| no
+    id: b468d84b-5ff9-44f9-bd35-c92fc981480d
+    jinja: 'Di bawah judul "{{text_1}}"
+
+      dan diikuti oleh isi judul ini:
+
+      "{{text_2}}"
+
+      jenis intensi apa yang terlihat dalam teks tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_7
+    reference: ''
+  d728959c-558a-4542-b126-8d41078159bb: !Template
+    answer_choices: for ||| against ||| no
+    id: d728959c-558a-4542-b126-8d41078159bb
+    jinja: 'Dengan judul text berikut yaitu: "{{text_1}}" serta isian dari judul tersebut
+      yaitu: "{{text_2}}" apakah tipe intensi dalam text tersebut? ||| {{ answer_choices[label]
+      }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_1
+    reference: ''
+  e27a12ac-009a-4994-89cd-a3bf246db856: !Template
+    answer_choices: for ||| against ||| no
+    id: e27a12ac-009a-4994-89cd-a3bf246db856
+    jinja: 'Berjudul "{{text_1}}"
+
+      dengan konten judul:
+
+      "{{text_2}}"
+
+      jenis intensi apa yang tergambar dalam teks tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_3
+    reference: ''
+  e6afdf9e-601d-400b-a403-fd5e59cd9aa9: !Template
+    answer_choices: for ||| against ||| no
+    id: e6afdf9e-601d-400b-a403-fd5e59cd9aa9
+    jinja: 'Pada judul "{{text_1}}"
+
+      serta konten yang dijabarkan:
+
+      "{{text_2}}"
+
+      jenis intensi seperti apa yang dapat ditemukan dalam teks tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_stance_template_6
+    reference: ''

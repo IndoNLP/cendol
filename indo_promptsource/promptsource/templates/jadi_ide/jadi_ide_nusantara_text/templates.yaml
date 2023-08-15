@@ -1,16 +1,239 @@
 dataset: jadi_ide
 subset: jadi_ide_nusantara_text
 templates:
-  da9e7e80-6581-463a-bd70-1c34b1e4bb20: !Template
+  1c9d7aef-079f-4654-8369-87c96a5afbd8: !Template
     answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
-    id: da9e7e80-6581-463a-bd70-1c34b1e4bb20
-    jinja: 'Dari teks bahasa jawa berikut ini \"{{text}}\",\n      tentukan jenis\
-      \ dialek bahasa jawa yang berasal dari timur, standar atau ngapak!\n|||\n{{\
-      \ answer_choices [label] }}'
+    id: 1c9d7aef-079f-4654-8369-87c96a5afbd8
+    jinja: 'Tafsirkan Teks Bahasa Jawa:
+
+
+      Dari fragmen Bahasa Jawa ini:
+
+      "{{text}}"
+
+      nyebutake ragam dialek Bahasa Jawa sing cocog: saka timur, standar, utawa ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_10
+    reference: ''
+  2f79e5a0-d9f4-4bf6-80ef-dd161e8d1c5a: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: 2f79e5a0-d9f4-4bf6-80ef-dd161e8d1c5a
+    jinja: 'Teks Bahasa Jawa dan Ragamnya:
+
+
+      Dari naskah Bahasa Jawa iki:
+
+      "{{text}}"
+
+      pilih ragam dialek sing paling pas: timur, standar, utawa ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
       - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_9
+    reference: ''
+  4cdbdf7a-182c-4763-afb3-ac179c256b3a: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: 4cdbdf7a-182c-4763-afb3-ac179c256b3a
+    jinja: 'Dalam Bahasa Jawa yang tertulis:
+
+
+      Jika ada teks seperti ini:
+
+      "{{text}}"
+
+      silakan pilih ragam dialek Bahasa Jawa yang berasal dari wilayah timur, ragam
+      standar, atau ragam ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_8
+    reference: ''
+  7aaed7ac-91f0-426e-9137-49ebb646f350: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: 7aaed7ac-91f0-426e-9137-49ebb646f350
+    jinja: 'Translate teks Jawa ini ke dalam Bahasa Indonesia:
+
+
+      "{{text}}"
+
+
+      Kemudian, pilih ragam dialek Bahasa Jawa yang terkait, apakah dari wilayah timur,
+      ragam standar, atau ragam ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_4
+    reference: ''
+  8b04366c-4b67-4ff1-88b3-dacd8007d89d: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: 8b04366c-4b67-4ff1-88b3-dacd8007d89d
+    jinja: 'Dari teks Bahasa Jawa berikut:
+
+      "{{text}}"
+
+      tentukan jenis varian dialek Bahasa Jawa yang berasal dari wilayah timur, ragam
+      standar, atau ragam ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_3
+    reference: ''
+  c21cc833-4c82-4568-8f71-fbb642ee7802: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: c21cc833-4c82-4568-8f71-fbb642ee7802
+    jinja: 'Dalam konteks Bahasa Jawa:
+
+
+      Dengan teks yang memuat kata-kata berikut:
+
+      "{{text}}"
+
+      mohon prediksi ragam dialek Bahasa Jawa yang menggambarkan wilayah timur, ragam
+      standar, atau ragam ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_5
+    reference: ''
+  c4bfe0db-10ed-4894-a44f-34ade3d7e3a3: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: c4bfe0db-10ed-4894-a44f-34ade3d7e3a3
+    jinja: 'Identifikasi Ragam Bahasa Jawa:
+
+      Dalam potongan teks Bahasa Jawa berikut:
+
+      "{{text}}"
+
+      cari tahu ragam dialek yang paling sesuai: timur, standar, atau ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_7
+    reference: ''
+  d041dc74-9be2-43b1-89a7-604e1b4fc1f2: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: d041dc74-9be2-43b1-89a7-604e1b4fc1f2
+    jinja: 'Dari fragmen Bahasa Jawa berikut:
+
+
+      "{{text}}"
+
+
+      silakan tentukan variasi dialek Bahasa Jawa yang terkait dengan wilayah timur,
+      ragam standar, atau ragam ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_6
+    reference: ''
+  d91aa1eb-183b-49c4-a0c1-d2f78a4c1cbe: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: d91aa1eb-183b-49c4-a0c1-d2f78a4c1cbe
+    jinja: 'Dalam Teks Bahasa Jawa:
+
+
+      Dari naskah berikut yang ditulis dalam Bahasa Jawa:
+
+      "{{text}}"
+
+      temukan ragam dialek Bahasa Jawa yang berasal dari wilayah timur, standar, atau
+      ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: jadi_ide_nusantara_text_template_2
+    reference: ''
+  da9e7e80-6581-463a-bd70-1c34b1e4bb20: !Template
+    answer_choices: Jawa Timur ||| Jawa Standar ||| Jawa Ngapak
+    id: da9e7e80-6581-463a-bd70-1c34b1e4bb20
+    jinja: 'Dari teks bahasa jawa berikut ini :
+
+      "{{text}}"
+
+      tentukan jenis dialek bahasa jawa yang berasal dari timur, standar atau ngapak!
+
+      |||
+
+      {{answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
       metrics:
       - Accuracy
       original_task: true
