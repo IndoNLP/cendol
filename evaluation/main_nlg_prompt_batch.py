@@ -157,7 +157,7 @@ if __name__ == '__main__':
         tokenizer.padding_side = 'left'
     
     if ADAPTER != '':
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, resume_download=True)
         model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
         MODEL = ADAPTER # for file naming
     elif "gpt" in MODEL or "text" in MODEL:
