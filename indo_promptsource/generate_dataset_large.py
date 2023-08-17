@@ -59,7 +59,7 @@ prompt = DatasetTemplates(dataset_name, subset_name=subset_name)
 
 # Iterate to each prompt templates
 for prompt_id in tqdm(prompt.templates):
-    all_data = None
+    del all_data
     all_data = []
     template_name = prompt.templates[prompt_id].name
 
