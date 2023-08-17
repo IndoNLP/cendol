@@ -1,5 +1,5 @@
 dataset: nusax_mt
-subset: nusax_mt_nij_ind_source
+subset: nusax_mt_nij_ind_nusantara_t2t
 templates:
   1311b1a0-6ee7-469a-9f9a-2a529769e4bb: !Template
     answer_choices: null
