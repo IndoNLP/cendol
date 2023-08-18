@@ -26,6 +26,10 @@ creds.js
 *.tsv
 *.tsv.gz
 *.xlsx
+
+# generated datasets
+generated_dataset/*.csv
+
  
  
 # Mac/OSX
