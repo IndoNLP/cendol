@@ -1,25 +1,9 @@
 dataset: nusax_mt
 subset: nusax_mt_ind_sun_nusantara_t2t
 templates:
-  020c4b79-340d-4b1a-870l-f4037ce8ccda: !Template
+  de358835-c6e2-4fb4-803f-c5c5169389fe: !Template
     answer_choices: null
-    id: 020c4b79-340d-4b1a-870l-f4037ce8ccda
-    jinja: 'Sunda: {{text_2}}
-
-      Indonesia: ||| {{text_1}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: nusax_mt_ind_sun_prompt_template_15
-    reference: ''
-  0d89aace-5c3f-4689-9a7l-41032fd77d5a: !Template
-    answer_choices: null
-    id: 0d89aace-5c3f-4689-9a7l-41032fd77d5a
+    id: de358835-c6e2-4fb4-803f-c5c5169389fe
     jinja: 'Kalimat: {{text_2}}
 
       Indonesia: ||| {{text_1}}'
@@ -33,9 +17,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_14
     reference: ''
-  14840bab-d260-41d0-bc2l-9e32642bbdda: !Template
+  3e7780df-e75e-43f4-b472-91df111d368c: !Template
     answer_choices: null
-    id: 14840bab-d260-41d0-bc2l-9e32642bbdda
+    id: 3e7780df-e75e-43f4-b472-91df111d368c
     jinja: 'Sentence: {{text_1}}
 
       Sundanese: ||| {{text_2}}'
@@ -49,9 +33,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_25
     reference: ''
-  2d0ea1b8-ff03-4819-800l-e7e3eb11757a: !Template
+  507e62ec-de89-42cc-a0ff-c28f61c5d9e4: !Template
     answer_choices: null
-    id: 2d0ea1b8-ff03-4819-800l-e7e3eb11757a
+    id: 507e62ec-de89-42cc-a0ff-c28f61c5d9e4
     jinja: "Please translate the following sentence to Indonesian \n\n{{text_2}} |||\
       \ {{text_1}}"
     metadata: !TemplateMetadata
@@ -64,20 +48,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_17
     reference: ''
-  34a07ff3-d243-4eb7-839l-87db75bb033a: !Template
+  6f02c396-ae80-43e5-a3b3-d4ee86490901: !Template
     answer_choices: null
-    id: 34a07ff3-d243-4eb7-839l-87db75bb033a
-    jinja: ''
-    metadata: !TemplateMetadata
-      choices_in_prompt: null
-      languages: null
-      metrics: null
-      original_task: null
-    name: nusax_mt_ind_sun_prompt_template_6
-    reference: ''
-  40d66aa0-c362-48fa-a2cl-a0d038bbcc6a: !Template
-    answer_choices: null
-    id: 40d66aa0-c362-48fa-a2cl-a0d038bbcc6a
+    id: 6f02c396-ae80-43e5-a3b3-d4ee86490901
     jinja: 'Sentence: {{text_2}}
 
       Translated version in Indonesian: ||| {{text_1}}'
@@ -91,9 +64,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_19
     reference: ''
-  4f3aab53-817e-4ea2-a84l-1f737c8d05fa: !Template
+  cada8a36-f787-40d6-a639-a4cb0d4e041e: !Template
     answer_choices: null
-    id: 4f3aab53-817e-4ea2-a84l-1f737c8d05fa
+    id: cada8a36-f787-40d6-a639-a4cb0d4e041e
     jinja: 'Tolong translate ke bahasa Sunda: {{text_1}} |||  {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -105,9 +78,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_3
     reference: ''
-  56415c3f-c68c-4b72-bbal-b0482a78716a: !Template
+  d2c080e2-d9fb-40bc-b29d-668b757c821f: !Template
     answer_choices: null
-    id: 56415c3f-c68c-4b72-bbal-b0482a78716a
+    id: d2c080e2-d9fb-40bc-b29d-668b757c821f
     jinja: 'Sentence: {{text_1}}
 
       Please translate to Sundanese ||| {{text_2}}'
@@ -121,9 +94,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_22
     reference: ''
-  57ba6692-4d7f-4b02-906l-1d5d2e70b2ba: !Template
+  3cc9df4b-b27d-4eaf-b098-37a31266cbd1: !Template
     answer_choices: null
-    id: 57ba6692-4d7f-4b02-906l-1d5d2e70b2ba
+    id: 3cc9df4b-b27d-4eaf-b098-37a31266cbd1
     jinja: 'Kalimat: {{text_1}}
 
       Sunda: ||| {{text_2}}'
@@ -137,9 +110,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_8
     reference: ''
-  5a146ee0-549b-44a4-951l-43f4854d897a: !Template
+  8f75e320-ced8-4cd9-93b8-6a47bc3fe450: !Template
     answer_choices: null
-    id: 5a146ee0-549b-44a4-951l-43f4854d897a
+    id: 8f75e320-ced8-4cd9-93b8-6a47bc3fe450
     jinja: '{{text_1}}
 
       =====
@@ -155,9 +128,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_23
     reference: ''
-  67f9e07e-fe91-47e8-9cal-4a3efafba34a: !Template
+  e23df21f-76c0-459b-ba8e-f4da40b825f7: !Template
     answer_choices: null
-    id: 67f9e07e-fe91-47e8-9cal-4a3efafba34a
+    id: e23df21f-76c0-459b-ba8e-f4da40b825f7
     jinja: 'Kalimat: {{text_1}}
 
       Terjemahan Sunda: ||| {{text_2}} '
@@ -171,9 +144,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_7
     reference: ''
-  779f0cfb-0791-4f08-adbl-7c8f45041b0a: !Template
+  89f43b17-559a-4353-97b4-978d4e14c8df: !Template
     answer_choices: null
-    id: 779f0cfb-0791-4f08-adbl-7c8f45041b0a
+    id: 89f43b17-559a-4353-97b4-978d4e14c8df
     jinja: 'Sentence: {{text_1}}
 
       Sundanese Translation: ||| {{text_2}}'
@@ -187,9 +160,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_24
     reference: ''
-  7c8630e4-f338-41b9-b2fl-5fba7e22839a: !Template
+  45a34558-8241-4a23-b764-66d4a3bfcead: !Template
     answer_choices: null
-    id: 7c8630e4-f338-41b9-b2fl-5fba7e22839a
+    id: 45a34558-8241-4a23-b764-66d4a3bfcead
     jinja: 'Kalimat: {{text_2}}
 
       Terjemahan Indonesia: ||| {{text_1}}'
@@ -203,9 +176,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_13
     reference: ''
-  8bf3b6de-477e-4c09-b78l-85dfb7dfabca: !Template
+  bc115eb0-5381-4d52-abc9-79a7cbf8e284: !Template
     answer_choices: null
-    id: 8bf3b6de-477e-4c09-b78l-85dfb7dfabca
+    id: bc115eb0-5381-4d52-abc9-79a7cbf8e284
     jinja: 'Sentence: {{text_2}}
 
       Indonesian: ||| {{text_1}}'
@@ -219,9 +192,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_20
     reference: ''
-  8c52d7be-abdd-42df-b65l-bd4f02816cca: !Template
+  ede1b7e6-0488-4588-8550-bd0177559434: !Template
     answer_choices: null
-    id: 8c52d7be-abdd-42df-b65l-bd4f02816cca
+    id: ede1b7e6-0488-4588-8550-bd0177559434
     jinja: 'Please translate to Indonesian: {{text_2}} ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -233,9 +206,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_16
     reference: ''
-  9431b645-2628-4aa5-bdel-6887f671782a: !Template
+  76933dbf-19fe-4f5e-a927-285da332029f: !Template
     answer_choices: null
-    id: 9431b645-2628-4aa5-bdel-6887f671782a
+    id: 76933dbf-19fe-4f5e-a927-285da332029f
     jinja: '{{text_2}}
 
 
@@ -250,9 +223,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_10
     reference: ''
-  a36a6b77-8e01-4952-88fl-63d887ba2f8a: !Template
+  3093f6e7-0e1e-4dcb-882c-fdfeb399a8b5: !Template
     answer_choices: null
-    id: a36a6b77-8e01-4952-88fl-63d887ba2f8a
+    id: 3093f6e7-0e1e-4dcb-882c-fdfeb399a8b5
     jinja: 'Kalimat: {{text_1}}
 
       Tolong translate ke bahasa Sunda ||| {{text_2}}'
@@ -266,9 +239,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_4
     reference: ''
-  bce9cadd-70c7-46bf-bf2l-219a5efa3cfa: !Template
+  fd3982ab-5122-407a-bb14-76afa9e3b20d: !Template
     answer_choices: null
-    id: bce9cadd-70c7-46bf-bf2l-219a5efa3cfa
+    id: fd3982ab-5122-407a-bb14-76afa9e3b20d
     jinja: '{{text_2}}
 
       =====
@@ -284,9 +257,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_12
     reference: ''
-  c0bde489-ff59-4238-961l-e0fe68e9ac7a: !Template
+  d5101e25-8f21-4a92-a429-055100c34bc3: !Template
     answer_choices: null
-    id: c0bde489-ff59-4238-961l-e0fe68e9ac7a
+    id: d5101e25-8f21-4a92-a429-055100c34bc3
     jinja: '{{text_2}}
 
       =====
@@ -302,9 +275,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_18
     reference: ''
-  c40c0100-061a-48c1-adbl-558352dc388a: !Template
+  e1399021-ddc5-4de2-99b0-e0482a952c79: !Template
     answer_choices: null
-    id: c40c0100-061a-48c1-adbl-558352dc388a
+    id: e1399021-ddc5-4de2-99b0-e0482a952c79
     jinja: 'Indonesian: {{text_1}}
 
       Sundanese: ||| {{text_2}}'
@@ -318,9 +291,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_21
     reference: ''
-  d677a688-69d5-4ddb-8fal-1bcc139af13a: !Template
+  71769efb-ae43-40e1-aa23-9bd3494594fb: !Template
     answer_choices: null
-    id: d677a688-69d5-4ddb-8fal-1bcc139af13a
+    id: 71769efb-ae43-40e1-aa23-9bd3494594fb
     jinja: 'Sunda: {{text_2}}
 
       Indonesia: ||| {{text_1}}'
@@ -334,9 +307,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_9
     reference: ''
-  dbfd81ba-70ae-4b20-a8el-50f00cc6393a: !Template
+  48b0dc7b-cf97-4cc5-a24a-b0f0fe8e4148: !Template
     answer_choices: null
-    id: dbfd81ba-70ae-4b20-a8el-50f00cc6393a
+    id: 48b0dc7b-cf97-4cc5-a24a-b0f0fe8e4148
     jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_2}} |||\
       \ {{text_1}} "
     metadata: !TemplateMetadata
@@ -349,9 +322,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_11
     reference: ''
-  de5844aa-25f4-4d01-916l-a5422c4ef7ea: !Template
+  8bf8b276-5679-4e5e-9f18-57f3feca13dc: !Template
     answer_choices: null
-    id: de5844aa-25f4-4d01-916l-a5422c4ef7ea
+    id: 8bf8b276-5679-4e5e-9f18-57f3feca13dc
     jinja: "Apa kalimat bahasa Sunda dari kalimat berikut ini? \n\n{{text_1}} |||\
       \ {{text_2}}"
     metadata: !TemplateMetadata
@@ -364,9 +337,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_2
     reference: ''
-  e6d5283e-429a-45af-82dl-3a328853c3da: !Template
+  2fc246b0-e386-4e42-aaca-394f07d0d5b3: !Template
     answer_choices: null
-    id: e6d5283e-429a-45af-82dl-3a328853c3da
+    id: 2fc246b0-e386-4e42-aaca-394f07d0d5b3
     jinja: '{{text_1}}
 
       =====
@@ -382,9 +355,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_sun_prompt_template_5
     reference: ''
-  f387e20d-e843-4ee3-ae3l-18e41fc7eb6a: !Template
+  27778539-14ae-4f8a-bd27-2970bf6af7c2: !Template
     answer_choices: null
-    id: f387e20d-e843-4ee3-ae3l-18e41fc7eb6a
+    id: 27778539-14ae-4f8a-bd27-2970bf6af7c2
     jinja: '{{text_1}}
 
 

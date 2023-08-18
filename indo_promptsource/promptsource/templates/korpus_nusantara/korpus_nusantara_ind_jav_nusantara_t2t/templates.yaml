@@ -1,9 +1,9 @@
 dataset: korpus_nusantara
 subset: korpus_nusantara_ind_jav_nusantara_t2t
 templates:
-  080a8b2c-eb6c-459e-a84v-35939645f53u: !Template
+  eaef7d4b-6e3f-4d0a-98c9-655b4a3a1bc8: !Template
     answer_choices: null
-    id: 080a8b2c-eb6c-459e-a84v-35939645f53u
+    id: eaef7d4b-6e3f-4d0a-98c9-655b4a3a1bc8
     jinja: "Apa kalimat bahasa Jawa dari kalimat berikut ini? \n\n{{text_1}} ||| {{text_2}} "
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -15,9 +15,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_2
     reference: ''
-  187c17e5-a423-4f01-a66v-e2e9a9961d3u: !Template
+  208874f8-9b17-4a4a-88f7-c1ea3f0abd2a: !Template
     answer_choices: null
-    id: 187c17e5-a423-4f01-a66v-e2e9a9961d3u
+    id: 208874f8-9b17-4a4a-88f7-c1ea3f0abd2a
     jinja: 'Sentence: {{text_2}}
 
       Translated version in Indonesian: ||| {{text_1}}'
@@ -31,9 +31,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_19
     reference: ''
-  1f4bacd8-3abd-49f1-9f4v-c7ee869c859u: !Template
+  ea344618-6bf6-4440-bf82-4a352ac52b4c: !Template
     answer_choices: null
-    id: 1f4bacd8-3abd-49f1-9f4v-c7ee869c859u
+    id: ea344618-6bf6-4440-bf82-4a352ac52b4c
     jinja: 'Kalimat: {{text_2}}
 
       Terjemahan Indonesia: ||| {{text_1}}'
@@ -47,9 +47,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_13
     reference: ''
-  240197db-69b5-424f-84av-0f535c05408u: !Template
+  c1287980-5074-418a-bfc5-b7bab75bc75e: !Template
     answer_choices: null
-    id: 240197db-69b5-424f-84av-0f535c05408u
+    id: c1287980-5074-418a-bfc5-b7bab75bc75e
     jinja: "Terjemahkan ke bahasa Jawa: \n\n{{text_1}} ||| {{text_2}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -61,9 +61,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_6
     reference: ''
-  28730706-6b8f-4969-b80v-ad82f5dfa2au: !Template
+  2657a02f-2743-4e37-a707-eb0675b18a1d: !Template
     answer_choices: null
-    id: 28730706-6b8f-4969-b80v-ad82f5dfa2au
+    id: 2657a02f-2743-4e37-a707-eb0675b18a1d
     jinja: 'Sentence: {{text_1}}
 
       Please translate to Javanese ||| {{text_2}}'
@@ -77,9 +77,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_22
     reference: ''
-  294f8d41-7158-4ca0-a6cv-f038d0afbc8u: !Template
+  eecadf44-e2b5-42cc-987f-fb260d427a9c: !Template
     answer_choices: null
-    id: 294f8d41-7158-4ca0-a6cv-f038d0afbc8u
+    id: eecadf44-e2b5-42cc-987f-fb260d427a9c
     jinja: '{{text_2}}
 
       =====
@@ -95,9 +95,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_18
     reference: ''
-  2bc254c3-2491-427c-9b3v-d22485ea1a2u: !Template
+  f7735ec8-e1d3-45ec-9db9-08f2d6ad3d31: !Template
     answer_choices: null
-    id: 2bc254c3-2491-427c-9b3v-d22485ea1a2u
+    id: f7735ec8-e1d3-45ec-9db9-08f2d6ad3d31
     jinja: 'Indonesian: {{text_1}}
 
       Javanese: ||| {{text_2}}'
@@ -111,9 +111,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_21
     reference: ''
-  313667cb-06e2-4fdb-8cav-c01ecb786b6u: !Template
+  478e5dd6-8e7e-4780-8d79-41ede1d252f0: !Template
     answer_choices: null
-    id: 313667cb-06e2-4fdb-8cav-c01ecb786b6u
+    id: 478e5dd6-8e7e-4780-8d79-41ede1d252f0
     jinja: "Please translate the following sentence to Indonesian \n\n{{text_2}} |||\
       \ {{text_1}}"
     metadata: !TemplateMetadata
@@ -126,9 +126,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_17
     reference: ''
-  41dc7bd7-a0d0-4fd2-965v-3bd490e57adu: !Template
+  9ffcda70-f400-4e17-bba0-cef4e8d67541: !Template
     answer_choices: null
-    id: 41dc7bd7-a0d0-4fd2-965v-3bd490e57adu
+    id: 9ffcda70-f400-4e17-bba0-cef4e8d67541
     jinja: 'Kalimat: {{text_1}}
 
       Jawa: ||| {{text_2}}'
@@ -142,9 +142,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_8
     reference: ''
-  527f1d11-5461-446c-b99v-715b12a9b36u: !Template
+  372eeb2a-460d-49c8-b749-37666294ef2b: !Template
     answer_choices: null
-    id: 527f1d11-5461-446c-b99v-715b12a9b36u
+    id: 372eeb2a-460d-49c8-b749-37666294ef2b
     jinja: '{{text_2}}
 
       =====
@@ -160,9 +160,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_12
     reference: ''
-  550ea102-d4f4-4073-a3dv-27c15265bf7u: !Template
+  1562541b-2c06-4922-af7c-22d1807956e2: !Template
     answer_choices: null
-    id: 550ea102-d4f4-4073-a3dv-27c15265bf7u
+    id: 1562541b-2c06-4922-af7c-22d1807956e2
     jinja: 'Kalimat: {{text_1}}
 
       Terjemahan Jawa: ||| {{text_2}} '
@@ -176,9 +176,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_7
     reference: ''
-  63677e90-aa30-4e16-a51v-37dbb65c5b6u: !Template
+  ef661b6d-143b-4f20-9aab-d43111ffeb15: !Template
     answer_choices: null
-    id: 63677e90-aa30-4e16-a51v-37dbb65c5b6u
+    id: ef661b6d-143b-4f20-9aab-d43111ffeb15
     jinja: '{{text_1}}
 
       =====
@@ -194,9 +194,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_5
     reference: ''
-  700a8ddb-58fd-4abd-915v-0ee775ff63eu: !Template
+  88d7d58a-f66a-4c15-842b-29470d086797: !Template
     answer_choices: null
-    id: 700a8ddb-58fd-4abd-915v-0ee775ff63eu
+    id: 88d7d58a-f66a-4c15-842b-29470d086797
     jinja: 'Sentence: {{text_1}}
 
       Javanese Translation: ||| {{text_2}}'
@@ -210,9 +210,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_24
     reference: ''
-  72dfee03-985c-4013-addv-bf41027ffacu: !Template
+  0041914a-c196-48b3-b15a-be9a68043a8e: !Template
     answer_choices: null
-    id: 72dfee03-985c-4013-addv-bf41027ffacu
+    id: 0041914a-c196-48b3-b15a-be9a68043a8e
     jinja: 'Tolong translate ke bahasa Jawa: {{text_1}} |||  {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -224,9 +224,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_3
     reference: ''
-  77d68545-bda5-4c74-8bcv-87e7a34b617u: !Template
+  aef63be3-5ce4-4df7-b0bf-7dddc601b269: !Template
     answer_choices: null
-    id: 77d68545-bda5-4c74-8bcv-87e7a34b617u
+    id: aef63be3-5ce4-4df7-b0bf-7dddc601b269
     jinja: 'Sentence: {{text_2}}
 
       Indonesian: ||| {{text_1}}'
@@ -240,9 +240,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_20
     reference: ''
-  798d78b3-ad94-4dfd-aabv-8c0df8429f6u: !Template
+  48cfadf2-6816-4bf6-8d41-673ca612a4e8: !Template
     answer_choices: null
-    id: 798d78b3-ad94-4dfd-aabv-8c0df8429f6u
+    id: 48cfadf2-6816-4bf6-8d41-673ca612a4e8
     jinja: '{{text_1}}
 
       =====
@@ -258,9 +258,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_23
     reference: ''
-  7f1a1b01-2830-4e54-8b9v-70bd81c2558u: !Template
+  19663c20-096b-475d-b015-ca05815de3e2: !Template
     answer_choices: null
-    id: 7f1a1b01-2830-4e54-8b9v-70bd81c2558u
+    id: 19663c20-096b-475d-b015-ca05815de3e2
     jinja: '{{text_1}}
 
 
@@ -275,9 +275,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_1
     reference: ''
-  7ff8e1cf-4871-44af-9a7v-6c7b9fb502du: !Template
+  139cdaf2-6c56-4ae3-ab08-13765ef98d40: !Template
     answer_choices: null
-    id: 7ff8e1cf-4871-44af-9a7v-6c7b9fb502du
+    id: 139cdaf2-6c56-4ae3-ab08-13765ef98d40
     jinja: '{{text_2}}
 
 
@@ -292,9 +292,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_10
     reference: ''
-  839886ed-d49a-43dd-9dfv-b90b3a6f9aeu: !Template
+  446d68bc-51b0-41a8-880a-36475a883e07: !Template
     answer_choices: null
-    id: 839886ed-d49a-43dd-9dfv-b90b3a6f9aeu
+    id: 446d68bc-51b0-41a8-880a-36475a883e07
     jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_2}} |||\
       \ {{text_1}} "
     metadata: !TemplateMetadata
@@ -307,9 +307,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_11
     reference: ''
-  839fea60-61cf-447b-824v-b9da79bbf05u: !Template
+  9f9bb6e9-d4af-417d-970c-669babea6b87: !Template
     answer_choices: null
-    id: 839fea60-61cf-447b-824v-b9da79bbf05u
+    id: 9f9bb6e9-d4af-417d-970c-669babea6b87
     jinja: 'Kalimat: {{text_2}}
 
       Indonesia: ||| {{text_1}}'
@@ -323,9 +323,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_14
     reference: ''
-  99eb5ea9-d789-4f27-bbbv-a6312002645u: !Template
+  e615fb15-8e4e-4354-8859-595f8e3a1007: !Template
     answer_choices: null
-    id: 99eb5ea9-d789-4f27-bbbv-a6312002645u
+    id: e615fb15-8e4e-4354-8859-595f8e3a1007
     jinja: 'Please translate to Indonesian: {{text_2}} ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -337,9 +337,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_16
     reference: ''
-  b5829943-7e29-4dd1-bdav-85137d3222eu: !Template
+  b42ba142-f7e5-46f0-9187-b0f47baa0c58: !Template
     answer_choices: null
-    id: b5829943-7e29-4dd1-bdav-85137d3222eu
+    id: b42ba142-f7e5-46f0-9187-b0f47baa0c58
     jinja: 'Jawa: {{text_2}}
 
       Indonesia: ||| {{text_1}}'
@@ -353,9 +353,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_9
     reference: ''
-  ed3ba42e-ab30-49ab-9dfv-c39ea69a65fu: !Template
+  7b8e44ec-b416-489a-b3a2-61735731d22a: !Template
     answer_choices: null
-    id: ed3ba42e-ab30-49ab-9dfv-c39ea69a65fu
+    id: 7b8e44ec-b416-489a-b3a2-61735731d22a
     jinja: 'Sentence: {{text_1}}
 
       Javanese: ||| {{text_2}}'
@@ -369,9 +369,9 @@ templates:
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_25
     reference: ''
-  f8f53d3b-7aa1-4378-9c9v-6c3b86de015u: !Template
+  1f9d75ba-f3bf-4dcd-b73d-dfc0cf442709: !Template
     answer_choices: null
-    id: f8f53d3b-7aa1-4378-9c9v-6c3b86de015u
+    id: 1f9d75ba-f3bf-4dcd-b73d-dfc0cf442709
     jinja: 'Kalimat: {{text_1}}
 
       Tolong translate ke bahasa Jawa ||| {{text_2}}'
@@ -384,20 +384,4 @@ templates:
       - BLEU
       original_task: true
     name: korpus_nusantara_ind_jav_prompt_template_4
-    reference: ''
-  ff7c3991-ce53-4711-90bv-ec86154977cu: !Template
-    answer_choices: null
-    id: ff7c3991-ce53-4711-90bv-ec86154977cu
-    jinja: 'Jawa: {{text_2}}
-
-      Indonesia: ||| {{text_1}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: korpus_nusantara_ind_jav_prompt_template_15
     reference: ''

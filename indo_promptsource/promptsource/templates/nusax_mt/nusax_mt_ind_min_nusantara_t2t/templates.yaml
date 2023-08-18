@@ -1,9 +1,9 @@
 dataset: nusax_mt
 subset: nusax_mt_ind_min_nusantara_t2t
 templates:
-  0b1efecc-1363-401a-beem-88b1eb6d25eb: !Template
+  d31672bb-0719-4c50-ab76-807174d724a9: !Template
     answer_choices: null
-    id: 0b1efecc-1363-401a-beem-88b1eb6d25eb
+    id: d31672bb-0719-4c50-ab76-807174d724a9
     jinja: "Apa kalimat bahasa Minang dari kalimat berikut ini? \n\n{{text_1}} |||\
       \ {{text_2}} "
     metadata: !TemplateMetadata
@@ -16,9 +16,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_2
     reference: ''
-  0deecb49-08cj-4a6q-80fm-7c8fc5da3a4f: !Template
+  e76ab30a-20cd-4ea3-a5d0-b9de8231c24a: !Template
     answer_choices: null
-    id: 0deecb49-08cj-4a6q-80fm-7c8fc5da3a4f
+    id: e76ab30a-20cd-4ea3-a5d0-b9de8231c24a
     jinja: 'Minangese: {{text_2}}
 
       Indonesia: ||| {{text_1}}'
@@ -32,9 +32,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_9
     reference: ''
-  10e2f552-3af6-462j-890m-9ee86feab37d: !Template
+  049d891d-cd65-42c5-a199-6cdb9e1b03c4: !Template
     answer_choices: null
-    id: 10e2f552-3af6-462j-890m-9ee86feab37d
+    id: 049d891d-cd65-42c5-a199-6cdb9e1b03c4
     jinja: 'Sentence: {{text_1}}
 
       Minangese Translation: ||| {{text_2}}'
@@ -48,9 +48,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_24
     reference: ''
-  1ab93fdf-29dc-4a6z-bd1m-93e3053d5ce5: !Template
+  7973e6ff-df8e-4a00-9a3c-fd9ebb274427: !Template
     answer_choices: null
-    id: 1ab93fdf-29dc-4a6z-bd1m-93e3053d5ce5
+    id: 7973e6ff-df8e-4a00-9a3c-fd9ebb274427
     jinja: 'Sentence: {{text_2}}
 
       Translated version in Indonesian: ||| {{text_1}}'
@@ -64,9 +64,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_19
     reference: ''
-  1d26ad9b-bd15-45b5-bb6m-be75f2404d09: !Template
+  16f19515-9d60-42ac-8257-b0dc3d783517: !Template
     answer_choices: null
-    id: 1d26ad9b-bd15-45b5-bb6m-be75f2404d09
+    id: 16f19515-9d60-42ac-8257-b0dc3d783517
     jinja: 'Tolong translate ke bahasa Minang: {{text_1}} |||  {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -78,9 +78,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_3
     reference: ''
-  20276da5-a2ed-498w-af0m-6bbf838bb3ff: !Template
+  4f6820ab-af0a-469e-b5cd-3fea291df124: !Template
     answer_choices: null
-    id: 20276da5-a2ed-498w-af0m-6bbf838bb3ff
+    id: 4f6820ab-af0a-469e-b5cd-3fea291df124
     jinja: '{{text_1}}
 
       =====
@@ -96,9 +96,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_5
     reference: ''
-  2fae558d-bde5-41fp-b2fm-7781e3718401: !Template
+  bb57eaa6-a2f0-4e6d-9a03-bef12dc817b2: !Template
     answer_choices: null
-    id: 2fae558d-bde5-41fp-b2fm-7781e3718401
+    id: bb57eaa6-a2f0-4e6d-9a03-bef12dc817b2
     jinja: 'Kalimat: {{text_1}}
 
       Tolong translate ke bahasa Minang ||| {{text_2}}'
@@ -112,9 +112,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_4
     reference: ''
-  504807b3-f1fc-4bd3-9e2m-ad93e03b7944: !Template
+  6b1f2db3-8538-4601-a28b-426e63edd3c4: !Template
     answer_choices: null
-    id: 504807b3-f1fc-4bd3-9e2m-ad93e03b7944
+    id: 6b1f2db3-8538-4601-a28b-426e63edd3c4
     jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_2}} |||\
       \ {{text_1}} "
     metadata: !TemplateMetadata
@@ -127,9 +127,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_11
     reference: ''
-  71f8564f-73b8-4710-93dm-2592300e28af: !Template
+  2f5aec27-9511-4965-a045-8cea2f7b03f4: !Template
     answer_choices: null
-    id: 71f8564f-73b8-4710-93dm-2592300e28af
+    id: 2f5aec27-9511-4965-a045-8cea2f7b03f4
     jinja: '{{text_2}}
 
 
@@ -144,9 +144,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_10
     reference: ''
-  83268829-b3c2-4848-940m-592320e31496: !Template
+  e365aa44-7a2a-4e9b-9dc9-b7e1a35b1d25: !Template
     answer_choices: null
-    id: 83268829-b3c2-4848-940m-592320e31496
+    id: e365aa44-7a2a-4e9b-9dc9-b7e1a35b1d25
     jinja: '{{text_2}}
 
       =====
@@ -162,9 +162,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_18
     reference: ''
-  84124239-2077-47fe-92bm-f72b3e7d82a7: !Template
+  a3318331-0009-4cbd-bef6-d9b3302e6a12: !Template
     answer_choices: null
-    id: 84124239-2077-47fe-92bm-f72b3e7d82a7
+    id: a3318331-0009-4cbd-bef6-d9b3302e6a12
     jinja: 'Kalimat: {{text_2}}
 
       Terjemahan Indonesia: ||| {{text_1}}'
@@ -178,9 +178,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_13
     reference: ''
-  8717009d-f0dd-4224-963m-6f211fcfaff3: !Template
+  fec6d7da-c943-4ab5-aba8-1dbdf3928080: !Template
     answer_choices: null
-    id: 8717009d-f0dd-4224-963m-6f211fcfaff3
+    id: fec6d7da-c943-4ab5-aba8-1dbdf3928080
     jinja: '{{text_1}}
 
 
@@ -195,9 +195,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_1
     reference: ''
-  93870b04-59f1-485e-a4cm-35c48ad906bd: !Template
+  2789ce2a-ed6b-44cb-94a7-27237e4ab39c: !Template
     answer_choices: null
-    id: 93870b04-59f1-485e-a4cm-35c48ad906bd
+    id: 2789ce2a-ed6b-44cb-94a7-27237e4ab39c
     jinja: 'Sentence: {{text_1}}
 
       Minangese: ||| {{text_2}}'
@@ -211,9 +211,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_25
     reference: ''
-  ab6bf853-d205-4947-984m-1bf4dbdc1e54: !Template
+  41a0dd60-d7ce-4c2c-a1ec-2f4ba0e9670c: !Template
     answer_choices: null
-    id: ab6bf853-d205-4947-984m-1bf4dbdc1e54
+    id: 41a0dd60-d7ce-4c2c-a1ec-2f4ba0e9670c
     jinja: '{{text_2}}
 
       =====
@@ -229,9 +229,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_12
     reference: ''
-  aeb43924-5172-4ae6-a21m-d5000fe08d5a: !Template
+  dbb30057-dcd2-4167-a758-4e1833a6b5a0: !Template
     answer_choices: null
-    id: aeb43924-5172-4ae6-a21m-d5000fe08d5a
+    id: dbb30057-dcd2-4167-a758-4e1833a6b5a0
     jinja: 'Kalimat: {{text_1}}
 
       Minang: ||| {{text_2}}'
@@ -245,9 +245,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_8
     reference: ''
-  af23c635-a9d6-4e5l-927m-fed891bd145b: !Template
+  c1c9e06b-e0ad-429f-a68e-d3161eac179f: !Template
     answer_choices: null
-    id: af23c635-a9d6-4e5l-927m-fed891bd145b
+    id: c1c9e06b-e0ad-429f-a68e-d3161eac179f
     jinja: 'Sentence: {{text_1}}
 
       Please translate to Minangese ||| {{text_2}}'
@@ -261,9 +261,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_22
     reference: ''
-  b0d1fc50-cab5-42ex-94em-9ec92f024739: !Template
+  700fa254-9ce9-4f81-9d40-f27d423b466f: !Template
     answer_choices: null
-    id: b0d1fc50-cab5-42ex-94em-9ec92f024739
+    id: 700fa254-9ce9-4f81-9d40-f27d423b466f
     jinja: 'Indonesian: {{text_1}}
 
       Minangese: ||| {{text_2}}'
@@ -277,9 +277,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_21
     reference: ''
-  b84e3fef-d4f1-4f4b-8f9m-2ebef9886b9f: !Template
+  b0e35979-a945-4669-bd23-172ee9cf7a40: !Template
     answer_choices: null
-    id: b84e3fef-d4f1-4f4b-8f9m-2ebef9886b9f
+    id: b0e35979-a945-4669-bd23-172ee9cf7a40
     jinja: 'Kalimat: {{text_2}}
 
       Indonesia: ||| {{text_1}}'
@@ -293,9 +293,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_14
     reference: ''
-  ba443a1c-bb6f-4bd5-833m-b37e236e90b6: !Template
+  c03326ad-417d-444e-9ea1-df957562fd96: !Template
     answer_choices: null
-    id: ba443a1c-bb6f-4bd5-833m-b37e236e90b6
+    id: c03326ad-417d-444e-9ea1-df957562fd96
     jinja: "Please translate the following sentence to Indonesian \n\n{{text_2}} |||\
       \ {{text_1}}"
     metadata: !TemplateMetadata
@@ -308,25 +308,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_17
     reference: ''
-  ba9f89ce-f3a7-4dee-891m-893ab1076ad9: !Template
+  b035c55d-862e-40be-ae38-f6e7ee337ba9: !Template
     answer_choices: null
-    id: ba9f89ce-f3a7-4dee-891m-893ab1076ad9
-    jinja: 'Minangese: {{text_2}}
-
-      Indonesia: ||| {{text_1}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - en
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: nusax_mt_ind_min_template_15
-    reference: ''
-  dfd15359-3f8f-488c-9c0m-6bd74fd88ee7: !Template
-    answer_choices: null
-    id: dfd15359-3f8f-488c-9c0m-6bd74fd88ee7
+    id: b035c55d-862e-40be-ae38-f6e7ee337ba9
     jinja: 'Sentence: {{text_2}}
 
       Indonesian: ||| {{text_1}}'
@@ -340,9 +324,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_20
     reference: ''
-  e1c71f2c-f6d0-443j-8c8m-d194eecd38b5: !Template
+  4775ff68-19d9-493a-a198-08ec34290aca: !Template
     answer_choices: null
-    id: e1c71f2c-f6d0-443j-8c8m-d194eecd38b5
+    id: 4775ff68-19d9-493a-a198-08ec34290aca
     jinja: 'Kalimat: {{text_1}}
 
       Terjemahan Minang: ||| {{text_2}} '
@@ -356,9 +340,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_7
     reference: ''
-  ec5362d2-eb57-4ce7-abdm-cf3b9fe80282: !Template
+  bd4e8c99-80fe-42bf-b1eb-26936c7d1c00: !Template
     answer_choices: null
-    id: ec5362d2-eb57-4ce7-abdm-cf3b9fe80282
+    id: bd4e8c99-80fe-42bf-b1eb-26936c7d1c00
     jinja: '{{text_1}}
 
       =====
@@ -374,9 +358,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_23
     reference: ''
-  f15edf92-74c1-42ef-95am-e2a0c7742ad8: !Template
+  11dddf2f-194b-4c36-876a-b36da2009527: !Template
     answer_choices: null
-    id: f15edf92-74c1-42ef-95am-e2a0c7742ad8
+    id: 11dddf2f-194b-4c36-876a-b36da2009527
     jinja: "Terjemahkan ke bahasa Minang: \n\n{{text_1}} ||| {{text_2}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -388,9 +372,9 @@ templates:
       original_task: true
     name: nusax_mt_ind_min_template_6
     reference: ''
-  f83f385a-2c1b-4216-96am-deaa9222b8bd: !Template
+  c75a5622-1323-4893-ae95-3cd8203dac57: !Template
     answer_choices: null
-    id: f83f385a-2c1b-4216-96am-deaa9222b8bd
+    id: c75a5622-1323-4893-ae95-3cd8203dac57
     jinja: 'Please translate to Indonesian: {{text_2}} ||| {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false

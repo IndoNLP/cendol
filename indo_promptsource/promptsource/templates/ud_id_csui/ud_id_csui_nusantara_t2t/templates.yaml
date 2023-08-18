@@ -13,18 +13,6 @@ templates:
       original_task: false
     name: ud_id_csui / ud_id_csui_nusantara_t2t 1
     reference: ''
-  116db97c-a87a-4d65-be0f-6f64f03d1757: !Template
-    answer_choices: null
-    id: 116db97c-a87a-4d65-be0f-6f64f03d1757
-    jinja: 'Apakah Anda bisa menerjemahkan kalimat ini ke dalam Bahasa Inggris? {{text_1}}
-      ||| Terjemahan Bahasa Inggris: {{text_2}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages: []
-      metrics: []
-      original_task: false
-    name: ud_id_csui / ud_id_csui_nusantara_t2t 9
-    reference: ''
   2cfed599-8dda-445d-81dc-8639b50c8abd: !Template
     answer_choices: null
     id: 2cfed599-8dda-445d-81dc-8639b50c8abd

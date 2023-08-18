@@ -1,0 +1,212 @@
+dataset: indo_law
+subset: indo_law_nusantara_text
+templates:
+  33d54c4d-68c6-4f34-afa2-dea27d4d4e26: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: 33d54c4d-68c6-4f34-afa2-dea27d4d4e26
+    jinja: '''Apabila terdapat teks yang mengulas mengenai hukum pidana sebagai berikut:
+      "{{text}}",
+
+      mohon prediksikan jenis pelanggaran yang cocok!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_4
+    reference: ''
+  5a5309c2-3280-41fe-83c8-805075d94f07: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: 5a5309c2-3280-41fe-83c8-805075d94f07
+    jinja: '''Di dalam cerita hukum pidana di bawah ini: "{{text}}",
+
+      coba tebak kategori pelanggaran yang paling sesuai!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_10
+    reference: ''
+  953d9d39-d3e7-4a97-ab94-be18d145e954: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: 953d9d39-d3e7-4a97-ab94-be18d145e954
+    jinja: '''Dari penjelasan hukum pidana di bawah ini: "{{text}}",
+
+      tolong tebak kategori pelanggaran yang paling tepat!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_5
+    reference: ''
+  b66b3b47-cb8e-475e-8618-b144bd618e5d: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: b66b3b47-cb8e-475e-8618-b144bd618e5d
+    jinja: '''Jika terdapat narasi teks tentang hukum pidana berikut  "{{text}}",
+      prediksikan jenis pidana yang tepat!
+
+      |||
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_2
+    reference: ''
+  c01e0760-2ef4-4927-bdc0-b721163e1098: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: c01e0760-2ef4-4927-bdc0-b721163e1098
+    jinja: '''Dengan narasi mengenai hukum pidana berikut: "{{text}}",
+
+      tolong prediksikan jenis pelanggaran yang tepat!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_9
+    reference: ''
+  c8028f53-7615-4323-b4e7-6ce7fb091d60: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: c8028f53-7615-4323-b4e7-6ce7fb091d60
+    jinja: '''Dalam narasi hukum pidana berikut: "{{text}}",
+
+      silakan perkirakan jenis pelanggaran yang tepat!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_3
+    reference: ''
+  cfbfb891-1341-47a8-b297-3ff1c9be690e: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: cfbfb891-1341-47a8-b297-3ff1c9be690e
+    jinja: '''Dalam konteks hukum pidana berikut: "{{text}}",
+
+      mari prediksi jenis pelanggaran yang sesuai!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_7
+    reference: ''
+  e11907e5-7b59-4202-820a-a746dd343a32: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: e11907e5-7b59-4202-820a-a746dd343a32
+    jinja: '''Apabila sebuah teks berkaitan dengan hukum pidana seperti ini: "{{text}}",
+
+      silakan duga kategori pelanggaran yang tepat!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_8
+    reference: ''
+  e76ad9fb-3632-4d4f-949c-ee3088682163: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: e76ad9fb-3632-4d4f-949c-ee3088682163
+    jinja: '''Dengan adanya narasi teks seputar hukum pidana seperti ini: "{{text}}",
+
+      anda bisa mencoba menebak jenis tindak pidana yang sesuai!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_6
+    reference: ''
+  f6728709-4dcb-46b5-be92-f6b191a78514: !Template
+    answer_choices: pidana-khusus ||| pidana-umum
+    id: f6728709-4dcb-46b5-be92-f6b191a78514
+    jinja: '''Jika ada suatu teks yang membicarakan tentang hukum pidana seperti berikut:
+      "{{text}}",
+
+      coba prediksi kategori tindak pidana yang sesuai!
+
+
+      |||
+
+
+      {{ answer_choices [label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indo_law_nusantara_text_template_1
+    reference: ''

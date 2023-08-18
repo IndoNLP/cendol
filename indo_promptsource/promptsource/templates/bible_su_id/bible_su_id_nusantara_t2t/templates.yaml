@@ -1,25 +1,9 @@
 dataset: bible_su_id
 subset: bible_su_id_nusantara_t2t
 templates:
-  020c4b79-340d-4b1a-870e-f4037ce8ccd7: !Template
+  5cb05f9e-5619-4d2a-8f02-51497e6645cc: !Template
     answer_choices: null
-    id: 020c4b79-340d-4b1a-870e-f4037ce8ccd7
-    jinja: 'Sunda: {{text_1}}
-
-      Indonesia: ||| {{text_2}}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - ROUGE
-      - BLEU
-      original_task: true
-    name: bible_su_id_prompt_template_15
-    reference: ''
-  0d89aace-5c3f-4689-9a78-41032fd77d5b: !Template
-    answer_choices: null
-    id: 0d89aace-5c3f-4689-9a78-41032fd77d5b
+    id: 5cb05f9e-5619-4d2a-8f02-51497e6645cc
     jinja: 'Kalimat: {{text_1}}
 
       Indonesia: ||| {{text_2}}'
@@ -33,9 +17,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_14
     reference: ''
-  14840bab-d260-41d0-bc2c-9e32642bbdd1: !Template
+  a88dc831-c8af-414d-b011-e34cb2364c75: !Template
     answer_choices: null
-    id: 14840bab-d260-41d0-bc2c-9e32642bbdd1
+    id: a88dc831-c8af-414d-b011-e34cb2364c75
     jinja: 'Sentence: {{text_2}}
 
       Sundanese: ||| {{text_1}}'
@@ -49,9 +33,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_25
     reference: ''
-  2d0ea1b8-ff03-4819-800d-e7e3eb117570: !Template
+  f561c101-4891-4d15-8130-8f231e3bf5ac: !Template
     answer_choices: null
-    id: 2d0ea1b8-ff03-4819-800d-e7e3eb117570
+    id: f561c101-4891-4d15-8130-8f231e3bf5ac
     jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
       \ {{text_2}}"
     metadata: !TemplateMetadata
@@ -64,20 +48,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_17
     reference: ''
-  34a07ff3-d243-4eb7-8393-87db75bb0333: !Template
+  32f2525c-d10d-45c2-8a29-5951216a3c82: !Template
     answer_choices: null
-    id: 34a07ff3-d243-4eb7-8393-87db75bb0333
-    jinja: ''
-    metadata: !TemplateMetadata
-      choices_in_prompt: null
-      languages: null
-      metrics: null
-      original_task: null
-    name: bible_su_id_prompt_template_6
-    reference: ''
-  40d66aa0-c362-48fa-a2c9-a0d038bbcc62: !Template
-    answer_choices: null
-    id: 40d66aa0-c362-48fa-a2c9-a0d038bbcc62
+    id: 32f2525c-d10d-45c2-8a29-5951216a3c82
     jinja: 'Sentence: {{text_1}}
 
       Translated version in Indonesian: ||| {{text_2}}'
@@ -91,9 +64,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_19
     reference: ''
-  4f3aab53-817e-4ea2-a844-1f737c8d05fd: !Template
+  3a660aec-d217-4161-aec7-05d7b26c3a53: !Template
     answer_choices: null
-    id: 4f3aab53-817e-4ea2-a844-1f737c8d05fd
+    id: 3a660aec-d217-4161-aec7-05d7b26c3a53
     jinja: 'Tolong translate ke bahasa Sunda: {{text_2}} |||  {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -105,9 +78,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_3
     reference: ''
-  56415c3f-c68c-4b72-bba5-b0482a787168: !Template
+  70b49543-fea0-4043-9a8c-f7b702f48737: !Template
     answer_choices: null
-    id: 56415c3f-c68c-4b72-bba5-b0482a787168
+    id: 70b49543-fea0-4043-9a8c-f7b702f48737
     jinja: 'Sentence: {{text_2}}
 
       Please translate to Sundanese ||| {{text_1}}'
@@ -121,9 +94,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_22
     reference: ''
-  57ba6692-4d7f-4b02-9066-1d5d2e70b2b5: !Template
+  d2374546-40fe-4a49-b33d-a603d07da3dc: !Template
     answer_choices: null
-    id: 57ba6692-4d7f-4b02-9066-1d5d2e70b2b5
+    id: d2374546-40fe-4a49-b33d-a603d07da3dc
     jinja: 'Kalimat: {{text_2}}
 
       Sunda: ||| {{text_1}}'
@@ -137,9 +110,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_8
     reference: ''
-  5a146ee0-549b-44a4-9510-43f4854d8974: !Template
+  c43e6a38-44b9-4753-b544-82cbd11d13af: !Template
     answer_choices: null
-    id: 5a146ee0-549b-44a4-9510-43f4854d8974
+    id: c43e6a38-44b9-4753-b544-82cbd11d13af
     jinja: '{{text_2}}
 
       =====
@@ -155,9 +128,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_23
     reference: ''
-  67f9e07e-fe91-47e8-9caf-4a3efafba346: !Template
+  7bfe0daf-bd03-4f44-a4c8-f847fd01e0fa: !Template
     answer_choices: null
-    id: 67f9e07e-fe91-47e8-9caf-4a3efafba346
+    id: 7bfe0daf-bd03-4f44-a4c8-f847fd01e0fa
     jinja: 'Kalimat: {{text_2}}
 
       Terjemahan Sunda: ||| {{text_1}} '
@@ -171,9 +144,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_7
     reference: ''
-  779f0cfb-0791-4f08-adbb-7c8f45041b02: !Template
+  920a0e75-7a90-4c5f-a82e-6f4139aefe6d: !Template
     answer_choices: null
-    id: 779f0cfb-0791-4f08-adbb-7c8f45041b02
+    id: 920a0e75-7a90-4c5f-a82e-6f4139aefe6d
     jinja: 'Sentence: {{text_2}}
 
       Sundanese Translation: ||| {{text_1}}'
@@ -187,9 +160,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_24
     reference: ''
-  7c8630e4-f338-41b9-b2f8-5fba7e228395: !Template
+  22081470-bfb7-4312-a3bd-fcdd1d572ffc: !Template
     answer_choices: null
-    id: 7c8630e4-f338-41b9-b2f8-5fba7e228395
+    id: 22081470-bfb7-4312-a3bd-fcdd1d572ffc
     jinja: 'Kalimat: {{text_1}}
 
       Terjemahan Indonesia: ||| {{text_2}}'
@@ -203,9 +176,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_13
     reference: ''
-  8bf3b6de-477e-4c09-b78d-85dfb7dfabc7: !Template
+  dad4e7c5-e38c-4f06-a060-8705bc9f7a7e: !Template
     answer_choices: null
-    id: 8bf3b6de-477e-4c09-b78d-85dfb7dfabc7
+    id: dad4e7c5-e38c-4f06-a060-8705bc9f7a7e
     jinja: 'Sentence: {{text_1}}
 
       Indonesian: ||| {{text_2}}'
@@ -219,9 +192,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_20
     reference: ''
-  8c52d7be-abdd-42df-b659-bd4f02816cce: !Template
+  ee7f9365-bd3d-40be-b251-e388a490dee8: !Template
     answer_choices: null
-    id: 8c52d7be-abdd-42df-b659-bd4f02816cce
+    id: ee7f9365-bd3d-40be-b251-e388a490dee8
     jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -233,9 +206,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_16
     reference: ''
-  9431b645-2628-4aa5-bdea-6887f6717827: !Template
+  e927264e-7844-47c3-8f9f-21e5c4e84995: !Template
     answer_choices: null
-    id: 9431b645-2628-4aa5-bdea-6887f6717827
+    id: e927264e-7844-47c3-8f9f-21e5c4e84995
     jinja: '{{text_1}}
 
 
@@ -250,9 +223,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_10
     reference: ''
-  a36a6b77-8e01-4952-88fc-63d887ba2f8e: !Template
+  c2dae201-e82b-4ca8-9d1b-0693441c197c: !Template
     answer_choices: null
-    id: a36a6b77-8e01-4952-88fc-63d887ba2f8e
+    id: c2dae201-e82b-4ca8-9d1b-0693441c197c
     jinja: 'Kalimat: {{text_2}}
 
       Tolong translate ke bahasa Sunda ||| {{text_1}}'
@@ -266,9 +239,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_4
     reference: ''
-  bce9cadd-70c7-46bf-bf2b-219a5efa3cf1: !Template
+  ddafc07a-9e81-4945-b3e0-4d68c8dc6254: !Template
     answer_choices: null
-    id: bce9cadd-70c7-46bf-bf2b-219a5efa3cf1
+    id: ddafc07a-9e81-4945-b3e0-4d68c8dc6254
     jinja: '{{text_1}}
 
       =====
@@ -284,9 +257,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_12
     reference: ''
-  c0bde489-ff59-4238-961c-e0fe68e9ac7e: !Template
+  1ee62100-82bb-4d29-b1f3-ab89413a9491: !Template
     answer_choices: null
-    id: c0bde489-ff59-4238-961c-e0fe68e9ac7e
+    id: 1ee62100-82bb-4d29-b1f3-ab89413a9491
     jinja: '{{text_1}}
 
       =====
@@ -302,9 +275,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_18
     reference: ''
-  c40c0100-061a-48c1-adbb-558352dc388d: !Template
+  f32154ba-e77f-4708-be8a-7bb07743d532: !Template
     answer_choices: null
-    id: c40c0100-061a-48c1-adbb-558352dc388d
+    id: f32154ba-e77f-4708-be8a-7bb07743d532
     jinja: 'Indonesian: {{text_2}}
 
       Sundanese: ||| {{text_1}}'
@@ -318,9 +291,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_21
     reference: ''
-  d677a688-69d5-4ddb-8fa1-1bcc139af130: !Template
+  d437390a-ffa9-4d8d-8f24-3ccd1dd63527: !Template
     answer_choices: null
-    id: d677a688-69d5-4ddb-8fa1-1bcc139af130
+    id: d437390a-ffa9-4d8d-8f24-3ccd1dd63527
     jinja: 'Sunda: {{text_1}}
 
       Indonesia: ||| {{text_2}}'
@@ -334,9 +307,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_9
     reference: ''
-  dbfd81ba-70ae-4b20-a8ec-50f00cc6393b: !Template
+  281e3680-00c0-46c4-b1ca-43bb9ea5b32b: !Template
     answer_choices: null
-    id: dbfd81ba-70ae-4b20-a8ec-50f00cc6393b
+    id: 281e3680-00c0-46c4-b1ca-43bb9ea5b32b
     jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
       \ {{text_2}} "
     metadata: !TemplateMetadata
@@ -349,9 +322,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_11
     reference: ''
-  de5844aa-25f4-4d01-9167-a5422c4ef7eb: !Template
+  8866cd57-147c-4a7f-8179-c72099f78212: !Template
     answer_choices: null
-    id: de5844aa-25f4-4d01-9167-a5422c4ef7eb
+    id: 8866cd57-147c-4a7f-8179-c72099f78212
     jinja: "Apa kalimat bahasa Sunda dari kalimat berikut ini? \n\n{{text_2}} |||\
       \ {{text_1}}"
     metadata: !TemplateMetadata
@@ -364,9 +337,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_2
     reference: ''
-  e6d5283e-429a-45af-82d9-3a328853c3d5: !Template
+  9d415f8d-504f-4bfa-86e6-794a89bb83e9: !Template
     answer_choices: null
-    id: e6d5283e-429a-45af-82d9-3a328853c3d5
+    id: 9d415f8d-504f-4bfa-86e6-794a89bb83e9
     jinja: '{{text_2}}
 
       =====
@@ -382,9 +355,9 @@ templates:
       original_task: true
     name: bible_su_id_prompt_template_5
     reference: ''
-  f387e20d-e843-4ee3-ae3c-18e41fc7eb67: !Template
+  2c727dae-a3f0-498f-8821-4b2ca885b64d: !Template
     answer_choices: null
-    id: f387e20d-e843-4ee3-ae3c-18e41fc7eb67
+    id: 2c727dae-a3f0-498f-8821-4b2ca885b64d
     jinja: '{{text_2}}
 
 
