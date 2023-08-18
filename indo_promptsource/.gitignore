@@ -22,19 +22,14 @@ creds.js
  
 # Private Files
 *.json
+*.csv
 *.csv.gz
 *.tsv
 *.tsv.gz
 *.xlsx
-
-# generated datasets
-generated_dataset/*.csv
-
- 
  
 # Mac/OSX
 .DS_Store
- 
  
 # Byte-compiled / optimized / DLL files
 __pycache__/
