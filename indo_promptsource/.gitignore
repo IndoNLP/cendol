@@ -24,14 +24,13 @@ creds.js
 *.json
 *.csv
 *.csv.gz
+*.csv
 *.tsv
 *.tsv.gz
 *.xlsx
  
- 
 # Mac/OSX
 .DS_Store
- 
  
 # Byte-compiled / optimized / DLL files
 __pycache__/

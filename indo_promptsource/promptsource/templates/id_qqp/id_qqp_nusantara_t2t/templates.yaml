@@ -7,7 +7,7 @@ templates:
     jinja: '{% set _parafrase = ["buat alternatif", "buatkan alternatif", "parafrase",
       "parafrasekan", "paraphrase"] |random%} {% set _kalimat = ["kalimat", "teks" "pertanyaan"]
       |random%} Bisa {{_parafrase}} {{_kalimat}} ini nggak "{{text_2}}"? ||| Bisa,
-      ini hasilnya: {{text1}}'
+      ini hasilnya: {{text_1}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -56,35 +56,13 @@ templates:
       original_task: true
     name: paraphrase_3
     reference: ''
-  a1c23450-37d2-4481-923b-ca44dc07799a: !Template
-    answer_choices: null
-    id: a1c23450-37d2-4481-923b-ca44dc07799a
-    jinja: '{% set _saya = ["", "Saya ", "Aku "] |random%} {% set _tolong = ["", "tolong ",
-      "coba "] |random%} {% set _bisa = ["bisa", "boleh"] |random%} {% set _mirip =
-      ["bermakna sama", "bermakna mirip", "artinya sama", "artinya mirip", "mirip",
-      "kurang lebih sama", "hampir sama", "senada", "sepadan" , "bernada serupa",
-      "artinya serupa", "bermakna serupa"] |random%} {% set _butuh = ["butuh", "perlu",
-      "memerlukan", "membutuhkan"] |random%} {% set _baik = ["Baik", "Ok"] |random%}
-      {% set _kalimat = ["kalimat", "teks", "pertanyaan"] |random%} {% set _berikut = ["berikut",
-      "ini"] |random%} {{_saya}}{{_butuh}} {{_kalimat}} yang {{_mirip}} dengan ini
-      "{{text_1}}", {{_bisa}} {{_tolong}}dibuatkan? ||| {{_baik}}, {{_berikut}} {{_kalimat}}nya:
-      "{{text_2}}"'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - BLEU
-      original_task: true
-    name: paraphrase_8
-    reference: ''
   ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096: !Template
     answer_choices: null
     id: ac68fbc2-e31b-4bc2-9ad3-d82ab8cb4096
     jinja: '{% set _parafrase = ["buat alternatif", "buatkan alternatif", "parafrase",
       "parafrasekan", "paraphrase"] |random%} {% set _kalimat = ["kalimat", "teks", "pertanyaan"]
       |random%} Bisa {{_parafrase}} {{_kalimat}} ini nggak "{{text_1}}"? ||| Bisa,
-      ini hasilnya: {{text2}}'
+      ini hasilnya: {{text_2}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:

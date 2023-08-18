@@ -1,0 +1,247 @@
+dataset: nusaparagraph_topic
+subset: nusaparagraph_topic_btk_nusantara_text
+templates:
+  fbaaeada-417c-4042-a22a-e50833da3376: !Template
+    answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
+      of life|||technology|||business
+    id: fbaaeada-417c-4042-a22a-e50833da3376
+    jinja: 'Klasifikasikan teks sebagai salah satu topik berikut:
+
+      - food & beverages
+
+      - sports
+
+      - leisures
+
+      - religion
+
+      - culture & heritage
+
+      - slice of life
+
+      - technology
+
+      - business
+
+      Teks: {{text}}
+
+      Topik:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: classification
+    reference: ''
+  601179c4-f2d4-4c50-868f-0fc98a2e6083: !Template
+    answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
+      of life|||technology|||business
+    id: 601179c4-f2d4-4c50-868f-0fc98a2e6083
+    jinja: "Teks: {{text}}\nPertanyaan: Topik apa yang paling cocok untuk mendeskripsikan\
+      \ teks di atas? \nPilihan topik:\n- food & beverages\n- sports\n- leisures\n\
+      - religion\n- angry\n- culture & heritage\n- slice of life\n- technology\n-\
+      \ business\nA:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1\
+      \ %}{{answer_choices[1]}}{% elif label == 2 %}{{answer_choices[2]}}{% elif label\
+      \ == 3 %}{{answer_choices[3]}}{% elif label == 4 %}{{answer_choices[4]}}{% elif\
+      \ label == 5 %}{{answer_choices[5]}}{% elif label == 6 %}{{answer_choices[6]}}{%\
+      \ elif label == 7 %}{{answer_choices[7]}}{% endif %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: context_qa
+    reference: ''
+  2913608e-7584-43b4-8761-f41ff6b44ef1: !Template
+    answer_choices: iya|||tidak
+    id: 2913608e-7584-43b4-8761-f41ff6b44ef1
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] | random %} Q: Apakah topik {%
+      if _topic == 0 %}"food & beverages"{% elif _topic == 1 %}"sports"{% elif _topic
+      == 2 %}"leisures"{% elif _topic == 3 %}"religion"{% elif _topic == 4 %}"culture
+      & heritage"{% elif _topic == 5 %}"slice of life"{% elif _topic == 6 %}"technology"{%
+      elif _topic == 7 %}"business"{% endif %} cocok untuk teks berikut?
+
+      Teks: {{text}}
+
+      A: |||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: topic_qa_format
+    reference: ''
+  1655500a-6d95-4b0d-a7ae-8d5148b134b1: !Template
+    answer_choices: iya|||tidak
+    id: 1655500a-6d95-4b0d-a7ae-8d5148b134b1
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Apakah teks berikut
+      terkait topic {% if _topic == 0 %}"food & beverages"{% elif _topic == 1 %}"sports"{%
+      elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{% elif _topic
+      == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{% elif _topic
+      == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
+
+      Teks: {{text}}|||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: topic
+    reference: ''
+  dcf8d6a6-f4ee-451d-b7d1-622a0cfb86ae: !Template
+    answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
+      of life|||technology|||business
+    id: dcf8d6a6-f4ee-451d-b7d1-622a0cfb86ae
+    jinja: 'Kategorikan teks berikut menjadi salah satu dari topik berikut: food &
+      beverages, sports, leisures, religion, culture & heritage, slice of life, technology,
+      business.
+
+      Teks: {{text}}
+
+      Topik: ||| {% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: kategorikan
+    reference: ''
+  c016127e-68ff-41bf-8dfc-03d1fde9b88f: !Template
+    answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
+      of life|||technology|||business
+    id: c016127e-68ff-41bf-8dfc-03d1fde9b88f
+    jinja: 'Pertanyaan: topik apa yang cocok untuk teks berikut?
+
+      Pilihan topik: food & beverages, sports, leisures, religion, culture & heritage,
+      slice of life, technology, business
+
+      Teks: {{text}}
+
+      Topik: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: post_qa_format
+    reference: ''
+  3ab67be6-eaaf-48f7-9d20-184002e47d00: !Template
+    answer_choices: iya|||tidak
+    id: 3ab67be6-eaaf-48f7-9d20-184002e47d00
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Q: Apakah teks berikut
+      masuk ke dalam topic {% if _topic == 0 %}"food & beverages"{% elif _topic ==
+      1 %}"sports"{% elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{%
+      elif _topic == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{%
+      elif _topic == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
+
+      Teks: {{text}}
+
+      Pilihan jawaban: iya/tidak
+
+      A: |||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: topic_qa_format_with_choices
+    reference: ''
+  2541f3f3-6778-43e4-b283-83371fc9b20c: !Template
+    answer_choices: iya|||tidak
+    id: 2541f3f3-6778-43e4-b283-83371fc9b20c
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Apakah teks berikut
+      masuk dalam topic {% if _topic == 0 %}"food & beverages"{% elif _topic == 1
+      %}"sports"{% elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{%
+      elif _topic == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{%
+      elif _topic == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
+
+      Teks: {{text}}
+
+      Pilihan jawaban: iya/tidak|||{% if label == _topic %}{{answer_choices[0]}}{%
+      else %}{{answer_choices[1]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: topic_with_choices
+    reference: ''
+  f871dc55-03ad-44b3-92ad-c5879ac74c20: !Template
+    answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
+      of life|||technology|||business
+    id: f871dc55-03ad-44b3-92ad-c5879ac74c20
+    jinja: 'Topik apa yang paling cocok untuk teks berikut?
+
+      Pilihan topik: food & beverages, sports, leisures, religion, culture & heritage,
+      slice of life, technology, business
+
+      Teks: {{text}}
+
+      Topik: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: kategori_cocok
+    reference: ''
+  8a71f159-93e5-4a92-9ed7-6c90379ed8af: !Template
+    answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
+      of life|||technology|||business
+    id: 8a71f159-93e5-4a92-9ed7-6c90379ed8af
+    jinja: 'Teks: {{text}}
+
+      Pilihan topik: food & beverages, sports, leisures, religion, culture & heritage,
+      slice of life, technology, business.
+
+      Q: Apakah topik dari pilihan topik di atas yang paling cocok untuk teks di atas?
+
+      A: ||| {% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: qa_format
+    reference: ''
