@@ -1,0 +1,220 @@
+dataset: stif_indonesia
+subset: stif_indonesia_nusantara_t2t
+templates:
+  44e05274-5ed0-4355-b169-ee3f2dde47a6: !Template
+    answer_choices: null
+    id: 44e05274-5ed0-4355-b169-ee3f2dde47a6
+    jinja: '{% set _ubah = ["ngubah", "mengubah", "ubah", "ganti", "parafrase"] |random%}
+      {% set _tolong = ["tolong", "tolongin", "bantu", "bantuin"] |random%} Bisa {{_tolong}}
+      {{_ubah}} jadi bentuk {%+ if text_2_name=="formal"+%}formal{%+ elif text_2_name=="informal"
+      +%}informal{%+ endif +%} dari {{text_1}}?
+
+      ||| Yoi, hasil parafrasenya itu {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_6
+    reference: ''
+  5216f4b1-cdc0-4ab1-9991-cf0d2f6dde8e: !Template
+    answer_choices: null
+    id: 5216f4b1-cdc0-4ab1-9991-cf0d2f6dde8e
+    jinja: 'Tolong ubah kalimat/text "{{text_2}}" dari {%+ if text_2_name=="formal"+%}formal{%+
+      elif text_2_name=="informal" +%}informal{%+ endif +%} jadi {%+ if text_1_name=="formal"+%}formal{%+
+      elif text_1_name=="informal" +%}informal{%+ endif +%}!
+
+      |||
+
+      "{{text_1}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_9
+    reference: ''
+  639ac0fa-8a6a-42bf-b7a4-4ceabafba312: !Template
+    answer_choices: null
+    id: 639ac0fa-8a6a-42bf-b7a4-4ceabafba312
+    jinja: '{% set _bisakah = ["Bisakah", "Dapatkah", "Ku tantang"] |random%}  {%
+      set _membuat = ["membuat", "buat", "bikin"] |random%} {% set _paraphrase = ["parafrase",
+      "parafrasa", "paraphrase"] |random%} {% set _berikut = ["berikut", "ini"] |random%}
+      {% set _kalimat = ["kalimat", "teks"]|random%} {% set _ke = ["ke", "ke dalam",
+      "menjadi"] |random%} {% set _yang = ["yang", ""] |random%} {% set _lebih = ["lebih",
+      "cukup", ""] |random%}
+
+      {{_bisakah}} kamu {{_membuat}} {{_paraphrase}} {{_kalimat}} {{_berikut}} {{_ke}}
+      bentuk {{_yang}} {{_lebih}} {%+ if text_2_name=="formal" +%}formal{%+ elif text_2_name=="informal"
+      +%}informal{%+ endif +%}{%+ if _bisakah == "Ku tantang" +%}!{%+ else +%}?{%+
+      endif +%} {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_2
+    reference: ''
+  7137b9e5-85de-4ff1-8e50-699b9e145bc5: !Template
+    answer_choices: null
+    id: 7137b9e5-85de-4ff1-8e50-699b9e145bc5
+    jinja: '{% set _dikasih = ["dikasih", "ada", "diberikan"] |random%} {% set _ngga
+      = ["nggak", "kah", "kagak", "tidak"] |random%} Kalo {{_dikasih}} teks {{text_1}}
+      yang {%+ if text_1_name=="formal"+%}formal{%+ elif text_1_name=="informal" +%}informal{%+
+      endif +%}, bisa bikin versi {%+ if text_2_name=="formal"+%}formal{%+ elif text_2_name=="informal"
+      +%}informal{%+ endif +%}nya {{_ngga}}?
+
+      ||| Bisa. Hasilnya adalah {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_8
+    reference: ''
+  7873612f-11da-44ba-8a5a-632cd7897f5b: !Template
+    answer_choices: null
+    id: 7873612f-11da-44ba-8a5a-632cd7897f5b
+    jinja: '{% set _command = ["Buatlah", "Berikan contoh", "Berikan satu contoh",
+      "Buatkan", "Generate"] |random%} {% set _text = ["teks", "text", "tulisan"]
+      |random%} {{_command}} bentuk {{_text}} {%+ if text_2_name=="formal"+%}formal{%+
+      elif text_2_name=="informal" +%}informal{%+ endif +%} dari "{{text_1}}"!
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_1
+    reference: ''
+  b50ae762-657e-465d-aa93-c7f3266a9d47: !Template
+    answer_choices: null
+    id: b50ae762-657e-465d-aa93-c7f3266a9d47
+    jinja: '{% set _tebak = ["tebak", "prediksi"] |random%} Coba {{_tebak}} bentuk
+      {%+ if text_1_name=="formal"+%}formal{%+ elif text_1_name=="informal" +%}informal{%+
+      endif +%} dari {{text_2}}, bisa ga?
+
+      ||| Yoi, bisa dong. Nih hasilnya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_7
+    reference: ''
+  d174a3c2-3b46-4b78-bc25-03486e4cc1fc: !Template
+    answer_choices: null
+    id: d174a3c2-3b46-4b78-bc25-03486e4cc1fc
+    jinja: '{% set _saya = ["Saya", "Aku", "Gw", "Ogut", "Ane"] |random%} {% set _tidak
+      = ["tidak", "nggak", "kagak"] |random%} {% set _mengerti = ["mengerti", "ngerti",
+      "paham"] |random%} {% set _tolong = ["tolongin", "bantuin", "minta tolong",
+      "mintol"] |random%} {{_saya}} {{_tidak}} {{_mengerti}} bahasa {%+ if text_1_name=="formal"+%}formal{%+
+      elif text_1_name=="informal" +%}informal{%+ endif +%} ini nih
+
+      "{{text_1}}"
+
+      Bisa {{_tolong}} ubah ke bentuk {%+ if text_2_name=="formal"+%}formal{%+ elif
+      text_2_name=="informal" +%}informal{%+ endif +%}nya {{_tidak}}? ||| Bisa, parafrase
+      {%+ if text_2_name=="formal"+%}formal{%+ elif text_2_name=="informal" +%}informal{%+
+      endif +%}nya itu "{{text_2}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_5
+    reference: ''
+  d1b7f0bf-a483-4e54-a90f-3619b3ec89f4: !Template
+    answer_choices: null
+    id: d1b7f0bf-a483-4e54-a90f-3619b3ec89f4
+    jinja: '{% set _formal_choice = ["formal", "informal"] |random%} Ada orang nanya
+      pake bahasa {{_formal_choice}} nih. Bisa bantuin gw mahamin artinya kah dengan
+      bentuk {%+ if _formal_choice==text_1_name+%}{{text_2_name}}nya{%+ elif _formal_choice==text_2_name
+      +%}{{text_1_name}}nya{%+ endif +%}?
+
+      Nih text nya "{%+ if _formal_choice==text_1_name+%}{{text_1}}{%+ elif _formal_choice==text_2_name
+      +%}{{text_2}}{%+ endif +%}"
+
+      |||
+
+      Padanannya dalam bahasa {%+ if _formal_choice==text_1_name+%}{{text_2_name}}nya
+      itu adalah "{{text_2}}"{%+ elif _formal_choice==text_2_name +%}{{text_1_name}}nya
+      itu adalah "{{text_1}}"{%+ endif +%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_10
+    reference: ''
+  e2c0fa85-f7d3-4e66-a584-c97c513bb375: !Template
+    answer_choices: null
+    id: e2c0fa85-f7d3-4e66-a584-c97c513bb375
+    jinja: '{% set _kalau = ["Jika", "Kalau", "Andaikan", "Bayangkan kalau", "Bayangin
+      kalo"] |random%} {% set _ada = ["ada", "dikasih", "diberikan"] |random%} {%
+      set _text = ["teks", "text", "tulisan"] |random%} {% set _lainnya = ["lainnya",
+      "lawannya", ""] |random%}  {{_kalau}} {{_ada}} bentuk {{_text}} {%+ if text_1_name=="formal"+%}formal{%+
+      elif text_1_name=="informal" +%}informal{%+ endif +%} dari "{{text_1}}", apa
+      bentuk {{_lainnya}} {%+ if _lainnya == "" and text_2_name=="formal"+%}formalnya{%+
+      elif _lainnya != "" and text_2_name=="formal"+%}(formal){%+ elif _lainnya ==
+      "" and text_2_name=="informal" +%}informalnya{%+ elif _lainnya != "" and text_2_name=="informal"+%}(informal){%+
+      endif +%}?
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_3
+    reference: ''
+  e7316517-97f1-4853-b0de-0cdc97dd6ae8: !Template
+    answer_choices: null
+    id: e7316517-97f1-4853-b0de-0cdc97dd6ae8
+    jinja: Ada tulisan {%+ if text_1_name=="formal"+%}formal{%+ elif text_1_name=="informal"
+      +%}informal{%+ endif +%} nih, kira-kira bentuk {%+ if text_2_name=="formal"+%}formal{%+
+      elif text_2_name=="informal" +%}informal{%+ endif +%}nya apa ya? "{{text_1}}"
+      ||| Bentuk {%+ if text_2_name=="formal"+%}formal{%+ elif text_2_name=="informal"
+      +%}informal{%+ endif +%}nya itu adalah "{{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: stif_prompt_paraphrase_4
+    reference: ''

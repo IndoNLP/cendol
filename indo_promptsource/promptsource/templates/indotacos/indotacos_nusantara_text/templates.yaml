@@ -1,0 +1,26 @@
+dataset: indotacos
+subset: indotacos_nusantara_text
+templates:
+  b210f84b-d7a8-4385-93d9-93e5fe44ce5a: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: b210f84b-d7a8-4385-93d9-93e5fe44ce5a
+    jinja: '''berdasarkan keputusan legal berikut ini :
+
+      "{{text}}"
+
+
+      manakah keputusan yang tepat berdasarkan konteks dari teks tersebut?
+
+      |||
+
+      {{answer_choices[label]}}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_1
+    reference: ''

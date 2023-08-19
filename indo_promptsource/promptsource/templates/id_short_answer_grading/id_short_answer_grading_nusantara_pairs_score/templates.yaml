@@ -1,5 +1,5 @@
 dataset: id_short_answer_grading
-subset: id_short_answer_grading_nusantara_pairs
+subset: id_short_answer_grading_nusantara_pairs_score
 templates:
   186f38b3-78f1-4d4f-aeef-40262069c05a: !Template
     answer_choices: null
