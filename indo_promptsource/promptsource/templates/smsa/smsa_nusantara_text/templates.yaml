@@ -1,0 +1,83 @@
+dataset: smsa
+subset: smsa_nusantara_text
+templates:
+  50d1ece5-1329-4df7-839c-a4953e092029: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 50d1ece5-1329-4df7-839c-a4953e092029
+    jinja: '{{sentence}}
+
+      Apakah sentiment dari paragraf diatas?
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: smsa_5
+    reference: ''
+  7b8ca335-9d01-4f93-806d-973d936e6bea: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 7b8ca335-9d01-4f93-806d-973d936e6bea
+    jinja: 'Apa sentiment dari kalimat berikut: {{sentence}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: smsa_2
+    reference: ''
+  985bc3c0-0323-44d2-9e01-b0c116689e8a: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 985bc3c0-0323-44d2-9e01-b0c116689e8a
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: smsa_3
+    reference: ''
+  9c406336-8412-49d2-8907-c12069d70e3d: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 9c406336-8412-49d2-8907-c12069d70e3d
+    jinja: '{{sentence}}
+
+      Apakah paragraf diatas bersifat positive, negative or neutral?
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: smsa_4
+    reference: ''
+  bded77e3-97e9-44dd-88e7-5490534e879e: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: bded77e3-97e9-44dd-88e7-5490534e879e
+    jinja: '{{sentence}}
+
+      Tentukan sentiment dari kalimat diatas.
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: smsa_1
+    reference: ''

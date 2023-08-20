@@ -22,16 +22,15 @@ creds.js
  
 # Private Files
 *.json
+*.csv
 *.csv.gz
 *.csv
 *.tsv
 *.tsv.gz
 *.xlsx
  
- 
 # Mac/OSX
 .DS_Store
- 
  
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -172,6 +171,3 @@ dmypy.json
  
 # Cython debug symbols
 cython_debug/
-
-# generated datasets
-generated_dataset/*.csv

@@ -1,0 +1,81 @@
+dataset: emot
+subset: emot_source
+templates:
+  347d7216-3baa-45cf-8e34-ef9785a00a48: !Template
+    answer_choices: null
+    id: 347d7216-3baa-45cf-8e34-ef9785a00a48
+    jinja: 'apa emosi yang ingin diekspresikan oleh kalimat {{tweet}}?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: emot_5
+    reference: ''
+  4f2409e0-928c-4ba6-8960-48c320e7c25f: !Template
+    answer_choices: null
+    id: 4f2409e0-928c-4ba6-8960-48c320e7c25f
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: emot_4
+    reference: ''
+  75cf0f36-862a-470b-90fc-57c31de3589b: !Template
+    answer_choices: null
+    id: 75cf0f36-862a-470b-90fc-57c31de3589b
+    jinja: 'Tentukan emosi yang diekspresikan oleh kalimat berikut
+
+      Kalimat: {{tweet}}
+
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: emot_1
+    reference: ''
+  847fb18b-f901-4984-bc61-540aad6a969a: !Template
+    answer_choices: null
+    id: 847fb18b-f901-4984-bc61-540aad6a969a
+    jinja: '{{tweet}}
+
+      Perasaan apa yang diekspresikan oleh kalimat diatas?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: emot_3
+    reference: ''
+  a54b6f53-43b9-48ac-b45e-c14d319d98e7: !Template
+    answer_choices: null
+    id: a54b6f53-43b9-48ac-b45e-c14d319d98e7
+    jinja: '{{tweet}}
+
+      Emosi apa yang diekspresikan oleh kalimat diatas?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: emot_2
+    reference: ''

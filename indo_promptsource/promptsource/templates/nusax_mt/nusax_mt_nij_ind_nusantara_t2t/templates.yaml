@@ -1,0 +1,142 @@
+dataset: nusax_mt
+subset: nusax_mt_nij_ind_nusantara_t2t
+templates:
+  1311b1a0-6ee7-469a-9f9a-2a529769e4bb: !Template
+    answer_choices: null
+    id: 1311b1a0-6ee7-469a-9f9a-2a529769e4bb
+    jinja: 'Translate paragraf ngaju berikut ke bahasa indonesia {{text_1}}
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_8
+    reference: ''
+  2fb54912-46e7-4354-be4e-77fe6b83fdba: !Template
+    answer_choices: null
+    id: 2fb54912-46e7-4354-be4e-77fe6b83fdba
+    jinja: 'Coba terjemahkan paragraf ini ke Bahasa Ngaju, {{text_2}}
+
+      |||
+
+      Terjemahannya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_7
+    reference: ''
+  48e9ec75-e2d2-43b2-92b4-06363822e960: !Template
+    answer_choices: null
+    id: 48e9ec75-e2d2-43b2-92b4-06363822e960
+    jinja: 'Tolong terjemahkan kalimat ngaju ini ke dalam Bahasa Indonesia: {{text_1}}
+
+      |||
+
+      {{text_2}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_5
+    reference: ''
+  57012c72-83fd-4a1d-a5e8-013620e13b42: !Template
+    answer_choices: null
+    id: 57012c72-83fd-4a1d-a5e8-013620e13b42
+    jinja: 'Dapatkah Anda menerjemahkan teks Ngaju berikut ke dalam Bahasa Indonesia?
+      {{text_1}}
+
+      |||
+
+      Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_2
+    reference: ''
+  c7f19bc5-f739-4972-83d2-3148ffce143f: !Template
+    answer_choices: null
+    id: c7f19bc5-f739-4972-83d2-3148ffce143f
+    jinja: 'Apakah Anda bisa menerjemahkan kalimat Ngaju ini menjadi Bahasa Indonesia?
+      {{text_1}}
+
+      |||
+
+      Terjemahan ke Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_3
+    reference: ''
+  e54daa7a-f675-46ec-8d1c-c98bc4ebe99d: !Template
+    answer_choices: null
+    id: e54daa7a-f675-46ec-8d1c-c98bc4ebe99d
+    jinja: 'Translate ke bahasa ngaju {{text_2}}
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_9
+    reference: ''
+  eb81edae-506f-404d-a025-274043418843: !Template
+    answer_choices: null
+    id: eb81edae-506f-404d-a025-274043418843
+    jinja: 'Apa Bahasa Indonesia: {{text_1}} ?
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_1
+    reference: ''
+  ef33689b-d4c2-497d-b170-9734932eef62: !Template
+    answer_choices: null
+    id: ef33689b-d4c2-497d-b170-9734932eef62
+    jinja: 'Bahasa Ngaju dari kalimat ini {{text_2}} apa?
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_6
+    reference: ''
+  f5cbe967-a094-478a-944c-e9223046ddc5: !Template
+    answer_choices: null
+    id: f5cbe967-a094-478a-944c-e9223046ddc5
+    jinja: 'Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Indonesia. {{text_1}}
+
+      |||
+
+      Terjemahannya: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_nij_ind_4
+    reference: ''
