@@ -4,9 +4,9 @@ templates:
   0302bc1f-37fc-416c-a4ee-94496ceb7fa2: !Template
     answer_choices: 0 ||| 1
     id: 0302bc1f-37fc-416c-a4ee-94496ceb7fa2
-    jinja: "'dalam next tweet prediction diberikan teks berikut:\ntext 1 : \"{{text_1}}\"\
-      \  \ndan kemudian\ntext 2 : \"{{text_2}}\" \nprediksikan jenis prediction next\
-      \ tweetnya!\n|||\n{{ answer_choices[label] }}'"
+    jinja: 'dalam next tweet prediction diberikan teks berikut: text 1 : "{{text_1}}"
+      dan kemudian text 2 : "{{text_2}}" prediksikan jenis prediction next tweetnya!
+      ||| {{ answer_choices[label] }}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -15,4 +15,163 @@ templates:
       - Accuracy
       original_task: true
     name: indolem_ntp_nusantara_pairs_template_1
+    reference: ''
+  3ffb6c53-4b68-4270-81d8-c5d61de2757b: !Template
+    answer_choices: 0 ||| 1
+    id: 3ffb6c53-4b68-4270-81d8-c5d61de2757b
+    jinja: 'Dalam ramalan prediksi tweet berikutnya, disajikan teks ini:
+      teks 1 : "{{text_1}}"
+      dan setelah itu teks 2 : "{{text_2}}" pilih jenis prediksi untuk tweet yang
+      akan datang!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_4
+    reference: ''
+  5b2a53ca-1386-4457-88d0-cacc183628bd: !Template
+    answer_choices: 0 ||| 1
+    id: 5b2a53ca-1386-4457-88d0-cacc183628bd
+    jinja: 'Dalam ramalan prediksi tweet selanjutnya, diberikan teks ini:
+      teks 1 : "{{text_1}}"
+      dan setelahnya teks 2 : "{{text_2}}" pilih jenis prediksi untuk tweet berikutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_7
+    reference: ''
+  8315f42e-b74e-48df-b564-e6f96f2900e8: !Template
+    answer_choices: 0 ||| 1
+    id: 8315f42e-b74e-48df-b564-e6f96f2900e8
+    jinja: 'Dalam konteks prediksi tweet berikutnya, dihadirkan teks sebagai berikut:
+      teks 1 : "{{text_1}}"
+      dan kemudian teks 2 : "{{text_2}}" silakan prediksi jenis prediksi untuk tweet
+      selanjutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_5
+    reference: ''
+  b1298b82-0d50-4ae8-92e2-7fd366be4386: !Template
+    answer_choices: 0 ||| 1
+    id: b1298b82-0d50-4ae8-92e2-7fd366be4386
+    jinja: 'Dalam situasi prediksi tweet mendatang, terdapat teks ini:
+      teks 1 : "{{text_1}}"
+      dan diikuti oleh teks 2 : "{{text_2}}" tentukanlah tipe prediksi untuk tweet
+      yang akan datang!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_6
+    reference: ''
+  b7f4d0b6-300f-45d7-9dba-610504091ff1: !Template
+    answer_choices: 0 ||| 1
+    id: b7f4d0b6-300f-45d7-9dba-610504091ff1
+    jinja: 'Dalam situasi prediksi tweet berikutnya, diberikan teks sebagai berikut:
+      teks 1 : "{{text_1}}"
+      dan diikuti oleh teks 2 : "{{text_2}}" tolong prediksi tipe prediksi untuk tweet
+      selanjutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_3
+    reference: ''
+  be5a4a41-41f7-4cad-a8a5-60647df61905: !Template
+    answer_choices: 0 ||| 1
+    id: be5a4a41-41f7-4cad-a8a5-60647df61905
+    jinja: 'Dalam situasi prediksi tweet mendatang, tertera teks sebagai berikut:
+      teks 1 : "{{text_1}}"
+      dan setelahnya teks 2 : "{{text_2}}" mohon tentukan jenis prediksi untuk tweet
+      selanjutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_10
+    reference: ''
+  e32964e7-14f4-4ee2-b470-82ed6fa9e2e6: !Template
+    answer_choices: 0 ||| 1
+    id: e32964e7-14f4-4ee2-b470-82ed6fa9e2e6
+    jinja: 'Dalam konteks prediksi tweet yang akan datang, disediakan teks berikut:
+      teks 1 : "{{text_1}}"
+      dan diikuti oleh teks 2 : "{{text_2}}" berikan prediksi untuk tipe tweet berikutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_8
+    reference: ''
+  ec0c4740-749e-4fd6-8b77-220336f0a704: !Template
+    answer_choices: 0 ||| 1
+    id: ec0c4740-749e-4fd6-8b77-220336f0a704
+    jinja: 'Dalam konteks prediksi tweet berikutnya, terdapat teks ini:
+      teks 1 : "{{text_1}}"
+      dan setelahnya teks 2 : "{{text_2}}" prediksi jenis prediksi untuk tweet selanjutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_2
+    reference: ''
+  fd0ac5a0-f092-4477-88a7-3e77d79317c1: !Template
+    answer_choices: 0 ||| 1
+    id: fd0ac5a0-f092-4477-88a7-3e77d79317c1
+    jinja: 'Dalam ramalan prediksi tweet yang akan datang, diuraikan teks ini:
+      teks 1 : "{{text_1}}"
+      dan kemudian teks 2 : "{{text_2}}" tolong prediksi jenis prediksi untuk tweet
+      berikutnya!
+      |||
+      {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indolem_ntp_nusantara_pairs_template_9
     reference: ''

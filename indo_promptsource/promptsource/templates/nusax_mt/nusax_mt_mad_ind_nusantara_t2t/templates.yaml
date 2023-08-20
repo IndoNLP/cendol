@@ -1,0 +1,110 @@
+dataset: nusax_mt
+subset: nusax_mt_mad_ind_nusantara_t2t
+templates:
+  14e89595-1a15-4701-a953-4cdccd12520c: !Template
+    answer_choices: null
+    id: 14e89595-1a15-4701-a953-4cdccd12520c
+    jinja: 'Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Indonesia? {{text_1}}
+
+
+      |||
+
+      Terjemahan Bahasa Indonesia: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_1
+    reference: ''
+  1ca33cca-50b7-493e-86d4-ecf6311b3146: !Template
+    answer_choices: null
+    id: 1ca33cca-50b7-493e-86d4-ecf6311b3146
+    jinja: 'Bahasa Madura dari kalimat ini {{text_2}} apa?
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_4
+    reference: ''
+  604ea84c-c88c-48c0-98e2-ad93476d7c19: !Template
+    answer_choices: null
+    id: 604ea84c-c88c-48c0-98e2-ad93476d7c19
+    jinja: 'Coba terjemahkan paragraf ini ke Bahasa Madura, {{text_2}}
+
+      |||
+
+      Terjemahannya: {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_5
+    reference: ''
+  6544a04a-86b3-43c5-8a6f-63e60805dc63: !Template
+    answer_choices: null
+    id: 6544a04a-86b3-43c5-8a6f-63e60805dc63
+    jinja: 'Apa Bahasa Indonesia: {{text_1}} ?
+
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_2
+    reference: ''
+  8c08d3ed-98f3-4d5c-8d7e-10311fdae924: !Template
+    answer_choices: null
+    id: 8c08d3ed-98f3-4d5c-8d7e-10311fdae924
+    jinja: 'Translate ke bahasa madura {{text_2}}
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_7
+    reference: ''
+  a8e129a8-7355-49f4-aeaa-119a074e52ec: !Template
+    answer_choices: null
+    id: a8e129a8-7355-49f4-aeaa-119a074e52ec
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia: {{text_1}}
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_3
+    reference: ''
+  ac3c72db-6950-47f7-bb63-ed06794f9025: !Template
+    answer_choices: null
+    id: ac3c72db-6950-47f7-bb63-ed06794f9025
+    jinja: 'Translate ke bahasa indonesia {{text_1}}
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt_mad_ind_6
+    reference: ''
