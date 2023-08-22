@@ -1,10 +1,19 @@
+import os
 import logging
 import argparse
+
 import pandas as pd
+import multiprocessing as mp
+
+import concurrent.futures as cf
 
 from tqdm import tqdm
-from promptsource.templates import DatasetTemplates
+from functools import partial
 from nusacrowd import NusantaraConfigHelper
+
+from collections.abc import Iterable
+from concurrent.futures import ThreadPoolExecutor
+from promptsource.templates import DatasetTemplates
 
 parser = argparse.ArgumentParser()
 
@@ -74,6 +83,19 @@ def set_logger():
     return logger
 
 
+def __run_t2t_parallel(fn_to_execute, iterable_input, n_workers: int):
+    if not isinstance(iterable_input, Iterable):
+        raise TypeError("Received second args in 'run_parallel' isn't an iterable object!")
+    with ThreadPoolExecutor(max_workers=n_workers) as p:
+        futures = {p.submit(fn_to_execute, *args_input, iter_idx) for iter_idx, args_input in enumerate(iterable_input, start=1)}
+        cf_futures = cf.as_completed(futures)
+        try:
+            next(cf_futures).result()
+        except StopIteration:
+            logger.info("All futures finished")
+            pass
+
+
 def dataset_generator(dataset_name: str, subset_name: str, total_partition: int):
 
     # Set Config of NusaCrowd to stream the data
@@ -81,7 +103,7 @@ def dataset_generator(dataset_name: str, subset_name: str, total_partition: int)
 
     # Load dataset (only obtain the first value returned from config filter)
     nusa_metadata = conhelps.filtered(lambda x: dataset_name in x.dataset_name and subset_name in x.config.name)[0]
-    dset = nusa_metadata.load_dataset()
+    dataset = nusa_metadata.load_dataset()
 
     dataset_name = nusa_metadata.dataset_name
     subset_name = nusa_metadata.config.name
@@ -89,21 +111,17 @@ def dataset_generator(dataset_name: str, subset_name: str, total_partition: int)
     logger.info(f"## DATASET INFO ##")
     logger.info(f"Real dataset_name: {dataset_name}")
     logger.info(f"Real subset_name: {subset_name}")
-    logger.info(f"dset.shape: {dset.shape}")
-    logger.info(f"Example dataset: {dset['train'][0]}")
+    logger.info(f"Dataset Shape: {dataset.shape}")
+    logger.info(f"Example dataset: {dataset['train'][0]}")
     logger.info("============================================")
 
-    for dset_key in dset.keys():
+    for dataset_key in dataset.keys():
         for ind in range(total_partition):
-            yield dataset_name, subset_name, dset_key, dset[dset_key].shard(num_shards=total_partition, index=ind)
+            yield dataset[dataset_key].shard(num_shards=total_partition, index=ind), dataset_name, subset_name, dataset_key
 
 
-def generate_t2t_from_prompts(hf_dataset_generator, split_on_prompts: bool, total_partition: int, checkpoint_save_path: str = "generated_dataset"):
-
-    logger.info(f"Dataset Partition: {total_partition}")
-    for partition_num, (dataset_name, subset_name, dataset_key, dataset_shard) in tqdm(
-        enumerate(hf_dataset_generator, start=1),
-            total=total_partition, position=0, desc="Generating T2T Dataset on Partitioned fashion"):
+def generate_t2t_from_prompts(dataset_shard, dataset_name, subset_name, dataset_key, partition_num,
+                              split_on_prompts: bool, checkpoint_save_path: str = "generated_dataset"):
 
         all_data = []
         prompt = DatasetTemplates(dataset_name, subset_name=subset_name)
@@ -151,7 +169,8 @@ def generate_t2t_from_prompts(hf_dataset_generator, split_on_prompts: bool, tota
             if split_on_prompts:
                 #directly create dataset after T2T has been generated
                 df_ = pd.DataFrame(all_data)
-                df_.to_csv(f"{checkpoint_save_path}/{dataset_name}-{subset_name}-partition-{partition_num}-prompt-{prompt_num}.csv")
+                fn = f"{checkpoint_save_path}/{dataset_name}-{subset_name}-partition-{partition_num}-prompt-{prompt_num}.csv"
+                df_.to_csv(fn)
                 all_data = []
             else:
                 #accumulate over all prompts, pass this condition
@@ -159,6 +178,7 @@ def generate_t2t_from_prompts(hf_dataset_generator, split_on_prompts: bool, tota
 
         if not split_on_prompts:
             df_ = pd.DataFrame(all_data)
+            logger.info("Completed!")
             df_.to_csv(f"{checkpoint_save_path}/{dataset_name}-{subset_name}-partition-{partition_num}.csv")
             all_data = []
         else:
@@ -175,7 +195,12 @@ if __name__ == "__main__":
           default=False, type=argparse_bool_check)
     parser.add_argument("--num-shard", help="Partition Number of Dataset (useful for large ones)",
           default=1, type=validate_nonzero_int)
-    parser.add_argument("--checkpoint-save-path", help="Relative path of saved T2T CSV",
+    parser.add_argument("--parallelize-flag", help="Flag whether to use parallelization (using async)",
+          default=False, type=argparse_bool_check)
+    parser.add_argument("--num-concurrent-process", help="Number of Concurrent Parallel Process",
+          default=max(mp.cpu_count()-2, 1), type=validate_nonzero_int)
+    parser.add_argument("--checkpoint-save-path", help="""Relative path of saved T2T CSV 
+                        to the 'generate_dataset.py' script dir""",
             default="checkpoint_save_path")
 
     args = parser.parse_args()
@@ -186,20 +211,50 @@ if __name__ == "__main__":
     # num_shard = 10
     # split_on_prompts = True
 
+    logger = set_logger()
+
+    logger.info("Parsing arguments...")
+
     # Set variable from args parser
     dataset_name = args.dataset_name
     subset_name = args.subset_name
     num_shard = args.num_shard
     split_on_prompts = args.split_on_prompts
+    parallelize = args.parallelize_flag
+    concurrent_process = min(args.num_concurrent_process, max(mp.cpu_count()-2, 1))
     checkpoint_save_path = args.checkpoint_save_path
-
-    logger = set_logger()
 
     logger.info(f"Input dataset_name: {dataset_name}")
     logger.info(f"Input subset_name: {subset_name}")
 
-    logger.info(f"Input num_shard: {num_shard}")
-    logger.info(f"Input split_on_prompts: {split_on_prompts}")
+    script_dirname = os.path.dirname(os.path.abspath(__file__))
+    target_folder = os.path.join(script_dirname, checkpoint_save_path)
 
-    generate_t2t_from_prompts(dataset_generator(dataset_name, subset_name, total_partition = num_shard),
-                                split_on_prompts = split_on_prompts, total_partition = num_shard)
+    if not os.path.isdir(target_folder):
+        logger.info(f"Creating new dir in {target_folder}")
+        os.mkdir(target_folder)
+    else:
+        logger.info(f"Dir {target_folder} already exists")
+
+    if parallelize:
+        logger.info(f"Using parallelization with concurrent process of {concurrent_process} from proposed process of {args.num_concurrent_process}")
+
+    if split_on_prompts:
+        logger.info(f"Using generation splitting based on prompts")
+
+    if num_shard > 1:
+        logger.info(f"Using generation splitting based on sharding with partition number of {num_shard}")
+
+    partial_t2t_generation_fn = partial(generate_t2t_from_prompts, split_on_prompts = split_on_prompts, checkpoint_save_path=checkpoint_save_path)
+
+    if not parallelize:
+        for partition_num, args in tqdm(enumerate(dataset_generator(dataset_name, subset_name, total_partition = num_shard), start=1),
+                total=num_shard, position=0, desc="Generating T2T Dataset on Partitioned fashion"):
+            logger.info(f"Generating dataset sequentially of partition no {partition_num}")
+            partial_t2t_generation_fn(*args, partition_num)
+    #activate run parallelization on async
+    else:
+        logger.info(f"Generating dataset asyncronously...")
+        __run_t2t_parallel(partial_t2t_generation_fn, dataset_generator(
+                        dataset_name, subset_name, total_partition = num_shard),
+                        n_workers=concurrent_process)
