@@ -1,8 +1,8 @@
-dataset: su_emot
-subset: su_emot_nusantara_text
+dataset: emot
+subset: emot_nusantara_text
 templates:
   98f07ca1-6098-4a3a-94ac-4f878d289ffc: !Template
-    answer_choices: anger ||| joy ||| fear ||| sadness
+    answer_choices:  cinta ||| takut ||| sedih ||| senang ||| marah
     id: 98f07ca1-6098-4a3a-94ac-4f878d289ffc
     jinja: "apa emosi yang ingin diekspresikan oleh kalimat {{text}}?\n\n      |||\n\
       \n      {{answer_choices[label]}}"
@@ -11,10 +11,10 @@ templates:
       languages: []
       metrics: []
       original_task: false
-    name: su_emot_nusantara_text_1
+    name: emot_nusantara_template_1
     reference: ''
   4f2409e0-928c-4ba6-8960-48c320e7c25f: !Template
-    answer_choices: anger ||| joy ||| fear ||| sadness
+    answer_choices:  cinta ||| takut ||| sedih ||| senang ||| marah
     id: 4f2409e0-928c-4ba6-8960-48c320e7c25f
     jinja: ''
     metadata: !TemplateMetadata
@@ -22,10 +22,10 @@ templates:
       languages: null
       metrics: null
       original_task: null
-    name: su_emot_nusantara_text_4
+    name: emot_4
     reference: ''
   75cf0f36-862a-470b-90fc-57c31de3589b: !Template
-    answer_choices: anger ||| joy ||| fear ||| sadness
+    answer_choices:  cinta ||| takut ||| sedih ||| senang ||| marah
     id: 75cf0f36-862a-470b-90fc-57c31de3589b
     jinja: 'Tentukan emosi yang diekspresikan oleh kalimat berikut
 
@@ -40,10 +40,10 @@ templates:
       languages: []
       metrics: []
       original_task: false
-    name: su_emot_nusantara_text_1
+    name: emot_1
     reference: ''
   847fb18b-f901-4984-bc61-540aad6a969a: !Template
-    answer_choices: anger ||| joy ||| fear ||| sadness
+    answer_choices:  cinta ||| takut ||| sedih ||| senang ||| marah
     id: 847fb18b-f901-4984-bc61-540aad6a969a
     jinja: '{{text}}
 
@@ -57,10 +57,10 @@ templates:
       languages: []
       metrics: []
       original_task: false
-    name: su_emot_nusantara_text_3
+    name: emot_3
     reference: ''
   a54b6f53-43b9-48ac-b45e-c14d319d98e7: !Template
-    answer_choices: anger ||| joy ||| fear ||| sadness
+    answer_choices:  cinta ||| takut ||| sedih ||| senang ||| marah
     id: a54b6f53-43b9-48ac-b45e-c14d319d98e7
     jinja: '{{text}}
 
@@ -74,7 +74,6 @@ templates:
       languages: []
       metrics: []
       original_task: false
-    name: su_emot_nusantara_text_2
+    name: emot_2
     reference: ''
-
 

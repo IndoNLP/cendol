@@ -1,0 +1,19 @@
+dataset: emot
+subset: emot_source
+templates:
+  347d7216-3baa-45cf-8e34-ef9785a00a48: !Template
+    answer_choices: null
+    id: 347d7216-3baa-45cf-8e34-ef9785a00a48
+    jinja: 'apa emosi yang ingin diekspresikan oleh kalimat {{text}?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: emot_5
+    reference: ''
+  
