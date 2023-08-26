@@ -18,7 +18,6 @@ dset_list = list()
 
 for folder_path in path_list:
     all_csv_path = [path for path in os.listdir(os.path.join(script_folder, folder_path)) if path.endswith(".csv")]
-    print(all_csv_path)
     if len(all_csv_path) > 1:
         dset_list.append(pd.concat([pd.read_csv(os.path.join(folder_path, file_path)) for file_path in all_csv_path], ignore_index=True))
     else:
