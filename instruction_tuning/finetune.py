@@ -42,6 +42,7 @@ class ModelArguments:
                 default=False, metadata={"help": "Whether to convert the loaded model into mixed-8bit quantized model."}
     )
     # LoRA parameters
+    use_lora: bool =  = field(default=False, metadata={"help": "Whether to use Lora or not."})
     lora_r: int = field(default=8, metadata={"help": "Lora rank."})
     lora_alpha: int = field(default=16, metadata={"help": "Lora alpha."})
     lora_dropout: float = field(default=0.05, metadata={"help": "Lora dropout."})
@@ -71,7 +72,6 @@ class BactrianTrainingArguments(TrainingArguments):
     evaluation_strategy: str = field(default="steps", metadata={"help": ""})
     save_strategy: str = field(default="steps", metadata={"help": ""})
     wandb_project: str = field(default="bactrian", metadata={"help": "Weight & Bias (W&B) project name."})
-
 
 # Copied from https://github.com/bofenghuang/stanford_alpaca/blob/eb5b171d9b103a12a8e14e0edca9cbc45fe1d512/train.py#L75-L95
 def smart_tokenizer_and_embedding_resize(
@@ -175,16 +175,17 @@ def train():
     else:
         model.enable_input_require_grads()
 
-    config = LoraConfig(
-        r = model_args.lora_r,
-        lora_alpha = model_args.lora_alpha,
-        target_modules = model_args.lora_target_modules.split(','),
-        lora_dropout = model_args.lora_dropout,
-        bias = "none",
-        task_type = "CAUSAL_LM",
-    )
-    model = get_peft_model(model, config)
-    model.print_trainable_parameters()
+    if model_args.use_lora:
+        config = LoraConfig(
+            r = model_args.lora_r,
+            lora_alpha = model_args.lora_alpha,
+            target_modules = model_args.lora_target_modules.split(','),
+            lora_dropout = model_args.lora_dropout,
+            bias = "none",
+            task_type = "CAUSAL_LM",
+        )
+        model = get_peft_model(model, config)
+        model.print_trainable_parameters()
 
     # Load dataset from HF Hub
     if training_args.lang != '':
