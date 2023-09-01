@@ -1,5 +1,6 @@
 import re
 import os
+os.environ['CUDA_VISIBLE_DEVICES'] = '1'
 import sys
 import glob
 import math
@@ -24,8 +25,6 @@ from peft import (
     prepare_model_for_int8_training,
 )
 
-from utils.prompter import Prompter
-
 logger = logging.getLogger(__name__)
 
 IGNORE_INDEX = -100
@@ -43,6 +42,7 @@ class ModelArguments:
                 default=False, metadata={"help": "Whether to convert the loaded model into mixed-8bit quantized model."}
     )
     # LoRA parameters
+    use_lora: bool = field(default=False, metadata={"help": "Whether to use Lora or not."})
     lora_r: int = field(default=8, metadata={"help": "Lora rank."})
     lora_alpha: int = field(default=16, metadata={"help": "Lora alpha."})
     lora_dropout: float = field(default=0.05, metadata={"help": "Lora dropout."})
@@ -70,8 +70,6 @@ class BactrianTrainingArguments(Seq2SeqTrainingArguments):
         default=False, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training. Not recommand for mT5"}
     )
     lang: str = field(default="zh", metadata={"help": "The language or language list separated by `,`, dataset will be downlaoded from HF Hub."})
-    template_dir: str = field(default="./templates", metadata={"help": "Prompt template dir."})
-    prompt_template_name: str = field(default="bactrian_seq2seq", metadata={"help": "Prompt template file to use."})
     evaluation_strategy: str = field(default="steps", metadata={"help": ""})
     save_strategy: str = field(default="steps", metadata={"help": ""})
     wandb_project: str = field(default="bactrian", metadata={"help": "Weight & Bias (W&B) project name."})
@@ -131,9 +129,6 @@ def train():
     logger.info(f"Model parameters {model_args}")
     logger.info(f"Training/evaluation parameters {training_args}")
 
-
-    prompter = Prompter(training_args.prompt_template_name, training_args.template_dir)
-
     device_map = "auto"
     world_size = int(os.environ.get("WORLD_SIZE", 1))
     ddp = world_size != 1
@@ -147,7 +142,7 @@ def train():
         model_args.model_name_or_path,
         # torch_dtype=torch.float16, # Result in collapse
         load_in_8bit=model_args.load_in_8bit,
-        device_map=device_map,
+        # device_map=device_map,
     )
 
     # todo: better handle
@@ -162,36 +157,36 @@ def train():
     else:
         model.enable_input_require_grads()
 
-    config = LoraConfig(
-        r = model_args.lora_r,
-        lora_alpha = model_args.lora_alpha,
-        target_modules = model_args.lora_target_modules.split(','),
-        lora_dropout = model_args.lora_dropout,
-        bias = "none",
-        task_type = TaskType.SEQ_2_SEQ_LM,
-    )
-    model = get_peft_model(model, config)
-    model.print_trainable_parameters()
+    if model_args.use_lora:
+        config = LoraConfig(
+            r = model_args.lora_r,
+            lora_alpha = model_args.lora_alpha,
+            target_modules = model_args.lora_target_modules.split(','),
+            lora_dropout = model_args.lora_dropout,
+            bias = "none",
+            task_type = TaskType.SEQ_2_SEQ_LM,
+        )
+        model = get_peft_model(model, config)
+        model.print_trainable_parameters()
 
     # Load dataset from HF Hub
-    if training_args.lang != '':
-        all_dataset = [load_dataset(data_args.data_path, lang) for lang in training_args.lang.split(',')]
-    merged_dataset = concatenate_datasets(list(map(lambda x: x['train'], all_dataset)))
-    raw_datasets = DatasetDict({'train':merged_dataset})
-
+    # if training_args.lang != '':
+    #     all_dataset = [load_dataset(data_args.data_path, lang) for lang in training_args.lang.split(',')]
+    # merged_dataset = concatenate_datasets(list(map(lambda x: x['train'], all_dataset)))
+    # raw_datasets = DatasetDict({'train':merged_dataset})
+    raw_datasets = load_dataset("indonlp/nusa_t2t", use_auth_token=True)
 
     # Determine model_max_length for truncation
     source_max_length = data_args.source_max_length
     model_max_length = data_args.model_max_length
 
     def generate_and_tokenize_prompt(data_point):
-        user_prompt = prompter.generate_prompt(
-            data_point["instruction"], data_point["input"]
-        )
+        user_prompt = f'{data_point["input"]} '
+        target_text = f'{data_point["output"]}'
+        user_prompt_len = len(tokenizer(user_prompt, truncation=True, max_length=model_max_length)["input_ids"])
         source_ids = tokenizer(text=user_prompt, truncation=True, max_length=source_max_length)["input_ids"]
-        target_ids = tokenizer(text_target=data_point["output"], truncation=True, max_length=model_max_length-source_max_length)["input_ids"]
+        target_ids = tokenizer(text_target=target_text, truncation=True, max_length=model_max_length-source_max_length)["input_ids"]
         return {"input_ids":source_ids, "labels":target_ids}
-
 
     if data_args.val_set_size > 0:
         train_val_data = raw_datasets["train"].train_test_split(
@@ -225,12 +220,12 @@ def train():
     )
     model.config.use_cache = False
 
-    old_state_dict = model.state_dict
-    model.state_dict = (
-        lambda self, *_, **__: get_peft_model_state_dict(
-            self, old_state_dict()
-        )
-    ).__get__(model, type(model))
+    # old_state_dict = model.state_dict
+    # model.state_dict = (
+    #     lambda self, *_, **__: get_peft_model_state_dict(
+    #         self, old_state_dict()
+    #     )
+    # ).__get__(model, type(model))
 
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)

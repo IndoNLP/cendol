@@ -23,8 +23,6 @@ from peft import (
     prepare_model_for_int8_training,
 )
 
-from utils.prompter import Prompter
-
 logger = logging.getLogger(__name__)
 
 IGNORE_INDEX = -100
@@ -42,7 +40,7 @@ class ModelArguments:
                 default=False, metadata={"help": "Whether to convert the loaded model into mixed-8bit quantized model."}
     )
     # LoRA parameters
-    use_lora: bool =  = field(default=False, metadata={"help": "Whether to use Lora or not."})
+    use_lora: bool = field(default=False, metadata={"help": "Whether to use Lora or not."})
     lora_r: int = field(default=8, metadata={"help": "Lora rank."})
     lora_alpha: int = field(default=16, metadata={"help": "Lora alpha."})
     lora_dropout: float = field(default=0.05, metadata={"help": "Lora dropout."})
@@ -67,8 +65,6 @@ class BactrianTrainingArguments(TrainingArguments):
         default=True, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training."}
     )
     lang: str = field(default="zh", metadata={"help": "The language or language list separated by `,`, dataset will be downlaoded from HF Hub."})
-    template_dir: str = field(default="./templates", metadata={"help": "Prompt template dir."})
-    prompt_template_name: str = field(default="bactrian", metadata={"help": "Prompt template file to use."})
     evaluation_strategy: str = field(default="steps", metadata={"help": ""})
     save_strategy: str = field(default="steps", metadata={"help": ""})
     wandb_project: str = field(default="bactrian", metadata={"help": "Weight & Bias (W&B) project name."})
@@ -126,10 +122,7 @@ def train():
     # Set the verbosity to info of the Transformers logger (on main process only):
     logger.info(f"Model parameters {model_args}")
     logger.info(f"Training/evaluation parameters {training_args}")
-
-
-    prompter = Prompter(training_args.prompt_template_name, training_args.template_dir)
-
+    
     device_map = "auto"
     world_size = int(os.environ.get("WORLD_SIZE", 1))
     ddp = world_size != 1
@@ -141,9 +134,8 @@ def train():
 
     model = AutoModelForCausalLM.from_pretrained(
         model_args.model_name_or_path,
-        torch_dtype=torch.float16,
         load_in_8bit=model_args.load_in_8bit,
-        device_map=device_map,
+        # device_map=device_map,
     )
 
     # TODO: better handle
@@ -188,24 +180,18 @@ def train():
         model.print_trainable_parameters()
 
     # Load dataset from HF Hub
-    if training_args.lang != '':
-        all_dataset = [load_dataset(data_args.data_path, lang) for lang in training_args.lang.split(',')]
-    merged_dataset = concatenate_datasets(list(map(lambda x: x['train'], all_dataset)))
-    raw_datasets = DatasetDict({'train':merged_dataset})
-
+    # if training_args.lang != '':
+    #     all_dataset = [load_dataset(data_args.data_path, lang) for lang in training_args.lang.split(',')]
+    # merged_dataset = concatenate_datasets(list(map(lambda x: x['train'], all_dataset)))
+    # raw_datasets = DatasetDict({'train':merged_dataset})
+    raw_datasets = load_dataset("indonlp/nusa_t2t", use_auth_token=True)
 
     # Determine model_max_length for truncation
     model_max_length = data_args.model_max_length
 
     def generate_and_tokenize_prompt(data_point):
-        full_prompt = prompter.generate_prompt(
-            data_point["instruction"],
-            data_point["input"],
-            data_point["output"],
-        )
-        user_prompt = prompter.generate_prompt(
-            data_point["instruction"], data_point["input"]
-        )
+        full_prompt = f'{data_point["input"]} {data_point["output"]}'
+        user_prompt = f'{data_point["input"]} '
         user_prompt_len = len(tokenizer(user_prompt, truncation=True, max_length=model_max_length)["input_ids"])
         tokenized_full_prompt = tokenizer(full_prompt + tokenizer.eos_token, truncation=True, max_length=model_max_length)
         tokenized_full_prompt["labels"] = [IGNORE_INDEX] * user_prompt_len + tokenized_full_prompt["input_ids"].copy()[user_prompt_len:]
@@ -234,7 +220,6 @@ def train():
         desc="preprocess val data set",
     )
 
-
     trainer = Trainer(
         model = model,
         train_dataset = train_data,
@@ -246,12 +231,12 @@ def train():
     )
     model.config.use_cache = False
 
-    old_state_dict = model.state_dict
-    model.state_dict = (
-        lambda self, *_, **__: get_peft_model_state_dict(
-            self, old_state_dict()
-        )
-    ).__get__(model, type(model))
+    # old_state_dict = model.state_dict
+    # model.state_dict = (
+    #     lambda self, *_, **__: get_peft_model_state_dict(
+    #         self, old_state_dict()
+    #     )
+    # ).__get__(model, type(model))
 
     if torch.__version__ >= "2" and sys.platform != "win32":
         model = torch.compile(model)

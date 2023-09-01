@@ -1,34 +1,34 @@
 lang='af,ar,az,bn,cs,de,en,es,et,fa,fi,fr,gl,gu,he,hi,hr,id,it,ja,ka,kk,km,ko,lt,lv,mk,ml,mn,mr,my,ne,nl,pl,ps,pt,ro,ru,si,sl,sv,sw,ta,te,th,tl,tr,uk,ur,vi,xh,zh'
-model_size='7b1'
-WORLD_SIZE=4
-CUDA_VISIBLE_DEVICES=0,1,2,3
+model_size='560m'
+WORLD_SIZE=2
+CUDA_VISIBLE_DEVICES=0,1
 
-torchrun --nproc_per_node=4 --master_port=1234 finetune.py \
+torchrun --nproc_per_node=2 --master_port=1234 finetune.py \
 --model_name_or_path bigscience/bloom-${model_size} \
 --lang ${lang} \
---output_dir output/bloom-${model_size}-X-lora \
+--output_dir output/cendol-bloom-${model_size} \
 --overwrite_output_dir \
---template_dir ./templates \
---learning_rate 3e-4 \
---load_in_8bit \
+--learning_rate 2e-5 \
+--fp16 \
 --per_device_train_batch_size 8 \
---per_device_eval_batch_size 4 \
+--per_device_eval_batch_size 8 \
 --gradient_accumulation_steps 4 \
 --num_train_epochs 4 \
 --model_max_length 768 \
 --val_set_size 5000 \
---save_steps 2000 \
---eval_steps 2000 \
+--save_steps 5000 \
+--eval_steps 5000 \
 --logging_steps 100 \
---preprocessing_num_workers 4 \
+--preprocessing_num_workers 32 \
 --dataloader_num_workers 4 \
+--use_lora False \
 --lora_r 64 \
 --lora_alpha 16 \
 --lora_dropout 0.05 \
 --lora_target_modules 'query_key_value' \
 --ddp_find_unused_parameters False \
---save_total_limit 10 \
+--save_total_limit 5 \
 --group_by_length \
 --report_to wandb \
---wandb_project bactrian-X \
---run_name bloom-${model_size}-X
+--wandb_project cendol \
+--run_name cendol-bloom-${model_size}
