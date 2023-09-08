@@ -11,4 +11,6 @@ sentencepiece
 gradio
 wandb
 shortuuid
+scipy
 ray
+fairscale>=0.4.13
