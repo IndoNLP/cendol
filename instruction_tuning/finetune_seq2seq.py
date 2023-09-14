@@ -1,5 +1,11 @@
 import re
 import os
+os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
+os.environ['HF_HOME'] = '/home/jovyan/.cache/huggingface'
+os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
+os.environ['TRANSFORMERS_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
+os.environ['HF_DATASETS_CACHE'] = '/home/jovyan/.cache/huggingface/datasets'
+
 import sys
 import glob
 import math
@@ -55,11 +61,12 @@ class DataArguments:
         default=256, metadata={"help": "Maximum length of source. Sequences will be right padded (and possibly truncated)."}
     )
     model_max_length: Optional[int] = field(
-        default=1024, metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."}
+        default=512, metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."}
     )
     preprocessing_num_workers: Optional[int] = field(
         default=None, metadata={"help": "The number of processes to use for the preprocessing."}
     )
+    sample_size: Optional[int] = field(default=-1, metadata={"help": "The maximum sample size from the whole dataset."})
     val_set_size: Optional[int] = field(default=2000, metadata={"help": "The validation set size. For loss checking."})
 
 @dataclass
@@ -143,6 +150,7 @@ def train():
         load_in_8bit=model_args.load_in_8bit,
         # device_map=device_map,
     )
+    model.config.use_cache = False
 
     # todo: better handle
     tokenizer = AutoTokenizer.from_pretrained(
@@ -167,12 +175,12 @@ def train():
         )
         model = get_peft_model(model, config)
         model.print_trainable_parameters()
-
     # Load dataset from HF Hub
     # if training_args.lang != '':
     #     all_dataset = [load_dataset(data_args.data_path, lang) for lang in training_args.lang.split(',')]
     # merged_dataset = concatenate_datasets(list(map(lambda x: x['train'], all_dataset)))
     # raw_datasets = DatasetDict({'train':merged_dataset})
+    
     raw_datasets = load_dataset("indonlp/nusa_t2t", use_auth_token=True)
 
     # Determine model_max_length for truncation
@@ -182,11 +190,17 @@ def train():
     def generate_and_tokenize_prompt(data_point):
         user_prompt = f'{data_point["input"]} '
         target_text = f'{data_point["output"]}'
-        user_prompt_len = len(tokenizer(user_prompt, truncation=True, max_length=model_max_length)["input_ids"])
         source_ids = tokenizer(text=user_prompt, truncation=True, max_length=source_max_length)["input_ids"]
         target_ids = tokenizer(text_target=target_text, truncation=True, max_length=model_max_length-source_max_length)["input_ids"]
         return {"input_ids":source_ids, "labels":target_ids}
 
+    # Sampling
+    if data_args.sample_size > 0:
+        raw_datasets["train"] = raw_datasets["train"].train_test_split(
+            test_size=data_args.sample_size, shuffle=True, seed=42
+        )['test']
+        
+    # Splitting
     if data_args.val_set_size > 0:
         train_val_data = raw_datasets["train"].train_test_split(
             test_size=data_args.val_set_size, shuffle=True, seed=42
@@ -194,30 +208,29 @@ def train():
     else:
         raise ValueError("val_set_size must large than 0.")
 
-    #with training_args.main_process_first(desc="dataset map tokenization"):
     train_data = train_val_data["train"].map(
         generate_and_tokenize_prompt,
         num_proc=data_args.preprocessing_num_workers,
-        remove_columns=next(iter(raw_datasets.values())).column_names,
+        remove_columns=train_val_data["train"].column_names,
         desc="preprocess train data set",
     )
     val_data = train_val_data["test"].map(
         generate_and_tokenize_prompt,
         num_proc=data_args.preprocessing_num_workers,
-        remove_columns=next(iter(raw_datasets.values())).column_names,
+        remove_columns=train_val_data["test"].column_names,
         desc="preprocess val data set",
     )
-
+    
     trainer = Seq2SeqTrainer(
         model = model,
         train_dataset = train_data,
         eval_dataset = val_data,
         args = training_args,
+        tokenizer=tokenizer,
         data_collator = transformers.DataCollatorForSeq2Seq(
             tokenizer, pad_to_multiple_of=8, return_tensors="pt", padding=True
         ),
     )
-    model.config.use_cache = False
 
     # old_state_dict = model.state_dict
     # model.state_dict = (
