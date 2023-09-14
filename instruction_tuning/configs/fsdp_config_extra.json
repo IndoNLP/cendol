@@ -1,0 +1,8 @@
+{
+    "backward_prefetch": "backward_pre",
+    "forward_prefetch": "True",
+    "limit_all_gathers": "False",
+    "sync_module_states": "True",    
+    "use_orig_params": "True",
+    "activation_checkpointing": "True"
+}
