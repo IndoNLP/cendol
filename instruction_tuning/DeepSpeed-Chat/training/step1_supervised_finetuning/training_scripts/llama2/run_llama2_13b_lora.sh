@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation.
 # SPDX-License-Identifier: Apache-2.0
 
-# DeepSpeed Team
+# IndoNLP Team
 OUTPUT=$1
 ZERO_STAGE=$2
 if [ "$OUTPUT" == "" ]; then
@@ -19,13 +19,15 @@ deepspeed main.py \
    --model_name_or_path meta-llama/Llama-2-13b-hf \
    --per_device_train_batch_size 4 \
    --per_device_eval_batch_size 4 \
-   --max_seq_len 512 \
-   --learning_rate 9.65e-6 \
-   --weight_decay 0. \
-   --num_train_epochs 4  \
-   --gradient_accumulation_steps 1 \
-   --lr_scheduler_type cosine \
+   --max_seq_len 1024 \
+   --learning_rate 2e-5 \
+   --weight_decay 0 \
+   --num_train_epochs 3  \
+   --gradient_accumulation_steps 8 \
+   --lr_scheduler_type linear \
    --num_warmup_steps 0 \
+   --offload \
+   --dtype fp16 \
    --seed 1234 \
    --gradient_checkpointing \
    --zero_stage $ZERO_STAGE \

@@ -57,6 +57,8 @@ deepspeed main.py \
    --gradient_accumulation_steps 8 \
    --lr_scheduler_type linear \
    --num_warmup_steps 0 \
+   --offload \
+   --dtype fp16 \
    --seed 1234 \
    --gradient_checkpointing \
    --zero_stage $ZERO_STAGE \
