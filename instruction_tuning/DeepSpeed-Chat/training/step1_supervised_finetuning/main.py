@@ -354,7 +354,7 @@ def main():
             f"***** Evaluating perplexity, Epoch {epoch+1}/{args.num_train_epochs} *****",
             args.global_rank)
         perplexity = evaluation(model, eval_dataloader)
-        print_rank_0(f"ppl: {perplexity}", args.global_rank)
+        print_rank_0(f"Validation ppl: {perplexity}", args.global_rank)
         model.tput_timer.update_epoch_count()
 
     if args.output_dir is not None:
