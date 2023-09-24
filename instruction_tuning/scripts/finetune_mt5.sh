@@ -1,4 +1,3 @@
-lang='af,ar,az,bn,cs,de,en,es,et,fa,fi,fr,gl,gu,he,hi,hr,id,it,ja,ka,kk,km,ko,lt,lv,mk,ml,mn,mr,my,ne,nl,pl,ps,pt,ro,ru,si,sl,sv,sw,ta,te,th,tl,tr,uk,ur,vi,xh,zh'
 OMP_NUM_THREADS=32
 WORLD_SIZE=4
 # CUDA_VISIBLE_DEVICES=0,1,2,3

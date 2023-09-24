@@ -1,5 +1,11 @@
 import re
 import os
+os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
+os.environ['HF_HOME'] = '/home/jovyan/.cache/huggingface'
+os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
+os.environ['TRANSFORMERS_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
+os.environ['HF_DATASETS_CACHE'] = '/home/jovyan/.cache/huggingface/datasets'
+
 import sys
 import glob
 import math
@@ -56,6 +62,7 @@ class DataArguments:
     preprocessing_num_workers: Optional[int] = field(
         default=None, metadata={"help": "The number of processes to use for the preprocessing."}
     )
+    sample_size: Optional[int] = field(default=-1, metadata={"help": "The maximum sample size from the whole dataset."})
     val_set_size: Optional[int] = field(default=2000, metadata={"help": "The validation set size. For loss checking."})
 
 @dataclass
@@ -138,28 +145,18 @@ def train():
         # device_map=device_map,
     )
 
-    # TODO: better handle
-    tokenizer_class = LlamaTokenizer if "llama" in model_args.model_name_or_path else AutoTokenizer
-    tokenizer = tokenizer_class.from_pretrained(
+    tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path,
         padding_side="right",
         use_fast=False,
     )
-
+    
     # llama has no pad_token
     if tokenizer.pad_token is None:
         smart_tokenizer_and_embedding_resize(
             special_tokens_dict=dict(pad_token=DEFAULT_PAD_TOKEN),
             tokenizer=tokenizer,
             model=model,
-        )
-    if "llama" in model_args.model_name_or_path:
-        tokenizer.add_special_tokens(
-            {
-                "eos_token": DEFAULT_EOS_TOKEN,
-                "bos_token": DEFAULT_BOS_TOKEN,
-                "unk_token": DEFAULT_UNK_TOKEN,
-            }
         )
 
     if model_args.load_in_8bit:
@@ -198,7 +195,13 @@ def train():
         tokenized_full_prompt.pop('attention_mask')
         return tokenized_full_prompt
 
-
+    # Sampling
+    if data_args.sample_size > 0:
+        raw_datasets["train"] = raw_datasets["train"].train_test_split(
+            test_size=data_args.sample_size, shuffle=True, seed=42
+        )['test']
+        
+    # Splitting
     if data_args.val_set_size > 0:
         train_val_data = raw_datasets["train"].train_test_split(
             test_size=data_args.val_set_size, shuffle=True, seed=42
@@ -238,8 +241,8 @@ def train():
     #     )
     # ).__get__(model, type(model))
 
-    if torch.__version__ >= "2" and sys.platform != "win32":
-        model = torch.compile(model)
+#     if torch.__version__ >= "2" and sys.platform != "win32":
+#         model = torch.compile(model)
 
     trainer.train()
 
