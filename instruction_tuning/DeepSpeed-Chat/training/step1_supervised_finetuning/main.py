@@ -212,7 +212,7 @@ def main():
     ds_config = get_train_ds_config(offload=args.offload,
                                     dtype=args.dtype,
                                     stage=args.zero_stage,
-                                    max_out_tokens=args.max_seq_len
+                                    max_out_tokens=args.max_seq_len,
                                     enable_tensorboard=args.enable_tensorboard,
                                     tb_path=args.tensorboard_path,
                                     tb_name="step1_model")
