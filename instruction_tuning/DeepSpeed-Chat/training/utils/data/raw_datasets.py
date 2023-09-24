@@ -45,7 +45,7 @@ class PromptRawDataset(object):
 
 # Indonesian dataset
 class NusaT2TDataset(PromptRawDataset):
-    def __init__(self, output_path, seed, local_rank, dataset_name, use_auth_token=False, sample_size=15000, val_set_size=5000):
+    def __init__(self, output_path, seed, local_rank, dataset_name, use_auth_token=False, sample_size=6005000, val_set_size=5000):
         super().__init__(output_path, seed, local_rank, dataset_name, use_auth_token=use_auth_token)
         self.dataset_name = "indonlp/nusa_t2t"
         self.dataset_name_clean = "indonlp_nusa_t2t"
