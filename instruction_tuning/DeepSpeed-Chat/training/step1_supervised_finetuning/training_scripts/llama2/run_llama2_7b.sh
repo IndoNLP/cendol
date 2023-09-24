@@ -64,4 +64,4 @@ deepspeed main.py \
    --output_dir $OUTPUT \
    --enable_tensorboard \
    --print_loss \
-   &> $OUTPUT/training.log
+   &> $OUTPUT/training-7b.log
