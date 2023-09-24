@@ -19,7 +19,7 @@ deepspeed main.py \
    --model_name_or_path meta-llama/Llama-2-13b-hf \
    --per_device_train_batch_size 4 \
    --per_device_eval_batch_size 4 \
-   --max_seq_len 1024 \
+   --max_seq_len 768 \
    --learning_rate 2e-5 \
    --weight_decay 0 \
    --num_train_epochs 3  \
