@@ -20,19 +20,21 @@ deepspeed main.py \
    --per_device_train_batch_size 4 \
    --per_device_eval_batch_size 4 \
    --max_seq_len 768 \
-   --learning_rate 2e-5 \
+   --learning_rate 3e-4 \
    --weight_decay 0 \
    --num_train_epochs 3  \
-   --gradient_accumulation_steps 8 \
+   --gradient_accumulation_steps 2 \
    --lr_scheduler_type linear \
    --num_warmup_steps 0 \
-   --offload \
    --dtype fp16 \
    --seed 1234 \
    --gradient_checkpointing \
    --zero_stage $ZERO_STAGE \
    --deepspeed \
-   --lora_dim 128 \
+   --lora_dim 256 \
    --lora_module_name "layers." \
+   --only_optimize_lora \
    --output_dir $OUTPUT \
+   --enable_tensorboard \
+   --print_loss \
    &> $OUTPUT/training-13b-lora.log
