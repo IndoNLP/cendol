@@ -1,0 +1,255 @@
+dataset: id_short_answer_grading
+subset: id_short_answer_grading_nusantara_pairs_score
+templates:
+  186f38b3-78f1-4d4f-aeef-40262069c05a: !Template
+    answer_choices: null
+    id: 186f38b3-78f1-4d4f-aeef-40262069c05a
+    jinja: 'Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Nilai kualitas jawabannya? ||| {{label}} bintang'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_6
+    reference: ''
+  2f3eca33-a015-4287-a591-3bcfd5f77547: !Template
+    answer_choices: null
+    id: 2f3eca33-a015-4287-a591-3bcfd5f77547
+    jinja: 'Untuk skala 1 sampe 5, berapa nilai jawaban berikut?
+
+      Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}} ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_4
+    reference: ''
+  49255289-094b-42ac-a683-d81483f8c8ce: !Template
+    answer_choices: null
+    id: 49255289-094b-42ac-a683-d81483f8c8ce
+    jinja: 'Gw punya soal ujian {{text_1}}
+
+      Kalo jawabannya {{text_2}}, berapa nilainya dari 1 sampe 5? ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_5
+    reference: ''
+  4afd72ec-c8fa-4c9f-81c6-e67d92043996: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: 4afd72ec-c8fa-4c9f-81c6-e67d92043996
+    jinja: 'Gw punya soal ujian {{text_1}}
+
+      Kalo jawabannya {{text_2}}, berapa nilainya dengan kategori {{answer_choices[0]}},
+      {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}}, {{answer_choices[4]}}?
+
+
+      ||| {{answer_choices[label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_13
+    reference: ''
+  4d9ede7f-7e4a-45ce-a57f-bf0083e5703c: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: 4d9ede7f-7e4a-45ce-a57f-bf0083e5703c
+    jinja: "Pertanyaan: {{text_1}}\nJawaban: {{text_2}}\nRate nilai yang tepat untuk\
+      \ jawaban diatas dengan kategori berikut\n- {{answer_choices[0]}}\n- {{answer_choices[1]}}\n\
+      - {{answer_choices[2]}}\n- {{answer_choices[3]}}\n- {{answer_choices[4]}} \n\
+      \n||| {{answer_choices[label]}}\n"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_10
+    reference: ''
+  519baf51-764e-4cb2-82c7-55de0217f5bb: !Template
+    answer_choices: null
+    id: 519baf51-764e-4cb2-82c7-55de0217f5bb
+    jinja: 'Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Dari 1 sampe 5 nilai jawaban diatas? ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_2
+    reference: ''
+  6ce2b882-b643-458d-9670-ffacb3cc92d4: !Template
+    answer_choices: null
+    id: 6ce2b882-b643-458d-9670-ffacb3cc92d4
+    jinja: 'Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Dari 1 sampe 5 berapa rating jawaban diatas? ||| {{label}} bintang'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_3
+    reference: ''
+  a14a5aa6-5441-4053-991b-09733a9c65c0: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: a14a5aa6-5441-4053-991b-09733a9c65c0
+    jinja: "Pertanyaan: {{text_1}}\nJawaban: {{text_2}}\nNilai jawaban diatas dengan\
+      \ {{answer_choices[0]}}, {{answer_choices[1]}}, {{answer_choices[2]}}, {{answer_choices[3]}},\
+      \ {{answer_choices[4]}}? \n\n||| {{answer_choices[label]}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_9
+    reference: ''
+  a93ed6a2-6176-4d0b-898b-353584660229: !Template
+    answer_choices: null
+    id: a93ed6a2-6176-4d0b-898b-353584660229
+    jinja: 'Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Untuk skala 1 sampe 5, gw bakal nilai jawaban diatas ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_7
+    reference: ''
+  c09fc96d-4e97-46b3-a13c-a4612062252b: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: c09fc96d-4e97-46b3-a13c-a4612062252b
+    jinja: 'Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      gw bakal nilai jawaban diatas
+
+
+      ||| {{answer_choices[label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_16
+    reference: ''
+  c8850e8c-89f7-4d04-8955-6dd0f9688bb0: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: c8850e8c-89f7-4d04-8955-6dd0f9688bb0
+    jinja: 'Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Nilai kualitas jawabannya?
+
+
+      ||| {{answer_choices[label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_15
+    reference: ''
+  d6761ff4-6034-4a9c-8d0b-587f4961c332: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: d6761ff4-6034-4a9c-8d0b-587f4961c332
+    jinja: 'Soal: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Nilai jawaban diatas? ||| {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_8
+    reference: ''
+  e26a406a-f7a0-4c11-bce7-a66c534b8688: !Template
+    answer_choices: worst ||| bad ||| not bad ||| good ||| very good ||| amazing
+    id: e26a406a-f7a0-4c11-bce7-a66c534b8688
+    jinja: 'berapa nilai jawaban berikut dengan {{answer_choices[0]}}, {{answer_choices[1]}},
+      {{answer_choices[2]}}, {{answer_choices[3]}}, {{answer_choices[4]}}?
+
+      Pertanyaan: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+
+      ||| {{answer_choices[label]}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_12
+    reference: ''
+  f74d5aa1-a1af-4e99-8828-0e7ad33b275d: !Template
+    answer_choices: null
+    id: f74d5aa1-a1af-4e99-8828-0e7ad33b275d
+    jinja: 'Soal: {{text_1}}
+
+      Jawaban: {{text_2}}
+
+      Dari 1 sampe 10 nilai jawaban diatas? ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_short_answer_grading_template_1
+    reference: ''

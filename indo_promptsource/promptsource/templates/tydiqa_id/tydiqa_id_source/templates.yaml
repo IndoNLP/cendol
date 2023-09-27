@@ -1,0 +1,69 @@
+dataset: tydiqa_id
+subset: tydiqa_id_source
+templates:
+  69db074f-452f-4067-93c2-7888de02ad28: !Template
+    answer_choices: null
+    id: 69db074f-452f-4067-93c2-7888de02ad28
+    jinja: "{{context}}\n\nJawablah pertanyaan berikut berdasarkan konteks yang diatas\n\
+      Pertanyaan: \"{{question}}\"\n\n||| \n{{ label }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_1
+    reference: ''
+  a577b9a5-5a01-4cfe-9c00-29d11c8ed3b9: !Template
+    answer_choices: null
+    id: a577b9a5-5a01-4cfe-9c00-29d11c8ed3b9
+    jinja: "{{context}} Berdasarkan konteks tersebut, {{question}}\n\n||| \n{{ label\
+      \ }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_2
+    reference: ''
+  e344cade-aa70-4dd4-9b3d-7ac63b00babc: !Template
+    answer_choices: null
+    id: e344cade-aa70-4dd4-9b3d-7ac63b00babc
+    jinja: "Berdasarkan konteks berikut\n\n{{context}}\n\nApa jawaban dari pertanyaan:\
+      \ \n\n{{question}}\n\n||| \n{{ label }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_3
+    reference: ''
+  f27d9dab-032a-4926-a075-7f89b66040b4: !Template
+    answer_choices: null
+    id: f27d9dab-032a-4926-a075-7f89b66040b4
+    jinja: "Jawab pertanyaan berikut berdasarkan konteks yang diberikan\nKonteks:\
+      \ {{context}};\nPertanyaan: {{question}};\n\n||| \n{{ label }}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_4
+    reference: ''
+  f2c604e8-6490-4134-955f-5201f156018b: !Template
+    answer_choices: null
+    id: f2c604e8-6490-4134-955f-5201f156018b
+    jinja: 'Konteks: {{context}};
+
+      Apa jawaban dari {{question}} berdasarkan konteks diatas?
+
+
+      |||
+
+      {{ label }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: tydiqa_id_5
+    reference: ''

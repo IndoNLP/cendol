@@ -1,0 +1,146 @@
+dataset: wrete
+subset: wrete_nusantara_pairs
+templates:
+  1cc22bb0-f2bd-43e7-93b5-9f3d734a138b: !Template
+    answer_choices: Tidak|||Iya
+    id: 1cc22bb0-f2bd-43e7-93b5-9f3d734a138b
+    jinja: '{{text_1}}.
+
+      Pertanyaan: Apakah ini menyiratkan bahwa "{{text_2}}"? Iya atau Tidak? ||| {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does this imply
+    reference: Sanh et al. 2021
+  2d0cd41d-7159-49ac-9b04-02077ae64368: !Template
+    answer_choices: salah|||benar
+    id: 2d0cd41d-7159-49ac-9b04-02077ae64368
+    jinja: '"{{text_1}}". Hanya menggunakan deskripsi di atas dan apa yang anda ketahui
+      tentang dunia, "{{text_2}}" benar atau salah|||{{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: MNLI crowdsource
+    reference: Adapted from Williams et al. 2018's instructions to crowdsourcing workers.
+  303b0033-74ae-4132-a7a3-838f4740d8dd: !Template
+    answer_choices: tidak mungkin|||dijamin
+    id: 303b0033-74ae-4132-a7a3-838f4740d8dd
+    jinja: 'Berdasarkan teks "{{text_1}}" .
+
+      Apakah informasi dari teks "{{text_2}}" bisa dijamin atau tidak mungkin?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: guaranteed/possible/impossible
+    reference: Sanh et al. 2021
+  5ac2d448-4224-46be-b458-a32b28408ca0: !Template
+    answer_choices: Tidak|||Iya
+    id: 5ac2d448-4224-46be-b458-a32b28408ca0
+    jinja: Berdasarkan teks "{{text_1}}", apakah kita bisa berasumsi bahwa "{{text_2}}"
+      itu benar? Iya atau Tidak?|||{{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: should assume
+    reference: Webson & Pavlick 2021
+  5e0b459f-7abc-47c4-871a-bab3c5eb2800: !Template
+    answer_choices: tidak|||iya
+    id: 5e0b459f-7abc-47c4-871a-bab3c5eb2800
+    jinja: Mengingat bahwa {{text_1}}. Oleh karena itu, apakah "{{text_1}}" selalu
+      benar? iya atau tidak?|||{{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: must be true
+    reference: Sanh et al. 2021
+  6a76b806-5816-4f65-b2da-6d5d6fa6e1cd: !Template
+    answer_choices: tidak pernah|||selalu
+    id: 6a76b806-5816-4f65-b2da-6d5d6fa6e1cd
+    jinja: Misalkan benar bahwa "{{text_1}}". Apakah "{{text_2}}" {{"selalu"}} atau
+      {{"tidak pernah"}} benar?|||{{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: always/sometimes/never
+    reference: Sanh et al. 2021
+  7acfb1ca-9f1b-425d-b357-93f22225922f: !Template
+    answer_choices: Salah|||Benar
+    id: 7acfb1ca-9f1b-425d-b357-93f22225922f
+    jinja: '{{text_1}}. Berdasarkan informasi tersebut, apakah klaim: "{{text_2}}"
+      {{"Benar"}}, atau {{"Salah"}}? ||| {{ answer_choices[label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim true/false
+    reference: Sanh et al. 2021
+  b5c0d3d9-7406-4f74-b37e-50ee9afbbdd9: !Template
+    answer_choices: Tidak|||Iya
+    id: b5c0d3d9-7406-4f74-b37e-50ee9afbbdd9
+    jinja: Mengingat bahwa "{{text_1}}", apakah itu mengikuti "{{text_2}}"? Iya atau
+      Tidak? ||| {{ answer_choices[label] }}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: does it follow that
+    reference: Sanh et al. 2021
+  c1479681-9d32-43dc-ba0f-a716d825358a: !Template
+    answer_choices: iya|||tidak
+    id: c1479681-9d32-43dc-ba0f-a716d825358a
+    jinja: Apakah kalimat "{{text_2}}" dapat diturunkan dari kalimat "{{text_1}}"?
+      iya/tidak|||{% if label == 0 %}{{answer_choices[1]}}{% else %}{{answer_choices[0]}}{%
+      endif %}
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages: []
+      metrics:
+      - Accuracy
+      original_task: true
+    name: diartikan
+    reference: ''
+  dde48824-3540-475a-972a-757aac6ce1da: !Template
+    answer_choices: salah|||benar
+    id: dde48824-3540-475a-972a-757aac6ce1da
+    jinja: 'Teks: {{text_1}}.
+
+      Apakah "{{text_2}}" benar atau salah?|||{{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: simple question
+    reference: ''

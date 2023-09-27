@@ -1,0 +1,374 @@
+dataset: bible_su_id
+subset: bible_su_id_nusantara_t2t
+templates:
+  5cb05f9e-5619-4d2a-8f02-51497e6645cc: !Template
+    answer_choices: null
+    id: 5cb05f9e-5619-4d2a-8f02-51497e6645cc
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_14
+    reference: ''
+  a88dc831-c8af-414d-b011-e34cb2364c75: !Template
+    answer_choices: null
+    id: a88dc831-c8af-414d-b011-e34cb2364c75
+    jinja: 'Sentence: {{text_2}}
+
+      Sundanese: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_25
+    reference: ''
+  f561c101-4891-4d15-8130-8f231e3bf5ac: !Template
+    answer_choices: null
+    id: f561c101-4891-4d15-8130-8f231e3bf5ac
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_17
+    reference: ''
+  32f2525c-d10d-45c2-8a29-5951216a3c82: !Template
+    answer_choices: null
+    id: 32f2525c-d10d-45c2-8a29-5951216a3c82
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_19
+    reference: ''
+  3a660aec-d217-4161-aec7-05d7b26c3a53: !Template
+    answer_choices: null
+    id: 3a660aec-d217-4161-aec7-05d7b26c3a53
+    jinja: 'Tolong translate ke bahasa Sunda: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_3
+    reference: ''
+  70b49543-fea0-4043-9a8c-f7b702f48737: !Template
+    answer_choices: null
+    id: 70b49543-fea0-4043-9a8c-f7b702f48737
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to Sundanese ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_22
+    reference: ''
+  d2374546-40fe-4a49-b33d-a603d07da3dc: !Template
+    answer_choices: null
+    id: d2374546-40fe-4a49-b33d-a603d07da3dc
+    jinja: 'Kalimat: {{text_2}}
+
+      Sunda: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_8
+    reference: ''
+  c43e6a38-44b9-4753-b544-82cbd11d13af: !Template
+    answer_choices: null
+    id: c43e6a38-44b9-4753-b544-82cbd11d13af
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the Sundanese version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_23
+    reference: ''
+  7bfe0daf-bd03-4f44-a4c8-f847fd01e0fa: !Template
+    answer_choices: null
+    id: 7bfe0daf-bd03-4f44-a4c8-f847fd01e0fa
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan Sunda: ||| {{text_1}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_7
+    reference: ''
+  920a0e75-7a90-4c5f-a82e-6f4139aefe6d: !Template
+    answer_choices: null
+    id: 920a0e75-7a90-4c5f-a82e-6f4139aefe6d
+    jinja: 'Sentence: {{text_2}}
+
+      Sundanese Translation: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_24
+    reference: ''
+  22081470-bfb7-4312-a3bd-fcdd1d572ffc: !Template
+    answer_choices: null
+    id: 22081470-bfb7-4312-a3bd-fcdd1d572ffc
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_13
+    reference: ''
+  dad4e7c5-e38c-4f06-a060-8705bc9f7a7e: !Template
+    answer_choices: null
+    id: dad4e7c5-e38c-4f06-a060-8705bc9f7a7e
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_20
+    reference: ''
+  ee7f9365-bd3d-40be-b251-e388a490dee8: !Template
+    answer_choices: null
+    id: ee7f9365-bd3d-40be-b251-e388a490dee8
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_16
+    reference: ''
+  e927264e-7844-47c3-8f9f-21e5c4e84995: !Template
+    answer_choices: null
+    id: e927264e-7844-47c3-8f9f-21e5c4e84995
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_10
+    reference: ''
+  c2dae201-e82b-4ca8-9d1b-0693441c197c: !Template
+    answer_choices: null
+    id: c2dae201-e82b-4ca8-9d1b-0693441c197c
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa Sunda ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_4
+    reference: ''
+  ddafc07a-9e81-4945-b3e0-4d68c8dc6254: !Template
+    answer_choices: null
+    id: ddafc07a-9e81-4945-b3e0-4d68c8dc6254
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_12
+    reference: ''
+  1ee62100-82bb-4d29-b1f3-ab89413a9491: !Template
+    answer_choices: null
+    id: 1ee62100-82bb-4d29-b1f3-ab89413a9491
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_18
+    reference: ''
+  f32154ba-e77f-4708-be8a-7bb07743d532: !Template
+    answer_choices: null
+    id: f32154ba-e77f-4708-be8a-7bb07743d532
+    jinja: 'Indonesian: {{text_2}}
+
+      Sundanese: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_21
+    reference: ''
+  d437390a-ffa9-4d8d-8f24-3ccd1dd63527: !Template
+    answer_choices: null
+    id: d437390a-ffa9-4d8d-8f24-3ccd1dd63527
+    jinja: 'Sunda: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_9
+    reference: ''
+  281e3680-00c0-46c4-b1ca-43bb9ea5b32b: !Template
+    answer_choices: null
+    id: 281e3680-00c0-46c4-b1ca-43bb9ea5b32b
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_11
+    reference: ''
+  8866cd57-147c-4a7f-8179-c72099f78212: !Template
+    answer_choices: null
+    id: 8866cd57-147c-4a7f-8179-c72099f78212
+    jinja: "Apa kalimat bahasa Sunda dari kalimat berikut ini? \n\n{{text_2}} |||\
+      \ {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_2
+    reference: ''
+  9d415f8d-504f-4bfa-86e6-794a89bb83e9: !Template
+    answer_choices: null
+    id: 9d415f8d-504f-4bfa-86e6-794a89bb83e9
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa Sunda nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_5
+    reference: ''
+  2c727dae-a3f0-498f-8821-4b2ca885b64d: !Template
+    answer_choices: null
+    id: 2c727dae-a3f0-498f-8821-4b2ca885b64d
+    jinja: '{{text_2}}
+
+
+      Apa kalimat bahasa Sunda dari kalimat diatas? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_su_id_prompt_template_1
+    reference: ''
