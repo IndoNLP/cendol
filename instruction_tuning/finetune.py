@@ -55,7 +55,7 @@ class ModelArguments:
 
 @dataclass
 class DataArguments:
-    data_path: Optional[str] = field(default='MBZUAI/Bactrian-X', metadata={"help": "Path to the training file."})
+    data_path: Optional[str] = field(default='indonlp/nusa_t2t', metadata={"help": "Path to the training file."})
     model_max_length: Optional[int] = field(
         default=1024, metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."}
     )
@@ -66,10 +66,10 @@ class DataArguments:
     val_set_size: Optional[int] = field(default=2000, metadata={"help": "The validation set size. For loss checking."})
 
 @dataclass
-class BactrianTrainingArguments(TrainingArguments):
+class CendolTrainingArguments(TrainingArguments):
     optim: str = field(default="adamw_torch", metadata={"help": "Optimizer to use."})
     fp16: bool = field(
-        default=True, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training."}
+        default=False, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training."}
     )
     lang: str = field(default="zh", metadata={"help": "The language or language list separated by `,`, dataset will be downlaoded from HF Hub."})
     evaluation_strategy: str = field(default="steps", metadata={"help": ""})
@@ -100,7 +100,7 @@ def smart_tokenizer_and_embedding_resize(
 
 def train():
     # HF parser
-    parser = HfArgumentParser((ModelArguments, DataArguments, BactrianTrainingArguments))
+    parser = HfArgumentParser((ModelArguments, DataArguments, CendolTrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
     # Setup logging
@@ -142,7 +142,7 @@ def train():
     model = AutoModelForCausalLM.from_pretrained(
         model_args.model_name_or_path,
         load_in_8bit=model_args.load_in_8bit,
-        # device_map=device_map,
+#         device_map=device_map if model_args.load_in_8bit else None,
     )
 
     tokenizer = AutoTokenizer.from_pretrained(
@@ -234,15 +234,13 @@ def train():
     )
     model.config.use_cache = False
 
-    # old_state_dict = model.state_dict
-    # model.state_dict = (
-    #     lambda self, *_, **__: get_peft_model_state_dict(
-    #         self, old_state_dict()
-    #     )
-    # ).__get__(model, type(model))
-
-#     if torch.__version__ >= "2" and sys.platform != "win32":
-#         model = torch.compile(model)
+    if model_args.use_lora:
+        old_state_dict = model.state_dict
+        model.state_dict = (
+            lambda self, *_, **__: get_peft_model_state_dict(
+                self, old_state_dict()
+            )
+        ).__get__(model, type(model))
 
     trainer.train()
 
