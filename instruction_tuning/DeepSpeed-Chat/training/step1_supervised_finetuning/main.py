@@ -75,6 +75,14 @@ def parse_args():
         required=True,
     )
     parser.add_argument(
+        "--model_checkpoint",
+        type=str,
+        help=
+        "Path to the training checkpoint",
+        required=False,
+        default=None
+    )
+    parser.add_argument(
         "--per_device_train_batch_size",
         type=int,
         default=16,
@@ -234,7 +242,7 @@ def main():
                             tokenizer,
                             ds_config,
                             disable_dropout=args.disable_dropout)
-
+    
     if args.lora_dim > 0:
         model = convert_linear_layer_to_lora(model, args.lora_module_name,
                                              args.lora_dim)
@@ -254,6 +262,7 @@ def main():
         tokenizer,
         args.max_seq_len,
         sft_only_data_path=args.sft_only_data_path)
+
     # DataLoaders creation:
     if args.local_rank == -1:
         train_sampler = RandomSampler(train_dataset)
@@ -320,10 +329,14 @@ def main():
     if args.gradient_checkpointing:
         model.gradient_checkpointing_enable()
 
+    # Load checkpoint
+    if args.model_checkpoint is not None:
+        load_path, client_state = model.load_checkpoint(args.model_checkpoint, load_optimizer_states=False, load_module_only=True)
+        
     # Train!
     print_rank_0("***** Running training *****", args.global_rank)
     print_rank_0(
-        f"***** Evaluating perplexity, Epoch {0}/{args.num_train_epochs} *****",
+        f"***** Evaluating perplexity, Epoch 0/{args.num_train_epochs} *****",
         args.global_rank)
     perplexity = evaluation(model, eval_dataloader)
     print_rank_0(f"ppl: {perplexity}", args.global_rank)
@@ -340,15 +353,18 @@ def main():
             outputs = model(**batch, use_cache=False)
             loss = outputs.loss
             if args.print_loss:
-                print(
-                    f"Epoch: {epoch}, Step: {step}, Rank: {torch.distributed.get_rank()}, loss = {loss}"
-                )
+                if step % (100 * args.per_device_train_batch_size) == 0
+                    print(f"Epoch: {epoch}, Step: {step}, Rank: {torch.distributed.get_rank()}, loss = {loss}")
             model.backward(loss)
             model.step()
             end = time.time()
             if torch.distributed.get_rank() == 0:
-                print_throughput(model.model, args, end - start,
-                                 args.global_rank)
+                if step % (100 * args.per_device_train_batch_size) == 0
+                    print_throughput(model.model, args, end - start,
+                                     args.global_rank)
+
+            if step == len(train_dataloader) // 2:
+                model.save_checkpoint(save_dir=args.output_dir + f'/checkpoint_epoch-{epoch}.5', save_latest=True, exclude_frozen_parameters=True)
 
         # Evaluate perplexity on the validation set.
         print_rank_0(
@@ -357,6 +373,8 @@ def main():
         perplexity = evaluation(model, eval_dataloader)
         print_rank_0(f"Validation ppl: {perplexity}", args.global_rank)
         model.tput_timer.update_epoch_count()
+
+        model.save_checkpoint(save_dir=args.output_dir + f'/checkpoint_epoch-{epoch+1}', save_latest=True, exclude_frozen_parameters=True)
 
     if args.output_dir is not None:
         print_rank_0('saving the final model ...', args.global_rank)
