@@ -13,7 +13,7 @@ accelerate launch finetune_seq2seq.py \
     --model_name_or_path google/mt5-${model_size} \
     --output_dir output/cendol-mt5-${model_size} \
     --overwrite_output_dir \
-    --learning_rate 3e-4 \
+    --learning_rate 2e-4 \
     --bf16 \
     --per_device_train_batch_size ${batch_size} \
     --per_device_eval_batch_size ${batch_size} \

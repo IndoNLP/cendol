@@ -7,7 +7,7 @@ HF_DATASETS_CACHE=/home/jovyan/.cache/huggingface/datasets
 
 # 7B Full Fine-Tuning
 model_size='7b'
-batch_size=16
+batch_size=32
 grad_accum=1
 accelerate launch finetune.py \
     --model_name_or_path meta-llama/Llama-2-${model_size}-hf \
