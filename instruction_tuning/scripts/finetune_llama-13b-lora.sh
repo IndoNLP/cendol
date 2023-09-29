@@ -13,8 +13,8 @@ accelerate launch finetune.py \
     --model_name_or_path meta-llama/Llama-2-${model_size}-hf \
     --output_dir output/cendol-llama2-lora-${model_size}-hf \
     --overwrite_output_dir \
-    --learning_rate 1e-4 \
-    --fp16 \
+    --learning_rate 2e-4 \
+    --bf16 \
     --per_device_train_batch_size ${batch_size} \
     --per_device_eval_batch_size ${batch_size} \
     --gradient_accumulation_steps ${grad_accum} \

@@ -20,6 +20,7 @@ import datasets
 import transformers
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, Seq2SeqTrainer, HfArgumentParser, Seq2SeqTrainingArguments
 from datasets import load_dataset, concatenate_datasets, DatasetDict
+from accelerate import Accelerator
 
 from peft import (
     TaskType,
@@ -104,6 +105,8 @@ def smart_tokenizer_and_embedding_resize(
         output_embeddings[-num_new_tokens:] = output_embeddings_avg
 
 def train():
+    accelerator = Accelerator()
+    
     # HF parser
     parser = HfArgumentParser((ModelArguments, DataArguments, CendolTrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
@@ -241,7 +244,20 @@ def train():
 
     trainer.train()
 
-    model.save_pretrained(training_args.output_dir)
+
+    model = accelerator.unwrap_model(model)
+
+    # New Code #
+    # Saves the whole/unpartitioned fp16 model when in ZeRO Stage-3 to the output directory if
+    # `stage3_gather_16bit_weights_on_model_save` is True in DeepSpeed Config file or
+    # `zero3_save_16bit_model` is True in DeepSpeed Plugin.
+    # For Zero Stages 1 and 2, models are saved as usual in the output directory.
+    # The model name saved is `pytorch_model.bin`
+    model.save_pretrained(
+        training_args.output_dir,
+        is_main_process=accelerator.is_main_process,
+        save_function=accelerator.save
+    )
 
 
 if __name__ == "__main__":

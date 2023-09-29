@@ -1,11 +1,14 @@
 {
     "fp16": {
-        "enabled": true,
+        "enabled": false,
         "loss_scale": 0,
         "loss_scale_window": 1000,
         "initial_scale_power": 16,
         "hysteresis": 2,
         "min_loss_scale": 1
+    },
+    "bf16": {
+       "enabled": true
     },
     "optimizer": {
         "type": "AdamW",
@@ -41,7 +44,7 @@
         "sub_group_size": 1e9,
         "stage3_max_live_parameters": 1e9,
         "stage3_max_reuse_distance": 1e9,
-        "stage3_gather_16bit_weights_on_model_save": "auto"
+        "stage3_gather_16bit_weights_on_model_save": true
     },
     "activation_checkpointing": {
         "partition_activations": true,
