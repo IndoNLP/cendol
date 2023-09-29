@@ -1,10 +1,10 @@
 import re
 import os
 os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
-os.environ['HF_HOME'] = '/home/jovyan/.cache/huggingface'
-os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
-os.environ['TRANSFORMERS_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
-os.environ['HF_DATASETS_CACHE'] = '/home/jovyan/.cache/huggingface/datasets'
+os.environ['HF_HOME'] = '/home/users/nus/hlovenia/.cache/huggingface'
+os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/users/nus/hlovenia/.cache/huggingface/hub'
+os.environ['TRANSFORMERS_CACHE'] = '/home/users/nus/hlovenia/.cache/huggingface/hub'
+os.environ['HF_DATASETS_CACHE'] = '/home/users/nus/hlovenia/.cache/huggingface/datasets'
 
 import sys
 import glob
