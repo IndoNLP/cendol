@@ -113,7 +113,10 @@ def predict_generation(prompts, model_name, tokenizer, model):
     else:
         outputs = model.generate(**inputs, do_sample=True, 
             min_length=input_size+1, max_length=input_size+100)
-        preds = tokenizer.batch_decode(outputs[:,inputs["input_ids"].shape[1]:], skip_special_tokens=True)
+        if "llama" in model_name:
+            preds = [p.strip() for p in tokenizer.batch_decode(outputs[:,inputs["input_ids"].shape[1]:], skip_special_tokens=True)]
+        else:
+            preds = tokenizer.batch_decode(outputs[:,inputs["input_ids"].shape[1]:], skip_special_tokens=True)
         return preds
 
 if __name__ == '__main__':
@@ -168,6 +171,12 @@ if __name__ == '__main__':
         else:
             model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, resume_download=True)
             model = model.to('cuda')
+    elif 'llama' in MODEL:
+        # Fix batch tokenization error
+        tokenizer.pad_token = tokenizer.bos_token
+        tokenizer.padding_side = "left"
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", torch_dtype=torch.float16, resume_download=True)
+        model = model.bfloat16().cuda()
     else:
         model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True)
         model = model.to('cuda')
