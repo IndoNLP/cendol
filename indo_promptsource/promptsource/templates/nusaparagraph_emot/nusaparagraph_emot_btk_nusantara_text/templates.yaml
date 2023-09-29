@@ -121,6 +121,22 @@ templates:
       original_task: true
     name: context_qa
     reference: ''
+  98a98b20-ee8a-412b-a3f8-a23ee5efcaed: !Template
+    answer_choices: null
+    id: 98a98b20-ee8a-412b-a3f8-a23ee5efcaed
+    jinja: 'Tuliskan sebuah paragraf yang mengandung emosi {% if label == 0 %}takut{%
+      elif label == 1 %}jijik{% elif label == 2 %}sedih{% elif label == 3 %}senang{%
+      elif label == 4 %}marah{% elif label == 5 %}kaget{% elif label == 6 %}malu{%
+      endif %} dalam bahasa Batak:'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_emot_1
+    reference: Paragraph writing
   bc3ea004-1204-4df6-a563-c9c7c2780900: !Template
     answer_choices: fear|||disgusted|||sad|||happy|||angry|||surprise|||shame
     id: bc3ea004-1204-4df6-a563-c9c7c2780900
