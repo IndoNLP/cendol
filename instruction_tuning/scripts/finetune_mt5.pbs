@@ -1,0 +1,24 @@
+#!/bin/sh
+#PBS -N indo-mt5-xxl
+#PBS -l select=1:ngpus=4
+#PBS -q ic004
+#PBS -l walltime=1:00:00
+#PBS -j oe
+#PBS -o log/indo-mt5-xxl.stdout
+#PBS -o log/indo-mt5-xxl.stderr
+## change next line to correct project code:
+#PBS -P personal-hlovenia
+
+# Enter the folder where the job script located, if failed, then return the error code.
+cd $PBS_O_WORKDIR || exit $?
+
+# If no log folder, then create one
+[ -d log ] || mkdir log
+
+# Load container environment
+export PATH=$HOME/anaconda3/bin:$PATH
+source activate indot0
+
+bash scripts/finetune_mt5-xxl.sh
+
+EOF

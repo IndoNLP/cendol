@@ -1,10 +1,10 @@
 import re
 import os
 os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
-os.environ['HF_HOME'] = '/home/jovyan/.cache/huggingface'
-os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
-os.environ['TRANSFORMERS_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
-os.environ['HF_DATASETS_CACHE'] = '/home/jovyan/.cache/huggingface/datasets'
+os.environ['HF_HOME'] = '/home/users/nus/hlovenia/.cache/huggingface'
+os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/users/nus/hlovenia/.cache/huggingface/hub'
+os.environ['TRANSFORMERS_CACHE'] = '/home/users/nus/hlovenia/.cache/huggingface/hub'
+os.environ['HF_DATASETS_CACHE'] = '/home/users/nus/hlovenia/.cache/huggingface/datasets'
 
 import sys
 import glob
@@ -20,6 +20,7 @@ import datasets
 import transformers
 from transformers import AutoModelForSeq2SeqLM, AutoTokenizer, Seq2SeqTrainer, HfArgumentParser, Seq2SeqTrainingArguments
 from datasets import load_dataset, concatenate_datasets, DatasetDict
+from accelerate import Accelerator
 
 from peft import (
     TaskType,
@@ -70,7 +71,7 @@ class DataArguments:
     val_set_size: Optional[int] = field(default=2000, metadata={"help": "The validation set size. For loss checking."})
 
 @dataclass
-class BactrianTrainingArguments(Seq2SeqTrainingArguments):
+class CendolTrainingArguments(Seq2SeqTrainingArguments):
     optim: str = field(default="adamw_torch", metadata={"help": "Optimizer to use."})
     fp16: bool = field(
         default=False, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training. Not recommand for mT5"}
@@ -104,8 +105,10 @@ def smart_tokenizer_and_embedding_resize(
         output_embeddings[-num_new_tokens:] = output_embeddings_avg
 
 def train():
+    accelerator = Accelerator()
+    
     # HF parser
-    parser = HfArgumentParser((ModelArguments, DataArguments, BactrianTrainingArguments))
+    parser = HfArgumentParser((ModelArguments, DataArguments, CendolTrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
     # Setup logging
@@ -146,9 +149,8 @@ def train():
 
     model = AutoModelForSeq2SeqLM.from_pretrained(
         model_args.model_name_or_path,
-        # torch_dtype=torch.float16, # Result in collapse
         load_in_8bit=model_args.load_in_8bit,
-        # device_map=device_map,
+#         device_map=device_map,
     )
     model.config.use_cache = False
 
@@ -232,19 +234,30 @@ def train():
         ),
     )
 
-    # old_state_dict = model.state_dict
-    # model.state_dict = (
-    #     lambda self, *_, **__: get_peft_model_state_dict(
-    #         self, old_state_dict()
-    #     )
-    # ).__get__(model, type(model))
-
-    if torch.__version__ >= "2" and sys.platform != "win32":
-        model = torch.compile(model)
+    if model_args.use_lora:
+        old_state_dict = model.state_dict
+        model.state_dict = (
+            lambda self, *_, **__: get_peft_model_state_dict(
+                self, old_state_dict()
+            )
+        ).__get__(model, type(model))
 
     trainer.train()
 
-    model.save_pretrained(training_args.output_dir)
+
+    model = accelerator.unwrap_model(model)
+
+    # New Code #
+    # Saves the whole/unpartitioned fp16 model when in ZeRO Stage-3 to the output directory if
+    # `stage3_gather_16bit_weights_on_model_save` is True in DeepSpeed Config file or
+    # `zero3_save_16bit_model` is True in DeepSpeed Plugin.
+    # For Zero Stages 1 and 2, models are saved as usual in the output directory.
+    # The model name saved is `pytorch_model.bin`
+    model.save_pretrained(
+        training_args.output_dir,
+        is_main_process=accelerator.is_main_process,
+        save_function=accelerator.save
+    )
 
 
 if __name__ == "__main__":
