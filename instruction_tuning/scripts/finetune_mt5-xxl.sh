@@ -40,4 +40,4 @@ accelerate launch finetune_seq2seq.py \
     --group_by_length \
     --report_to wandb \
     --wandb_project cendol \
-    --run_name cendol-mt5-${model_size}
+    --run_name cendol-mt5-${model_size} | tee ./log/cendol-mt5-xxl.out

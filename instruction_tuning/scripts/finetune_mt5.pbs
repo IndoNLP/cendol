@@ -1,11 +1,11 @@
 #!/bin/sh
-#PBS -N indo-mt5-small
+#PBS -N indo-mt5-xxl
 #PBS -l select=1:ngpus=4
 #PBS -q ic004
 #PBS -l walltime=1:00:00
 #PBS -j oe
-#PBS -o log/indo-mt5-small.stdout
-#PBS -o log/indo-mt5-small.stderr
+#PBS -o log/indo-mt5-xxl.stdout
+#PBS -o log/indo-mt5-xxl.stderr
 ## change next line to correct project code:
 #PBS -P personal-hlovenia
 
@@ -19,6 +19,6 @@ cd $PBS_O_WORKDIR || exit $?
 export PATH=$HOME/anaconda3/bin:$PATH
 source activate indot0
 
-bash scripts/finetune_mt5.sh
+bash scripts/finetune_mt5-xxl.sh
 
 EOF
