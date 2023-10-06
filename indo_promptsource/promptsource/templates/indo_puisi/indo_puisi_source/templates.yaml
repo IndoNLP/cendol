@@ -1,0 +1,40 @@
+dataset: indo_puisi
+subset: indo_puisi_source
+templates:
+  b632f065-64cc-4dc0-8449-d3256574f272: !Template
+    answer_choices: null
+    id: b632f065-64cc-4dc0-8449-d3256574f272
+    jinja: 'Apa judul yg tepat untuk puisi berikut:
+
+
+      {{puisi}}
+
+
+      |||
+
+
+      {{title}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_1
+    reference: ''
+  bcba0c9b-d1cd-4bdf-baa7-ead6dda1d4ed: !Template
+    answer_choices: null
+    id: bcba0c9b-d1cd-4bdf-baa7-ead6dda1d4ed
+    jinja: Tulis puisi dengan judul {{title}} ||| {{puisi}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: false
+    name: indo_puisi_template_0
+    reference: ''
