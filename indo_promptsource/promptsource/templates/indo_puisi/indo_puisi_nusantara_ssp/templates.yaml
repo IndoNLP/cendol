@@ -1,0 +1,193 @@
+dataset: indo_puisi
+subset: indo_puisi_nusantara_ssp
+templates:
+  2c87b808-2468-4ee2-a23f-87baf05a730b: !Template
+    answer_choices: null
+    id: 2c87b808-2468-4ee2-a23f-87baf05a730b
+    jinja: 'Silakan ciptakan puisi yang indah
+
+      |||
+
+      Tentu, ini puisi yang mungkin cocok untuk kamu :
+
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_1
+    reference: ''
+  3d1dcede-a784-4949-ad18-aef8717deeb5: !Template
+    answer_choices: null
+    id: 3d1dcede-a784-4949-ad18-aef8717deeb5
+    jinja: "Bikin puisi kreatif, deh, dari hati lo.
+    
+    |||
+    Ini dia puisi yang mungkin cocok: 
+    {{text}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_6
+    reference: ''
+  40a1488b-f6a7-4d9d-9ff7-11a7f6fc9a9d: !Template
+    answer_choices: null
+    id: 40a1488b-f6a7-4d9d-9ff7-11a7f6fc9a9d
+    jinja: 'Mau enggak nulis puisi buat gue?
+
+      |||
+
+      Tentu aja, ini dia puisi yang mungkin kamu suka: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_4
+    reference: ''
+  4b2dbafc-347d-49d0-b42a-f91971d390d0: !Template
+    answer_choices: null
+    id: 4b2dbafc-347d-49d0-b42a-f91971d390d0
+    jinja: 'Nih, lagi senggang, coba bikin puisi dong
+
+      |||
+
+      Pasti, ada puisi yang mungkin cocok buat kamu: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_3
+    reference: ''
+  64e224fa-fe66-4425-af73-211d0d35ec26: !Template
+    answer_choices: null
+    id: 64e224fa-fe66-4425-af73-211d0d35ec26
+    jinja: 'Bikin puisi yang bisa bikin semangat, deh!
+
+      |||
+
+      Ini nih, puisi yang bisa bikin semangat: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_7
+    reference: ''
+  771f27c5-6ee7-477c-9ab0-68a2311d01b6: !Template
+    answer_choices: null
+    id: 771f27c5-6ee7-477c-9ab0-68a2311d01b6
+    jinja: 'Yuk, bikin puisi yang bermakna!
+
+      |||
+
+      Nih, ada puisi yang bisa bermakna: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_10
+    reference: ''
+  7cd61378-b3bc-4d05-bd0d-e03b21f76664: !Template
+    answer_choices: null
+    id: 7cd61378-b3bc-4d05-bd0d-e03b21f76664
+    jinja: 'Coba tulis puisi yang kece, ya?
+
+      |||
+
+      Gampang, ini ada puisi yang bisa jadi favorit kamu: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_5
+    reference: ''
+  af9ccbc4-83d2-4cec-b968-91597e4328ce: !Template
+    answer_choices: null
+    id: af9ccbc4-83d2-4cec-b968-91597e4328ce
+    jinja: 'Coba tulis puisi yang bisa nyentuh hati.
+
+      |||
+
+      Pasti, ini dia puisi yang bisa nyentuh hatimu: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_8
+    reference: ''
+  c5faabb8-7cbd-4c89-929a-3b1e6f8f606a: !Template
+    answer_choices: null
+    id: c5faabb8-7cbd-4c89-929a-3b1e6f8f606a
+    jinja: 'Mau enggak bikin puisi yang bisa bikin haru?
+
+      |||
+
+      Tentu aja, ini dia puisi yang bisa bikin kamu haru: 
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_9
+    reference: ''
+  d6fb732f-b08f-4cb4-9faa-be7446f5ebb2: !Template
+    answer_choices: null
+    id: d6fb732f-b08f-4cb4-9faa-be7446f5ebb2
+    jinja: "Yuk, nulis puisi yang keren nih
+    
+    |||
+    
+    Nih, ada puisi yang gue rasa oke buat lu: 
+    {{text}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indopuisi_2
+    reference: ''
