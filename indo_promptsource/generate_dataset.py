@@ -1,6 +1,7 @@
 from tqdm import tqdm
 import pandas as pd
 from promptsource.templates import DatasetTemplates
+!pip install nusacrowd
 from nusacrowd import NusantaraConfigHelper
 import logging
 import argparse
