@@ -1,0 +1,205 @@
+dataset: indo_puisi
+subset: indo_puisi_source
+templates:
+  04439917-4fd1-4a76-b304-f04cc0d17632: !Template
+    answer_choices: null
+    id: 04439917-4fd1-4a76-b304-f04cc0d17632
+    jinja: 'Mau enggak tulis puisi dengan judul ini?
+
+      {{title}}
+
+      |||
+
+      Puisi ini mungkin bisa jadi judul:
+
+      {{puisi}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_8
+    reference: ''
+  3fbacaad-08b5-4136-9a0b-59bc57f898e8: !Template
+    answer_choices: null
+    id: 3fbacaad-08b5-4136-9a0b-59bc57f898e8
+    jinja: 'bisa bantuin untuk buatin puisi tentang judul ini?
+
+      {{title}}
+
+      |||
+
+      Bisa dong! Puisi ini mungkin cocok dengan judul yang kamu beri:
+
+      {{puisi}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_9
+    reference: ''
+  7d5df3f3-2445-4307-89fd-d9abdd15aaee: !Template
+    answer_choices: null
+    id: 7d5df3f3-2445-4307-89fd-d9abdd15aaee
+    jinja: 'Puisi ini butuh judul, bisa bantu kasih yang pas?
+
+      {{puisi}}
+
+      |||
+
+      {{title}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_4
+    reference: ''
+  9836fcbd-3799-411a-93ff-6861022d9f28: !Template
+    answer_choices: null
+    id: 9836fcbd-3799-411a-93ff-6861022d9f28
+    jinja: 'Yuk, beri judul yang pas untuk puisi ini:
+
+      {{puisi}}
+
+      |||
+
+      {{title}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_3
+    reference: ''
+  9d621196-e941-48f1-96e1-2016828d72d1: !Template
+    answer_choices: null
+    id: 9d621196-e941-48f1-96e1-2016828d72d1
+    jinja: 'Ciptakan puisi yang memiliki judul: 
+    
+      {{title}}
+
+      |||
+
+      Ini mungkin puisi yang cocok untuk judul tersebut:
+
+      {{puisi}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_6
+    reference: ''
+  af4a4173-4b22-407f-940d-c4b7ac15047a: !Template
+    answer_choices: null
+    id: af4a4173-4b22-407f-940d-c4b7ac15047a
+    jinja: 'Diberi ceritanya, coba kasih judul buat puisi ini:
+
+      {{puisi}}
+
+      |||
+
+      {{title}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_2
+    reference: ''
+  afa3a92c-1cd1-455e-8fee-eb18c027370a: !Template
+    answer_choices: null
+    id: afa3a92c-1cd1-455e-8fee-eb18c027370a
+    jinja: 'Buatkan judul yang menarik untuk puisi ini:
+
+      {{puisi}}
+
+      |||
+
+      {{title}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_5
+    reference: ''
+  b632f065-64cc-4dc0-8449-d3256574f272: !Template
+    answer_choices: null
+    id: b632f065-64cc-4dc0-8449-d3256574f272
+    jinja: 'Apa judul yg tepat untuk puisi berikut:
+
+      {{puisi}}
+
+      |||
+
+      {{title}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_1
+    reference: ''
+  bcba0c9b-d1cd-4bdf-baa7-ead6dda1d4ed: !Template
+    answer_choices: null
+    id: bcba0c9b-d1cd-4bdf-baa7-ead6dda1d4ed
+    jinja: Tulis puisi dengan judul {{title}} ||| {{puisi}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: false
+    name: indo_puisi_template_0
+    reference: ''
+  c5263bfa-b8fb-4c99-b706-413cea040c0d: !Template
+    answer_choices: null
+    id: c5263bfa-b8fb-4c99-b706-413cea040c0d
+    jinja: 'Bisa bikin puisi dengan judul ini?
+
+      {{title}}
+
+      |||
+
+      Coba gunakan puisi ini dari judul kamu kasih :
+
+      {{puisi}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: indo_puisi_template_7
+    reference: ''
