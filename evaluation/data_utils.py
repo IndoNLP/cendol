@@ -1,5 +1,6 @@
 from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
+import datasets
 
 NLU_TASK_LIST = [
     # 'indotacos',
@@ -42,6 +43,23 @@ NLG_TASK_LIST = [
     'tydiqa_id',
 ]
 
+FLORES200_TASK_LIST = [
+    'flores200-sun_Latn-ind_Latn',
+    'flores200-jav_Latn-ind_Latn',
+    'flores200-bug_Latn-ind_Latn',
+    'flores200-ace_Latn-ind_Latn',
+    'flores200-bjn_Latn-ind_Latn',
+    'flores200-ban_Latn-ind_Latn',
+    'flores200-min_Latn-ind_Latn',
+    'flores200-ind_Latn-sun_Latn',
+    'flores200-ind_Latn-jav_Latn',
+    'flores200-ind_Latn-bug_Latn',
+    'flores200-ind_Latn-ace_Latn',
+    'flores200-ind_Latn-bjn_Latn',
+    'flores200-ind_Latn-ban_Latn',
+    'flores200-ind_Latn-min_Latn',
+]
+
 def load_nlu_datasets():
     nc_conhelp = NusantaraConfigHelper()
     cfg_name_to_dset_map = {
@@ -50,7 +68,6 @@ def load_nlu_datasets():
     } # {config_name: (datasets.Dataset, task_name)
     return cfg_name_to_dset_map
 
-
 def load_nlg_datasets():
     nc_conhelp = NusantaraConfigHelper()
     cfg_name_to_dset_map = {
@@ -58,3 +75,13 @@ def load_nlg_datasets():
         for con in nc_conhelp.filtered(lambda x: x.config.name.replace(x.config.schema, '')[:-1] in NLG_TASK_LIST and 'nusantara_' in x.config.schema)
     } # {config_name: (datasets.Dataset, task_name)
     return cfg_name_to_dset_map
+
+def load_flores_datasets():
+    dset_map = {}
+    for task in FLORES200_TASK_LIST:
+        subset = task.replace('flores200-', '')
+        src_lang, tgt_lang = subset.split('-')
+        dset = datasets.load_dataset('facebook/flores', subset)
+        dset = dset.rename_columns({f'sentence_{src_lang}': 'text_1', f'sentence_{tgt_lang}': 'text_2'}).select_columns(['id', 'text_1', 'text_2'])
+        dset_map[task] = (dset, Tasks.MACHINE_TRANSLATION)
+    return dset_map

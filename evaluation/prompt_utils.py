@@ -260,6 +260,8 @@ LANG_MAP = {
         'tiociu': 'Tiociu',
         'jav': 'Javanese',
         'sun': 'Sundanese',
+        'ace': 'Acehnese',
+        'ban': 'Balinese'
     },
     'ind': {
         'ind': 'Indonesia',
@@ -270,6 +272,8 @@ LANG_MAP = {
         'tiociu': 'Tiociu',
         'jav': 'Jawa',
         'sun': 'Sunda',
+        'ace': 'Aceh',
+        'ban': 'Bali'
     }
 }
 
