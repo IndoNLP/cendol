@@ -165,7 +165,7 @@ if __name__ == '__main__':
         MODEL = ADAPTER # for file naming
     elif "gpt" in MODEL or "text" in MODEL:
         model = None
-    elif 'mt0' in MODEL:
+    elif 'mt0' in MODEL or 'mt5' in MODEL:
         if "xxl" in MODEL:
             model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", torch_dtype=torch.float16, resume_download=True)
         else:
