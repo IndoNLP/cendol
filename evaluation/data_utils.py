@@ -1,6 +1,7 @@
 from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
 import datasets
+from enum import Enum
 
 NLU_TASK_LIST = [
     # 'indotacos',
@@ -20,6 +21,10 @@ NLU_TASK_LIST = [
     'nusax_senti_bug',
     'nusax_senti_mad',
     'nusax_senti_nij',    
+]
+
+NLU_TASK_LIST_EXTERNAL = [
+    'haryoaw/COPAL',
 ]
 
 NLG_TASK_LIST = [
@@ -66,6 +71,16 @@ def load_nlu_datasets():
         con.config.name: (con.load_dataset(), list(con.tasks)[0])
         for con in nc_conhelp.filtered(lambda x: x.config.name.replace(x.config.schema, '')[:-1] in NLU_TASK_LIST and 'nusantara_' in x.config.schema)
     } # {config_name: (datasets.Dataset, task_name)
+
+    # hack, add new Task
+    class NewTasks(Enum):
+        COPA = "COPA"
+
+   
+    for task in NLU_TASK_LIST_EXTERNAL:
+        dset = datasets.load_dataset(task)
+        cfg_name_to_dset_map[task] = (dset, NewTasks.COPA)
+    print(cfg_name_to_dset_map)
     return cfg_name_to_dset_map
 
 def load_nlg_datasets():

@@ -32,6 +32,9 @@ from data_utils import load_nlu_datasets
 DEBUG=False
 
 def to_prompt(input, prompt, labels, prompt_lang):
+    # copa
+    if 'premise' in input:
+        return to_prompt_copa(input, prompt, labels, prompt_lang)
     # single label
     if 'text' in input:
         prompt = prompt.replace('[INPUT]', input['text'])
@@ -49,6 +52,18 @@ def to_prompt(input, prompt, labels, prompt_lang):
             prompt = prompt.replace('[OPTIONS]', ' '.join(new_labels))
 
     return prompt
+
+def to_prompt_copa(input, prompt, labels, prompt_lang):
+    #dynamic prompt depending question type (cause vs effect)
+    prompt = prompt[input['question']]
+
+    prompt = prompt.replace('[PREMISE]', input['premise'])
+
+    prompt = prompt.replace('[OPTION_1]', input['choice1'])
+    prompt = prompt.replace('[OPTION_2]', input['choice2'])
+
+    return prompt
+
 
 
 @torch.inference_mode()
@@ -197,8 +212,14 @@ if __name__ == '__main__':
             print("= LABEL NAME =")
             print(label_names)
             print("= SAMPLE PROMPT =")
+            print(inputs)
             print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
+
+
+            if 'COPAL' in dset_subset and BATCH_SIZE > 1:
+                print("Warning: COPA-type task need batch-size = 1. Batch is set to 1")
+                BATCH_SIZE = 1
 
             # zero-shot inference
             prompts, labels = [], []
@@ -207,6 +228,10 @@ if __name__ == '__main__':
                 for e, sample in tqdm(enumerate(test_dset)):
                     if e < len(preds):
                         continue
+
+                    # copa label is dynamic
+                    if 'COPAL' in dset_subset:
+                        label_names = [sample['choice1'], sample['choice2']]
 
                     # Add to buffer
                     prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)

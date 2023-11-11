@@ -1,5 +1,16 @@
 TASK_TO_PROMPT = {
     'eng': {
+        # COPA-style (no nusacrowd Tasks yet)
+        'COPA': [
+            {'cause': '[PREMISE] This happened because...\nHelp me pick the more plausible option: - choice1: [OPTION_1], choice2: [OPTION_2]\n\n[LABELS_CHOICE]',
+             'effect': '[PREMISE] As a consequence...\nHelp me pick the more plausible option: - choice1: [OPTION_1], choice2: [OPTION_2]\n\n[LABELS_CHOICE]'},
+            {'cause': '[PREMISE]\n\nselect the most plausible cause:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]',
+             'effect': '[PREMISE]\n\nselect the most plausible effect:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]'},
+            {'cause': '[PREMISE] because [LABELS_CHOICE]',
+             'effect': '[PREMISE] therefore [LABELS_CHOICE]'},
+            {'cause': '[PREMISE]. What was the cause? [LABELS_CHOICE]',
+             'effect': '[PREMISE]. What happened as a result? [LABELS_CHOICE]'},
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Classify the sentiment of the text below.\n[INPUT] => Sentiment ([OPTIONS]): [LABELS_CHOICE]',
@@ -91,6 +102,17 @@ TASK_TO_PROMPT = {
         ],
     },
     'ind': {
+        # COPA-style (no nusacrowd Tasks yet)
+        'COPA': [
+            {'cause': '[PREMISE] Ini terjadi karena...\nBantu saya memilih opsi yang paling mungkin: - opsi1: [OPTION_1], opsi2: [OPTION_2]\n\n[LABELS_CHOICE]',
+             'effect': '[PREMISE] Konsekuensinya...\nBantu saya memilih opsi yang paling mungkin: -opsi1: [OPTION_1], opsi2: [OPTION_2]\n\n[LABELS_CHOICE]'},
+            {'cause': '[PREMISE]\n\npilih penyebab yang paling mungkin:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]',
+             'effect': '[PREMISE]\n\npilih efek yang paling mungkin:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]'},
+            {'cause': '[PREMISE] karena [LABELS_CHOICE]',
+             'effect': '[PREMISE] maka [LABELS_CHOICE]'},
+            {'cause': '[PREMISE]. Apa penyebabnya? [LABELS_CHOICE]',
+             'effect': '[PREMISE]. Apa akibatnya? [LABELS_CHOICE]'},
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen ([OPTIONS]): [LABELS_CHOICE]',
@@ -184,6 +206,10 @@ TASK_TO_PROMPT = {
 }
 
 LABEL_LANG_MAP ={
+    'haryoaw/COPAL': {
+        'eng': {0: '0', 1: '1'},
+        'ind': {0: '0', 1: '1'}
+    },
 	'code_mixed_jv_id_jv_nusantara_text': {
 		'eng': {'-1': 'negative', '0': 'neutral', '1': 'positive'},
 		'ind': {'-1': 'negatif', '0': 'netral', '1': 'positif'}
