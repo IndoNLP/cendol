@@ -1,5 +1,6 @@
 from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
+import pandas as pd
 import datasets
 from enum import Enum
 
@@ -25,6 +26,9 @@ NLU_TASK_LIST = [
 
 NLU_TASK_LIST_EXTERNAL = [
     'haryoaw/COPAL',
+    'MABL/id',
+    'MABL/jv',
+    'MABL/su',
 ]
 
 NLG_TASK_LIST = [
@@ -71,16 +75,31 @@ def load_nlu_datasets():
         con.config.name: (con.load_dataset(), list(con.tasks)[0])
         for con in nc_conhelp.filtered(lambda x: x.config.name.replace(x.config.schema, '')[:-1] in NLU_TASK_LIST and 'nusantara_' in x.config.schema)
     } # {config_name: (datasets.Dataset, task_name)
+    
+    return cfg_name_to_dset_map
+
+def load_external_nlu_datasets():
+    cfg_name_to_dset_map = {} # {config_name: (datasets.Dataset, task_name)
 
     # hack, add new Task
     class NewTasks(Enum):
         COPA = "COPA"
+        MABL = "MABL"
 
-   
     for task in NLU_TASK_LIST_EXTERNAL:
-        dset = datasets.load_dataset(task)
-        cfg_name_to_dset_map[task] = (dset, NewTasks.COPA)
-    print(cfg_name_to_dset_map)
+        if 'COPAL' in task:
+            dset = datasets.load_dataset(task)
+            cfg_name_to_dset_map[task] = (dset, NewTasks.COPA)
+        else: # MABL
+            mabl_path = './mabl_data'
+            subset = task.split('/')[-1]
+            
+            df = pd.read_csv(f'{mabl_path}/{subset}.csv')
+            dset = datasets.Dataset.from_pandas(
+                df.rename({'startphrase': 'premise', 'ending1': 'choice1', 'ending2': 'choice2', 'labels': 'label'}, axis='columns')
+            )
+            cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.MABL)
+
     return cfg_name_to_dset_map
 
 def load_nlg_datasets():

@@ -11,6 +11,14 @@ TASK_TO_PROMPT = {
             {'cause': '[PREMISE]. What was the cause? [LABELS_CHOICE]',
              'effect': '[PREMISE]. What happened as a result? [LABELS_CHOICE]'},
         ],
+        # MABL-style (no nusacrowd Tasks yet)
+        'MABL': [
+            'The sentence "[PREMISE]" concludes that [LABELS_CHOICE]',
+            'The sentence "[PREMISE]" implies [LABELS_CHOICE]',
+            '"[PREMISE]" suggests that [LABELS_CHOICE]',
+            '[PREMISE]\n\nThe statement above implies: [LABELS_CHOICE]',
+            '[PREMISE]\n\nThe above statement entails [LABELS_CHOICE]'
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Classify the sentiment of the text below.\n[INPUT] => Sentiment ([OPTIONS]): [LABELS_CHOICE]',
@@ -113,6 +121,14 @@ TASK_TO_PROMPT = {
             {'cause': '[PREMISE]. Apa penyebabnya? [LABELS_CHOICE]',
              'effect': '[PREMISE]. Apa akibatnya? [LABELS_CHOICE]'},
         ],
+        # MABL-style (no nusacrowd Tasks yet)
+        'MABL': [
+            'Dari kalimat "[PREMISE]" bisa disimpulkan bahwa [LABELS_CHOICE]',
+            'Kalimat "[PREMISE]" menyatakan bahwa [LABELS_CHOICE]',
+            '"[PREMISE]" menunjukan [LABELS_CHOICE]',
+            '[PREMISE]\n\nKalimat diatas menyatakan bahwa: [LABELS_CHOICE]',
+            '[PREMISE]\n\nKalimat tersebut menyimpulkan [LABELS_CHOICE]'
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen ([OPTIONS]): [LABELS_CHOICE]',
@@ -207,6 +223,18 @@ TASK_TO_PROMPT = {
 
 LABEL_LANG_MAP ={
     'haryoaw/COPAL': {
+        'eng': {0: '0', 1: '1'},
+        'ind': {0: '0', 1: '1'}
+    },
+    'MABL/id': {
+        'eng': {0: '0', 1: '1'},
+        'ind': {0: '0', 1: '1'}
+    },
+    'MABL/jv': {
+        'eng': {0: '0', 1: '1'},
+        'ind': {0: '0', 1: '1'}
+    },
+    'MABL/su': {
         'eng': {0: '0', 1: '1'},
         'ind': {0: '0', 1: '1'}
     },

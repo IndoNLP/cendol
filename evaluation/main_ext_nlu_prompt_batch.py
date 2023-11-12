@@ -23,7 +23,7 @@ from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
 
 from prompt_utils import get_prompt, get_label_mapping
-from data_utils import load_nlu_datasets
+from data_utils import load_external_nlu_datasets
 
 #!pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 #!pip install transformers
@@ -31,23 +31,20 @@ from data_utils import load_nlu_datasets
 
 DEBUG=False
 
-def to_prompt(input, prompt, labels, prompt_lang):
-    # single label
-    if 'text' in input:
-        prompt = prompt.replace('[INPUT]', input['text'])
-    else:
-        prompt = prompt.replace('[INPUT_A]', input['text_1'])
-        prompt = prompt.replace('[INPUT_B]', input['text_2'])
+def to_prompt_copa(input, prompt, labels, prompt_lang):
+    #dynamic prompt depending question type (cause vs effect)
+    prompt = prompt[input['question']]
 
-    # replace [OPTIONS] to A, B, or C
-    if "[OPTIONS]" in prompt:
-        new_labels = [f'{l}' for l in labels]
-        new_labels[-1] = ("or " if 'eng' in prompt_lang else  "atau ") + new_labels[-1] 
-        if len(new_labels) > 2:
-            prompt = prompt.replace('[OPTIONS]', ', '.join(new_labels))
-        else:
-            prompt = prompt.replace('[OPTIONS]', ' '.join(new_labels))
+    prompt = prompt.replace('[PREMISE]', input['premise'])
 
+    prompt = prompt.replace('[OPTION_1]', input['choice1'])
+    prompt = prompt.replace('[OPTION_2]', input['choice2'])
+
+    return prompt
+
+def to_prompt_mabl(input, prompt, labels, prompt_lang):
+    #dynamic prompt depending question type (cause vs effect)
+    prompt = prompt.replace('[PREMISE]', input['premise'])
     return prompt
 
 @torch.inference_mode()
@@ -65,15 +62,15 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     else:
         input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
         num_tokens = attn_mask.sum(dim=-1)
-        num_label_token = label_attn.sum()
         outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
         logits = outputs.logits
 
         f_logits, f_input_ids = [], []
+        label_ntok = label_attn.sum()
         for i, ntok in enumerate(num_tokens):
-            f_logits.append(logits[i, ntok - num_label_token - 1: ntok - 1, :]) # -1 for shifted label
+            f_logits.append(logits[i, ntok - label_ntok - 1: ntok - 1, :]) # -1 for shifted label
         f_logits = torch.stack(f_logits, dim=0)
-
+        
         label_ids_no_pad = label_ids[:,:label_ntok]
         f_logprobs = torch.gather(
             F.log_softmax(f_logits, dim=-1), 2, label_ids_no_pad.repeat(input_ids.shape[0], 1).unsqueeze(2)
@@ -126,7 +123,7 @@ if __name__ == '__main__':
 
     # Load Dataset
     print('Load NLU Datasets...')
-    nlu_datasets = load_nlu_datasets()
+    nlu_datasets = load_external_nlu_datasets()
 
     print(f'Loaded {len(nlu_datasets)} NLU datasets')
     for i, dset_subset in enumerate(nlu_datasets.keys()):
@@ -180,13 +177,14 @@ if __name__ == '__main__':
 
         label_to_id_dict = { l : i for i, l in enumerate(label_names)}
         
+        dset_subset_std = dset_subset.replace("/","_")
         for prompt_id, prompt_template in enumerate(TASK_TYPE_TO_PROMPT[task_type.value]):
             inputs, preds, golds = [], [], []
             
             # Check saved data
-            if exists(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
+            if exists(f'{out_dir}/{dset_subset_std}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
                 print("Output exist, use partial log instead")
-                with open(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                with open(f'{out_dir}/{dset_subset_std}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
                     reader = csv.DictReader(csvfile)
                     for row in reader:
                         inputs.append(row["Input"])
@@ -198,20 +196,16 @@ if __name__ == '__main__':
             print("= LABEL NAME =")
             print(label_names)
             print("= SAMPLE PROMPT =")
-            print(inputs)
-            
-            # if 'COPAL' in dset_subset:
-            #     print(to_prompt_copa(test_dset[0], prompt_template, label_names, prompt_lang))
-            # elif 'MABL' in dset_subset:
-            #     print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang))
-            # else:
-            #     print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
-            print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
+            if 'COPAL' in dset_subset:
+                print(to_prompt_copa(test_dset[0], prompt_template, label_names, prompt_lang))
+            elif 'MABL' in dset_subset:
+                print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang))                
             print("\n")
 
-            # if 'COPAL' in dset_subset or 'MABL' in dset_subset:
-            #     print("Warning: COPA/MABL-type task need batch-size = 1. Batch is set to 1")
-            #     BATCH_SIZE = 1
+
+            if BATCH_SIZE > 1:
+                print("Warning: External tasks need batch-size = 1. Batch is set to 1")
+                BATCH_SIZE = 1
 
             # zero-shot inference
             prompts, labels = [], []
@@ -221,18 +215,15 @@ if __name__ == '__main__':
                     if e < len(preds):
                         continue
 
-#                     # copa label is dynamic
-#                     if 'COPAL' in dset_subset or 'MABL' in dset_subset:
-#                         label_names = [sample['choice1'], sample['choice2']]
+                    # copa label is dynamic
+                    label_names = [sample['choice1'], sample['choice2']]
 
-#                     # Add to buffer
-#                     if 'COPAL' in dset_subset:
-#                         prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)
-#                     elif 'MABL' in dset_subset:
-#                         prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
-#                     else:
-#                         prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
-                    prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
+                    # Add to buffer
+                    if 'COPAL' in dset_subset:
+                        prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)
+                    elif 'MABL' in dset_subset:
+                        prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
+                    
                     prompts.append(prompt_text)
                     labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
 
@@ -250,7 +241,7 @@ if __name__ == '__main__':
                     if count == SAVE_EVERY:
                         # partial saving
                         inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-                        inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+                        inference_df.to_csv(f'{out_dir}/{dset_subset_std}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
                         count = 0
                         
                 if len(prompts) > 0:
@@ -264,7 +255,7 @@ if __name__ == '__main__':
 
             # partial saving
             inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+            inference_df.to_csv(f'{out_dir}/{dset_subset_std}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
 
             cls_report = classification_report(golds, preds, output_dict=True)
             micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
