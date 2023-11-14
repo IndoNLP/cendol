@@ -36,7 +36,7 @@ def to_prompt_copa(input, prompt, labels, prompt_lang):
     prompt = prompt[input['question']]
 
     prompt = prompt.replace('[PREMISE]', input['premise'])
-
+    prompt = prompt.replace('[PREMISE_STRIP]', input['premise'].rstrip('.'))
     prompt = prompt.replace('[OPTION_1]', input['choice1'])
     prompt = prompt.replace('[OPTION_2]', input['choice2'])
 
@@ -65,21 +65,25 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
         outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
         logits = outputs.logits
 
-        f_logits, f_input_ids = [], []
-        label_ntok = label_attn.sum()
-        for i, ntok in enumerate(num_tokens):
-            f_logits.append(logits[i, ntok - label_ntok - 1: ntok - 1, :]) # -1 for shifted label
-        f_logits = torch.stack(f_logits, dim=0)
+        # f_logits, f_input_ids = [], []
+        # label_ntok = label_attn.sum()
+        # for i, ntok in enumerate(num_tokens):
+        #     f_logits.append(logits[i, ntok - label_ntok - 1: ntok - 1, :]) # -1 for shifted label
+        # f_logits = torch.stack(f_logits, dim=0)
         
-        label_ids_no_pad = label_ids[:,:label_ntok]
-        f_logprobs = torch.gather(
-            F.log_softmax(f_logits, dim=-1), 2, label_ids_no_pad.repeat(input_ids.shape[0], 1).unsqueeze(2)
-        ).squeeze(dim=-1)
-        return f_logprobs.sum(dim=-1)
+        # label_ids_no_pad = label_ids[:,:label_ntok]
+        # f_logprobs = torch.gather(
+        #     F.log_softmax(f_logits, dim=-1), 2, label_ids_no_pad.repeat(input_ids.shape[0], 1).unsqueeze(2)
+        # ).squeeze(dim=-1)
+
+        log_probs = torch.gather(F.log_softmax(logits, dim=2), 2, output_ids.unsqueeze(2))
+        return log_probs.sum().unsqueeze(0)
+
+        # return f_logprobs.sum(dim=-1)
 
 @torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
-    labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt')
+    labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt').to('cuda')
     list_label_ids = labels_encoded['input_ids'].to('cuda')
     list_label_attn = labels_encoded['attention_mask'].to('cuda')
 
@@ -135,13 +139,13 @@ if __name__ == '__main__':
     # Load Model
     tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', padding_side='right')
     if ADAPTER != "":
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False)
         model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
         MODEL = ADAPTER # for file naming
     elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL:
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False)
     else:
-        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True)
+        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False)
         tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
         
     model.eval()
@@ -180,7 +184,6 @@ if __name__ == '__main__':
         dset_subset_std = dset_subset.replace("/","_")
         for prompt_id, prompt_template in enumerate(TASK_TYPE_TO_PROMPT[task_type.value]):
             inputs, preds, golds = [], [], []
-            
             # Check saved data
             if exists(f'{out_dir}/{dset_subset_std}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
                 print("Output exist, use partial log instead")
@@ -217,7 +220,9 @@ if __name__ == '__main__':
 
                     # copa label is dynamic
                     label_names = [sample['choice1'], sample['choice2']]
-
+                    if e == 0:
+                        print("UPDATED LABEL")
+                        print(label_names)
                     # Add to buffer
                     if 'COPAL' in dset_subset:
                         prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)

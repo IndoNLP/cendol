@@ -6,10 +6,10 @@ TASK_TO_PROMPT = {
              'effect': '[PREMISE] As a consequence...\nHelp me pick the more plausible option: - choice1: [OPTION_1], choice2: [OPTION_2]\n\n[LABELS_CHOICE]'},
             {'cause': '[PREMISE]\n\nselect the most plausible cause:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]',
              'effect': '[PREMISE]\n\nselect the most plausible effect:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]'},
-            {'cause': '[PREMISE] because [LABELS_CHOICE]',
-             'effect': '[PREMISE] therefore [LABELS_CHOICE]'},
-            {'cause': '[PREMISE]. What was the cause? [LABELS_CHOICE]',
-             'effect': '[PREMISE]. What happened as a result? [LABELS_CHOICE]'},
+            {'cause': '[PREMISE_STRIP] because [LABELS_CHOICE]',
+             'effect': '[PREMISE_STRIP] therefore [LABELS_CHOICE]'},
+            {'cause': '[PREMISE_STRIP]. What was the cause? [LABELS_CHOICE]',
+             'effect': '[PREMISE_STRIP]. What happened as a result? [LABELS_CHOICE]'},
         ],
         # MABL-style (no nusacrowd Tasks yet)
         'MABL': [
@@ -116,10 +116,10 @@ TASK_TO_PROMPT = {
              'effect': '[PREMISE] Konsekuensinya...\nBantu saya memilih opsi yang paling mungkin: -opsi1: [OPTION_1], opsi2: [OPTION_2]\n\n[LABELS_CHOICE]'},
             {'cause': '[PREMISE]\n\npilih penyebab yang paling mungkin:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]',
              'effect': '[PREMISE]\n\npilih efek yang paling mungkin:\n - [OPTION_1]\n - [OPTION_2]\n\n[LABELS_CHOICE]'},
-            {'cause': '[PREMISE] karena [LABELS_CHOICE]',
-             'effect': '[PREMISE] maka [LABELS_CHOICE]'},
-            {'cause': '[PREMISE]. Apa penyebabnya? [LABELS_CHOICE]',
-             'effect': '[PREMISE]. Apa akibatnya? [LABELS_CHOICE]'},
+            {'cause': '[PREMISE_STRIP] karena [LABELS_CHOICE]',
+             'effect': '[PREMISE_STRIP] maka [LABELS_CHOICE]'},
+            {'cause': '[PREMISE_STRIP]. Apa penyebabnya? [LABELS_CHOICE]',
+             'effect': '[PREMISE_STRIP]. Apa akibatnya? [LABELS_CHOICE]'},
         ],
         # MABL-style (no nusacrowd Tasks yet)
         'MABL': [

@@ -26,9 +26,9 @@ NLU_TASK_LIST = [
 
 NLU_TASK_LIST_EXTERNAL = [
     'haryoaw/COPAL',
-    'MABL/id',
-    'MABL/jv',
-    'MABL/su',
+ #   'MABL/id',
+ #   'MABL/jv',
+ #   'MABL/su',
 ]
 
 NLG_TASK_LIST = [
