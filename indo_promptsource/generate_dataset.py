@@ -28,6 +28,8 @@ def set_logger():
     return logger
 
 
+logger = set_logger()
+
 def dataset_generator(dataset_name: str, subset_name: str):
     """
     The function `dataset_generator` loads a dataset based on the provided dataset name and subset name,
@@ -131,6 +133,15 @@ def generate_t2t_from_prompts(dataset, dataset_name: str, subset_name: str,
     df_.to_csv(f"{checkpoint_save_path}/{dataset_name}-{subset_name}.csv")
 
 
+def run(dataset_name, subset_name):
+    print('-- Generating')
+    dset, dataset_name, subset_name = dataset_generator(dataset_name=dataset_name, subset_name=subset_name)
+
+    generate_t2t_from_prompts(dset, dataset_name=dataset_name, subset_name=subset_name)
+    print('-- Done!')
+
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--dataset-name', help='Dataset name')
@@ -143,6 +154,8 @@ if __name__ == "__main__":
 
     logger = set_logger()
 
+    print('-- Generating')
     dset, dataset_name, subset_name = dataset_generator(dataset_name=dataset_name, subset_name=subset_name)
 
     generate_t2t_from_prompts(dset, dataset_name=dataset_name, subset_name=subset_name)
+    print('-- Done!')
