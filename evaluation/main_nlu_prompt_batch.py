@@ -53,52 +53,37 @@ def to_prompt(input, prompt, labels, prompt_lang):
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
+    input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
+    
+    outputs = model(input_ids=input_ids, attention_mask=attn_mask)
+    logits = outputs.logits
     
     if model.config.is_encoder_decoder:
-        input_ids, output_ids, attn_mask = inputs["input_ids"], inputs["input_ids"], inputs['attention_mask']
-        label_ids = label_ids.repeat(input_ids.shape[0], 1)
-        outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=label_ids)
-        logits = outputs.logits
-
-        logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn # Zero-out Padding Token
-        return logprobs.sum(dim=-1)
+        logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn
+        return (logprobs.squeeze(dim=-1)).sum(dim=-1).cpu()
     else:
-        input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
-        num_tokens = attn_mask.sum(dim=-1)
-        num_label_token = label_attn.sum()
-        outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
-        logits = outputs.logits
-
-        f_logits, f_input_ids = [], []
-        for i, ntok in enumerate(num_tokens):
-            f_logits.append(logits[i, ntok - num_label_token - 1: ntok - 1, :]) # -1 for shifted label
-        f_logits = torch.stack(f_logits, dim=0)
-
-        label_ids_no_pad = label_ids[:,:label_ntok]
-        f_logprobs = torch.gather(
-            F.log_softmax(f_logits, dim=-1), 2, label_ids_no_pad.repeat(input_ids.shape[0], 1).unsqueeze(2)
-        ).squeeze(dim=-1)
-        return f_logprobs.sum(dim=-1)
+        logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
+        logprobs[attn_mask == 0] = 0
+        return logprobs.sum(dim=1).cpu()
 
 @torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
-    labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt')
-    list_label_ids = labels_encoded['input_ids'].to('cuda')
-    list_label_attn = labels_encoded['attention_mask'].to('cuda')
-
-    probs = []
     if model.config.is_encoder_decoder:
+        labels_encoded = tokenizer(labels, add_special_tokens=False, padding=True, return_tensors='pt')
+        list_label_ids = labels_encoded['input_ids'].to('cuda')
+        list_label_attn = labels_encoded['attention_mask'].to('cuda')
+        
         inputs = [prompt.replace('[LABELS_CHOICE]', '') for prompt in prompts]
+        probs = []
         for (label_ids, label_attn) in zip(list_label_ids, list_label_attn):
             probs.append(
-                get_logprobs(model, tokenizer, inputs, label_ids.view(1,-1), label_attn.view(1,-1)).cpu().numpy()
+                get_logprobs(model, tokenizer, inputs, label_ids.view(1,-1), label_attn.view(1,-1))
             )
     else:
-        for (label, label_ids, label_attn) in zip(labels, list_label_ids, list_label_attn):
+        probs = []
+        for label in labels:
             inputs = [prompt.replace('[LABELS_CHOICE]', label) for prompt in prompts]
-            probs.append(
-                get_logprobs(model, tokenizer, inputs, label_ids.view(1,-1), label_attn.view(1,-1)).cpu().numpy()
-            )
+            probs.append(get_logprobs(model, tokenizer, inputs))
     return probs
 
 if __name__ == '__main__':
@@ -209,9 +194,9 @@ if __name__ == '__main__':
             print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
-            # if 'COPAL' in dset_subset or 'MABL' in dset_subset:
-            #     print("Warning: COPA/MABL-type task need batch-size = 1. Batch is set to 1")
-            #     BATCH_SIZE = 1
+            if 'COPAL' in dset_subset or 'MABL' in dset_subset:
+                print("Warning: COPA/MABL-type task need batch-size = 1. Batch is set to 1")
+                BATCH_SIZE = 1
 
             # zero-shot inference
             prompts, labels = [], []

@@ -76,7 +76,7 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
         #     F.log_softmax(f_logits, dim=-1), 2, label_ids_no_pad.repeat(input_ids.shape[0], 1).unsqueeze(2)
         # ).squeeze(dim=-1)
 
-        log_probs = torch.gather(F.log_softmax(logits, dim=2), 2, output_ids.unsqueeze(2))
+        log_probs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2))
         return log_probs.sum().unsqueeze(0)
 
         # return f_logprobs.sum(dim=-1)
@@ -287,4 +287,4 @@ if __name__ == '__main__':
                 'weighted_f1_score': cls_report['weighted avg']['f1-score'],
             })
 
-    pd.DataFrame(metrics).reset_index().to_csv(f'{metric_dir}/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
+    pd.DataFrame(metrics).reset_index().to_csv(f'{metric_dir}/ext_nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
