@@ -315,7 +315,8 @@ LANG_MAP = {
         'jav': 'Javanese',
         'sun': 'Sundanese',
         'ace': 'Acehnese',
-        'ban': 'Balinese'
+        'ban': 'Balinese',
+        'min': 'Minangkabau'
     },
     'ind': {
         'ind': 'Indonesia',
@@ -327,7 +328,8 @@ LANG_MAP = {
         'jav': 'Jawa',
         'sun': 'Sunda',
         'ace': 'Aceh',
-        'ban': 'Bali'
+        'ban': 'Bali',
+        'min': 'Minangkabau'
     }
 }
 
