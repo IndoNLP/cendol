@@ -65,21 +65,8 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
         outputs = model(input_ids=input_ids, attention_mask=attn_mask, labels=output_ids)
         logits = outputs.logits
 
-        # f_logits, f_input_ids = [], []
-        # label_ntok = label_attn.sum()
-        # for i, ntok in enumerate(num_tokens):
-        #     f_logits.append(logits[i, ntok - label_ntok - 1: ntok - 1, :]) # -1 for shifted label
-        # f_logits = torch.stack(f_logits, dim=0)
-        
-        # label_ids_no_pad = label_ids[:,:label_ntok]
-        # f_logprobs = torch.gather(
-        #     F.log_softmax(f_logits, dim=-1), 2, label_ids_no_pad.repeat(input_ids.shape[0], 1).unsqueeze(2)
-        # ).squeeze(dim=-1)
-
         log_probs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2))
         return log_probs.sum().unsqueeze(0)
-
-        # return f_logprobs.sum(dim=-1)
 
 @torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
