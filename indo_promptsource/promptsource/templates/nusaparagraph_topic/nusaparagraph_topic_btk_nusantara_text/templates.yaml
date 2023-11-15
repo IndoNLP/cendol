@@ -60,6 +60,23 @@ templates:
       original_task: true
     name: context_qa
     reference: ''
+  7801c8aa-8357-4348-8c81-fcdb774f1716: !Template
+    answer_choices: null
+    id: 7801c8aa-8357-4348-8c81-fcdb774f1716
+    jinja: 'Tuliskan sebuah paragraf yang menyangkut topik {% if label == 0 %}makanan
+      & minuman{% elif label == 1 %}olahraga{% elif label == 2 %}rekreasi{% elif label
+      == 3 %}agama{% elif label == 4 %}kebudayaan{% elif label == 5 %}kehidupan sehari-hari{%
+      elif label == 6 %}teknologi{% elif label == 7 %}bisnis{% endif %} dalam bahasa
+      Batak: ||| {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_topic_1
+    reference: Paragraph writing
   7c0e1470-40c5-4462-930c-01e2a7183a19: !Template
     answer_choices: iya|||tidak
     id: 7c0e1470-40c5-4462-930c-01e2a7183a19
@@ -80,6 +97,23 @@ templates:
       original_task: false
     name: topic_qa_format
     reference: ''
+  7d504bc0-4eab-4fef-bb2d-95e84dec4877: !Template
+    answer_choices: null
+    id: 7d504bc0-4eab-4fef-bb2d-95e84dec4877
+    jinja: Karang sebuah tulisan dalam bahasa Batak yang bertema {% if label == 0
+      %}makanan & minuman{% elif label == 1 %}olahraga{% elif label == 2 %}rekreasi{%
+      elif label == 3 %}agama{% elif label == 4 %}kebudayaan{% elif label == 5 %}kehidupan
+      sehari-hari{% elif label == 6 %}teknologi{% elif label == 7 %}bisnis{% endif
+      %} dan panjangnya 1 paragraf. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_topic_3
+    reference: Paragraph writing
   955f9f93-47f7-4363-ae8a-824c36be1295: !Template
     answer_choices: iya|||tidak
     id: 955f9f93-47f7-4363-ae8a-824c36be1295
@@ -245,3 +279,19 @@ templates:
       original_task: true
     name: qa_format
     reference: ''
+  f3bca27b-8064-48cf-b5c4-a65bfa4feeda: !Template
+    answer_choices: null
+    id: f3bca27b-8064-48cf-b5c4-a65bfa4feeda
+    jinja: Buat 1 alinea dalam bahasa Batak dengan tema {% if label == 0 %}makanan
+      & minuman{% elif label == 1 %}olahraga{% elif label == 2 %}rekreasi{% elif label
+      == 3 %}agama{% elif label == 4 %}kebudayaan{% elif label == 5 %}kehidupan sehari-hari{%
+      elif label == 6 %}teknologi{% elif label == 7 %}bisnis{% endif %}. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_topic_2
+    reference: Paragraph writing

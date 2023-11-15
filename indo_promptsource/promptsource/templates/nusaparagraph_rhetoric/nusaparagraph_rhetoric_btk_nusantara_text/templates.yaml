@@ -241,6 +241,21 @@ templates:
       original_task: true
     name: kategorikan
     reference: ''
+  d74993be-1342-4730-adc2-50885716fd11: !Template
+    answer_choices: null
+    id: d74993be-1342-4730-adc2-50885716fd11
+    jinja: 'Tuliskan sebuah paragraf yang bergaya {% if label == 0 %}naratif{% elif
+      label == 1 %}persuasif{% elif label == 2 %}argumentatif{% elif label == 3 %}deskriptif{%
+      elif label == 4 %}ekspositori{% endif %} dalam bahasa Batak: ||| {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_rhetoric_1
+    reference: Paragraph writing
   d75b12d1-f19c-40ec-aabb-4d8ed36e7b0f: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
     id: d75b12d1-f19c-40ec-aabb-4d8ed36e7b0f
@@ -261,6 +276,22 @@ templates:
       original_task: true
     name: gaya_penulisan
     reference: ''
+  e6220ff1-835f-4f84-b7c6-b054d7303d96: !Template
+    answer_choices: null
+    id: e6220ff1-835f-4f84-b7c6-b054d7303d96
+    jinja: Karang sebuah tulisan dalam bahasa Batak yang bernada {% if label == 0
+      %}naratif{% elif label == 1 %}persuasif{% elif label == 2 %}argumentatif{% elif
+      label == 3 %}deskriptif{% elif label == 4 %}ekspositori{% endif %} dan panjangnya
+      1 paragraf. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_rhetoric_3
+    reference: Paragraph writing
   f278b362-a874-4a0a-8f5e-83ac155556a1: !Template
     answer_choices: iya|||tidak
     id: f278b362-a874-4a0a-8f5e-83ac155556a1
@@ -280,6 +311,21 @@ templates:
       original_task: false
     name: retorika
     reference: ''
+  f83a85e8-9a17-4b7d-a034-099462a28a41: !Template
+    answer_choices: null
+    id: f83a85e8-9a17-4b7d-a034-099462a28a41
+    jinja: Buat 1 alinea dalam bahasa Batak dengan unsur {% if label == 0 %}naratif{%
+      elif label == 1 %}persuasif{% elif label == 2 %}argumentatif{% elif label ==
+      3 %}deskriptif{% elif label == 4 %}ekspositori{% endif %}. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_rhetoric_2
+    reference: Paragraph writing
   ff36b548-82b6-4b34-8937-91e56d67cdcd: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
     id: ff36b548-82b6-4b34-8937-91e56d67cdcd

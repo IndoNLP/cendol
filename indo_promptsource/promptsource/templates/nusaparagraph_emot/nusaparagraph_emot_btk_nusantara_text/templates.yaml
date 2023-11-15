@@ -40,6 +40,22 @@ templates:
       original_task: true
     name: kategorikan
     reference: ''
+  35f5c154-8563-4c96-80ce-e303941e86ab: !Template
+    answer_choices: null
+    id: 35f5c154-8563-4c96-80ce-e303941e86ab
+    jinja: Karang sebuah tulisan dalam bahasa Batak yang bernada {% if label == 0
+      %}takut{% elif label == 1 %}jijik{% elif label == 2 %}sedih{% elif label ==
+      3 %}senang{% elif label == 4 %}marah{% elif label == 5 %}kaget{% elif label
+      == 6 %}malu{% endif %} dan panjangnya 1 paragraf. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_emot_3
+    reference: Paragraph writing
   769f2f9a-f38b-4ded-97b2-7b7786866f98: !Template
     answer_choices: iya|||tidak
     id: 769f2f9a-f38b-4ded-97b2-7b7786866f98
@@ -127,7 +143,7 @@ templates:
     jinja: 'Tuliskan sebuah paragraf yang mengandung emosi {% if label == 0 %}takut{%
       elif label == 1 %}jijik{% elif label == 2 %}sedih{% elif label == 3 %}senang{%
       elif label == 4 %}marah{% elif label == 5 %}kaget{% elif label == 6 %}malu{%
-      endif %} dalam bahasa Batak:'
+      endif %} dalam bahasa Batak: ||| {{text}}'
     metadata: !TemplateMetadata
       choices_in_prompt: false
       languages:
@@ -194,6 +210,22 @@ templates:
       original_task: true
     name: classification
     reference: ''
+  dab841ae-60a2-41fa-acaa-42bdbf3fb0fc: !Template
+    answer_choices: null
+    id: dab841ae-60a2-41fa-acaa-42bdbf3fb0fc
+    jinja: Buat 1 alinea dalam bahasa Batak dengan unsur {% if label == 0 %}takut{%
+      elif label == 1 %}jijik{% elif label == 2 %}sedih{% elif label == 3 %}senang{%
+      elif label == 4 %}marah{% elif label == 5 %}kaget{% elif label == 6 %}malu{%
+      endif %}. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_emot_2
+    reference: Paragraph writing
   dfdfeb6b-7f47-4f86-88c9-e636f0cd5886: !Template
     answer_choices: iya|||tidak
     id: dfdfeb6b-7f47-4f86-88c9-e636f0cd5886

@@ -1,6 +1,50 @@
 dataset: nusaparagraph_topic
-subset: nusaparagraph_topic_btk_nusantara_text
+subset: nusaparagraph_topic_min_nusantara_text
 templates:
+  2acdf5bb-3b86-412f-a1f9-7610f96a75e3: !Template
+    answer_choices: iya|||tidak
+    id: 2acdf5bb-3b86-412f-a1f9-7610f96a75e3
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Q: Apakah teks berikut
+      masuk ke dalam topic {% if _topic == 0 %}"food & beverages"{% elif _topic ==
+      1 %}"sports"{% elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{%
+      elif _topic == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{%
+      elif _topic == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
+
+      Teks: {{text}}
+
+      Pilihan jawaban: iya/tidak
+
+      A: |||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: topic_qa_format_with_choices
+    reference: ''
+  424fa7fd-cfed-457e-aca2-7ca7444681f0: !Template
+    answer_choices: iya|||tidak
+    id: 424fa7fd-cfed-457e-aca2-7ca7444681f0
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] | random %} Q: Apakah topik {%
+      if _topic == 0 %}"food & beverages"{% elif _topic == 1 %}"sports"{% elif _topic
+      == 2 %}"leisures"{% elif _topic == 3 %}"religion"{% elif _topic == 4 %}"culture
+      & heritage"{% elif _topic == 5 %}"slice of life"{% elif _topic == 6 %}"technology"{%
+      elif _topic == 7 %}"business"{% endif %} cocok untuk teks berikut?
+
+      Teks: {{text}}
+
+      A: |||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: topic_qa_format
+    reference: ''
   4bcbe222-8a27-40c8-b370-bddb699674a3: !Template
     answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
       of life|||technology|||business
@@ -39,18 +83,22 @@ templates:
       original_task: true
     name: classification
     reference: ''
-  e23616d6-8399-4013-9ee6-253fee8bbe6b: !Template
+  6264f21e-ec8d-444e-ad63-49f7fdb07fb2: !Template
     answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
       of life|||technology|||business
-    id: e23616d6-8399-4013-9ee6-253fee8bbe6b
-    jinja: "Teks: {{text}}\nPertanyaan: Topik apa yang paling cocok untuk mendeskripsikan\
-      \ teks di atas? \nPilihan topik:\n- food & beverages\n- sports\n- leisures\n\
-      - religion\n- angry\n- culture & heritage\n- slice of life\n- technology\n-\
-      \ business\nA:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1\
-      \ %}{{answer_choices[1]}}{% elif label == 2 %}{{answer_choices[2]}}{% elif label\
-      \ == 3 %}{{answer_choices[3]}}{% elif label == 4 %}{{answer_choices[4]}}{% elif\
-      \ label == 5 %}{{answer_choices[5]}}{% elif label == 6 %}{{answer_choices[6]}}{%\
-      \ elif label == 7 %}{{answer_choices[7]}}{% endif %}"
+    id: 6264f21e-ec8d-444e-ad63-49f7fdb07fb2
+    jinja: 'Teks: {{text}}
+
+      Pilihan topik: food & beverages, sports, leisures, religion, culture & heritage,
+      slice of life, technology, business.
+
+      Q: Apakah topik dari pilihan topik di atas yang paling cocok untuk teks di atas?
+
+      A: ||| {% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
+      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
+      endif %}'
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -58,48 +106,46 @@ templates:
       metrics:
       - Accuracy
       original_task: true
-    name: context_qa
+    name: qa_format
     reference: ''
-  424fa7fd-cfed-457e-aca2-7ca7444681f0: !Template
+  7ea73833-b2d5-4999-915c-0b2350386f9e: !Template
     answer_choices: iya|||tidak
-    id: 424fa7fd-cfed-457e-aca2-7ca7444681f0
-    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] | random %} Q: Apakah topik {%
-      if _topic == 0 %}"food & beverages"{% elif _topic == 1 %}"sports"{% elif _topic
-      == 2 %}"leisures"{% elif _topic == 3 %}"religion"{% elif _topic == 4 %}"culture
-      & heritage"{% elif _topic == 5 %}"slice of life"{% elif _topic == 6 %}"technology"{%
-      elif _topic == 7 %}"business"{% endif %} cocok untuk teks berikut?
+    id: 7ea73833-b2d5-4999-915c-0b2350386f9e
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Apakah teks berikut
+      masuk dalam topic {% if _topic == 0 %}"food & beverages"{% elif _topic == 1
+      %}"sports"{% elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{%
+      elif _topic == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{%
+      elif _topic == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
 
       Teks: {{text}}
 
-      A: |||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
-      endif %}'
+      Pilihan jawaban: iya/tidak|||{% if label == _topic %}{{answer_choices[0]}}{%
+      else %}{{answer_choices[1]}}{% endif %}'
     metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages: []
-      metrics: []
-      original_task: false
-    name: topic_qa_format
-    reference: ''
-  b9559583-f44d-4aaa-a62b-8685ee403b61: !Template
-    answer_choices: iya|||tidak
-    id: b9559583-f44d-4aaa-a62b-8685ee403b61
-    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Apakah teks berikut
-      terkait topic {% if _topic == 0 %}"food & beverages"{% elif _topic == 1 %}"sports"{%
-      elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{% elif _topic
-      == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{% elif _topic
-      == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
-
-      Teks: {{text}}|||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
-      endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
+      choices_in_prompt: true
       languages:
       - id
       metrics:
       - Accuracy
       original_task: false
-    name: topic
+    name: topic_with_choices
     reference: ''
+  822ad576-b8cf-44b4-8a89-bb87c00cc4d5: !Template
+    answer_choices: null
+    id: 822ad576-b8cf-44b4-8a89-bb87c00cc4d5
+    jinja: Buat 1 alinea dalam bahasa Minangkabau dengan tema {% if label == 0 %}makanan
+      & minuman{% elif label == 1 %}olahraga{% elif label == 2 %}rekreasi{% elif label
+      == 3 %}agama{% elif label == 4 %}kebudayaan{% elif label == 5 %}kehidupan sehari-hari{%
+      elif label == 6 %}teknologi{% elif label == 7 %}bisnis{% endif %}. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_topic_2
+    reference: Paragraph writing
   8f324469-a7ad-4585-b38c-d748f4ba9877: !Template
     answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
       of life|||technology|||business
@@ -149,51 +195,42 @@ templates:
       original_task: true
     name: post_qa_format
     reference: ''
-  2acdf5bb-3b86-412f-a1f9-7610f96a75e3: !Template
+  a98d7b9b-cbd3-404d-90db-dc34a4f84acb: !Template
+    answer_choices: null
+    id: a98d7b9b-cbd3-404d-90db-dc34a4f84acb
+    jinja: 'Tuliskan sebuah paragraf yang menyangkut topik {% if label == 0 %}makanan
+      & minuman{% elif label == 1 %}olahraga{% elif label == 2 %}rekreasi{% elif label
+      == 3 %}agama{% elif label == 4 %}kebudayaan{% elif label == 5 %}kehidupan sehari-hari{%
+      elif label == 6 %}teknologi{% elif label == 7 %}bisnis{% endif %} dalam bahasa
+      Minangkabau: ||| {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_topic_1
+    reference: Paragraph writing
+  b9559583-f44d-4aaa-a62b-8685ee403b61: !Template
     answer_choices: iya|||tidak
-    id: 2acdf5bb-3b86-412f-a1f9-7610f96a75e3
-    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Q: Apakah teks berikut
-      masuk ke dalam topic {% if _topic == 0 %}"food & beverages"{% elif _topic ==
-      1 %}"sports"{% elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{%
-      elif _topic == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{%
-      elif _topic == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
+    id: b9559583-f44d-4aaa-a62b-8685ee403b61
+    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Apakah teks berikut
+      terkait topic {% if _topic == 0 %}"food & beverages"{% elif _topic == 1 %}"sports"{%
+      elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{% elif _topic
+      == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{% elif _topic
+      == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
 
-      Teks: {{text}}
-
-      Pilihan jawaban: iya/tidak
-
-      A: |||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      Teks: {{text}}|||{% if label == _topic %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
       endif %}'
     metadata: !TemplateMetadata
-      choices_in_prompt: true
+      choices_in_prompt: false
       languages:
       - id
       metrics:
       - Accuracy
       original_task: false
-    name: topic_qa_format_with_choices
-    reference: ''
-  7ea73833-b2d5-4999-915c-0b2350386f9e: !Template
-    answer_choices: iya|||tidak
-    id: 7ea73833-b2d5-4999-915c-0b2350386f9e
-    jinja: '{% set _topic = [0, 1, 2, 3, 4, 5, 6, 7] |random %} Apakah teks berikut
-      masuk dalam topic {% if _topic == 0 %}"food & beverages"{% elif _topic == 1
-      %}"sports"{% elif _topic == 2 %}"leisures"{% elif _topic == 3 %}"religion"{%
-      elif _topic == 4 %}"culture & heritage"{% elif _topic == 5 %}"slice of life"{%
-      elif _topic == 6 %}"technology"{% elif _topic == 7 %}"business"{% endif %}?
-
-      Teks: {{text}}
-
-      Pilihan jawaban: iya/tidak|||{% if label == _topic %}{{answer_choices[0]}}{%
-      else %}{{answer_choices[1]}}{% endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: true
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: false
-    name: topic_with_choices
+    name: topic
     reference: ''
   cd71525d-3c38-43f5-9ede-62bb09f2d098: !Template
     answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
@@ -220,22 +257,35 @@ templates:
       original_task: true
     name: kategori_cocok
     reference: ''
-  6264f21e-ec8d-444e-ad63-49f7fdb07fb2: !Template
+  e0d79ffb-3d66-479b-98d8-0973a60a752a: !Template
+    answer_choices: null
+    id: e0d79ffb-3d66-479b-98d8-0973a60a752a
+    jinja: Karang sebuah tulisan dalam bahasa Minangkabau yang bertema {% if label
+      == 0 %}makanan & minuman{% elif label == 1 %}olahraga{% elif label == 2 %}rekreasi{%
+      elif label == 3 %}agama{% elif label == 4 %}kebudayaan{% elif label == 5 %}kehidupan
+      sehari-hari{% elif label == 6 %}teknologi{% elif label == 7 %}bisnis{% endif
+      %} dan panjangnya 1 paragraf. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_topic_3
+    reference: Paragraph writing
+  e23616d6-8399-4013-9ee6-253fee8bbe6b: !Template
     answer_choices: food & beverages|||sports|||leisures|||religion|||culture & heritage|||slice
       of life|||technology|||business
-    id: 6264f21e-ec8d-444e-ad63-49f7fdb07fb2
-    jinja: 'Teks: {{text}}
-
-      Pilihan topik: food & beverages, sports, leisures, religion, culture & heritage,
-      slice of life, technology, business.
-
-      Q: Apakah topik dari pilihan topik di atas yang paling cocok untuk teks di atas?
-
-      A: ||| {% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
-      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
-      elif label == 4 %}{{answer_choices[4]}}{% elif label == 5 %}{{answer_choices[5]}}{%
-      elif label == 6 %}{{answer_choices[6]}}{% elif label == 7 %}{{answer_choices[7]}}{%
-      endif %}'
+    id: e23616d6-8399-4013-9ee6-253fee8bbe6b
+    jinja: "Teks: {{text}}\nPertanyaan: Topik apa yang paling cocok untuk mendeskripsikan\
+      \ teks di atas? \nPilihan topik:\n- food & beverages\n- sports\n- leisures\n\
+      - religion\n- angry\n- culture & heritage\n- slice of life\n- technology\n-\
+      \ business\nA:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1\
+      \ %}{{answer_choices[1]}}{% elif label == 2 %}{{answer_choices[2]}}{% elif label\
+      \ == 3 %}{{answer_choices[3]}}{% elif label == 4 %}{{answer_choices[4]}}{% elif\
+      \ label == 5 %}{{answer_choices[5]}}{% elif label == 6 %}{{answer_choices[6]}}{%\
+      \ elif label == 7 %}{{answer_choices[7]}}{% endif %}"
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -243,5 +293,5 @@ templates:
       metrics:
       - Accuracy
       original_task: true
-    name: qa_format
+    name: context_qa
     reference: ''

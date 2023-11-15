@@ -1,6 +1,70 @@
 dataset: nusaparagraph_rhetoric
-subset: nusaparagraph_rhetoric_btk_nusantara_text
+subset: nusaparagraph_rhetoric_bug_nusantara_text
 templates:
+  027a4180-8d42-49fa-aaf4-24e0a748e981: !Template
+    answer_choices: iya|||tidak
+    id: 027a4180-8d42-49fa-aaf4-24e0a748e981
+    jinja: '{% set _retorika = [0, 1, 2, 3, 4] |random %}Apakah teks berikut masuk
+      dalam mode retorika {% if _retorika == 0 %}"narasi"{% elif _retorika == 1 %}"persuasif"{%
+      elif _retorika == 2 %}"argumentatif"{% elif _retorika == 3 %}"deskriptif"{%
+      elif _retorika == 4 %}"eksposisi"{% endif %}?
+
+      Teks: {{text}}
+
+      Pilihan jawaban: iya/tidak
+
+      Jawaban: |||{% if label == _retorika %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: retorika_with_choices
+    reference: ''
+  3b2c2b4e-fb17-4cbd-8a3b-262b9d12694e: !Template
+    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
+    id: 3b2c2b4e-fb17-4cbd-8a3b-262b9d12694e
+    jinja: 'Mode retorika apa yang paling cocok untuk teks berikut?
+
+      Pilihan mode retorika: narasi, persuasif, argumentatif, deskriptif, eksposisi.
+
+      Teks: {{text}}
+
+      Mode retorika yang paling cocok: |||{% if label == 0 %}{{answer_choices[0]}}{%
+      elif label == 1 %}{{answer_choices[1]}}{% elif label == 2 %}{{answer_choices[2]}}{%
+      elif label == 3 %}{{answer_choices[3]}}{% elif label == 4 %}{{answer_choices[4]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: kategori_cocok
+    reference: ''
+  3e9eb7bc-d6d9-41e7-b681-530455f31a56: !Template
+    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
+    id: 3e9eb7bc-d6d9-41e7-b681-530455f31a56
+    jinja: 'Teks: {{text}}
+
+      Pertanyaan: Apakah mode retorika yang cocok untuk teks di atas?
+
+      Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: open_ended_context_first
+    reference: ''
   40e6cb6c-d4e8-4e8b-afd9-259488dcaaed: !Template
     answer_choices: iya|||tidak
     id: 40e6cb6c-d4e8-4e8b-afd9-259488dcaaed
@@ -24,6 +88,71 @@ templates:
       original_task: false
     name: retorika_qa_format_with_choices
     reference: ''
+  457cd3e9-7f3f-42f0-b559-f3fbeaf0be2c: !Template
+    answer_choices: null
+    id: 457cd3e9-7f3f-42f0-b559-f3fbeaf0be2c
+    jinja: 'Tuliskan sebuah paragraf yang bergaya {% if label == 0 %}naratif{% elif
+      label == 1 %}persuasif{% elif label == 2 %}argumentatif{% elif label == 3 %}deskriptif{%
+      elif label == 4 %}ekspositori{% endif %} dalam bahasa Bugis: ||| {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_rhetoric_1
+    reference: Paragraph writing
+  580c3ed8-fc76-4641-ae9b-b01b709742de: !Template
+    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
+    id: 580c3ed8-fc76-4641-ae9b-b01b709742de
+    jinja: 'Pertanyaan: Apakah mode retorika yang cocok untuk teks berikut?
+
+      Teks: {{text}}
+
+      Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: open_ended
+    reference: ''
+  5cf833a3-23db-44df-80c9-d50759a89f6e: !Template
+    answer_choices: null
+    id: 5cf833a3-23db-44df-80c9-d50759a89f6e
+    jinja: Karang sebuah tulisan dalam bahasa Bugis yang bernada {% if label == 0
+      %}naratif{% elif label == 1 %}persuasif{% elif label == 2 %}argumentatif{% elif
+      label == 3 %}deskriptif{% elif label == 4 %}ekspositori{% endif %} dan panjangnya
+      1 paragraf. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_rhetoric_3
+    reference: Paragraph writing
+  633208e3-7795-4f75-92cb-567b01f0dbb9: !Template
+    answer_choices: null
+    id: 633208e3-7795-4f75-92cb-567b01f0dbb9
+    jinja: Buat 1 alinea dalam bahasa Bugis dengan unsur {% if label == 0 %}naratif{%
+      elif label == 1 %}persuasif{% elif label == 2 %}argumentatif{% elif label ==
+      3 %}deskriptif{% elif label == 4 %}ekspositori{% endif %}. ||| {{text}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Other
+      original_task: true
+    name: generate_par_rhetoric_2
+    reference: Paragraph writing
   7ec438b1-9a26-4473-b6aa-0c72ddd8e10f: !Template
     answer_choices: iya|||tidak
     id: 7ec438b1-9a26-4473-b6aa-0c72ddd8e10f
@@ -45,26 +174,36 @@ templates:
       original_task: false
     name: retorika_qa_format
     reference: ''
-  ec19c8c0-b08a-4c10-a1c9-029d8f1eb0df: !Template
+  84c7f560-d493-4e99-80de-b127ec1f4055: !Template
+    answer_choices: iya|||tidak
+    id: 84c7f560-d493-4e99-80de-b127ec1f4055
+    jinja: '{% set _retorika = [0, 1, 2, 3, 4] |random %}Apakah teks berikut masuk
+      dalam retorika {% if _retorika == 0 %}"narasi"{% elif _retorika == 1 %}"persuasif"{%
+      elif _retorika == 2 %}"argumentatif"{% elif _retorika == 3 %}"deskriptif"{%
+      elif _retorika == 4 %}"eksposisi"{% endif %}?
+
+      Teks: {{text}}|||{% if label == _retorika %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: retorika
+    reference: ''
+  89f07d2a-34d0-454a-b615-5bed6a746bf3: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: ec19c8c0-b08a-4c10-a1c9-029d8f1eb0df
+    id: 89f07d2a-34d0-454a-b615-5bed6a746bf3
     jinja: 'Teks: {{text}}
 
-      Pertanyaan: Retorika apa yang paling cocok untuk mendeskripsikan teks di atas?
+      Pilihan mode retorika: narasi, persuasif, argumentatif, deskriptif, eksposisi.
 
-      Pilihan retorika:
+      Q: Apakah mode retorika dari pilihan di atas yang paling cocok untuk teks di
+      atas?
 
-      - narasi
-
-      - persuasif
-
-      - argumentatif
-
-      - deskriptif
-
-      - eksposisi
-
-      A:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      A: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
       elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
       elif label == 4 %}{{answer_choices[4]}}{% endif %}'
     metadata: !TemplateMetadata
@@ -74,14 +213,15 @@ templates:
       metrics:
       - Accuracy
       original_task: true
-    name: context_qa
+    name: qa_format
     reference: ''
-  3e9eb7bc-d6d9-41e7-b681-530455f31a56: !Template
+  8f983374-7505-4c51-b933-10914fabf0d9: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: 3e9eb7bc-d6d9-41e7-b681-530455f31a56
-    jinja: 'Teks: {{text}}
+    id: 8f983374-7505-4c51-b933-10914fabf0d9
+    jinja: 'Pertanyaan: Apakah mode retorika yang cocok untuk gaya penulisan yang
+      ada di dalam teks berikut?
 
-      Pertanyaan: Apakah mode retorika yang cocok untuk teks di atas?
+      Teks: {{text}}
 
       Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
       elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
@@ -93,21 +233,19 @@ templates:
       metrics:
       - Accuracy
       original_task: true
-    name: open_ended_context_first
+    name: gaya_penulisan
     reference: ''
-  3b2c2b4e-fb17-4cbd-8a3b-262b9d12694e: !Template
+  a6b2bbb7-cfac-4e4f-980f-1fb7d57029b9: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: 3b2c2b4e-fb17-4cbd-8a3b-262b9d12694e
-    jinja: 'Mode retorika apa yang paling cocok untuk teks berikut?
-
-      Pilihan mode retorika: narasi, persuasif, argumentatif, deskriptif, eksposisi.
+    id: a6b2bbb7-cfac-4e4f-980f-1fb7d57029b9
+    jinja: 'Kategorikan teks berikut menjadi salah satu dari retorika berikut: narasi,
+      persuasif, argumentatif, deskriptif, eksposisi.
 
       Teks: {{text}}
 
-      Mode retorika yang paling cocok: |||{% if label == 0 %}{{answer_choices[0]}}{%
-      elif label == 1 %}{{answer_choices[1]}}{% elif label == 2 %}{{answer_choices[2]}}{%
-      elif label == 3 %}{{answer_choices[3]}}{% elif label == 4 %}{{answer_choices[4]}}{%
-      endif %}'
+      Retorika: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
     metadata: !TemplateMetadata
       choices_in_prompt: true
       languages:
@@ -115,7 +253,27 @@ templates:
       metrics:
       - Accuracy
       original_task: true
-    name: kategori_cocok
+    name: kategorikan
+    reference: ''
+  baf0e933-6f6d-4553-b8d6-8c8dcdcafee6: !Template
+    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
+    id: baf0e933-6f6d-4553-b8d6-8c8dcdcafee6
+    jinja: 'Teks: {{text}}
+
+      Pertanyaan: Apakah mode retorika yang cocok untuk gaya penulisan yang ada di
+      dalam teks di atas?
+
+      Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
+      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: gaya_penulisan_context_first
     reference: ''
   c0caf705-83fa-4b22-9dcc-8f4aa249817e: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
@@ -156,60 +314,26 @@ templates:
       original_task: true
     name: classification
     reference: ''
-  baf0e933-6f6d-4553-b8d6-8c8dcdcafee6: !Template
+  ec19c8c0-b08a-4c10-a1c9-029d8f1eb0df: !Template
     answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: baf0e933-6f6d-4553-b8d6-8c8dcdcafee6
+    id: ec19c8c0-b08a-4c10-a1c9-029d8f1eb0df
     jinja: 'Teks: {{text}}
 
-      Pertanyaan: Apakah mode retorika yang cocok untuk gaya penulisan yang ada di
-      dalam teks di atas?
+      Pertanyaan: Retorika apa yang paling cocok untuk mendeskripsikan teks di atas?
 
-      Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
-      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
-      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: true
-    name: gaya_penulisan_context_first
-    reference: ''
-  027a4180-8d42-49fa-aaf4-24e0a748e981: !Template
-    answer_choices: iya|||tidak
-    id: 027a4180-8d42-49fa-aaf4-24e0a748e981
-    jinja: '{% set _retorika = [0, 1, 2, 3, 4] |random %}Apakah teks berikut masuk
-      dalam mode retorika {% if _retorika == 0 %}"narasi"{% elif _retorika == 1 %}"persuasif"{%
-      elif _retorika == 2 %}"argumentatif"{% elif _retorika == 3 %}"deskriptif"{%
-      elif _retorika == 4 %}"eksposisi"{% endif %}?
+      Pilihan retorika:
 
-      Teks: {{text}}
+      - narasi
 
-      Pilihan jawaban: iya/tidak
+      - persuasif
 
-      Jawaban: |||{% if label == _retorika %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
-      endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: true
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: false
-    name: retorika_with_choices
-    reference: ''
-  89f07d2a-34d0-454a-b615-5bed6a746bf3: !Template
-    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: 89f07d2a-34d0-454a-b615-5bed6a746bf3
-    jinja: 'Teks: {{text}}
+      - argumentatif
 
-      Pilihan mode retorika: narasi, persuasif, argumentatif, deskriptif, eksposisi.
+      - deskriptif
 
-      Q: Apakah mode retorika dari pilihan di atas yang paling cocok untuk teks di
-      atas?
+      - eksposisi
 
-      A: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
+      A:|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
       elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
       elif label == 4 %}{{answer_choices[4]}}{% endif %}'
     metadata: !TemplateMetadata
@@ -219,83 +343,5 @@ templates:
       metrics:
       - Accuracy
       original_task: true
-    name: qa_format
-    reference: ''
-  a6b2bbb7-cfac-4e4f-980f-1fb7d57029b9: !Template
-    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: a6b2bbb7-cfac-4e4f-980f-1fb7d57029b9
-    jinja: 'Kategorikan teks berikut menjadi salah satu dari retorika berikut: narasi,
-      persuasif, argumentatif, deskriptif, eksposisi.
-
-      Teks: {{text}}
-
-      Retorika: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
-      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
-      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: true
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: true
-    name: kategorikan
-    reference: ''
-  8f983374-7505-4c51-b933-10914fabf0d9: !Template
-    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: 8f983374-7505-4c51-b933-10914fabf0d9
-    jinja: 'Pertanyaan: Apakah mode retorika yang cocok untuk gaya penulisan yang
-      ada di dalam teks berikut?
-
-      Teks: {{text}}
-
-      Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
-      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
-      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: true
-    name: gaya_penulisan
-    reference: ''
-  84c7f560-d493-4e99-80de-b127ec1f4055: !Template
-    answer_choices: iya|||tidak
-    id: 84c7f560-d493-4e99-80de-b127ec1f4055
-    jinja: '{% set _retorika = [0, 1, 2, 3, 4] |random %}Apakah teks berikut masuk
-      dalam retorika {% if _retorika == 0 %}"narasi"{% elif _retorika == 1 %}"persuasif"{%
-      elif _retorika == 2 %}"argumentatif"{% elif _retorika == 3 %}"deskriptif"{%
-      elif _retorika == 4 %}"eksposisi"{% endif %}?
-
-      Teks: {{text}}|||{% if label == _retorika %}{{answer_choices[0]}}{% else %}{{answer_choices[1]}}{%
-      endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: false
-    name: retorika
-    reference: ''
-  580c3ed8-fc76-4641-ae9b-b01b709742de: !Template
-    answer_choices: narasi|||persuasif|||argumentatif|||deskriptif|||eksposisi
-    id: 580c3ed8-fc76-4641-ae9b-b01b709742de
-    jinja: 'Pertanyaan: Apakah mode retorika yang cocok untuk teks berikut?
-
-      Teks: {{text}}
-
-      Jawaban: |||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[1]}}{%
-      elif label == 2 %}{{answer_choices[2]}}{% elif label == 3 %}{{answer_choices[3]}}{%
-      elif label == 4 %}{{answer_choices[4]}}{% endif %}'
-    metadata: !TemplateMetadata
-      choices_in_prompt: false
-      languages:
-      - id
-      metrics:
-      - Accuracy
-      original_task: true
-    name: open_ended
+    name: context_qa
     reference: ''
