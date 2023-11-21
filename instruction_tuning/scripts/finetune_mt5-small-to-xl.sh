@@ -1,4 +1,3 @@
-lang='af,ar,az,bn,cs,de,en,es,et,fa,fi,fr,gl,gu,he,hi,hr,id,it,ja,ka,kk,km,ko,lt,lv,mk,ml,mn,mr,my,ne,nl,pl,ps,pt,ro,ru,si,sl,sv,sw,ta,te,th,tl,tr,uk,ur,vi,xh,zh'
 OMP_NUM_THREADS=32
 WORLD_SIZE=4
 # CUDA_VISIBLE_DEVICES=0,1,2,3
@@ -13,7 +12,6 @@ batch_size=32
 grad_accum=1
 torchrun --nproc_per_node=4 --master_port=1234 finetune_seq2seq.py \
     --model_name_or_path google/mt5-${model_size} \
-    --lang ${lang} \
     --output_dir output/cendol-mt5-${model_size} \
     --overwrite_output_dir \
     --learning_rate 3e-4 \
@@ -53,7 +51,6 @@ batch_size=16
 grad_accum=2
 torchrun --nproc_per_node=4 --master_port=1234 finetune_seq2seq.py \
     --model_name_or_path google/mt5-${model_size} \
-    --lang ${lang} \
     --output_dir output/cendol-mt5-${model_size} \
     --overwrite_output_dir \
     --learning_rate 3e-4 \
@@ -91,7 +88,6 @@ batch_size=8
 grad_accum=4
 torchrun --nproc_per_node=4 --master_port=1234 finetune_seq2seq.py \
     --model_name_or_path google/mt5-${model_size} \
-    --lang ${lang} \
     --output_dir output/cendol-mt5-${model_size} \
     --overwrite_output_dir \
     --learning_rate 3e-4 \
@@ -129,7 +125,6 @@ batch_size=2
 grad_accum=16
 torchrun --nproc_per_node=4 --master_port=1234 finetune_seq2seq.py \
     --model_name_or_path google/mt5-${model_size} \
-    --lang ${lang} \
     --output_dir output/cendol-mt5-${model_size} \
     --overwrite_output_dir \
     --learning_rate 3e-4 \

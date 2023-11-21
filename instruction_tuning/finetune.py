@@ -1,5 +1,11 @@
 import re
 import os
+os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
+os.environ['HF_HOME'] = '/home/jovyan/.cache/huggingface'
+os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
+os.environ['TRANSFORMERS_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
+os.environ['HF_DATASETS_CACHE'] = '/home/jovyan/.cache/huggingface/datasets'
+
 import sys
 import glob
 import math
@@ -14,6 +20,7 @@ import datasets
 import transformers
 from transformers import AutoModelForCausalLM, AutoTokenizer, LlamaTokenizer, Trainer, HfArgumentParser, TrainingArguments
 from datasets import load_dataset, concatenate_datasets, DatasetDict
+from accelerate import Accelerator
 
 from peft import (
     LoraConfig,
@@ -49,20 +56,21 @@ class ModelArguments:
 
 @dataclass
 class DataArguments:
-    data_path: Optional[str] = field(default='MBZUAI/Bactrian-X', metadata={"help": "Path to the training file."})
+    data_path: Optional[str] = field(default='indonlp/nusa_t2t', metadata={"help": "Path to the training file."})
     model_max_length: Optional[int] = field(
         default=1024, metadata={"help": "Maximum sequence length. Sequences will be right padded (and possibly truncated)."}
     )
     preprocessing_num_workers: Optional[int] = field(
         default=None, metadata={"help": "The number of processes to use for the preprocessing."}
     )
+    sample_size: Optional[int] = field(default=-1, metadata={"help": "The maximum sample size from the whole dataset."})
     val_set_size: Optional[int] = field(default=2000, metadata={"help": "The validation set size. For loss checking."})
 
 @dataclass
-class BactrianTrainingArguments(TrainingArguments):
+class CendolTrainingArguments(TrainingArguments):
     optim: str = field(default="adamw_torch", metadata={"help": "Optimizer to use."})
     fp16: bool = field(
-        default=True, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training."}
+        default=False, metadata={"help": "Whether to use fp16 16-bit (mixed) precision training instead of 32-bit training."}
     )
     lang: str = field(default="zh", metadata={"help": "The language or language list separated by `,`, dataset will be downlaoded from HF Hub."})
     evaluation_strategy: str = field(default="steps", metadata={"help": ""})
@@ -92,8 +100,10 @@ def smart_tokenizer_and_embedding_resize(
         output_embeddings[-num_new_tokens:] = output_embeddings_avg
 
 def train():
+    accelerator = Accelerator()
+    
     # HF parser
-    parser = HfArgumentParser((ModelArguments, DataArguments, BactrianTrainingArguments))
+    parser = HfArgumentParser((ModelArguments, DataArguments, CendolTrainingArguments))
     model_args, data_args, training_args = parser.parse_args_into_dataclasses()
 
     # Setup logging
@@ -135,31 +145,21 @@ def train():
     model = AutoModelForCausalLM.from_pretrained(
         model_args.model_name_or_path,
         load_in_8bit=model_args.load_in_8bit,
-        # device_map=device_map,
+#         device_map=device_map if model_args.load_in_8bit else None,
     )
 
-    # TODO: better handle
-    tokenizer_class = LlamaTokenizer if "llama" in model_args.model_name_or_path else AutoTokenizer
-    tokenizer = tokenizer_class.from_pretrained(
+    tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path,
         padding_side="right",
         use_fast=False,
     )
-
+    
     # llama has no pad_token
     if tokenizer.pad_token is None:
         smart_tokenizer_and_embedding_resize(
             special_tokens_dict=dict(pad_token=DEFAULT_PAD_TOKEN),
             tokenizer=tokenizer,
             model=model,
-        )
-    if "llama" in model_args.model_name_or_path:
-        tokenizer.add_special_tokens(
-            {
-                "eos_token": DEFAULT_EOS_TOKEN,
-                "bos_token": DEFAULT_BOS_TOKEN,
-                "unk_token": DEFAULT_UNK_TOKEN,
-            }
         )
 
     if model_args.load_in_8bit:
@@ -198,7 +198,13 @@ def train():
         tokenized_full_prompt.pop('attention_mask')
         return tokenized_full_prompt
 
-
+    # Sampling
+    if data_args.sample_size > 0:
+        raw_datasets["train"] = raw_datasets["train"].train_test_split(
+            test_size=data_args.sample_size, shuffle=True, seed=42
+        )['test']
+        
+    # Splitting
     if data_args.val_set_size > 0:
         train_val_data = raw_datasets["train"].train_test_split(
             test_size=data_args.val_set_size, shuffle=True, seed=42
@@ -231,19 +237,29 @@ def train():
     )
     model.config.use_cache = False
 
-    # old_state_dict = model.state_dict
-    # model.state_dict = (
-    #     lambda self, *_, **__: get_peft_model_state_dict(
-    #         self, old_state_dict()
-    #     )
-    # ).__get__(model, type(model))
-
-    if torch.__version__ >= "2" and sys.platform != "win32":
-        model = torch.compile(model)
+    if model_args.use_lora:
+        old_state_dict = model.state_dict
+        model.state_dict = (
+            lambda self, *_, **__: get_peft_model_state_dict(
+                self, old_state_dict()
+            )
+        ).__get__(model, type(model))
 
     trainer.train()
 
-    model.save_pretrained(training_args.output_dir)
+    model = accelerator.unwrap_model(model)
+
+    # New Code #
+    # Saves the whole/unpartitioned fp16 model when in ZeRO Stage-3 to the output directory if
+    # `stage3_gather_16bit_weights_on_model_save` is True in DeepSpeed Config file or
+    # `zero3_save_16bit_model` is True in DeepSpeed Plugin.
+    # For Zero Stages 1 and 2, models are saved as usual in the output directory.
+    # The model name saved is `pytorch_model.bin`
+    model.save_pretrained(
+        training_args.output_dir,
+        is_main_process=accelerator.is_main_process,
+        save_function=accelerator.save
+    )
 
 
 if __name__ == "__main__":
