@@ -47,21 +47,31 @@ def to_prompt_mabl(input, prompt, labels, prompt_lang):
     prompt = prompt.replace('[PREMISE]', input['premise'])
     return prompt
 
+def to_prompt_maps(input, prompt, labels, prompt_lang):
+    #dynamic prompt depending question type (cause vs effect)
+    prompt = prompt.replace('[PREMISE]', input['premise'])
+    prompt = prompt.replace('[CONTEXT]', input['context'])
+    prompt = prompt.replace('[OPTION_1]', input['choice1'])
+    prompt = prompt.replace('[OPTION_2]', input['choice2'])
+
+    return prompt
+
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
-    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
-    input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
-    
-    outputs = model(input_ids=input_ids, attention_mask=attn_mask)
-    logits = outputs.logits
-    
+    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')    
     if model.config.is_encoder_decoder:
+        label_ids = label_ids.repeat((inputs['input_ids'].shape[0],1))
+        label_attn = label_attn.repeat((inputs['input_ids'].shape[0],1))
+        logits = model(**inputs, labels=label_ids).logits
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn
-        return (logprobs.squeeze(dim=-1)).sum(dim=-1).cpu()
+        return logprobs.sum(dim=-1).cpu()
     else:
+        logits = model(**inputs).logits
+        output_ids = inputs["input_ids"][:, 1:]
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
-        logprobs[attn_mask == 0] = 0
+        logprobs[inputs["attention_mask"][:, :-1] == 0] = 0
         return logprobs.sum(dim=1).cpu()
+
 
 @torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
@@ -85,7 +95,7 @@ def predict_classification(model, tokenizer, prompts, labels):
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
-        raise ValueError('main_nlu_prompt.py <prompt_lang> <model_path_or_name> <batch_size> <save_every (OPTIONAL)>')
+        raise ValueError('main_ext_nlu_prompt.py <prompt_lang> <model_path_or_name> <batch_size> <save_every (OPTIONAL)>')
 
     prompt_lang = sys.argv[1]
     MODEL = sys.argv[2]
@@ -98,8 +108,8 @@ if __name__ == '__main__':
     if len(sys.argv) == 5:
         SAVE_EVERY = int(sys.argv[4])
 
-    out_dir = './outputs_nlu'
-    metric_dir = './metrics_nlu'
+    out_dir = './outputs_nlu_ext'
+    metric_dir = './metrics_nlu_ext'
     os.makedirs(out_dir, exist_ok=True) 
     os.makedirs(metric_dir, exist_ok=True) 
 
@@ -183,11 +193,12 @@ if __name__ == '__main__':
             if 'COPAL' in dset_subset:
                 print(to_prompt_copa(test_dset[0], prompt_template, label_names, prompt_lang))
             elif 'MABL' in dset_subset:
-                print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang))                
+                print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang)) 
+            elif 'MAPS' in dset_subset:
+                print(to_prompt_maps(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
-
-            if BATCH_SIZE > 1:
+            if BATCH_SIZE > 1 and (('COPAL' in dset_subset) or ('MABL' in dset_subset)):
                 print("Warning: External tasks need batch-size = 1. Batch is set to 1")
                 BATCH_SIZE = 1
 
@@ -199,22 +210,21 @@ if __name__ == '__main__':
                     if e < len(preds):
                         continue
 
-                    # copa label is dynamic
-                    label_names = [sample['choice1'], sample['choice2']]
-                    if e == 0:
-                        print("UPDATED LABEL")
-                        print(label_names)
                     # Add to buffer
                     if 'COPAL' in dset_subset:
+                        label_names = [sample['choice1'], sample['choice2']] # COPAL label is dynamic
                         prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)
                     elif 'MABL' in dset_subset:
+                        label_names = [sample['choice1'], sample['choice2']] # MABL label is dynamic
                         prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
+                    elif 'MAPS' in dset_subset:
+                        prompt_text = to_prompt_maps(sample, prompt_template, label_names, prompt_lang)
                     
                     prompts.append(prompt_text)
-                    labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
+                    labels.append(label_to_id_dict[label_mapping[sample['label']]])
 
                     # Batch Inference
-                    if len(prompts) == BATCH_SIZE:
+                    if len(prompts) == BATCH_SIZE:                        
                         out = predict_classification(model, tokenizer, prompts, label_names)
                         hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
                         for (prompt_text, hyp, label) in zip(prompts, hyps, labels):

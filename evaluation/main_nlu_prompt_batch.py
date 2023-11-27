@@ -52,18 +52,18 @@ def to_prompt(input, prompt, labels, prompt_lang):
 
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
-    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
-    input_ids, output_ids, attn_mask = inputs["input_ids"][:,:-1], inputs["input_ids"][:, 1:], inputs['attention_mask'][:,:-1]
-    
-    outputs = model(input_ids=input_ids, attention_mask=attn_mask)
-    logits = outputs.logits
-    
+    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')    
     if model.config.is_encoder_decoder:
+        label_ids = label_ids.repeat((inputs['input_ids'].shape[0],1))
+        label_attn = label_attn.repeat((inputs['input_ids'].shape[0],1))
+        logits = model(**inputs, labels=label_ids).logits
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, label_ids.unsqueeze(2)).squeeze(dim=-1) * label_attn
-        return (logprobs.squeeze(dim=-1)).sum(dim=-1).cpu()
+        return logprobs.sum(dim=-1).cpu()
     else:
+        logits = model(**inputs).logits
+        output_ids = inputs["input_ids"][:, 1:]
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
-        logprobs[attn_mask == 0] = 0
+        logprobs[inputs["attention_mask"][:, :-1] == 0] = 0
         return logprobs.sum(dim=1).cpu()
 
 @torch.inference_mode()
@@ -183,20 +183,9 @@ if __name__ == '__main__':
             print("= LABEL NAME =")
             print(label_names)
             print("= SAMPLE PROMPT =")
-            print(inputs)
             
-            # if 'COPAL' in dset_subset:
-            #     print(to_prompt_copa(test_dset[0], prompt_template, label_names, prompt_lang))
-            # elif 'MABL' in dset_subset:
-            #     print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang))
-            # else:
-            #     print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
             print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
-
-            if 'COPAL' in dset_subset or 'MABL' in dset_subset:
-                print("Warning: COPA/MABL-type task need batch-size = 1. Batch is set to 1")
-                BATCH_SIZE = 1
 
             # zero-shot inference
             prompts, labels = [], []
@@ -206,17 +195,6 @@ if __name__ == '__main__':
                     if e < len(preds):
                         continue
 
-#                     # copa label is dynamic
-#                     if 'COPAL' in dset_subset or 'MABL' in dset_subset:
-#                         label_names = [sample['choice1'], sample['choice2']]
-
-#                     # Add to buffer
-#                     if 'COPAL' in dset_subset:
-#                         prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)
-#                     elif 'MABL' in dset_subset:
-#                         prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
-#                     else:
-#                         prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
                     prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
                     prompts.append(prompt_text)
                     labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
