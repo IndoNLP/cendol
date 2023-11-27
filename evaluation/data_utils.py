@@ -26,9 +26,12 @@ NLU_TASK_LIST = [
 
 NLU_TASK_LIST_EXTERNAL = [
     'haryoaw/COPAL',
- #   'MABL/id',
- #   'MABL/jv',
- #   'MABL/su',
+    'MABL/id',
+    'MABL/jv',
+    'MABL/su',
+    'MAPS',
+    # 'MAPS/figurative',
+    # 'MAPS/non_figurative',
 ]
 
 NLG_TASK_LIST = [
@@ -85,12 +88,13 @@ def load_external_nlu_datasets():
     class NewTasks(Enum):
         COPA = "COPA"
         MABL = "MABL"
+        MAPS = "MAPS"
 
     for task in NLU_TASK_LIST_EXTERNAL:
         if 'COPAL' in task:
             dset = datasets.load_dataset(task)
             cfg_name_to_dset_map[task] = (dset, NewTasks.COPA)
-        else: # MABL
+        elif 'MABL' in task:
             mabl_path = './mabl_data'
             subset = task.split('/')[-1]
             
@@ -99,7 +103,25 @@ def load_external_nlu_datasets():
                 df.rename({'startphrase': 'premise', 'ending1': 'choice1', 'ending2': 'choice2', 'labels': 'label'}, axis='columns')
             )
             cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.MABL)
+        elif 'MAPS' in task:
+            maps_path = './maps_data'
+            df = pd.read_excel(f'{maps_path}/test_proverbs.xlsx')
+            
+            # Split by subset
+            if '/' in task:
+                subset = task.split('/')[-1]
+                if subset =='figurative':
+                    df = df.loc[df['is_figurative'] == 1,:]
+                else: # non_figurative
+                    df = df.loc[df['is_figurative'] == 0,:]
 
+            dset = datasets.Dataset.from_pandas(
+                df.rename({
+                    'proverb': 'premise', 'conversation': 'context', 
+                    'answer1': 'choice1', 'answer2': 'choice2', 'answer_key': 'label'
+                }, axis='columns')
+            )
+            cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.MAPS)
     return cfg_name_to_dset_map
 
 def load_nlg_datasets():

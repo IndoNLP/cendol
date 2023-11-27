@@ -19,6 +19,13 @@ TASK_TO_PROMPT = {
             '[PREMISE]\n\nThe statement above implies: [LABELS_CHOICE]',
             '[PREMISE]\n\nThe above statement entails [LABELS_CHOICE]'
         ],
+        # MAPS-style (no nusacrowd Tasks yet)
+        'MAPS': [
+            'Question: What does the person mean by the proverb?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
+            'Question: What does the proverb means in this context?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
+            'Question: Which sense is more suitable given the following proverb and its context?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
+            'Question: Which interpretation is more likely to define the proverb?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Classify the sentiment of the text below.\n[INPUT] => Sentiment ([OPTIONS]): [LABELS_CHOICE]',
@@ -129,6 +136,13 @@ TASK_TO_PROMPT = {
             '[PREMISE]\n\nKalimat diatas menyatakan bahwa: [LABELS_CHOICE]',
             '[PREMISE]\n\nKalimat tersebut menyimpulkan [LABELS_CHOICE]'
         ],
+        # MAPS-style (no nusacrowd Tasks yet)
+        'MAPS': [
+            'Pertanyaan: Apa yang orang itu maksud dengan peribahasa berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
+            'Pertanyaan: Apa arti peribahasa dalam konteks berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
+            'Pertanyaan: Makna apa yang lebih tepat untuk mengartikan peribahasa dari konteks berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
+            'Pertanyaan: Interpretasi mana yang lebih memungkinkan untuk mendefinisikan peribahasa berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
+        ],        
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen ([OPTIONS]): [LABELS_CHOICE]',
@@ -237,6 +251,18 @@ LABEL_LANG_MAP ={
     'MABL/su': {
         'eng': {0: '0', 1: '1'},
         'ind': {0: '0', 1: '1'}
+    },
+    'MAPS': {
+        'eng': {'a': 'A', 'b': 'B'},
+        'ind': {'a': 'A', 'b': 'B'}
+    },
+    'MAPS/figurative': {
+        'eng': {'a': 'A', 'b': 'B'},
+        'ind': {'a': 'A', 'b': 'B'}
+    },
+    'MAPS/non_figurative': {
+        'eng': {'a': 'A', 'b': 'B'},
+        'ind': {'a': 'A', 'b': 'B'}
     },
 	'code_mixed_jv_id_jv_nusantara_text': {
 		'eng': {'-1': 'negative', '0': 'neutral', '1': 'positive'},
