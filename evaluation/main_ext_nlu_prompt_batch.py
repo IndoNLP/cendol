@@ -71,7 +71,6 @@ def to_prompt_indommlu(input, prompt, labels, prompt_lang):
     prompt = prompt.replace('[LEVEL]', level)
     prompt = prompt.replace('[INPUT]', input['soal'])
     prompt = prompt.replace('[OPTION]',input['jawaban'])
-    prompt = prompt.replace('[PREMISE]', input['premise'])
     return prompt
 
 @torch.inference_mode()

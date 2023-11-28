@@ -140,8 +140,8 @@ def load_external_nlu_datasets(lang='ind'):
             dset = datasets.Dataset.from_pandas(df)
             cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.IndoStoryCloze)
         elif 'IndoMMLU' in task:
-            dset = datasets.load_dataset('indolem/IndoMMLU')['train'].to_pandas()
-            df = df.rename({'kunci': 'label'}, axis='columns')
+            df = pd.read_csv('indommlu_data/IndoMMLU.csv')
+            dset = datasets.Dataset.from_pandas(df.rename({'kunci': 'label'}, axis='columns'))
             cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.IndoMMLU)
     return cfg_name_to_dset_map
 
