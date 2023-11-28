@@ -32,8 +32,8 @@ TASK_TO_PROMPT = {
             '[PREMISE]\nMake a sentence to continue the paragraph above: [LABELS_CHOICE]',
             '[PREMISE]\nWhat sentence is suitable to follow the paragraph above? Answer: [LABELS_CHOICE]',
         ],
-                # IndoMMLU-style (no nusacrowd Tasks yet)
-        'IndoMMLU': []
+        # IndoMMLU-style (no nusacrowd Tasks yet)
+        'IndoMMLU': [],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Classify the sentiment of the text below.\n[INPUT] => Sentiment ([OPTIONS]): [LABELS_CHOICE]',
@@ -163,7 +163,7 @@ TASK_TO_PROMPT = {
             'Berikut ini adalah soal [SUBJECT] untuk tingkat [LEVEL]. Pilih jawaban yang tepat!\nSoal:[INPUT]\nPilihan: [OPTION]\nJawaban: [LABELS_CHOICE]',
             'Pilihlah salah satu jawaban yang paling tepat untuk menjawab soal [SUBJECT] untuk [LEVEL] berikut!\nSoal: [INPUT]\nPilihan: [OPTION]\n\nJawaban: [LABELS_CHOICE]',
             'Pilih jawaban yang dianggap benar untuk menjawab soal [SUBJECT] ditingkat [LEVEL] berikut!\n\n[INPUT]\n\n[OPTION]\n\nJawaban: [LABELS_CHOICE]',
-        ]
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen ([OPTIONS]): [LABELS_CHOICE]',
