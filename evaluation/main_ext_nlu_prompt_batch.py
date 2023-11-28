@@ -58,6 +58,22 @@ def to_prompt_indo_story_cloze(input, prompt, labels, prompt_lang):
     prompt = prompt.replace('[PREMISE]', input['premise'])
     return prompt
 
+def to_prompt_indommlu(input, prompt, labels, prompt_lang):
+    if input['level'] == 'Seleksi PTN':
+        level = 'seleksi masuk universitas'
+    else:
+        try:
+            level = f"{math.trunc(float(input['kelas']))} {input['level']}"
+        except:
+            level = f"{input['kelas']} {input['level']}"    
+    
+    prompt = prompt.replace('[SUBJECT]', input['subject'])
+    prompt = prompt.replace('[LEVEL]', level)
+    prompt = prompt.replace('[INPUT]', input['soal'])
+    prompt = prompt.replace('[OPTION]',input['jawaban'])
+    prompt = prompt.replace('[PREMISE]', input['premise'])
+    return prompt
+
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
     inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')    
@@ -170,7 +186,7 @@ if __name__ == '__main__':
             
         # normalize some labels for more natural prompt:
         label_mapping = get_label_mapping(dset_subset, prompt_lang)
-        label_names = list(map(lambda x: label_mapping[x], label_mapping))
+        label_names = sorted(list(map(lambda x: label_mapping[x], label_mapping)))
 
         label_to_id_dict = { l : i for i, l in enumerate(label_names)}
         
@@ -198,12 +214,15 @@ if __name__ == '__main__':
                 print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang)) 
             elif 'MAPS' in dset_subset:
                 print(to_prompt_maps(test_dset[0], prompt_template, label_names, prompt_lang)) 
-            elif 'INDOSTORYCLOZE' in dset_subset:
+            elif 'IndoStoryCloze' in dset_subset:
                 print(to_prompt_indo_story_cloze(test_dset[0], prompt_template, label_names, prompt_lang))
+            elif 'IndoMMLU' in dset_subset:
+                print(to_prompt_indommlu(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
             if BATCH_SIZE > 1 and (
-                ('COPAL' in dset_subset) or ('MABL' in dset_subset) or ('INDOSTORYCLOZE' in dset_subset)
+                ('COPAL' in dset_subset) or ('MABL' in dset_subset)  or \
+                ('IndoStoryCloze' in dset_subset) or ('IndoMMLU' in dset_subset)
             ):
                 print("Warning: External tasks need batch-size = 1. Batch is set to 1")
                 BATCH_SIZE = 1
@@ -220,17 +239,26 @@ if __name__ == '__main__':
                     if 'COPAL' in dset_subset:
                         label_names = [sample['choice1'], sample['choice2']] # COPAL label is dynamic
                         prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)
+                        label = int(sample['label'])
                     elif 'MABL' in dset_subset:
                         label_names = [sample['choice1'], sample['choice2']] # MABL label is dynamic
                         prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
+                        label = int(sample['label'])
                     elif 'MAPS' in dset_subset:
                         prompt_text = to_prompt_maps(sample, prompt_template, label_names, prompt_lang)
-                    elif 'INDOSTORYCLOZE' in dset_subset:
+                        label = 0 if sample['label'] == 'a' else 1
+                    elif 'IndoStoryCloze' in dset_subset:
                         label_names = [sample['choice1'], sample['choice2']] # INDOSTORYCLOZE label is dynamic
                         prompt_text = to_prompt_indo_story_cloze(sample, prompt_template, label_names, prompt_lang)
+                        label = sample['label']
+                    elif 'IndoMMLU' in dset_subset:
+                        key2id = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
+                        prompt_text = to_prompt_indommlu(sample, prompt_template, label_names, prompt_lang)
+                        label_names = sample['jawaban'].split('\n')
+                        label = key2id[sample['kunci']]
                     
                     prompts.append(prompt_text)
-                    labels.append(label_to_id_dict[label_mapping[sample['label']]])
+                    labels.append(label)
 
                     # Batch Inference
                     if len(prompts) == BATCH_SIZE:                        

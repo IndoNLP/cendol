@@ -30,7 +30,8 @@ NLU_TASK_LIST_EXTERNAL = [
     # 'MABL/jv',
     # 'MABL/su',
     # 'MAPS',
-    'indo_story_cloze'
+    # 'IndoStoryCloze',
+    'IndoMMLU',
     # 'MAPS/figurative',
     # 'MAPS/non_figurative',
 ]
@@ -82,7 +83,7 @@ def load_nlu_datasets():
     
     return cfg_name_to_dset_map
 
-def load_external_nlu_datasets():
+def load_external_nlu_datasets(lang='ind'):
     cfg_name_to_dset_map = {} # {config_name: (datasets.Dataset, task_name)
 
     # hack, add new Task
@@ -90,7 +91,8 @@ def load_external_nlu_datasets():
         COPA = "COPA"
         MABL = "MABL"
         MAPS = "MAPS"
-        INDOSTORYCLOZE = "INDOSTORYCLOZE"
+        IndoStoryCloze = "IndoStoryCloze"
+        IndoMMLU = "IndoMMLU"
 
     for task in NLU_TASK_LIST_EXTERNAL:
         if 'COPAL' in task:
@@ -124,7 +126,7 @@ def load_external_nlu_datasets():
                 }, axis='columns')
             )
             cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.MAPS)
-        elif 'indo_story_cloze' in task:
+        elif 'IndoStoryCloze' in task:
             df = datasets.load_dataset('indolem/indo_story_cloze')['test'].to_pandas()
             
             # Preprocess
@@ -136,7 +138,12 @@ def load_external_nlu_datasets():
             df['label'] = 0
             
             dset = datasets.Dataset.from_pandas(df)
-            cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.INDOSTORYCLOZE)
+            cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.IndoStoryCloze)
+        elif 'IndoMMLU' in task
+            dset = datasets.load_dataset('indolem/IndoMMLU')['test'].to_pandas()
+            if lang == 'eng':
+                
+            cfg_name_to_dset_map[task] = (dset, NewTasks.IndoMMLU)
     return cfg_name_to_dset_map
 
 def load_nlg_datasets():

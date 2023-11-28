@@ -25,13 +25,15 @@ TASK_TO_PROMPT = {
             'Question: Which sense is more suitable given the following proverb and its context?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
             'Question: Which interpretation is more likely to define the proverb?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
         ],
-        # INDOSTORYCLOZE-style (no nusacrowd Tasks yet)
-        'INDOSTORYCLOZE': [
+        # IndoStoryCloze-style (no nusacrowd Tasks yet)
+        'IndoStoryCloze': [
             '[PREMISE]. [LABELS_CHOICE]',
             'Continue the following paragraph:\n[PREMISE]. [LABELS_CHOICE]',
             '[PREMISE]\nMake a sentence to continue the paragraph above: [LABELS_CHOICE]',
             '[PREMISE]\nWhat sentence is suitable to follow the paragraph above? Answer: [LABELS_CHOICE]',
         ],
+                # IndoMMLU-style (no nusacrowd Tasks yet)
+        'IndoMMLU': []
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Classify the sentiment of the text below.\n[INPUT] => Sentiment ([OPTIONS]): [LABELS_CHOICE]',
@@ -148,13 +150,20 @@ TASK_TO_PROMPT = {
             'Pertanyaan: Makna apa yang lebih tepat untuk mengartikan peribahasa dari konteks berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
             'Pertanyaan: Interpretasi mana yang lebih memungkinkan untuk mendefinisikan peribahasa berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
         ],    
-        # INDOSTORYCLOZE-style (no nusacrowd Tasks yet)
-        'INDOSTORYCLOZE': [
+        # IndoStoryCloze-style (no nusacrowd Tasks yet)
+        'IndoStoryCloze': [
             '[PREMISE]. [LABELS_CHOICE]',
             'Lanjutkan paragraf berikut:\n[PREMISE]. [LABELS_CHOICE]',
             '[PREMISE]\nBuat kalimat untuk melanjutkan paragraf diatas: [LABELS_CHOICE]',
             '[PREMISE]\nKalimat apa yang sesuai untuk menyambung paragraf diatas? Jawaban: [LABELS_CHOICE]',
         ],
+        # IndoMMLU-style (no nusacrowd Tasks yet)
+        'IndoMMLU': [
+            'Ini adalah soal [SUBJECT] untuk [LEVEL]. Pilihlah salah satu jawaban yang dianggap benar!\n\n[INPUT]\n[OPTION]\n\nJawaban: [LABELS_CHOICE]',
+            'Berikut ini adalah soal [SUBJECT] untuk tingkat [LEVEL]. Pilih jawaban yang tepat!\nSoal:[INPUT]\nPilihan: [OPTION]\nJawaban: [LABELS_CHOICE]',
+            'Pilihlah salah satu jawaban yang paling tepat untuk menjawab soal [SUBJECT] untuk [LEVEL] berikut!\nSoal: [INPUT]\nPilihan: [OPTION]\n\nJawaban: [LABELS_CHOICE]',
+            'Pilih jawaban yang dianggap benar untuk menjawab soal [SUBJECT] ditingkat [LEVEL] berikut!\n\n[INPUT]\n\n[OPTION]\n\nJawaban: [LABELS_CHOICE]',
+        ]
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen ([OPTIONS]): [LABELS_CHOICE]',
@@ -276,10 +285,14 @@ LABEL_LANG_MAP ={
         'eng': {'a': 'A', 'b': 'B'},
         'ind': {'a': 'A', 'b': 'B'}
     },
-    'INDOSTORYCLOZE': {
+    'IndoStoryCloze': {
         'eng': {0: '0', 1: '1'},
         'ind': {0: '0', 1: '1'}
     },
+    'IndoMMLU': {
+        'eng': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'},
+        'ind': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
+    }
 	'code_mixed_jv_id_jv_nusantara_text': {
 		'eng': {'-1': 'negative', '0': 'neutral', '1': 'positive'},
 		'ind': {'-1': 'negatif', '0': 'netral', '1': 'positif'}
