@@ -25,12 +25,12 @@ NLU_TASK_LIST = [
 ]
 
 NLU_TASK_LIST_EXTERNAL = [
-    # 'haryoaw/COPAL',
-    # 'MABL/id',
-    # 'MABL/jv',
-    # 'MABL/su',
-    # 'MAPS',
-    # 'IndoStoryCloze',
+    'MAPS',
+    'haryoaw/COPAL',
+    'MABL/id',
+    'MABL/jv',
+    'MABL/su',
+    'IndoStoryCloze',
     'IndoMMLU',
     # 'MAPS/figurative',
     # 'MAPS/non_figurative',
