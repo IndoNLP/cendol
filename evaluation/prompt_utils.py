@@ -161,8 +161,7 @@ TASK_TO_PROMPT = {
         'IndoMMLU': [
             'Ini adalah soal [SUBJECT] untuk [LEVEL]. Pilihlah salah satu jawaban yang dianggap benar!\n\n[INPUT]\n[OPTION]\n\nJawaban: [LABELS_CHOICE]',
             'Berikut ini adalah soal [SUBJECT] untuk tingkat [LEVEL]. Pilih jawaban yang tepat!\nSoal:[INPUT]\nPilihan: [OPTION]\nJawaban: [LABELS_CHOICE]',
-            'Pilihlah salah satu jawaban yang paling tepat untuk menjawab soal [SUBJECT] untuk [LEVEL] berikut!\nSoal: [INPUT]\nPilihan: [OPTION]\n\nJawaban: [LABELS_CHOICE]',
-            'Pilih jawaban yang dianggap benar untuk menjawab soal [SUBJECT] ditingkat [LEVEL] berikut!\n\n[INPUT]\n\n[OPTION]\n\nJawaban: [LABELS_CHOICE]',
+            'Pilihlah salah satu jawaban yang paling tepat untuk menjawab soal [SUBJECT] untuk [LEVEL] berikut!\nSoal: [INPUT]\nPilihan: [OPTION]\n\nJawaban: [LABELS_CHOICE]'
         ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
