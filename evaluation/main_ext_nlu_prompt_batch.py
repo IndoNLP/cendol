@@ -248,14 +248,14 @@ if __name__ == '__main__':
                         prompt_text = to_prompt_maps(sample, prompt_template, label_names, prompt_lang)
                         label = 0 if sample['label'] == 'a' else 1
                     elif 'IndoStoryCloze' in dset_subset:
-                        label_names = [sample['choice1'], sample['choice2']] # INDOSTORYCLOZE label is dynamic
+                        label_names = [sample['choice1'], sample['choice2']] # IndoStoryCloze label is dynamic
                         prompt_text = to_prompt_indo_story_cloze(sample, prompt_template, label_names, prompt_lang)
                         label = sample['label']
                     elif 'IndoMMLU' in dset_subset:
-                        key2id = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4}
+                        key2id = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4} # IndoMMLU label is dynamic
                         prompt_text = to_prompt_indommlu(sample, prompt_template, label_names, prompt_lang)
                         label_names = sample['jawaban'].split('\n')
-                        label = key2id[sample['kunci']]
+                        label = key2id[sample['label']]
                     
                     prompts.append(prompt_text)
                     labels.append(label)
