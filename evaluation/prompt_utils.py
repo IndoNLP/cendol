@@ -292,7 +292,7 @@ LABEL_LANG_MAP ={
     'IndoMMLU': {
         'eng': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'},
         'ind': {'A': 'A', 'B': 'B', 'C': 'C', 'D': 'D', 'E': 'E'}
-    }
+    },
 	'code_mixed_jv_id_jv_nusantara_text': {
 		'eng': {'-1': 'negative', '0': 'neutral', '1': 'positive'},
 		'ind': {'-1': 'negatif', '0': 'netral', '1': 'positif'}
