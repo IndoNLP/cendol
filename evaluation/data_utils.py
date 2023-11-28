@@ -25,11 +25,12 @@ NLU_TASK_LIST = [
 ]
 
 NLU_TASK_LIST_EXTERNAL = [
-    'haryoaw/COPAL',
-    'MABL/id',
-    'MABL/jv',
-    'MABL/su',
-    'MAPS',
+    # 'haryoaw/COPAL',
+    # 'MABL/id',
+    # 'MABL/jv',
+    # 'MABL/su',
+    # 'MAPS',
+    'indo_story_cloze'
     # 'MAPS/figurative',
     # 'MAPS/non_figurative',
 ]
@@ -89,6 +90,7 @@ def load_external_nlu_datasets():
         COPA = "COPA"
         MABL = "MABL"
         MAPS = "MAPS"
+        INDOSTORYCLOZE = "INDOSTORYCLOZE"
 
     for task in NLU_TASK_LIST_EXTERNAL:
         if 'COPAL' in task:
@@ -122,6 +124,19 @@ def load_external_nlu_datasets():
                 }, axis='columns')
             )
             cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.MAPS)
+        elif 'indo_story_cloze' in task:
+            df = datasets.load_dataset('indolem/indo_story_cloze')['test'].to_pandas()
+            
+            # Preprocess
+            df['premise'] = df.apply(lambda x: '. '.join([
+                x['sentence-1'], x['sentence-2'], x['sentence-3'], x['sentence-4']
+            ]), axis='columns')
+            df = df.rename({'correct_ending': 'choice1', 'incorrect_ending': 'choice2'}, axis='columns')
+            df = df[['premise', 'choice1', 'choice2']]
+            df['label'] = 0
+            
+            dset = datasets.Dataset.from_pandas(df)
+            cfg_name_to_dset_map[task] = (datasets.DatasetDict({'test': dset}), NewTasks.INDOSTORYCLOZE)
     return cfg_name_to_dset_map
 
 def load_nlg_datasets():

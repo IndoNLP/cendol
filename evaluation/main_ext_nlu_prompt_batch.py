@@ -43,17 +43,19 @@ def to_prompt_copa(input, prompt, labels, prompt_lang):
     return prompt
 
 def to_prompt_mabl(input, prompt, labels, prompt_lang):
-    #dynamic prompt depending question type (cause vs effect)
     prompt = prompt.replace('[PREMISE]', input['premise'])
     return prompt
 
 def to_prompt_maps(input, prompt, labels, prompt_lang):
-    #dynamic prompt depending question type (cause vs effect)
     prompt = prompt.replace('[PREMISE]', input['premise'])
     prompt = prompt.replace('[CONTEXT]', input['context'])
     prompt = prompt.replace('[OPTION_1]', input['choice1'])
     prompt = prompt.replace('[OPTION_2]', input['choice2'])
 
+    return prompt
+
+def to_prompt_indo_story_cloze(input, prompt, labels, prompt_lang):
+    prompt = prompt.replace('[PREMISE]', input['premise'])
     return prompt
 
 @torch.inference_mode()
@@ -195,10 +197,14 @@ if __name__ == '__main__':
             elif 'MABL' in dset_subset:
                 print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang)) 
             elif 'MAPS' in dset_subset:
-                print(to_prompt_maps(test_dset[0], prompt_template, label_names, prompt_lang))
+                print(to_prompt_maps(test_dset[0], prompt_template, label_names, prompt_lang)) 
+            elif 'INDOSTORYCLOZE' in dset_subset:
+                print(to_prompt_indo_story_cloze(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
-            if BATCH_SIZE > 1 and (('COPAL' in dset_subset) or ('MABL' in dset_subset)):
+            if BATCH_SIZE > 1 and (
+                ('COPAL' in dset_subset) or ('MABL' in dset_subset) or ('INDOSTORYCLOZE' in dset_subset)
+            ):
                 print("Warning: External tasks need batch-size = 1. Batch is set to 1")
                 BATCH_SIZE = 1
 
@@ -219,6 +225,9 @@ if __name__ == '__main__':
                         prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
                     elif 'MAPS' in dset_subset:
                         prompt_text = to_prompt_maps(sample, prompt_template, label_names, prompt_lang)
+                    elif 'INDOSTORYCLOZE' in dset_subset:
+                        label_names = [sample['choice1'], sample['choice2']] # INDOSTORYCLOZE label is dynamic
+                        prompt_text = to_prompt_indo_story_cloze(sample, prompt_template, label_names, prompt_lang)
                     
                     prompts.append(prompt_text)
                     labels.append(label_to_id_dict[label_mapping[sample['label']]])

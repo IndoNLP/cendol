@@ -13,7 +13,6 @@ TASK_TO_PROMPT = {
         ],
         # MABL-style (no nusacrowd Tasks yet)
         'MABL': [
-            'The sentence "[PREMISE]" concludes that [LABELS_CHOICE]',
             'The sentence "[PREMISE]" implies [LABELS_CHOICE]',
             '"[PREMISE]" suggests that [LABELS_CHOICE]',
             '[PREMISE]\n\nThe statement above implies: [LABELS_CHOICE]',
@@ -25,6 +24,13 @@ TASK_TO_PROMPT = {
             'Question: What does the proverb means in this context?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
             'Question: Which sense is more suitable given the following proverb and its context?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
             'Question: Which interpretation is more likely to define the proverb?\nProverb: [PREMISE]\nContext: [CONTEXT]\nChoices: A: [OPTION_1] B: [OPTION_2]\nAnswer: [LABELS_CHOICE]',
+        ],
+        # INDOSTORYCLOZE-style (no nusacrowd Tasks yet)
+        'INDOSTORYCLOZE': [
+            '[PREMISE]. [LABELS_CHOICE]',
+            'Continue the following paragraph:\n[PREMISE]. [LABELS_CHOICE]',
+            '[PREMISE]\nMake a sentence to continue the paragraph above: [LABELS_CHOICE]',
+            '[PREMISE]\nWhat sentence is suitable to follow the paragraph above? Answer: [LABELS_CHOICE]',
         ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
@@ -131,7 +137,6 @@ TASK_TO_PROMPT = {
         # MABL-style (no nusacrowd Tasks yet)
         'MABL': [
             'Dari kalimat "[PREMISE]" bisa disimpulkan bahwa [LABELS_CHOICE]',
-            'Kalimat "[PREMISE]" menyatakan bahwa [LABELS_CHOICE]',
             '"[PREMISE]" menunjukan [LABELS_CHOICE]',
             '[PREMISE]\n\nKalimat diatas menyatakan bahwa: [LABELS_CHOICE]',
             '[PREMISE]\n\nKalimat tersebut menyimpulkan [LABELS_CHOICE]'
@@ -142,7 +147,14 @@ TASK_TO_PROMPT = {
             'Pertanyaan: Apa arti peribahasa dalam konteks berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
             'Pertanyaan: Makna apa yang lebih tepat untuk mengartikan peribahasa dari konteks berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
             'Pertanyaan: Interpretasi mana yang lebih memungkinkan untuk mendefinisikan peribahasa berikut?\nPeribahasa [PREMISE]\nKonteks: [CONTEXT]\nPilihan: A: [OPTION_1] B: [OPTION_2]\nJawaban: [LABELS_CHOICE]',
-        ],        
+        ],    
+        # INDOSTORYCLOZE-style (no nusacrowd Tasks yet)
+        'INDOSTORYCLOZE': [
+            '[PREMISE]. [LABELS_CHOICE]',
+            'Lanjutkan paragraf berikut:\n[PREMISE]. [LABELS_CHOICE]',
+            '[PREMISE]\nBuat kalimat untuk melanjutkan paragraf diatas: [LABELS_CHOICE]',
+            '[PREMISE]\nKalimat apa yang sesuai untuk menyambung paragraf diatas? Jawaban: [LABELS_CHOICE]',
+        ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Klasifikasikan sentimen dari kalimat berikut.\n[INPUT] => Sentimen ([OPTIONS]): [LABELS_CHOICE]',
@@ -263,6 +275,10 @@ LABEL_LANG_MAP ={
     'MAPS/non_figurative': {
         'eng': {'a': 'A', 'b': 'B'},
         'ind': {'a': 'A', 'b': 'B'}
+    },
+    'INDOSTORYCLOZE': {
+        'eng': {0: '0', 1: '1'},
+        'ind': {0: '0', 1: '1'}
     },
 	'code_mixed_jv_id_jv_nusantara_text': {
 		'eng': {'-1': 'negative', '0': 'neutral', '1': 'positive'},
