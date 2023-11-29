@@ -1,10 +1,6 @@
 import re
 import os
 os.environ['TRANSFORMERS_NO_ADVISORY_WARNINGS'] = 'true'
-os.environ['HF_HOME'] = '/home/jovyan/.cache/huggingface'
-os.environ['HUGGINGFACE_HUB_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
-os.environ['TRANSFORMERS_CACHE'] = '/home/jovyan/.cache/huggingface/hub'
-os.environ['HF_DATASETS_CACHE'] = '/home/jovyan/.cache/huggingface/datasets'
 
 import sys
 import glob
@@ -57,7 +53,7 @@ class ModelArguments:
 
 @dataclass
 class DataArguments:
-    data_path: Optional[str] = field(default='MBZUAI/Bactrian-X', metadata={"help": "Path to the training file."})
+    data_path: Optional[str] = field(default='indonlp/nusa_t2t', metadata={"help": "Path to the training file."})
     source_max_length: Optional[int] = field(
         default=256, metadata={"help": "Maximum length of source. Sequences will be right padded (and possibly truncated)."}
     )
@@ -183,7 +179,7 @@ def train():
     # merged_dataset = concatenate_datasets(list(map(lambda x: x['train'], all_dataset)))
     # raw_datasets = DatasetDict({'train':merged_dataset})
     
-    raw_datasets = load_dataset("indonlp/nusa_t2t", use_auth_token=True)
+    raw_datasets = load_dataset(data_args.data_path, use_auth_token=True)
 
     # Determine model_max_length for truncation
     source_max_length = data_args.source_max_length
