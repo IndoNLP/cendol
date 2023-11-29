@@ -153,7 +153,8 @@ if __name__ == '__main__':
     set_seed(42)
 
     # Load Model
-    tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left') if ("gpt" not in MODEL and "text" not in MODEL) else None
+    trust_remote_code = True if "sealion" in MODEL else False
+    tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', trust_remote_code=trust_remote_code) if ("gpt" not in MODEL and "text" not in MODEL) else None
     if isinstance(tokenizer, BloomTokenizerFast) and tokenizer.padding_side == 'right':
         # this is quick fix for bloomz model (esp. bloomz-3b)
         # among all bloomz model, only 3b version that has `padding_side='right'` params by default
@@ -178,7 +179,7 @@ if __name__ == '__main__':
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", torch_dtype=torch.float16, resume_download=True)
         model = model.bfloat16().cuda()
     else:
-        model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True)
+        model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True, trust_remote_code=trust_remote_code)
         model = model.to('cuda')
     
     if model is not None:
