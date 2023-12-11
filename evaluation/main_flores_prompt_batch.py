@@ -110,6 +110,9 @@ def predict_generation(prompts, model_name, tokenizer, model):
 
     inputs = tokenizer(prompts, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
     input_size = inputs["input_ids"].shape[1]
+
+    if "sealion" in model_name:
+        inputs.pop("token_type_ids", None)
     
     if model.config.is_encoder_decoder:
         outputs = model.generate(**inputs, do_sample=True, min_length=1, max_length=100)
@@ -157,34 +160,33 @@ if __name__ == '__main__':
     # Set seed
     set_seed(42)
 
-    # Load Model
-    tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left') if ("gpt" not in MODEL and "text" not in MODEL) else None
-    if isinstance(tokenizer, BloomTokenizerFast) and tokenizer.padding_side == 'right':
-        # this is quick fix for bloomz model (esp. bloomz-3b)
-        # among all bloomz model, only 3b version that has `padding_side='right'` params by default
-        tokenizer.padding_side = 'left'
-    
+    # Load Model & Tokenizer
+    # Tokenizer initialization
+    trust_remote_code = "sealion" in MODEL
+    if "gpt" not in MODEL and "text" not in MODEL:
+        tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', trust_remote_code=trust_remote_code)
+        tokenizer.padding_side = "left"
+        if "llama" in MODEL:
+            tokenizer.pad_token = tokenizer.bos_token
+        elif "sealion" in MODEL:
+            tokenizer.pad_token = tokenizer.eos_token  # sealion doesn't have bos_token, use eos_token instead
+    else:
+        tokenizer = None
+
+    # Model initialization
+    fp16_args = {'device_map': "auto", 'torch_dtype': torch.float16}  # needed for larger model
     if ADAPTER != '':
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, resume_download=True)
-        model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
-        MODEL = ADAPTER # for file naming
+        base_model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, resume_download=True)
+        model = PeftModel.from_pretrained(base_model, ADAPTER, torch_dtype=torch.float16)
+        MODEL = ADAPTER  # for file naming
     elif "gpt" in MODEL or "text" in MODEL:
         model = None
-    elif 'mt0' in MODEL or 'mt5' in MODEL:
-        if "xxl" in MODEL:
-            model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", torch_dtype=torch.float16, resume_download=True)
-        else:
-            model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, resume_download=True)
-            model = model.to('cuda')
-    elif 'llama' in MODEL:
-        # Fix batch tokenization error
-        tokenizer.pad_token = tokenizer.bos_token
-        tokenizer.padding_side = "left"
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", torch_dtype=torch.float16, resume_download=True)
-        model = model.bfloat16().cuda()
+    elif "mt0" in MODEL or "mt5" in MODEL:
+        extra_args = fp16_args if "xxl" in MODEL else {}
+        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, resume_download=True, **extra_args)
     else:
-        model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True)
-        model = model.to('cuda')
+        extra_args = fp16_args if "llama" in MODEL or "sealion" in MODEL else {}
+        model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True, trust_remote_code=trust_remote_code, **extra_args)
     
     if model is not None:
         model.eval()
