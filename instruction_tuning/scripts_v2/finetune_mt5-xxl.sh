@@ -10,8 +10,8 @@ model_size='xxl'
 batch_size=32
 grad_accum=1
 accelerate launch finetune_seq2seq.py \
-    --model_name_or_path indonlp/cendol-mt5-${model_size} \
-    --output_dir output_v2/cendol-mt5-${model_size} \
+    --model_name_or_path indonlp/cendol-mt5-${model_size}-merged \
+    --output_dir output_v2/cendol-mt5-${model_size}-lora \
     --overwrite_output_dir \
     --learning_rate 1e-4 \
     --data_path indonlp/nusa_t2t_v2 \
@@ -21,7 +21,7 @@ accelerate launch finetune_seq2seq.py \
     --gradient_accumulation_steps ${grad_accum} \
     --num_train_epochs 1 \
     --source_max_length 512 \
-    --model_max_length 1024 \
+    --model_max_length 768 \
     --val_set_size 5000 \
     --save_steps 5000 \
     --eval_steps 5000 \
