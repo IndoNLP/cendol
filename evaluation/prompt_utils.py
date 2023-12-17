@@ -33,7 +33,11 @@ TASK_TO_PROMPT = {
             '[PREMISE]\nWhat sentence is suitable to follow the paragraph above? Answer: [LABELS_CHOICE]',
         ],
         # IndoMMLU-style (no nusacrowd Tasks yet)
-        'IndoMMLU': [],
+        'IndoMMLU': [
+            'This is a [SUBJECT] question for [LEVEL]. Choose one of the answers that is considered correct!\n\n[INPUT]\n[OPTION]\n\nAnswer: [LABELS_CHOICE]',
+            'The following is a [SUBJECT] question for [LEVEL] level. Choose the right answer!\nQuestion:[INPUT]\nChoice: [OPTION]\nAnswer: [LABELS_CHOICE]',
+            'Choose one of the most appropriate answers to answer the [SUBJECT] question for [LEVEL]!\nQuestion: [INPUT]\nChoice: [OPTION]\n\nAnswer: [LABELS_CHOICE]' 
+            ],
         # Tasks.SENTIMENT_ANALYSIS
         'SA': [
             'Classify the sentiment of the text below.\n[INPUT] => Sentiment ([OPTIONS]): [LABELS_CHOICE]',
