@@ -75,7 +75,8 @@ def to_prompt_indommlu(input, prompt, labels, prompt_lang):
 
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
-    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')    
+    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')
+    inputs = {k:v for k,v in inputs.items() if k in ['input_ids', 'attention_mask']}
     if model.config.is_encoder_decoder:
         label_ids = label_ids.repeat((inputs['input_ids'].shape[0],1))
         label_attn = label_attn.repeat((inputs['input_ids'].shape[0],1))
@@ -88,7 +89,6 @@ def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
         logprobs = torch.gather(F.log_softmax(logits, dim=-1), 2, output_ids.unsqueeze(2)).squeeze(dim=-1)
         logprobs[inputs["attention_mask"][:, :-1] == 0] = 0
         return logprobs.sum(dim=1).cpu()
-
 
 @torch.inference_mode()
 def predict_classification(model, tokenizer, prompts, labels):
@@ -145,15 +145,17 @@ if __name__ == '__main__':
     set_seed(42)
 
     # Load Model
-    tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', padding_side='right')
+    tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', padding_side='right', trust_remote_code=True)
     if ADAPTER != "":
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False)
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
         model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
         MODEL = ADAPTER # for file naming
-    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL:
-        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False)
+    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL or "sealion7b" in MODEL or "Merak" in MODEL or "SeaLLM" in MODEL or  "Llama" in MODEL:
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
+        if "sealion7b" in MODEL or  "Llama" in MODEL:
+            tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
     else:
-        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False)
+        model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
         tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
         
     model.eval()
