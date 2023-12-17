@@ -152,7 +152,7 @@ if __name__ == '__main__':
         MODEL = ADAPTER # for file naming
     elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL or "sealion7b" in MODEL or "Merak" in MODEL or "SeaLLM" in MODEL or  "Llama" in MODEL:
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
-        if "sealion7b" in MODEL:
+        if "sealion7b" in MODEL or  "Llama" in MODEL:
             tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
     else:
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
