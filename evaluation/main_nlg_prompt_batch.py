@@ -182,9 +182,15 @@ if __name__ == '__main__':
     elif "mt0" in MODEL or "mt5" in MODEL:
         extra_args = fp16_args if "xxl" in MODEL else {}
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, resume_download=True, **extra_args)
+        if "xxl" not in MODEL:
+            model = model.to('cuda')
     else:
         extra_args = fp16_args if "7b" in MODEL.lower() or "13b" in MODEL.lower() else {}
         model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True, trust_remote_code=trust_remote_code, **extra_args)
+        if "SeaLLM" in MODEL or "llama" in MODEL:
+            # quick fix for tensor error
+            # https://github.com/facebookresearch/llama/issues/380
+            model = model.bfloat16()
     
     if model is not None:
         model.eval()
