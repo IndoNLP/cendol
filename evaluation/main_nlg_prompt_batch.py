@@ -51,7 +51,7 @@ def generation_metrics_fn(list_hyp, list_label):
     return metrics
 
 
-def to_prompt(input, prompt, prompt_lang, task_name, task_type, with_label=False):
+def to_prompt(input, prompt, prompt_lang, task_name, task_type, with_label=False, use_template=False):
     if '[INPUT]' in prompt:
         prompt = prompt.replace('[INPUT]', input['text_1'])
 
@@ -74,6 +74,10 @@ def to_prompt(input, prompt, prompt_lang, task_name, task_type, with_label=False
             prompt += " " + input['answer'][0]
         else:
             prompt += " " + input['text_2']
+
+    if use_template:
+        prompt_template = "### USER:\n{human_prompt}\n\n### RESPONSE:\n"
+        prompt = prompt_template.format(human_prompt=prompt)
     
     return prompt
 
@@ -158,18 +162,17 @@ if __name__ == '__main__':
     # Load Model & Tokenizer
     # Tokenizer initialization
     trust_remote_code = "sealion" in MODEL
+    use_prompt_template = "sealion" in MODEL and "instruct" in MODEL
     if "gpt" not in MODEL and "text" not in MODEL:
         tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', trust_remote_code=trust_remote_code)
         tokenizer.padding_side = "left"
-        if "llama" in MODEL:
-            tokenizer.pad_token = tokenizer.bos_token
-        elif "sealion" in MODEL:
-            tokenizer.pad_token = tokenizer.eos_token  # sealion doesn't have bos_token, use eos_token instead
+        if tokenizer.pad_token is None:
+            tokenizer.pad_token = tokenizer.bos_token if tokenizer.bos_token is not None else tokenizer.eos_token
     else:
         tokenizer = None
 
     # Model initialization
-    fp16_args = {'device_map': "auto", 'torch_dtype': torch.float16}  # needed for larger model
+    fp16_args = {'device_map': "auto", 'torch_dtype': torch.float16, 'load_in_8bit': True}  # needed for larger model
     if ADAPTER != '':
         base_model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, resume_download=True)
         model = PeftModel.from_pretrained(base_model, ADAPTER, torch_dtype=torch.float16)
@@ -179,9 +182,15 @@ if __name__ == '__main__':
     elif "mt0" in MODEL or "mt5" in MODEL:
         extra_args = fp16_args if "xxl" in MODEL else {}
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, resume_download=True, **extra_args)
+        if "xxl" not in MODEL:
+            model = model.to('cuda')
     else:
-        extra_args = fp16_args if "llama" in MODEL or "sealion" in MODEL else {}
+        extra_args = fp16_args if "7b" in MODEL.lower() or "13b" in MODEL.lower() else {}
         model = AutoModelForCausalLM.from_pretrained(MODEL, resume_download=True, trust_remote_code=trust_remote_code, **extra_args)
+        if "SeaLLM" in MODEL or "llama" in MODEL:
+            # quick fix for tensor error
+            # https://github.com/facebookresearch/llama/issues/380
+            model = model.bfloat16()
     
     if model is not None:
         model.eval()
@@ -208,7 +217,7 @@ if __name__ == '__main__':
             preds_latin = []
             golds = []  
             print(f"PROMPT ID: {prompt_id}")
-            print(f"SAMPLE PROMPT: {to_prompt(data[0], prompt_template, prompt_lang, dset_subset, task_type.value)}")
+            print(f"SAMPLE PROMPT: {to_prompt(data[0], prompt_template, prompt_lang, dset_subset, task_type.value, use_template=use_prompt_template)}")
 
             few_shot_text_list = []
             if N_SHOT > 0:
@@ -217,7 +226,7 @@ if __name__ == '__main__':
                     if task_type != Tasks.QUESTION_ANSWERING and len(sample['text_1']) < 20:
                         continue
                     few_shot_text_list.append(
-                        to_prompt(sample, prompt_template, dset_subset, task_type.value, with_label=True)
+                        to_prompt(sample, prompt_template, dset_subset, task_type.value, with_label=True, use_template=use_prompt_template)
                     )
                     if len(few_shot_text_list) == N_SHOT:
                         break
@@ -245,7 +254,7 @@ if __name__ == '__main__':
                             continue
                         
                         # Buffer
-                        prompt_text = to_prompt(sample, prompt_template, prompt_lang, dset_subset, task_type.value)
+                        prompt_text = to_prompt(sample, prompt_template, prompt_lang, dset_subset, task_type.value, use_template=use_prompt_template)
                         prompt_text = '\n\n'.join(few_shot_text_list + [prompt_text])
                         prompts.append(prompt_text)
                         batch_golds.append(sample['answer'][0] if task_type == Tasks.QUESTION_ANSWERING else sample['text_2'])
