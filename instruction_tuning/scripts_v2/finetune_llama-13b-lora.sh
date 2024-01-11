@@ -20,7 +20,7 @@ accelerate launch finetune.py \
     --per_device_eval_batch_size ${batch_size} \
     --gradient_accumulation_steps ${grad_accum} \
     --num_train_epochs 1 \
-    --model_max_length 1024 \
+    --model_max_length 768 \
     --val_set_size 5000 \
     --save_steps 5000 \
     --eval_steps 5000 \
