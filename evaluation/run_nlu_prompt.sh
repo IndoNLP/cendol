@@ -35,8 +35,8 @@ CUDA_VISIBLE_DEVICES=0 python main_nlu_prompt_batch.py eng bigscience/bloom-7b1-
 CUDA_VISIBLE_DEVICES=1 python main_nlu_prompt_batch.py eng bigscience/bloom-7b1---haonan-li/bactrian-id-bloom-7b1-lora 20
 
 # Zero-Shot aisingapore/sealion7b Ind & Eng
-CUDA_VISIBLE_DEVICES=0 python main_nlu_prompt_batch.py ind aisingapore/sealion7b 8
-CUDA_VISIBLE_DEVICES=1 python main_nlu_prompt_batch.py eng aisingapore/sealion7b 8
+CUDA_VISIBLE_DEVICES=0 python main_nlu_prompt_batch.py ind aisingapore/sealion7b-instruct-nc 16
+CUDA_VISIBLE_DEVICES=0 python main_nlu_prompt_batch.py eng aisingapore/sealion7b-instruct-nc 16
 
 # Zero-Shot Merak-V4 Ind
 CUDA_VISIBLE_DEVICES=0 python main_nlu_prompt_batch.py ind Ichsan2895/Merak-7B-v4 8
