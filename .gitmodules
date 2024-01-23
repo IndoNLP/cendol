@@ -1,0 +1,3 @@
+[submodule "evaluation/SafeNLP"]
+	path = evaluation/SafeNLP
+	url = git@github.com:SamuelCahyawijaya/SafeNLP.git
