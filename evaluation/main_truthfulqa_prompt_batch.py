@@ -23,7 +23,7 @@ from nusacrowd import NusantaraConfigHelper
 from nusacrowd.utils.constants import Tasks
 
 from prompt_utils import get_prompt, get_label_mapping
-from data_utils import load_external_nlu_datasets
+from data_utils import load_truthfulqa_datasets
 
 #!pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 #!pip install transformers
@@ -112,7 +112,7 @@ def predict_classification(model, tokenizer, prompts, labels):
 
 if __name__ == '__main__':
     if len(sys.argv) < 4:
-        raise ValueError('main_ext_nlu_prompt.py <prompt_lang> <model_path_or_name> <batch_size> <save_every (OPTIONAL)>')
+        raise ValueError('main_truthfulqa_prompt_batch.py <prompt_lang> <model_path_or_name> <batch_size> <save_every (OPTIONAL)>')
 
     prompt_lang = sys.argv[1]
     MODEL = sys.argv[2]
@@ -125,8 +125,8 @@ if __name__ == '__main__':
     if len(sys.argv) == 5:
         SAVE_EVERY = int(sys.argv[4])
 
-    out_dir = './outputs_nlu_ext'
-    metric_dir = './metrics_nlu_ext'
+    out_dir = './outputs_truthfulqa'
+    metric_dir = './metrics_truthfulqa'
     os.makedirs(out_dir, exist_ok=True) 
     os.makedirs(metric_dir, exist_ok=True) 
 
@@ -135,7 +135,7 @@ if __name__ == '__main__':
 
     # Load Dataset
     print('Load NLU Datasets...')
-    nlu_datasets = load_external_nlu_datasets()
+    nlu_datasets = load_truthfulqa_datasets()
 
     print(f'Loaded {len(nlu_datasets)} NLU datasets')
     for i, dset_subset in enumerate(nlu_datasets.keys()):

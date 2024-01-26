@@ -162,3 +162,6 @@ def load_flores_datasets():
         dset = dset.rename_columns({f'sentence_{src_lang}': 'text_1', f'sentence_{tgt_lang}': 'text_2'}).select_columns(['id', 'text_1', 'text_2'])
         dset_map[task] = (dset, Tasks.MACHINE_TRANSLATION)
     return dset_map
+
+def load_truthfulqa_datasets():
+    return (datasets.load_dataset('truthful_qa', name='multiple_choice'), Tasks.QUESTION_ANSWERING)
