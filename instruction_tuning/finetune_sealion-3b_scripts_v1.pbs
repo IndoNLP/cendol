@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -q normal
+#PBS -N cendol_sealion_3b_testrun
+#PBS -l select=1:ngpus=2:mem=128gb
+#PBS -l walltime=3:00:00
+#PBS -koed
+#PBS -P 11003280
+
+export PATH=$HOME/anaconda3/bin:$PATH
+source activate cendol
+
+cd /home/users/nus/hlovenia/scratch/projects/indo-t0/instruction_tuning
+
+huggingface-cli login --token $HF_TOKEN
+
+bash scripts_v1/finetune_sealion-3b.sh | tee pbs_logs/finetune_sealion-3b.out
