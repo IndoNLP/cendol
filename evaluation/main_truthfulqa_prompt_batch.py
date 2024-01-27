@@ -141,10 +141,7 @@ if __name__ == '__main__':
         print(f'Processing {dset_subset}')
 
         # Retrieve & preprocess labels
-        try:
-            label_names = test_dset.features['label'].names
-        except:
-            label_names = list(set(test_dset['label']))
+        label_names = [0,1]
             
         # normalize some labels for more natural prompt:
         label_mapping = get_label_mapping(dset_subset, prompt_lang)
