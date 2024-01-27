@@ -24,6 +24,7 @@ from nusacrowd.utils.constants import Tasks
 
 from prompt_utils import get_prompt, get_label_mapping
 from data_utils import load_truthfulqa_datasets
+from itertools import chain
 
 #!pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 #!pip install transformers
@@ -31,47 +32,10 @@ from data_utils import load_truthfulqa_datasets
 
 DEBUG=False
 
-def to_prompt_copa(input, prompt, labels, prompt_lang):
-    #dynamic prompt depending question type (cause vs effect)
-    prompt = prompt[input['question']]
-
-    prompt = prompt.replace('[PREMISE]', input['premise'])
-    prompt = prompt.replace('[PREMISE_STRIP]', input['premise'].rstrip('.'))
-    prompt = prompt.replace('[OPTION_1]', input['choice1'])
-    prompt = prompt.replace('[OPTION_2]', input['choice2'])
-
+def to_prompt_truthfulqa(input, prompt, labels, prompt_lang):
+    prompt = prompt.replace('[QUESTION]', input['question'])
     return prompt
 
-def to_prompt_mabl(input, prompt, labels, prompt_lang):
-    prompt = prompt.replace('[PREMISE]', input['premise'])
-    return prompt
-
-def to_prompt_maps(input, prompt, labels, prompt_lang):
-    prompt = prompt.replace('[PREMISE]', input['premise'])
-    prompt = prompt.replace('[CONTEXT]', input['context'])
-    prompt = prompt.replace('[OPTION_1]', input['choice1'])
-    prompt = prompt.replace('[OPTION_2]', input['choice2'])
-
-    return prompt
-
-def to_prompt_indo_story_cloze(input, prompt, labels, prompt_lang):
-    prompt = prompt.replace('[PREMISE]', input['premise'])
-    return prompt
-
-def to_prompt_indommlu(input, prompt, labels, prompt_lang):
-    if input['level'] == 'Seleksi PTN':
-        level = 'seleksi masuk universitas'
-    else:
-        try:
-            level = f"{math.trunc(float(input['kelas']))} {input['level']}"
-        except:
-            level = f"{input['kelas']} {input['level']}"    
-    
-    prompt = prompt.replace('[SUBJECT]', input['subject'])
-    prompt = prompt.replace('[LEVEL]', level)
-    prompt = prompt.replace('[INPUT]', input['soal'])
-    prompt = prompt.replace('[OPTION]',input['jawaban'])
-    return prompt
 
 @torch.inference_mode()
 def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
@@ -134,10 +98,10 @@ if __name__ == '__main__':
     TASK_TYPE_TO_PROMPT = get_prompt(prompt_lang)
 
     # Load Dataset
-    print('Load NLU Datasets...')
-    nlu_datasets = load_truthfulqa_datasets()
+    print('Load TruthfulQA Datasets...')
+    nlu_datasets = load_truthfulqa_datasets() # List of a single tuple of (datasets.Dataset, Task)
 
-    print(f'Loaded {len(nlu_datasets)} NLU datasets')
+    print(f'Loaded {len(nlu_datasets)} TruthfulQA datasets')
     for i, dset_subset in enumerate(nlu_datasets.keys()):
         print(f'{i} {dset_subset}')
 
@@ -171,12 +135,9 @@ if __name__ == '__main__':
             continue
 
         # Retrieve metadata
-        split = 'test'
-        if 'test' in nlu_dset.keys():
-            test_dset = nlu_dset['test']
-        else:
-            test_dset = nlu_dset['train']
-            split = 'train'
+        split = 'validation'
+        test_dset = nlu_dset[split]
+
         print(f'Processing {dset_subset}')
 
         # Retrieve & preprocess labels
@@ -209,16 +170,7 @@ if __name__ == '__main__':
             print("= LABEL NAME =")
             print(label_names)
             print("= SAMPLE PROMPT =")
-            if 'COPAL' in dset_subset:
-                print(to_prompt_copa(test_dset[0], prompt_template, label_names, prompt_lang))
-            elif 'MABL' in dset_subset:
-                print(to_prompt_mabl(test_dset[0], prompt_template, label_names, prompt_lang)) 
-            elif 'MAPS' in dset_subset:
-                print(to_prompt_maps(test_dset[0], prompt_template, label_names, prompt_lang)) 
-            elif 'IndoStoryCloze' in dset_subset:
-                print(to_prompt_indo_story_cloze(test_dset[0], prompt_template, label_names, prompt_lang))
-            elif 'IndoMMLU' in dset_subset:
-                print(to_prompt_indommlu(test_dset[0], prompt_template, label_names, prompt_lang))
+            print(to_prompt_truthfulqa(test_dset[0], prompt_template, label_names, prompt_lang))
             print("\n")
 
             if BATCH_SIZE > 1 and (
@@ -237,26 +189,9 @@ if __name__ == '__main__':
                         continue
 
                     # Add to buffer
-                    if 'COPAL' in dset_subset:
-                        label_names = [sample['choice1'], sample['choice2']] # COPAL label is dynamic
-                        prompt_text = to_prompt_copa(sample, prompt_template, label_names, prompt_lang)
-                        label = int(sample['label'])
-                    elif 'MABL' in dset_subset:
-                        label_names = [sample['choice1'], sample['choice2']] # MABL label is dynamic
-                        prompt_text = to_prompt_mabl(sample, prompt_template, label_names, prompt_lang)
-                        label = int(sample['label'])
-                    elif 'MAPS' in dset_subset:
-                        prompt_text = to_prompt_maps(sample, prompt_template, label_names, prompt_lang)
-                        label = 0 if sample['label'] == 'a' else 1
-                    elif 'IndoStoryCloze' in dset_subset:
-                        label_names = [sample['choice1'], sample['choice2']] # IndoStoryCloze label is dynamic
-                        prompt_text = to_prompt_indo_story_cloze(sample, prompt_template, label_names, prompt_lang)
-                        label = sample['label']
-                    elif 'IndoMMLU' in dset_subset:
-                        key2id = {'A': 0, 'B': 1, 'C': 2, 'D': 3, 'E': 4} # IndoMMLU label is dynamic
-                        prompt_text = to_prompt_indommlu(sample, prompt_template, label_names, prompt_lang)
-                        label_names = sample['jawaban'].split('\n')
-                        label = key2id[sample['label']]
+                    label_names = list(chain(*sample['mc1_targets']['choices'])) # MABL label is dynamic
+                    prompt_text = to_prompt_truthfulqa(sample, prompt_template, label_names, prompt_lang)
+                    label = 0 # Label is always the first index in TruthfulQA MC1
                     
                     prompts.append(prompt_text)
                     labels.append(label)

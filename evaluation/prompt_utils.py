@@ -1,5 +1,11 @@
 TASK_TO_PROMPT = {
     'eng': {
+        'TRUTHFULQA': [
+            '[QUESTION]\n[LABELS_CHOICE]',
+            'Question: [QUESTION]\nAnswer: [LABELS_CHOICE]',
+            'What is the best answer for the given question: [QUESTION]\nAnswer: [LABELS_CHOICE]',
+            '[QUESTION]\nAnswer: [LABELS_CHOICE]',
+        ],
         # COPA-style (no nusacrowd Tasks yet)
         'COPA': [
             {'cause': '[PREMISE] This happened because...\nHelp me pick the more plausible option: - choice1: [OPTION_1], choice2: [OPTION_2]\n\n[LABELS_CHOICE]',
@@ -129,6 +135,12 @@ TASK_TO_PROMPT = {
         ],
     },
     'ind': {
+        'TRUTHFULQA': [
+            '[QUESTION]\n[LABELS_CHOICE]',
+            'Pertanyaan: [QUESTION]\nJawaban: [LABELS_CHOICE]',
+            'Apa jawaban terbaik dari pertanyaan berikut: [QUESTION]\nJawaban: [LABELS_CHOICE]',
+            '[QUESTION]\nJawaban: [LABELS_CHOICE]',
+        ],
         # COPA-style (no nusacrowd Tasks yet)
         'COPA': [
             {'cause': '[PREMISE] Ini terjadi karena...\nBantu saya memilih opsi yang paling mungkin: - opsi1: [OPTION_1], opsi2: [OPTION_2]\n\n[LABELS_CHOICE]',
@@ -260,6 +272,10 @@ TASK_TO_PROMPT = {
 }
 
 LABEL_LANG_MAP ={
+    'TRUTHFULQA': {
+        'eng': {0: '0', 1: '1'},
+        'ind': {0: '0', 1: '1'}
+    },
     'haryoaw/COPAL': {
         'eng': {0: '0', 1: '1'},
         'ind': {0: '0', 1: '1'}
