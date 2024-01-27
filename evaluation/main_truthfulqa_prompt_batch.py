@@ -24,7 +24,6 @@ from nusacrowd.utils.constants import Tasks
 
 from prompt_utils import get_prompt, get_label_mapping
 from data_utils import load_truthfulqa_datasets
-from itertools import chain
 
 #!pip install git+https://github.com/IndoNLP/nusa-crowd.git@release_exp
 #!pip install transformers
@@ -186,9 +185,12 @@ if __name__ == '__main__':
                         continue
 
                     # Add to buffer
-                    label_names = list(chain(*sample['mc1_targets']['choices'])) # MABL label is dynamic
+                    label_names = sample['mc1_targets']['choices'] # TruthfulQA label is dynamic
                     prompt_text = to_prompt_truthfulqa(sample, prompt_template, label_names, prompt_lang)
                     label = 0 # Label is always the first index in TruthfulQA MC1
+                    print(prompt_text)
+                    print(label_names)
+                    print(sample['mc1_targets']['choices'])
                     
                     prompts.append(prompt_text)
                     labels.append(label)
