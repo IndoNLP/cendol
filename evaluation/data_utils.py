@@ -166,4 +166,4 @@ def load_flores_datasets():
 def load_truthfulqa_datasets():
     class NewTasks(Enum):
         TRUTHFULQA = "TRUTHFULQA"
-    return [(datasets.load_dataset('truthful_qa', name='multiple_choice'), Tasks.QUESTION_ANSWERING)]
+    return {'truthfulqa': (datasets.load_dataset('truthful_qa', name='multiple_choice'), Tasks.QUESTION_ANSWERING)}
