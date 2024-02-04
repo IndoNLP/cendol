@@ -146,8 +146,8 @@ def train():
 
     tokenizer = AutoTokenizer.from_pretrained(
         model_args.model_name_or_path,
-        padding_side="right",
-        use_fast=False,
+        padding_side="right" if model.config.is_encoder_decoder else "left",
+        use_fast=False if model.config.is_encoder_decoder else True
     )
     
     # llama has no pad_token
