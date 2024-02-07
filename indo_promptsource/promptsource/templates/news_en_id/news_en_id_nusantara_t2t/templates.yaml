@@ -1,0 +1,388 @@
+dataset: news_en_id
+subset: news_en_id_nusantara_t2t
+templates:
+  4ce0a73b-867b-4c0d-8710-13230c078cc1: !Template
+    answer_choices: null
+    id: 4ce0a73b-867b-4c0d-8710-13230c078cc1
+    jinja: "Apa kalimat bahasa inggris dari kalimat berikut ini? \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_2
+    reference: ''
+  7dd066b2-6f3b-4616-a065-b8ac309ce717: !Template
+    answer_choices: null
+    id: 7dd066b2-6f3b-4616-a065-b8ac309ce717
+    jinja: 'English: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_9
+    reference: ''
+  b2cf4d4a-56b6-4483-ba17-7c1cfc023df7: !Template
+    answer_choices: null
+    id: b2cf4d4a-56b6-4483-ba17-7c1cfc023df7
+    jinja: 'Sentence: {{text_2}}
+
+      English Translation: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_24
+    reference: ''
+  e3a658db-2168-4da7-a521-76dc4930a035: !Template
+    answer_choices: null
+    id: e3a658db-2168-4da7-a521-76dc4930a035
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_19
+    reference: ''
+  d7dbfacc-ed6d-484e-909e-119abc6f1665: !Template
+    answer_choices: null
+    id: d7dbfacc-ed6d-484e-909e-119abc6f1665
+    jinja: 'Tolong translate ke bahasa inggris: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_3
+    reference: ''
+  c2acccec-e704-4e6b-bba6-c5f6f305b4ec: !Template
+    answer_choices: null
+    id: c2acccec-e704-4e6b-bba6-c5f6f305b4ec
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa inggris nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_5
+    reference: ''
+  c5f74889-7e88-4cff-bbab-2a30bea8b98b: !Template
+    answer_choices: null
+    id: c5f74889-7e88-4cff-bbab-2a30bea8b98b
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa inggris ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_4
+    reference: ''
+  89c045a2-7cc7-4257-9c58-d420350e5202: !Template
+    answer_choices: null
+    id: 89c045a2-7cc7-4257-9c58-d420350e5202
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_11
+    reference: ''
+  6c587a47-ba14-4e26-b276-64b7d6a7c744: !Template
+    answer_choices: null
+    id: 6c587a47-ba14-4e26-b276-64b7d6a7c744
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_10
+    reference: ''
+  2b4e8f73-6b99-4021-9581-180b206be71d: !Template
+    answer_choices: null
+    id: 2b4e8f73-6b99-4021-9581-180b206be71d
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_18
+    reference: ''
+  3dc40d4d-512e-4c03-9d2f-4f92a625cab5: !Template
+    answer_choices: null
+    id: 3dc40d4d-512e-4c03-9d2f-4f92a625cab5
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_13
+    reference: ''
+  378a5abb-a4c3-445f-81dc-72c0afd6c280: !Template
+    answer_choices: null
+    id: 378a5abb-a4c3-445f-81dc-72c0afd6c280
+    jinja: '{{text_2}}
+
+
+      Apa kalimat bahasa inggris dari kalimat diatas? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_1
+    reference: ''
+  6999caef-521d-4894-8ea4-65519b78fa29: !Template
+    answer_choices: null
+    id: 6999caef-521d-4894-8ea4-65519b78fa29
+    jinja: 'Sentence: {{text_2}}
+
+      English: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_25
+    reference: ''
+  90cb90e2-0146-4a27-9d57-c184c76b5139: !Template
+    answer_choices: null
+    id: 90cb90e2-0146-4a27-9d57-c184c76b5139
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_12
+    reference: ''
+  8af96b3a-b7d7-427f-abbc-8272172c7d00: !Template
+    answer_choices: null
+    id: 8af96b3a-b7d7-427f-abbc-8272172c7d00
+    jinja: 'Kalimat: {{text_2}}
+
+      Inggris: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_8
+    reference: ''
+  0a8d81dc-0d94-4fa5-92f2-4c2d825c602e: !Template
+    answer_choices: null
+    id: 0a8d81dc-0d94-4fa5-92f2-4c2d825c602e
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to English ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_22
+    reference: ''
+  b5ced8ea-8552-4442-9f55-bae9189154ec: !Template
+    answer_choices: null
+    id: b5ced8ea-8552-4442-9f55-bae9189154ec
+    jinja: 'Indonesian: {{text_2}}
+
+      English: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_21
+    reference: ''
+  2d04bfc7-6e54-4b6b-8feb-405c28907ee3: !Template
+    answer_choices: null
+    id: 2d04bfc7-6e54-4b6b-8feb-405c28907ee3
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_14
+    reference: ''
+  07d4c2fb-02e3-4e34-8466-ddc806748044: !Template
+    answer_choices: null
+    id: 07d4c2fb-02e3-4e34-8466-ddc806748044
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_17
+    reference: ''
+  2ed171a4-d505-42eb-9302-8db803e6ba3c: !Template
+    answer_choices: null
+    id: 2ed171a4-d505-42eb-9302-8db803e6ba3c
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_20
+    reference: ''
+  0ec10cf3-c2c2-497d-b483-971d473e50f7: !Template
+    answer_choices: null
+    id: 0ec10cf3-c2c2-497d-b483-971d473e50f7
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan inggris: ||| {{text_1}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_7
+    reference: ''
+  46b3c40a-3713-4b2e-adca-9a6468f5d4f0: !Template
+    answer_choices: null
+    id: 46b3c40a-3713-4b2e-adca-9a6468f5d4f0
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the English version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_23
+    reference: ''
+  04277961-024c-40af-8662-faf6aa03322e: !Template
+    answer_choices: null
+    id: 04277961-024c-40af-8662-faf6aa03322e
+    jinja: "Terjemahkan ke bahasa inggris: \n\n{{text_2}} ||| {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_6
+    reference: ''
+  bb420a10-ed4a-4be6-ac44-cfef2dbbe762: !Template
+    answer_choices: null
+    id: bb420a10-ed4a-4be6-ac44-cfef2dbbe762
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: news_en_id_template_16
+    reference: ''

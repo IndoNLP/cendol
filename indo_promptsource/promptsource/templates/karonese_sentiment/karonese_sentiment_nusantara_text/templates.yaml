@@ -1,0 +1,189 @@
+dataset: karonese_sentiment
+subset: karonese_sentiment_nusantara_text
+templates:
+  07510978-4707-4ab5-8ab6-7b873947e59e: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 07510978-4707-4ab5-8ab6-7b873947e59e
+    jinja: 'Jika terdapat teks berikut dalam hasil ulasan "{{text}}", prediksikan
+      tendensi yang sesuai!
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_5
+    reference: ''
+  236a6c5f-2212-4abb-aa47-64dc2f08316c: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 236a6c5f-2212-4abb-aa47-64dc2f08316c
+    jinja: '{{text}}
+
+      Analisislah sentimen dari teks bahasa Karo yang diberikan!
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_3
+    reference: ''
+  29e8753b-82e8-43f7-abb8-acf7b8f7d5cd: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 29e8753b-82e8-43f7-abb8-acf7b8f7d5cd
+    jinja: 'Di internet, gw nemu teks yang pake bahasa Karo. Kira-kira, tendensinya
+      positif, negatif, atau netral ya?
+
+      Ini text nya:
+
+      "{{text}}"
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_10
+    reference: ''
+  42fad311-d3b4-419a-be44-44ba7ef29ee8: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 42fad311-d3b4-419a-be44-44ba7ef29ee8
+    jinja: 'Ada teks "{{text}}" berbahasa Karo. Kalau disuruh tebak sentimennya, kira-kira
+      apa jawabannya?
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_8
+    reference: ''
+  45971028-c300-4c2d-ae20-84bb728ac349: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 45971028-c300-4c2d-ae20-84bb728ac349
+    jinja: 'Bisa tolong beri sentimen "{{text}}" yang sesuai?
+
+      |||
+
+      Iya, hasil sentimennya adalah {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_9
+    reference: ''
+  726f7013-1290-47c9-a9f8-a70c623c98fe: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 726f7013-1290-47c9-a9f8-a70c623c98fe
+    jinja: 'Diberikan teks dalam bahasa Karo berikut "{{text}}", apa tendensi sentimen
+      yang tergambar?
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_4
+    reference: ''
+  7ef2b429-f1dd-4485-912e-2990edf6642f: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 7ef2b429-f1dd-4485-912e-2990edf6642f
+    jinja: 'Kalo ada orang Karo ngomong {{text}}, kira-kira sentimennya apa ya?
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_7
+    reference: ''
+  88f91d31-e29a-4cf1-8017-b66a5aa25443: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 88f91d31-e29a-4cf1-8017-b66a5aa25443
+    jinja: 'Tentukan afeksi "{{text}}" ini!
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_6
+    reference: ''
+  a3b813d5-5a56-45ed-97ac-f815a146e9b3: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: a3b813d5-5a56-45ed-97ac-f815a146e9b3
+    jinja: 'Apakah kalimat ini bernada positif,  negatif, atau netral?
+
+      {{text}}
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_1
+    reference: ''
+  d2c78546-541f-48b4-97ea-c8686279cc2b: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: d2c78546-541f-48b4-97ea-c8686279cc2b
+    jinja: 'Diberikan teks berikut ini
+
+      {{text}}
+
+      Apakah sentimen yang paling sesuai dengan teks yang tertera?
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: karonese_sentiment_detect_2
+    reference: ''

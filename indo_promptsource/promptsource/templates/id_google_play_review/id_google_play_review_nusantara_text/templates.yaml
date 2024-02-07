@@ -1,0 +1,193 @@
+dataset: id_google_play_review
+subset: id_google_play_review_nusantara_text
+templates:
+  08a1bede-b353-42ef-ade5-61a3aaea6483: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: 08a1bede-b353-42ef-ade5-61a3aaea6483
+    jinja: '''Dari ulasan produk di bawah ini: "{{text}}"
+
+      berapakah nilai rating yang diberikan pada ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_4
+    reference: ''
+  12603cd2-fb81-4c69-b924-9bd4ad0e0c08: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: 12603cd2-fb81-4c69-b924-9bd4ad0e0c08
+    jinja: '''Mengacu pada tinjauan produk ini: "{{text}}"
+
+      berapa skor rating yang diberikan dalam ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_5
+    reference: ''
+  39b943fe-839f-43c1-925b-90c987a5c4d3: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: 39b943fe-839f-43c1-925b-90c987a5c4d3
+    jinja: '''Dalam ulasan produk ini: "{{text}}"
+
+      rating dari ulasan tersebut adalah berapa?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_9
+    reference: ''
+  67e6bb66-8bcd-4414-8d0b-4b9772951a4f: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: 67e6bb66-8bcd-4414-8d0b-4b9772951a4f
+    jinja: '''Dalam konteks ulasan produk berikut: "{{text}}"
+
+      seberapa tinggi rating yang diberikan pada ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_1
+    reference: ''
+  7587d5c4-d043-45aa-b3f4-323f6fb0431f: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: 7587d5c4-d043-45aa-b3f4-323f6fb0431f
+    jinja: '''Terkait dengan ulasan mengenai produk ini: "{{text}}"
+
+      nilai rating dari ulasan tersebut adalah berapa?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_2
+    reference: ''
+  76807c6d-f009-47c9-bcb6-f987e4c50777: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: 76807c6d-f009-47c9-bcb6-f987e4c50777
+    jinja: '''Berdasarkan ulasan produk tersebut : "{{text}}"
+
+      berapa rating dari ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_10
+    reference: ''
+  a454d508-cdf5-41cb-83de-ea5266513237: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: a454d508-cdf5-41cb-83de-ea5266513237
+    jinja: '''Tentang ulasan produk ini: "{{text}}"
+
+      rating berapakah yang tercantum dalam ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_6
+    reference: ''
+  b924392d-42e1-4084-94c3-70f46e1fbf52: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: b924392d-42e1-4084-94c3-70f46e1fbf52
+    jinja: '''Melihat pada ulasan produk ini: "{{text}}"
+
+      seberapa besar rating yang diberikan dalam ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_7
+    reference: ''
+  d615dd20-23e5-44b1-9c39-99313b28f1e1: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: d615dd20-23e5-44b1-9c39-99313b28f1e1
+    jinja: '''Dari uraian ulasan produk ini: "{{text}}"
+
+      berapa rating yang diberikan pada ulasan tersebut?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_8
+    reference: ''
+  ee036a36-1df9-4847-b947-9f750f478b03: !Template
+    answer_choices: 1 ||| 2 ||| 3 ||| 4 ||| 5
+    id: ee036a36-1df9-4847-b947-9f750f478b03
+    jinja: '''Menilik pada ulasan produk ini: "{{text}}"
+
+      rating yang tertera dalam ulasan tersebut adalah berapa?
+
+      |||
+
+      {{ answer_choices[label] }}'''
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: id_google_play_review_template_3
+    reference: ''

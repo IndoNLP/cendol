@@ -1,0 +1,186 @@
+dataset: id_hsd_nofaaulia
+subset: id_hsd_nofaaulia_nusantara_text
+templates:
+  096f7cfe-c305-4791-a04d-796968d0a44e: !Template
+    answer_choices: iya|||tidak
+    id: 096f7cfe-c305-4791-a04d-796968d0a44e
+    jinja: 'Menurutmu, apakah teks berikut: {{text}}, termasuk dalam kategori ujaran
+      kebencian atau tidak?
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 0 %}{{answer_choices[1]}}{% else %}{{answer_choices[0]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_kategori
+    reference: ''
+  41d93449-6a86-4949-8c21-d71cd9c9e587: !Template
+    answer_choices: iya|||tidak
+    id: 41d93449-6a86-4949-8c21-d71cd9c9e587
+    jinja: Apakah teks berikut ini hatespeech "{{text}}"?|||{% if label == 1 %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_noopt_apakah_yes_or_no
+    reference: ''
+  489bfbbc-6a17-4773-a3be-0cc85fe1b268: !Template
+    answer_choices: iya|||tidak
+    id: 489bfbbc-6a17-4773-a3be-0cc85fe1b268
+    jinja: 'Apakah teks berikut ini hatespeech "{{text}}"?
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 1 %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_apakah_yes_or_no
+    reference: ''
+  4f43d36c-278a-43fc-81fa-3f0267897ffe: !Template
+    answer_choices: iya|||tidak
+    id: 4f43d36c-278a-43fc-81fa-3f0267897ffe
+    jinja: 'Teks: {{text}}
+
+      Q: Apakah teks di atas mengandung unsur benci?
+
+      A: |||{% if label == 1 %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: qa_format_without_opt
+    reference: ''
+  5d6a5724-e2d7-4737-99a8-af61ac0005b9: !Template
+    answer_choices: iya|||tidak
+    id: 5d6a5724-e2d7-4737-99a8-af61ac0005b9
+    jinja: 'Dalam konteks ini, apakah teks yang mengandung kata-kata seperti: {{text}},
+      termasuk dalam kategori hatespeech?
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 0 %}{{answer_choices[1]}}{% else %}{{answer_choices[0]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_contains
+    reference: ''
+  610c412f-d3a1-41e6-8545-64f8d86391ad: !Template
+    answer_choices: iya|||tidak
+    id: 610c412f-d3a1-41e6-8545-64f8d86391ad
+    jinja: 'Berdasarkan kriteria hatespeech yang ada, apakah pesan yang disampaikan
+      dalam teks berikut: {{text}}, dianggap sebagai hatespeech?|||{% if label ==
+      0%}{{answer_choices[1]}}{% else %}{{answer_choices[0]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_noopt_kriteria
+    reference: ''
+  63ccdd0b-c0fa-4b48-9fc1-e79e36102603: !Template
+    answer_choices: iya|||tidak
+    id: 63ccdd0b-c0fa-4b48-9fc1-e79e36102603
+    jinja: 'Teks: {{text}}
+
+      Q: Apakah teks di atas mengandung unsur benci?
+
+      A: {{answer_choices[0]}}/{{answer_choices[1]}}|||{% if label == 1 %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: qa_format
+    reference: ''
+  9490fd71-80ba-45f8-9030-7accc5e3e84c: !Template
+    answer_choices: hate speech|||non hate speech
+    id: 9490fd71-80ba-45f8-9030-7accc5e3e84c
+    jinja: 'Klasifikasikan teks berikut "{{text}}" menjadi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 1 %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: zs_text_classification
+    reference: ''
+  b88c54fd-58d6-4d03-a028-1655db64767d: !Template
+    answer_choices: iya|||tidak
+    id: b88c54fd-58d6-4d03-a028-1655db64767d
+    jinja: 'Dalam konteks ini, apakah teks yang mengandung kata-kata seperti: {{text}},
+      termasuk dalam kategori hatespeech?|||{% if label == 0 %}{{answer_choices[1]}}{%
+      else %}{{answer_choices[0]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_noopt_contains
+    reference: ''
+  ca54b075-7bd0-4953-ad91-f9143327e736: !Template
+    answer_choices: iya|||tidak
+    id: ca54b075-7bd0-4953-ad91-f9143327e736
+    jinja: 'Menurutmu, apakah teks berikut: {{text}}, termasuk dalam kategori ujaran
+      kebencian atau tidak?|||{% if label == 0 %}{{answer_choices[1]}}{% else %}{{answer_choices[0]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_noopt_kategori
+    reference: ''
+  d8ebadf1-a7e2-436e-903e-cc3dc7aa316d: !Template
+    answer_choices: iya|||tidak
+    id: d8ebadf1-a7e2-436e-903e-cc3dc7aa316d
+    jinja: 'Berdasarkan kriteria hatespeech yang ada, apakah pesan yang disampaikan
+      dalam teks berikut: {{text}}, dianggap sebagai hatespeech?
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == 0%}{{answer_choices[1]}}{% else %}{{answer_choices[0]}}{%
+      endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_kriteria
+    reference: ''

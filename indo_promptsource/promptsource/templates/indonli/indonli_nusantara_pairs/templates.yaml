@@ -1,0 +1,212 @@
+dataset: indonli
+subset: indonli_nusantara_pairs
+templates:
+  24d7eb8e-5502-43a6-8d69-0e3e142e43ce: !Template
+    answer_choices: entailment|||kontradiksi|||netral
+    id: 24d7eb8e-5502-43a6-8d69-0e3e142e43ce
+    jinja: 'Baca yang berikut dan tentukan apakah hipotesis dapat disimpulkan dari
+      premis.
+
+      Premis: {{text_1}}
+
+      Hypothesis: {{text_2}}
+
+      Opsi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}|||{% if label == 0 %}{{answer_choices[0]}}{% elif label
+      == 2 %}{{answer_choices[1]}}{% else %}{{answer_choices[2]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: post_premise_hypo
+    reference: ''
+  3a6f9ef6-5a44-4215-92ad-af161dfd64a2: !Template
+    answer_choices: null
+    id: 3a6f9ef6-5a44-4215-92ad-af161dfd64a2
+    jinja: 'Buat teks alternatif yang {% if label == 0 %}mendeskripsikan{% elif label
+      == 1 %}mungkin mendeskripsikan{% else %}tidak mendeskripsikan{% endif %} teks
+      berikut: {{text_1}}|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: false
+    name: simpulkan
+    reference: ''
+  4c8d8df8-dd2a-4edd-ada8-841b9a3e06e4: !Template
+    answer_choices: bisa|||tidak bisa|||mungkin
+    id: 4c8d8df8-dd2a-4edd-ada8-841b9a3e06e4
+    jinja: 'Berdasarkan teks sumber, apakah kita bisa menyimpulkan statement yang
+      tertera?
+
+      ## Teks Sumber ##
+
+      {{text_1}}
+
+      ## Kesimpulan ##
+
+      {{text_2}}
+
+      ## Opsi ##
+
+      1. bisa
+
+      2. tidak bisa
+
+      3. mungkin|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[2]}}{%
+      else %}{{answer_choices[1]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: bisa_disimpulkan_opsi
+    reference: ''
+  6196f764-39ff-412b-a58b-6dce56822490: !Template
+    answer_choices: null
+    id: 6196f764-39ff-412b-a58b-6dce56822490
+    jinja: 'Tulis satu keterangan alternatif yang {% if label == 0 %}pasti{% elif
+      label == 1 %}mungkin{% else %}tidak{% endif %} mendeskripsikan teks berikut
+      secara akurat: {{text_1}}|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: false
+    name: buat_kesimpulan
+    reference: ''
+  63b302e2-a111-4828-b6a2-4f6df253031f: !Template
+    answer_choices: akurat|||tidak akurat|||mungkin
+    id: 63b302e2-a111-4828-b6a2-4f6df253031f
+    jinja: 'Apakah teks berikut "{{text_1}}" mendeskripsikan teks "{{text_2}}" secara
+      akurat?
+
+      Opsi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}|||{% if label == 0 %}{{answer_choices[0]}}{% elif label
+      == 2 %}{{answer_choices[1]}}{% else %}{{answer_choices[2]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: apakah_deskripsi
+    reference: ''
+  67053874-7943-49eb-a7e6-7f1e7f56ba0d: !Template
+    answer_choices: nyambung|||tidak nyambung|||netral
+    id: 67053874-7943-49eb-a7e6-7f1e7f56ba0d
+    jinja: 'Apakah 2 teks berikut nyambung, tidak nyambung atau netral?
+
+      - {{text_1}}
+
+      - {{text_2}}|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 2 %}{{answer_choices[1]}}{%
+      else %}{{answer_choices[2]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nyambung_ga
+    reference: ''
+  9873f712-27e6-47fc-a8b0-0d4333bffda5: !Template
+    answer_choices: iya|||tidak|||netral
+    id: 9873f712-27e6-47fc-a8b0-0d4333bffda5
+    jinja: '{{text_1}}
+
+      Berdasarkan paragraf di atas, apakah kita bisa menyimpulkan bahwa "{{text_2}}"?
+
+      Opsi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}
+
+      - {{answer_choices[2]}}|||{% if label == 0 %}{{answer_choices[0]}}{% elif label
+      == 2 %}{{answer_choices[1]}}{% else %}{{answer_choices[2]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: basic_zeroshot_nli
+    reference: ''
+  c6f1a270-0acb-4ef8-8259-6ca64e80f101: !Template
+    answer_choices: benar|||tidak meyakinkan|||salah
+    id: c6f1a270-0acb-4ef8-8259-6ca64e80f101
+    jinja: '{{text_1}} Berdasarkan informasi itu, apakah klaim "{{text_2}}" {{"benar"}},
+      {{"salah"}}, or {{"tidak meyakinkan"}}? |||{% if label == 0 %}{{answer_choices[0]}}{%
+      elif label == 2 %}{{answer_choices[2]}}{% else %}{{answer_choices[1]}}{% endif
+      %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: claim_true/false/inconclusive
+    reference: ''
+  dcaf0080-abde-43dc-9fd1-ab31b756ce71: !Template
+    answer_choices: bisa|||tidak bisa|||mungkin
+    id: dcaf0080-abde-43dc-9fd1-ab31b756ce71
+    jinja: 'Berdasarkan teks sumber, apakah kita bisa menyimpulkan statement yang
+      tertera?
+
+      ## Teks Sumber ##
+
+      {{text_1}}
+
+      ## Kesimpulan ##
+
+      {{text_2}}|||{% if label == 0 %}{{answer_choices[0]}}{% elif label == 1 %}{{answer_choices[2]}}{%
+      else %}{{answer_choices[1]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: bisa_disimpulkan
+    reference: ''
+  e496a798-f6ae-4242-9f9d-e8448dc8e4c8: !Template
+    answer_choices: iya|||tidak|||mungkin
+    id: e496a798-f6ae-4242-9f9d-e8448dc8e4c8
+    jinja: 'Teks {{text_1}} nyambung dengan teks {{text_2}} ga ya? Opsi: iya/tidak/mungkin|||{%
+      if label == 0 %}{{answer_choices[0]}}{% elif label  == 2 %}{{answer_choices[1]}}{%
+      else %}{{answer_choices[2]}}{% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: kita_bisa_informal
+    reference: ''

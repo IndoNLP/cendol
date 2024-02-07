@@ -1,0 +1,121 @@
+dataset: idk_mrc
+subset: idk_mrc_source
+templates:
+  0def1837-54c0-4c0c-88cc-81bc6e901a92: !Template
+    answer_choices: null
+    id: 0def1837-54c0-4c0c-88cc-81bc6e901a92
+    jinja: 'Jawab pertanyaan berikut berdasarkan konteks yang diberikan
+
+      Konteks: {{context}};
+
+      Pertanyaan: {{qas[0].question}};
+
+      |||
+
+      {% if qas[0].answers[0].text == [] %}
+
+      Jawaban tidak ada dalam konteks
+
+      {% else %}
+
+      {{qas[0].answers[0].text}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: idk_mrc_4
+    reference: ''
+  3ab72e59-7737-4ecb-af00-5d6ada875ae0: !Template
+    answer_choices: null
+    id: 3ab72e59-7737-4ecb-af00-5d6ada875ae0
+    jinja: '{{context}}
+
+
+      Jawablah pertanyaan berikut berdasarkan konteks yang diatas
+
+      Pertanyaan: "{{qas[0].question}}"
+
+      |||
+
+      {% if qas[0].answers[0].text == [] %}
+
+      Jawaban tidak ada dalam konteks
+
+      {% else %}
+
+      {{qas[0].answers[0].text}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: idk_mrc_1
+    reference: ''
+  4790c69d-b627-405a-a5dd-d06e9d663d0d: !Template
+    answer_choices: null
+    id: 4790c69d-b627-405a-a5dd-d06e9d663d0d
+    jinja: '{{context}} Berdasarkan konteks tersebut, {{qas[0].question}}
+
+      |||
+
+      {% if qas[0].answers[0].text == [] %}
+
+      Jawaban tidak ada dalam konteks
+
+      {% else %}
+
+      {{qas[0].answers[0].text}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: idk_mrc_2
+    reference: ''
+  96baad6b-1121-4374-a92a-22739ea79095: !Template
+    answer_choices: null
+    id: 96baad6b-1121-4374-a92a-22739ea79095
+    jinja: "Berdasarkan konteks berikut\n\n{{context}}\n\nApa jawaban dari pertanyaan:\
+      \ \n\n{{qas[0].question}}\n\n|||\n{% if qas[0].answers[0].text == [] %}\nJawaban\
+      \ tidak ada dalam konteks\n{% else %}\n{{qas[0].answers[0].text}}\n{% endif\
+      \ %}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: idk_mrc_3
+    reference: ''
+  d1498076-e775-40dc-a1bf-3af85ac437d4: !Template
+    answer_choices: null
+    id: d1498076-e775-40dc-a1bf-3af85ac437d4
+    jinja: 'Konteks: {{context}}
+
+      Apa jawaban dari {{qas[0].question}} berdasarkan konteks diatas?
+
+
+      |||
+
+      {% if qas[0].answers[0].text == [] %}
+
+      Jawaban tidak ada dalam konteks
+
+      {% else %}
+
+      {{qas[0].answers[0].text}}
+
+      {% endif %}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: idk_mrc_5
+    reference: ''

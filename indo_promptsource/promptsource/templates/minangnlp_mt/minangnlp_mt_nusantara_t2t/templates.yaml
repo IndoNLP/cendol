@@ -1,0 +1,388 @@
+dataset: minangnlp_mt
+subset: minangnlp_mt_nusantara_t2t
+templates:
+  6c49cb52-2484-4e54-a957-af1eaa17f469: !Template
+    answer_choices: null
+    id: 6c49cb52-2484-4e54-a957-af1eaa17f469
+    jinja: "Apa kalimat bahasa Minang dari kalimat berikut ini? \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_2
+    reference: ''
+  9be72d39-39c8-4b46-b42c-205066aa7a61: !Template
+    answer_choices: null
+    id: 9be72d39-39c8-4b46-b42c-205066aa7a61
+    jinja: 'Sentence: {{text_2}}
+
+      Minangese Translation: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_24
+    reference: ''
+  95bb1ce6-4cb5-4bd3-8310-b543279ace88: !Template
+    answer_choices: null
+    id: 95bb1ce6-4cb5-4bd3-8310-b543279ace88
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_19
+    reference: ''
+  6bbc7d54-c4eb-4a49-8c21-17d797e76ff6: !Template
+    answer_choices: null
+    id: 6bbc7d54-c4eb-4a49-8c21-17d797e76ff6
+    jinja: 'Tolong translate ke bahasa Minang: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_3
+    reference: ''
+  5b61d823-d58b-4025-bcb3-3e88023f54e1: !Template
+    answer_choices: null
+    id: 5b61d823-d58b-4025-bcb3-3e88023f54e1
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa Minang nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_5
+    reference: ''
+  55a40e86-3db6-49d7-aa08-9cf559478ee8: !Template
+    answer_choices: null
+    id: 55a40e86-3db6-49d7-aa08-9cf559478ee8
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa Minang ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_4
+    reference: ''
+  5c4a9ff1-cb83-4a60-bbf0-8ce440719445: !Template
+    answer_choices: null
+    id: 5c4a9ff1-cb83-4a60-bbf0-8ce440719445
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_11
+    reference: ''
+  2e0ba84f-8e56-4b01-a30f-47e5fe94c41b: !Template
+    answer_choices: null
+    id: 2e0ba84f-8e56-4b01-a30f-47e5fe94c41b
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_10
+    reference: ''
+  3b20abf9-148b-404f-96ba-42c549084cb7: !Template
+    answer_choices: null
+    id: 3b20abf9-148b-404f-96ba-42c549084cb7
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_18
+    reference: ''
+  85f3eac6-c894-4582-8306-55bc75738a29: !Template
+    answer_choices: null
+    id: 85f3eac6-c894-4582-8306-55bc75738a29
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_13
+    reference: ''
+  a173edd9-de1a-4427-8743-e17f72b0383a: !Template
+    answer_choices: null
+    id: a173edd9-de1a-4427-8743-e17f72b0383a
+    jinja: '{{text_2}}
+
+
+      Apa kalimat bahasa Minang dari kalimat diatas? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_1
+    reference: ''
+  ea4570ec-a753-48eb-ac5c-023484b3b1c7: !Template
+    answer_choices: null
+    id: ea4570ec-a753-48eb-ac5c-023484b3b1c7
+    jinja: 'Sentence: {{text_2}}
+
+      Minangese: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_25
+    reference: ''
+  e21efd3f-c624-480c-a7da-2f735a77328b: !Template
+    answer_choices: null
+    id: e21efd3f-c624-480c-a7da-2f735a77328b
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_12
+    reference: ''
+  05e42a08-e899-4633-8651-c76b259d1407: !Template
+    answer_choices: null
+    id: 05e42a08-e899-4633-8651-c76b259d1407
+    jinja: 'Kalimat: {{text_2}}
+
+      Minang: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_8
+    reference: ''
+  01517e94-984f-42e8-94fd-7cae50fe0c75: !Template
+    answer_choices: null
+    id: 01517e94-984f-42e8-94fd-7cae50fe0c75
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to Minangese ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_22
+    reference: ''
+  a8a7e1b3-7324-4d5e-8764-a2a60bc24074: !Template
+    answer_choices: null
+    id: a8a7e1b3-7324-4d5e-8764-a2a60bc24074
+    jinja: 'Indonesian: {{text_2}}
+
+      Minangese: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_21
+    reference: ''
+  b4ed27c6-c118-4f97-b4c6-05d471871983: !Template
+    answer_choices: null
+    id: b4ed27c6-c118-4f97-b4c6-05d471871983
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_14
+    reference: ''
+  020cc1c3-9eef-4cf7-957b-c70b5542eb5b: !Template
+    answer_choices: null
+    id: 020cc1c3-9eef-4cf7-957b-c70b5542eb5b
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_17
+    reference: ''
+  c21c8186-cb67-48da-87bb-a91d37d97094: !Template
+    answer_choices: null
+    id: c21c8186-cb67-48da-87bb-a91d37d97094
+    jinja: 'Minangese: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_9
+    reference: ''
+  afad35f0-a4a4-49bc-8e06-20ac8499408d: !Template
+    answer_choices: null
+    id: afad35f0-a4a4-49bc-8e06-20ac8499408d
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_20
+    reference: ''
+  a8160a17-9e3d-4a16-947c-6e08d78adac3: !Template
+    answer_choices: null
+    id: a8160a17-9e3d-4a16-947c-6e08d78adac3
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan Minang: ||| {{text_1}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_7
+    reference: ''
+  fe8c6cab-dfc9-4669-a68c-2041342c0a55: !Template
+    answer_choices: null
+    id: fe8c6cab-dfc9-4669-a68c-2041342c0a55
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the Minangese version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_23
+    reference: ''
+  d102122b-2046-4c10-9fdf-479a3a71a750: !Template
+    answer_choices: null
+    id: d102122b-2046-4c10-9fdf-479a3a71a750
+    jinja: "Terjemahkan ke bahasa Minang: \n\n{{text_2}} ||| {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_6
+    reference: ''
+  b8962366-a394-424d-9d3b-4c8c0e6b33a4: !Template
+    answer_choices: null
+    id: b8962366-a394-424d-9d3b-4c8c0e6b33a4
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: minangnlp_mt_template_16
+    reference: ''

@@ -1,0 +1,387 @@
+dataset: bible_jv_id
+subset: bible_jv_id_nusantara_t2t
+templates:
+  4c0f4b61-42cb-4690-afe8-0cddd54fe31a: !Template
+    answer_choices: null
+    id: 4c0f4b61-42cb-4690-afe8-0cddd54fe31a
+    jinja: "Apa kalimat bahasa Jawa dari kalimat berikut ini? \n\n{{text_2}} ||| {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_jv_id_prompt_template_2
+    reference: ''
+  d30489a9-51ca-40d6-839b-771a9570a1e2: !Template
+    answer_choices: null
+    id: d30489a9-51ca-40d6-839b-771a9570a1e2
+    jinja: 'Sentence: {{text_1}}
+
+      Translated version in Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_19
+    reference: ''
+  3eec9d9a-7d2c-4193-9419-e097decefb31: !Template
+    answer_choices: null
+    id: 3eec9d9a-7d2c-4193-9419-e097decefb31
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_13
+    reference: ''
+  d6c46bde-d97d-48bf-a167-12b4f15270ff: !Template
+    answer_choices: null
+    id: d6c46bde-d97d-48bf-a167-12b4f15270ff
+    jinja: "Terjemahkan ke bahasa Jawa: \n\n{{text_2}} ||| {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_6
+    reference: ''
+  ca85ba21-1436-4b67-ae13-6a5b38249611: !Template
+    answer_choices: null
+    id: ca85ba21-1436-4b67-ae13-6a5b38249611
+    jinja: 'Sentence: {{text_2}}
+
+      Please translate to Javanese ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_22
+    reference: ''
+  e69aff9d-43b8-4379-8e7e-9da0adf1b703: !Template
+    answer_choices: null
+    id: e69aff9d-43b8-4379-8e7e-9da0adf1b703
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_18
+    reference: ''
+  d6a28f3f-dc4a-459f-a1d6-7ede6593c9bb: !Template
+    answer_choices: null
+    id: d6a28f3f-dc4a-459f-a1d6-7ede6593c9bb
+    jinja: 'Indonesian: {{text_2}}
+
+      Javanese: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_21
+    reference: ''
+  04f2a670-6c6c-43fe-91f3-42164724b2e2: !Template
+    answer_choices: null
+    id: 04f2a670-6c6c-43fe-91f3-42164724b2e2
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_jv_id_prompt_template_17
+    reference: ''
+  3c70ccc1-152a-4f78-b3aa-f31943afcdf7: !Template
+    answer_choices: null
+    id: 3c70ccc1-152a-4f78-b3aa-f31943afcdf7
+    jinja: 'Kalimat: {{text_2}}
+
+      Jawa: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_8
+    reference: ''
+  43ee30d1-060a-4455-8d3e-c747f0c10c0c: !Template
+    answer_choices: null
+    id: 43ee30d1-060a-4455-8d3e-c747f0c10c0c
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_12
+    reference: ''
+  6f94857c-7901-4316-b904-8fdf353538e9: !Template
+    answer_choices: null
+    id: 6f94857c-7901-4316-b904-8fdf353538e9
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan Jawa: ||| {{text_1}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_7
+    reference: ''
+  ab3721f2-af6d-4510-920f-8bfe1d1e5222: !Template
+    answer_choices: null
+    id: ab3721f2-af6d-4510-920f-8bfe1d1e5222
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa Jawa nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_5
+    reference: ''
+  e24b6928-e520-4524-92fa-f6e9a62bbd7d: !Template
+    answer_choices: null
+    id: e24b6928-e520-4524-92fa-f6e9a62bbd7d
+    jinja: 'Sentence: {{text_2}}
+
+      Javanese Translation: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_24
+    reference: ''
+  99ecab79-5a9f-4b7b-b0fe-dcdf64d557ce: !Template
+    answer_choices: null
+    id: 99ecab79-5a9f-4b7b-b0fe-dcdf64d557ce
+    jinja: 'Tolong translate ke bahasa Jawa: {{text_2}} |||  {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: bible_jv_id_prompt_template_3
+    reference: ''
+  aa143862-f68f-4d90-8b3e-8872592d5809: !Template
+    answer_choices: null
+    id: aa143862-f68f-4d90-8b3e-8872592d5809
+    jinja: 'Sentence: {{text_1}}
+
+      Indonesian: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_20
+    reference: ''
+  88aec072-db6e-4b99-af9f-d460959d10ca: !Template
+    answer_choices: null
+    id: 88aec072-db6e-4b99-af9f-d460959d10ca
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the Javanese version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_23
+    reference: ''
+  9f30c628-b604-43a4-a036-1b863be2c89a: !Template
+    answer_choices: null
+    id: 9f30c628-b604-43a4-a036-1b863be2c89a
+    jinja: '{{text_2}}
+
+
+      Apa kalimat bahasa Jawa dari kalimat diatas? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_1
+    reference: ''
+  3a95675d-b7a2-44ea-8e89-f31eb03a3f82: !Template
+    answer_choices: null
+    id: 3a95675d-b7a2-44ea-8e89-f31eb03a3f82
+    jinja: '{{text_1}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_10
+    reference: ''
+  d7d9a104-ccfe-491f-964b-cc04aac0c9b6: !Template
+    answer_choices: null
+    id: d7d9a104-ccfe-491f-964b-cc04aac0c9b6
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_1}} |||\
+      \ {{text_2}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_11
+    reference: ''
+  2c9c11a6-ccab-477d-84a0-bc8a22d05dbc: !Template
+    answer_choices: null
+    id: 2c9c11a6-ccab-477d-84a0-bc8a22d05dbc
+    jinja: 'Kalimat: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_14
+    reference: ''
+  fbca26d1-c837-4874-b431-599b05c5aed2: !Template
+    answer_choices: null
+    id: fbca26d1-c837-4874-b431-599b05c5aed2
+    jinja: 'Please translate to Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_16
+    reference: ''
+  a5c1768e-c019-4db2-b941-e069671d729b: !Template
+    answer_choices: null
+    id: a5c1768e-c019-4db2-b941-e069671d729b
+    jinja: 'Jawa: {{text_1}}
+
+      Indonesia: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_9
+    reference: ''
+  1da406e1-7ca5-4670-bd82-aa93fa10d32a: !Template
+    answer_choices: null
+    id: 1da406e1-7ca5-4670-bd82-aa93fa10d32a
+    jinja: 'Sentence: {{text_2}}
+
+      Javanese: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_25
+    reference: ''
+  0c0ba6ad-e45c-4155-8456-41c421691284: !Template
+    answer_choices: null
+    id: 0c0ba6ad-e45c-4155-8456-41c421691284
+    jinja: 'Kalimat: {{text_2}}
+
+      Tolong translate ke bahasa Jawa ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: bible_jv_id_prompt_template_4
+    reference: ''
