@@ -14,20 +14,14 @@
   "download_size": 271033,
   "features": {
     "question": {
-      "feature": {
-        "dtype": "string",
-        "_type": "Value"
-      },
-      "_type": "Sequence"
+      "dtype": "string",
+      "_type": "Value"
     },
     "mc1_targets": {
       "choices": {
         "feature": {
-          "feature": {
-            "dtype": "string",
-            "_type": "Value"
-          },
-          "_type": "Sequence"
+          "dtype": "string",
+          "_type": "Value"
         },
         "_type": "Sequence"
       },
@@ -42,11 +36,8 @@
     "mc2_targets": {
       "choices": {
         "feature": {
-          "feature": {
-            "dtype": "string",
-            "_type": "Value"
-          },
-          "_type": "Sequence"
+          "dtype": "string",
+          "_type": "Value"
         },
         "_type": "Sequence"
       },

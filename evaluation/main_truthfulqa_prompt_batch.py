@@ -113,9 +113,11 @@ if __name__ == '__main__':
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
         model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
         MODEL = ADAPTER # for file naming
-    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL or "sealion7b" in MODEL or "Merak" in MODEL or "SeaLLM" in MODEL or  "Llama" in MODEL:
+        
+    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL or "sealion7b" in MODEL or "Merak" in MODEL \
+        or "SeaLLM" in MODEL or  "Llama" in MODEL or  "llama" in MODEL:
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
-        if "sealion7b" in MODEL or  "Llama" in MODEL:
+        if "sealion7b" in MODEL or  "Llama" in MODEL or  "llama" in MODEL:
             tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
     else:
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
@@ -188,10 +190,7 @@ if __name__ == '__main__':
                     label_names = sample['mc1_targets']['choices'] # TruthfulQA label is dynamic
                     prompt_text = to_prompt_truthfulqa(sample, prompt_template, label_names, prompt_lang)
                     label = 0 # Label is always the first index in TruthfulQA MC1
-                    print(prompt_text)
-                    print(label_names)
-                    print(sample['mc1_targets']['choices'])
-                    
+
                     prompts.append(prompt_text)
                     labels.append(label)
 
