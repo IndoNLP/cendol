@@ -1,0 +1,118 @@
+dataset: nusax_mt
+subset: nusax_mt_min_ind_nusantara_t2t
+templates:
+  037c0098-c379-42d2-94da-e83c8db25c76: !Template
+    answer_choices: null
+    id: 037c0098-c379-42d2-94da-e83c8db25c76
+    jinja: Gimana terjemahan Bahasa Indonesia dari kalimat ini? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 9
+    reference: ''
+  07015308-aece-4aa3-a266-9d6d1b329cf3: !Template
+    answer_choices: null
+    id: 07015308-aece-4aa3-a266-9d6d1b329cf3
+    jinja: 'Tolong terjemahkan kalimat ini ke Bahasa Indonesia: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 3
+    reference: ''
+  28a68832-9020-4446-a096-1ecfb858d697: !Template
+    answer_choices: null
+    id: 28a68832-9020-4446-a096-1ecfb858d697
+    jinja: 'Silakan translate kalimat berikut ke dalam Indonesia: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 7
+    reference: ''
+  36357be5-f670-4351-b20d-85c5b5820755: !Template
+    answer_choices: null
+    id: 36357be5-f670-4351-b20d-85c5b5820755
+    jinja: Apa terjemahan Bahasa Indonesia dari kalimat berikut ini? {{text_1}} |||
+      {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 6
+    reference: ''
+  64489aa2-ab9d-4399-8512-4e1059c0612e: !Template
+    answer_choices: null
+    id: 64489aa2-ab9d-4399-8512-4e1059c0612e
+    jinja: 'Saya butuh bantuan untuk tranlate Bahasa Minang berikut ke dalam Bahasa
+      Indonesia: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 10
+    reference: ''
+  73c76f27-f303-4f41-ba3d-2b1f2c586ff6: !Template
+    answer_choices: null
+    id: 73c76f27-f303-4f41-ba3d-2b1f2c586ff6
+    jinja: 'Tolong translate kalimat ini ke Bahasa Indo: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 8
+    reference: ''
+  8dcb7f27-ad60-49cf-b6ab-f291f4f7efd0: !Template
+    answer_choices: null
+    id: 8dcb7f27-ad60-49cf-b6ab-f291f4f7efd0
+    jinja: 'Saya butuh bantuan untuk menerjemahkan kalimat berikut ke dalam Bahasa
+      Indonesia: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 5
+    reference: ''
+  a7bb7f5f-0ef6-4d1b-861c-a77173732baf: !Template
+    answer_choices: null
+    id: a7bb7f5f-0ef6-4d1b-861c-a77173732baf
+    jinja: 'Silakan terjemahkan kalimat berikut ke dalam Bahasa Indonesia: {{text_1}}
+      ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 2
+    reference: ''
+  b91e544c-7f17-468b-9571-899147af2870: !Template
+    answer_choices: null
+    id: b91e544c-7f17-468b-9571-899147af2870
+    jinja: Bagaimana terjemahan Bahasa Indonesiadari kalimat ini? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 4
+    reference: ''
+  f1c58372-f952-40d0-876b-5adb96678593: !Template
+    answer_choices: null
+    id: f1c58372-f952-40d0-876b-5adb96678593
+    jinja: Apa terjemahan Bahasa Indonesia dari Bahasa Minang berikut ini? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_min_ind_nusantara_t2t 1
+    reference: ''

@@ -1,0 +1,388 @@
+dataset: korpus_nusantara
+subset: korpus_nusantara_ind_sun_nusantara_t2t
+templates:
+  5cb05f9e-5619-4d2a-8f02-51497e6645cc: !Template
+    answer_choices: null
+    id: 5cb05f9e-5619-4d2a-8f02-51497e6645cc
+    jinja: 'Kalimat: {{text_2}}
+
+      Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_14
+    reference: ''
+  f61d1f03-e3ed-4f10-82d3-c07c02190a41: !Template
+    answer_choices: null
+    id: f61d1f03-e3ed-4f10-82d3-c07c02190a41
+    jinja: 'Sentence: {{text_1}}
+
+      Sundanese: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_25
+    reference: ''
+  f561c101-4891-4d15-8130-8f231e3bf5ac: !Template
+    answer_choices: null
+    id: f561c101-4891-4d15-8130-8f231e3bf5ac
+    jinja: "Please translate the following sentence to Indonesian \n\n{{text_2}} |||\
+      \ {{text_1}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_17
+    reference: ''
+  ed2b9de6-7941-4e9b-89c6-ef520814af15: !Template
+    answer_choices: null
+    id: ed2b9de6-7941-4e9b-89c6-ef520814af15
+    jinja: "Terjemahkan ke bahasa Sunda: \n\n{{text_1}} ||| {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_19
+    reference: ''
+  0c67d067-6e35-41bf-b9ce-d3bd41939dec: !Template
+    answer_choices: null
+    id: 0c67d067-6e35-41bf-b9ce-d3bd41939dec
+    jinja: 'Sentence: {{text_2}}
+
+      Translated version in Indonesian: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_26
+    reference: ''
+  c87dedda-e0be-419e-9a7c-2194deee368b: !Template
+    answer_choices: null
+    id: c87dedda-e0be-419e-9a7c-2194deee368b
+    jinja: 'Tolong translate ke bahasa Sunda: {{text_1}} |||  {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_3
+    reference: ''
+  2d1cd1c3-6578-41bf-9eec-a5304ba0a757: !Template
+    answer_choices: null
+    id: 2d1cd1c3-6578-41bf-9eec-a5304ba0a757
+    jinja: 'Sentence: {{text_1}}
+
+      Please translate to Sundanese ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_22
+    reference: ''
+  e8884b4e-637f-4060-bd0d-33bd08795bac: !Template
+    answer_choices: null
+    id: e8884b4e-637f-4060-bd0d-33bd08795bac
+    jinja: 'Kalimat: {{text_1}}
+
+      Sunda: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_8
+    reference: ''
+  02074ce9-aa91-4d24-9b58-735bb2ccd015: !Template
+    answer_choices: null
+    id: 02074ce9-aa91-4d24-9b58-735bb2ccd015
+    jinja: '{{text_1}}
+
+      =====
+
+      What is the Sundanese version? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_23
+    reference: ''
+  353ec236-8679-4f6c-978e-5348749c92d0: !Template
+    answer_choices: null
+    id: 353ec236-8679-4f6c-978e-5348749c92d0
+    jinja: 'Kalimat: {{text_1}}
+
+      Terjemahan Sunda: ||| {{text_2}} '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_7
+    reference: ''
+  baf21c45-46b1-4678-9570-db6c10ec80b8: !Template
+    answer_choices: null
+    id: baf21c45-46b1-4678-9570-db6c10ec80b8
+    jinja: 'Sentence: {{text_1}}
+
+      Sundanese Translation: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_24
+    reference: ''
+  c6b678f7-7b24-4fad-9ce2-519e05aa6fe4: !Template
+    answer_choices: null
+    id: c6b678f7-7b24-4fad-9ce2-519e05aa6fe4
+    jinja: 'Kalimat: {{text_2}}
+
+      Terjemahan Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_13
+    reference: ''
+  72e072f9-994c-427a-b6d7-52f908d4fab6: !Template
+    answer_choices: null
+    id: 72e072f9-994c-427a-b6d7-52f908d4fab6
+    jinja: 'Sentence: {{text_2}}
+
+      Indonesian: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_20
+    reference: ''
+  60e8dd6b-941c-46b3-abb7-c4f6a5944b34: !Template
+    answer_choices: null
+    id: 60e8dd6b-941c-46b3-abb7-c4f6a5944b34
+    jinja: 'Please translate to Indonesian: {{text_2}} ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_16
+    reference: ''
+  333d5442-048f-45da-935b-efd5ca952731: !Template
+    answer_choices: null
+    id: 333d5442-048f-45da-935b-efd5ca952731
+    jinja: '{{text_2}}
+
+
+      Bisa tolong terjemahkan ke bahasa indonesia? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_10
+    reference: ''
+  d0abb503-aaa9-4af5-b916-3e9cae1b7f6f: !Template
+    answer_choices: null
+    id: d0abb503-aaa9-4af5-b916-3e9cae1b7f6f
+    jinja: 'Kalimat: {{text_1}}
+
+      Tolong translate ke bahasa Sunda ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_4
+    reference: ''
+  3f2ecf59-0350-4f3f-9783-d11586ee88c7: !Template
+    answer_choices: null
+    id: 3f2ecf59-0350-4f3f-9783-d11586ee88c7
+    jinja: '{{text_2}}
+
+      =====
+
+      Apa bahasa Indonesia nya? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_12
+    reference: ''
+  65fd0d1b-9942-497a-aa2e-9adc4608b84e: !Template
+    answer_choices: null
+    id: 65fd0d1b-9942-497a-aa2e-9adc4608b84e
+    jinja: '{{text_2}}
+
+      =====
+
+      What is the Indonesian version? ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_18
+    reference: ''
+  51249247-2a63-49d5-84ab-65b436c588d2: !Template
+    answer_choices: null
+    id: 51249247-2a63-49d5-84ab-65b436c588d2
+    jinja: 'Indonesian: {{text_1}}
+
+      Sundanese: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_21
+    reference: ''
+  aaa8550a-9af8-4bee-baa1-9eb0f448a1c4: !Template
+    answer_choices: null
+    id: aaa8550a-9af8-4bee-baa1-9eb0f448a1c4
+    jinja: 'Sunda: {{text_2}}
+
+      Indonesia: ||| {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_9
+    reference: ''
+  103d2c6d-5c64-4c34-a3a1-7dbceb3c025e: !Template
+    answer_choices: null
+    id: 103d2c6d-5c64-4c34-a3a1-7dbceb3c025e
+    jinja: "Tolong translate kalimat dibawah ke bahasa Indonesia \n\n{{text_2}} |||\
+      \ {{text_1}} "
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_11
+    reference: ''
+  07aeb1d9-5b36-4fee-9359-9b44879f84db: !Template
+    answer_choices: null
+    id: 07aeb1d9-5b36-4fee-9359-9b44879f84db
+    jinja: "Apa kalimat bahasa Sunda dari kalimat berikut ini? \n\n{{text_1}} |||\
+      \ {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_2
+    reference: ''
+  9685a210-7876-4bec-89bc-71f17312222c: !Template
+    answer_choices: null
+    id: 9685a210-7876-4bec-89bc-71f17312222c
+    jinja: '{{text_1}}
+
+      =====
+
+      Apa bahasa Sunda nya? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_5
+    reference: ''
+  9b74226d-500a-470e-915e-8d6552a821a7: !Template
+    answer_choices: null
+    id: 9b74226d-500a-470e-915e-8d6552a821a7
+    jinja: '{{text_1}}
+
+
+      Apa kalimat bahasa Sunda dari kalimat diatas? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_sun_prompt_template_1
+    reference: ''

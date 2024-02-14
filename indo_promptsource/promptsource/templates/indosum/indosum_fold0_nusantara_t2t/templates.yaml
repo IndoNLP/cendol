@@ -1,0 +1,285 @@
+dataset: indosum
+subset: indosum_fold0_nusantara_t2t
+templates:
+  022888bd-afe4-4819-87df-d794ac10d614: !Template
+    answer_choices: null
+    id: 022888bd-afe4-4819-87df-d794ac10d614
+    jinja: '{{text_1}}
+
+      =====
+
+      TL;DR: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_2
+    reference: ''
+  0750cae4-5150-47ba-9f0e-72306a466405: !Template
+    answer_choices: null
+    id: 0750cae4-5150-47ba-9f0e-72306a466405
+    jinja: '{{text_1}}
+
+      =====
+
+      Tulis ringkasan artikel diatas ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_4
+    reference: ''
+  08a0277f-63b5-441f-8eae-b0b5521479c1: !Template
+    answer_choices: null
+    id: 08a0277f-63b5-441f-8eae-b0b5521479c1
+    jinja: 'Bisa tolong tulis TLDR untuk artikel ini?
+
+      {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_5
+    reference: ''
+  0dbe34a6-39ce-46f0-9549-79af0f91af68: !Template
+    answer_choices: null
+    id: 0dbe34a6-39ce-46f0-9549-79af0f91af68
+    jinja: 'Please briefly summarize this article in Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_15
+    reference: ''
+  0f8d25ed-31fc-4e76-b4cf-970f3f22ab94: !Template
+    answer_choices: null
+    id: 0f8d25ed-31fc-4e76-b4cf-970f3f22ab94
+    jinja: 'Rangkum artikel ini: {{text_1}}
+
+      Rangkuman: ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_9
+    reference: ''
+  21141a38-2288-4fa7-a2e7-f1a1412ee580: !Template
+    answer_choices: null
+    id: 21141a38-2288-4fa7-a2e7-f1a1412ee580
+    jinja: 'Tolong rangkum artikel ini secara ringkas: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_6
+    reference: ''
+  25f7e76d-be30-48a5-aa8c-95158e3fb8da: !Template
+    answer_choices: null
+    id: 25f7e76d-be30-48a5-aa8c-95158e3fb8da
+    jinja: 'Summarize in Indonesian: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_17
+    reference: ''
+  38509c3a-943f-44f4-9db9-3aca19f53e16: !Template
+    answer_choices: null
+    id: 38509c3a-943f-44f4-9db9-3aca19f53e16
+    jinja: 'Can you write the TLDR for the following article in Bahasa?
+
+      {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_14
+    reference: ''
+  472a3363-e490-4c7f-9de2-bc2e93c6ee4d: !Template
+    answer_choices: null
+    id: 472a3363-e490-4c7f-9de2-bc2e93c6ee4d
+    jinja: 'Summarize this document in Bahasa: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_11
+    reference: ''
+  4f443972-48e7-4886-bce5-33a96f50517b: !Template
+    answer_choices: null
+    id: 4f443972-48e7-4886-bce5-33a96f50517b
+    jinja: '{{text_1}}
+
+      =====
+
+      Write summary of above article in Indonesian ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_13
+    reference: ''
+  5f60d4c3-1f53-4c12-b3ef-5ab9b090a8aa: !Template
+    answer_choices: null
+    id: 5f60d4c3-1f53-4c12-b3ef-5ab9b090a8aa
+    jinja: "{{text_1}}. \n\nPlease summarize above document in Indonesian ||| {{text_2}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_12
+    reference: ''
+  745c2f84-d42d-445a-a56a-4acd6f02bca1: !Template
+    answer_choices: null
+    id: 745c2f84-d42d-445a-a56a-4acd6f02bca1
+    jinja: 'Please the essence of this article in Bahasa: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_16
+    reference: ''
+  baeb23d0-8938-43cb-ae03-9e18fd4affe5: !Template
+    answer_choices: null
+    id: baeb23d0-8938-43cb-ae03-9e18fd4affe5
+    jinja: 'Firstly, read the following article:
+
+      {{text_1}}
+
+
+      Can write the abstract of it in Indonesian? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - en
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_18
+    reference: ''
+  c1e2ac1e-9690-4882-8f2d-50b6f2935ef6: !Template
+    answer_choices: null
+    id: c1e2ac1e-9690-4882-8f2d-50b6f2935ef6
+    jinja: 'Rangkum: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_8
+    reference: ''
+  d313b433-b645-4107-a327-0dadafdece04: !Template
+    answer_choices: null
+    id: d313b433-b645-4107-a327-0dadafdece04
+    jinja: '{{text_1}}
+
+
+      Tolong rangkum artikel diatas ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_3
+    reference: ''
+  d316f53c-1f8e-445a-9349-b68288db93e4: !Template
+    answer_choices: null
+    id: d316f53c-1f8e-445a-9349-b68288db93e4
+    jinja: 'Tolong tulis intisari dari artikel: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_7
+    reference: ''
+  d5b76ce8-84c4-40bf-81f5-004d3cc0c3a8: !Template
+    answer_choices: null
+    id: d5b76ce8-84c4-40bf-81f5-004d3cc0c3a8
+    jinja: 'Ringkas dokumen berikut ini: {{text_1}} ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_1
+    reference: ''
+  f4b9fdc0-6ebd-430a-87e7-d9d5b07a11dc: !Template
+    answer_choices: null
+    id: f4b9fdc0-6ebd-430a-87e7-d9d5b07a11dc
+    jinja: 'Pertama-tama, baca artikel dibawah.
+
+      {{text_1}}
+
+      Bisa tolong tulis abstrak yang sangat singkat? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: indosum_fold0_template_10
+    reference: ''

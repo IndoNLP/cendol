@@ -1,0 +1,117 @@
+dataset: nusax_mt
+subset: nusax_mt_ind_bjn_source
+templates:
+  00358b3b-8c8a-4b3f-9c51-e25b0cb93608: !Template
+    answer_choices: null
+    id: 00358b3b-8c8a-4b3f-9c51-e25b0cb93608
+    jinja: Bisa nggak terjemahin ke bahasa banjar? {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 10
+    reference: ''
+  0a834b9d-b831-47b0-9a57-7f0de783142c: !Template
+    answer_choices: null
+    id: 0a834b9d-b831-47b0-9a57-7f0de783142c
+    jinja: Apakah Anda bisa menerjemahkan kalimat ini menjadi Bahasa Banjar? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 3
+    reference: ''
+  5c7baa7d-7257-4e90-bf49-026e906ec4e4: !Template
+    answer_choices: null
+    id: 5c7baa7d-7257-4e90-bf49-026e906ec4e4
+    jinja: Mohon bantu terjemahkan paragraf ini ke dalam Bahasa Banjar. {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 4
+    reference: ''
+  6742c821-c451-4f2b-aea2-29d581b49cb3: !Template
+    answer_choices: null
+    id: 6742c821-c451-4f2b-aea2-29d581b49cb3
+    jinja: Dapatkah Anda menerjemahkan teks berikut ke dalam Bahasa Banjar? {{text_1}}
+      ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 2
+    reference: ''
+  79e6530d-3ac7-470c-a999-ac36d938958e: !Template
+    answer_choices: null
+    id: 79e6530d-3ac7-470c-a999-ac36d938958e
+    jinja: 'bahasa indonesia: {{text_1}} ||| bahasa banjar: {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 9
+    reference: ''
+  7b6618d6-b5a3-4fd1-aa0d-724ae9ec2191: !Template
+    answer_choices: null
+    id: 7b6618d6-b5a3-4fd1-aa0d-724ae9ec2191
+    jinja: 'Apa Bahasa Banjar: {{text_1}} ? ||| {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 1
+    reference: ''
+  b624ff21-ab37-40c1-a660-ecb761e24e24: !Template
+    answer_choices: null
+    id: b624ff21-ab37-40c1-a660-ecb761e24e24
+    jinja: Translate ke bahasa banjar {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 8
+    reference: ''
+  c2673c4a-8c8f-41fb-a525-f9c37412d213: !Template
+    answer_choices: null
+    id: c2673c4a-8c8f-41fb-a525-f9c37412d213
+    jinja: Bahasa Indonesianya ini {{text_1}} apa? ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 6
+    reference: ''
+  d6a7407e-1eb0-4117-a06c-c5acbd7bd72f: !Template
+    answer_choices: null
+    id: d6a7407e-1eb0-4117-a06c-c5acbd7bd72f
+    jinja: Coba terjemahkan paragraf ini ke Bahasa Banjar, {{text_1}} ||| {{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 7
+    reference: ''
+  fdf530bf-7e64-45b8-8bb0-8b0575fe6123: !Template
+    answer_choices: null
+    id: fdf530bf-7e64-45b8-8bb0-8b0575fe6123
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Banjar: {{text_1}} |||
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusax_mt / nusax_mt_ind_bjn_source 5
+    reference: ''

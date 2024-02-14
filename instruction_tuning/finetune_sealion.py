@@ -144,9 +144,10 @@ def train():
         trust_remote_code=True,
 #         device_map=device_map if model_args.load_in_8bit else None,
     )
+    model.config.hidden_size = 4096
 
     tokenizer = AutoTokenizer.from_pretrained(
-        model_args.model_name_or_path,
+        "aisingapore/sealion7b",
         padding_side="right",
         use_fast=False,
         trust_remote_code=True,

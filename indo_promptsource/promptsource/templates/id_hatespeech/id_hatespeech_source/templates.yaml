@@ -1,0 +1,174 @@
+dataset: id_hatespeech
+subset: id_hatespeech_source
+templates:
+  095a2876-1cf7-4981-8a63-7b5e3905162d: !Template
+    answer_choices: HS|||Non_HS
+    id: 095a2876-1cf7-4981-8a63-7b5e3905162d
+    jinja: 'Menurutmu, apakah tweet berikut: {{tweet}}, termasuk dalam kategori ujaran
+      kebencian atau tidak? {{answer_choices[0]}} jika iya, {{answer_choices[1]}}
+      jika tidak ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: hate_or_noHate_zs_opt_kategori
+    reference: ''
+  32b77869-ab3c-46ae-9046-31b36f6bc7f9: !Template
+    answer_choices: HS|||Non_HS
+    id: 32b77869-ab3c-46ae-9046-31b36f6bc7f9
+    jinja: 'Dalam konteks ini, apakah tweet yang mengandung kata-kata seperti: {{tweet}},
+      termasuk dalam kategori hatespeech? {{answer_choices[0]}} atau {{answer_choices[1]}}
+      ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_contains
+    reference: ''
+  3a35f168-c288-498c-98f6-52fea965711e: !Template
+    answer_choices: iya|||tidak
+    id: 3a35f168-c288-498c-98f6-52fea965711e
+    jinja: Apakah teks berikut ini hatespeech "{{tweet}}"?|||{% if label == "HS" %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_noopt_apakah_yes_or_no
+    reference: ''
+  63ba98fc-36df-4882-927e-872569856d63: !Template
+    answer_choices: Hate Speech ||| Non Hate Speech
+    id: 63ba98fc-36df-4882-927e-872569856d63
+    jinja: 'Klasifikasikan teks berikut "{{tweet}}" menjadi:
+
+      - {{answer_choices[0]}}
+
+      - {{answer_choices[1]}}|||{% if label == "HS" %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: zs_text_classification
+    reference: ''
+  66c21167-97b3-4080-9670-a126b6dbc918: !Template
+    answer_choices: HS|||Non_HS
+    id: 66c21167-97b3-4080-9670-a126b6dbc918
+    jinja: 'Apakah pesan yang disampaikan dalam tweet berikut: {{tweet}}, termasuk
+      ke dalam kategori ujaran kebencian?
+
+
+      {{answer_choices[0]}} or {{answer_choices[1]}} ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt
+    reference: ''
+  775da1ab-0024-4337-bd61-5b6e1fb37044: !Template
+    answer_choices: HS|||Non_HS
+    id: 775da1ab-0024-4337-bd61-5b6e1fb37044
+    jinja: '{{tweet}}.
+
+      Is the sentiment the sentence expresses is a {{answer_choices[1]}} speech or
+      {{answer_choices[0]}} speech? ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - en
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_sentiment_analysis
+    reference: ''
+  9bf58e68-ed3a-45fc-9518-4eed0b61ee09: !Template
+    answer_choices: iya|||tidak
+    id: 9bf58e68-ed3a-45fc-9518-4eed0b61ee09
+    jinja: "Apakah teks berikut ini hatespeech:\"{{tweet}}\" ? \n{{answer_choices[0]}}/{{answer_choices[1]}}|||{%\
+      \ if label == \"HS\" %}{{answer_choices[0]}}{%else%}{{answer_choices[1]}}{%endif%}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_apakah_yes_or_no
+    reference: ''
+  a0e5176b-7dcd-412d-8827-f2f7a3f54edb: !Template
+    answer_choices: HS|||Non_HS
+    id: a0e5176b-7dcd-412d-8827-f2f7a3f54edb
+    jinja: 'Berdasarkan kriteria hatespeech yang ada, apakah pesan yang disampaikan
+      dalam tweet berikut: {{tweet}}, dianggap sebagai hatespeech? {{answer_choices[0]}}
+      jika iya, {{answer_choices[1]}} jika tidak. ||| {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_kriteria
+    reference: ''
+  b3707024-73f6-408e-9688-c18d0aad8d29: !Template
+    answer_choices: HS|||Non_HS
+    id: b3707024-73f6-408e-9688-c18d0aad8d29
+    jinja: 'Apakah teks berikut ini hatespeech:
+
+      {{tweet}} ? {{answer_choices[0]}} jika iya, {{answer_choices[1]}} jika tidak.|||{{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_apakah
+    reference: ''
+  ded62ecc-a7c1-4fa4-b989-85d24d5805a9: !Template
+    answer_choices: null
+    id: ded62ecc-a7c1-4fa4-b989-85d24d5805a9
+    jinja: Hasilkan teks {% if label == "HS" %}hate speech{%else%}tidak hate speech{%
+      endif %}|||{{tweet}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: false
+    name: generate_hate_or_noHate_text
+    reference: ''
+  fe6b085e-b1c8-463b-98c8-b5ca789787f9: !Template
+    answer_choices: HS|||Non_HS
+    id: fe6b085e-b1c8-463b-98c8-b5ca789787f9
+    jinja: 'Apakah teks berikut ini hatespeech:
+
+      {{tweet}} ?
+
+      - {{answer_choices[0]}}: hatespeech
+
+      - {{answer_choices[1]}}: tidak hatespeech|||{{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: hate_or_noHate_zs_opt_list_apakah
+    reference: ''

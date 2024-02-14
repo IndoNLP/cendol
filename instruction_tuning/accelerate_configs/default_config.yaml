@@ -1,7 +1,7 @@
 compute_environment: LOCAL_MACHINE
 debug: false
 deepspeed_config:
-  deepspeed_config_file: /home/jovyan/indo-t0/instruction_tuning/ds_config/ds_config.json
+  deepspeed_config_file: /home/holylovenia/projects/indo-t0/instruction_tuning/ds_config/ds_config-sealion-7b.json
   zero3_init_flag: true
 distributed_type: DEEPSPEED
 downcast_bf16: 'no'
@@ -13,7 +13,7 @@ dynamo_config:
 machine_rank: 0
 main_training_function: main
 num_machines: 1
-num_processes: 4
+num_processes: 6
 rdzv_backend: static
 same_network: true
 tpu_env: []

@@ -1,0 +1,212 @@
+dataset: indotacos
+subset: indotacos_nusantara_text
+templates:
+  0e52f5c4-0b9d-4a86-8ea9-774e5e64568c: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: 0e52f5c4-0b9d-4a86-8ea9-774e5e64568c
+    jinja: 'berlandaskan hasil keputusan hukum di bawah ini:
+
+      "{{text}}"
+
+      pilihlah keputusan yang tepat sesuai dengan konteks dari teks tersebut!
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_3
+    reference: ''
+  108223bd-c206-4174-ba77-880dc0bce195: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: 108223bd-c206-4174-ba77-880dc0bce195
+    jinja: 'berdasarkan hasil putusan hukum ini:
+
+      "{{text}}"
+
+      pilihlah keputusan yang tepat sesuai dengan konteks teks tersebut!
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_6
+    reference: ''
+  5bbe722a-86e8-4273-903b-aa1f4b974adb: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: 5bbe722a-86e8-4273-903b-aa1f4b974adb
+    jinja: 'berdasarkan keputusan hukum yang diberikan sebagai berikut:
+
+      "{{text}}"
+
+      tentukanlah keputusan yang paling sesuai berdasarkan konteks dari teks tersebut!
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_5
+    reference: ''
+  972ed0e6-b4c8-4aa2-825e-6a383b5232c7: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: 972ed0e6-b4c8-4aa2-825e-6a383b5232c7
+    jinja: 'berdasarkan hasil keputusan hukum yang diberikan sebagai berikut:
+      "{{text}}"
+      tentukanlah keputusan yang tepat menurut konteks dari teks tersebut!
+      |||
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_9
+    reference: ''
+  9ede4e6b-79a5-43e1-b73e-7af47d28fcd9: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: 9ede4e6b-79a5-43e1-b73e-7af47d28fcd9
+    jinja: 'berdasarkan keputusan hukum yang tercantum di bawah ini:
+
+      "{{text}}"
+
+      pilihlah keputusan yang sesuai berdasarkan konteks dari teks tersebut!
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_8
+    reference: ''
+  b210f84b-d7a8-4385-93d9-93e5fe44ce5a: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: b210f84b-d7a8-4385-93d9-93e5fe44ce5a
+    jinja: 'berdasarkan keputusan legal berikut ini : "{{text}}" manakah keputusan
+      yang tepat berdasarkan konteks dari teks tersebut? ||| {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_1
+    reference: ''
+  bfb34cad-5f07-4e59-acd5-5014a6a9d581: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: bfb34cad-5f07-4e59-acd5-5014a6a9d581
+    jinja: 'berdasarkan putusan hukum yang disajikan berikut:
+
+      "{{text}}"
+
+      tentukanlah keputusan yang sesuai dengan konteks teks tersebut!
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_2
+    reference: ''
+  d9681b36-b3fa-403e-92e1-3af116600d6f: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: d9681b36-b3fa-403e-92e1-3af116600d6f
+    jinja: 'berdasarkan putusan hukum yang diuraikan berikut ini:
+
+      "{{text}}"
+
+      mana di antara pilihan keputusan yang sesuai dengan konteks teks tersebut?
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_10
+    reference: ''
+  f153d79b-35e3-41ea-89b5-004889f2742a: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: f153d79b-35e3-41ea-89b5-004889f2742a
+    jinja: 'berdasarkan hasil keputusan hukum dalam naskah ini:
+
+      "{{text}}"
+
+      carilah keputusan yang sesuai dengan konteks teks tersebut!
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_7
+    reference: ''
+  f2f2c366-8c54-4c1d-b620-60de4f7c9af3: !Template
+    answer_choices: mengabulkan sebagian ||| mengabulkan seluruhnya ||| menolak |||
+      lain-lain ||| menambah pajak ||| mengabulkan ||| membetulkan
+    id: f2f2c366-8c54-4c1d-b620-60de4f7c9af3
+    jinja: 'berdasarkan putusan hukum yang tertera di sini:
+
+      "{{text}}"
+
+      mana di antara pilihan keputusan yang cocok sesuai dengan konteks teks tersebut?
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: true
+    name: indotacos_nusantara_text_template_4
+    reference: ''

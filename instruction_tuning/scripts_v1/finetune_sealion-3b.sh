@@ -5,11 +5,15 @@ HUGGINGFACE_HUB_CACHE=/home/users/nus/hlovenia/scratch/.cache/huggingface/hub
 TRANSFORMERS_CACHE=/home/users/nus/hlovenia/scratch/.cache/huggingface/hub
 HF_DATASETS_CACHE=/home/users/nus/hlovenia/scratch/.cache/huggingface/datasets
 
+huggingface-cli login --token $HF_TOKEN
+
+wandb login --verify $WANDB_API_KEY
+
 # 3B Full Fine-Tuning
 model_size='3b'
 batch_size=32
 grad_accum=1
-accelerate launch finetune_sealion.py \
+CUDA_VISIBLE_DEVICES="0,1" accelerate launch finetune_sealion.py \
     --model_name_or_path aisingapore/sealion${model_size} \
     --output_dir output/cendol-sealion-${model_size} \
     --overwrite_output_dir \
@@ -39,4 +43,4 @@ accelerate launch finetune_sealion.py \
     --group_by_length \
     --report_to wandb \
     --wandb_project cendol \
-    --run_name cendol-sealion-${model_size}
+    --run_name cendol-sealion-${model_size} | tee ./logs/scripts_v1_cendol-sealion-${model_size}
