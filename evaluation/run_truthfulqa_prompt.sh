@@ -77,21 +77,25 @@
 # CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-llama2-13b-merged 16
 # CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-llama2-13b-merged 16
 
-# Zero-Shot Cendol V2 Ind
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-small-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-base-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-large-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-xl-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-xxl-merged-chat 16 
+# # Zero-Shot Cendol V2 Ind
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-small-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-base-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-large-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-xl-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-mt5-xxl-merged-chat 16 
 
-# Zero-Shot Cendol V2 Eng
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-small-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-base-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-large-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-xl-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-xxl-merged-chat 16
+# # Zero-Shot Cendol V2 Eng
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-small-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-base-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-large-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-xl-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-mt5-xxl-merged-chat 16
 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-llama2-7b-chat 16 
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-llama2-7b-chat 16
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-llama2-13b-merged-chat 16
-CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-llama2-13b-merged-chat 16
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-llama2-7b-chat 16 
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-llama2-7b-chat 16
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-llama2-13b-merged-chat 16
+# CUDA_VISIBLE_DEVICES=2 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-llama2-13b-merged-chat 16
+
+# Zero-Shot Cendol V1 SEA-LION 7B Ind & Eng
+CUDA_VISIBLE_DEVICES=0 python main_truthfulqa_prompt_batch.py ind indonlp/cendol-sealion-7b 16 &
+CUDA_VISIBLE_DEVICES=0 python main_truthfulqa_prompt_batch.py eng indonlp/cendol-sealion-7b 16 &

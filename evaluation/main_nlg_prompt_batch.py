@@ -164,7 +164,7 @@ if __name__ == '__main__':
     trust_remote_code = "sealion" in MODEL
     use_prompt_template = "sealion" in MODEL and "instruct" in MODEL
     if "gpt" not in MODEL and "text" not in MODEL:
-        tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', trust_remote_code=trust_remote_code)
+        tokenizer = AutoTokenizer.from_pretrained("aisingapore/sealion7b", truncation_side='left', trust_remote_code=trust_remote_code)
         tokenizer.padding_side = "left"
         if tokenizer.pad_token is None:
             tokenizer.pad_token = tokenizer.bos_token if tokenizer.bos_token is not None else tokenizer.eos_token
