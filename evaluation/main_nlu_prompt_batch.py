@@ -51,8 +51,12 @@ def to_prompt(input, prompt, labels, prompt_lang):
     return prompt
 
 @torch.inference_mode()
-def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None):
-    inputs = tokenizer(inputs, return_tensors="pt", padding=True, truncation=True, max_length=1024).to('cuda')    
+def get_logprobs(model, tokenizer, inputs, label_ids=None, label_attn=None, return_token_type_ids=None):
+    if "sealion-7b" in MODEL:
+        return_token_type_ids = False
+    inputs = tokenizer(
+        inputs, return_tensors="pt", padding=True, truncation=True,
+        max_length=1024, return_token_type_ids=return_token_type_ids).to('cuda')    
     if model.config.is_encoder_decoder:
         label_ids = label_ids.repeat((inputs['input_ids'].shape[0],1))
         label_attn = label_attn.repeat((inputs['input_ids'].shape[0],1))
@@ -121,88 +125,105 @@ if __name__ == '__main__':
     set_seed(42)
 
     # Load Model
-    tokenizer = AutoTokenizer.from_pretrained(MODEL, truncation_side='left', padding_side='right', trust_remote_code=True)
+    tokenizer = AutoTokenizer.from_pretrained("aisingapore/sealion7b", truncation_side='left', padding_side='right', trust_remote_code=True)
     if ADAPTER != "":
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
         model = PeftModel.from_pretrained(model, ADAPTER, torch_dtype=torch.float16)
         MODEL = ADAPTER # for file naming
-    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL or "sealion7b" in MODEL or "Merak" in MODEL or "SeaLLM" in MODEL or  "Llama" in MODEL:
+    elif "bloom" in MODEL or "xglm" in MODEL or "gpt2" in MODEL or "Merak" in MODEL or "SeaLLM" in MODEL or  "Llama" in MODEL:
         model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
-        if "sealion7b" in MODEL:
-            tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
+    elif "sealion" in MODEL:
+        model = AutoModelForCausalLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=False, trust_remote_code=True)
+        tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
     else:
         model = AutoModelForSeq2SeqLM.from_pretrained(MODEL, device_map="auto", load_in_8bit=True, trust_remote_code=True)
         tokenizer.pad_token = tokenizer.eos_token # Use EOS to pad label
         
     model.eval()
-    torch.no_grad()
+    
+    with torch.no_grad():
+        metrics = []
+        labels = []
+        for i, dset_subset in enumerate(nlu_datasets.keys()):
+            print(f'{i} {dset_subset}')
+            nlu_dset, task_type = nlu_datasets[dset_subset]
+            if task_type.value not in TASK_TYPE_TO_PROMPT:
+                print(f'SKIPPING {dset_subset}')
+                continue
 
-    metrics = []
-    labels = []
-    for i, dset_subset in enumerate(nlu_datasets.keys()):
-        print(f'{i} {dset_subset}')
-        nlu_dset, task_type = nlu_datasets[dset_subset]
-        if task_type.value not in TASK_TYPE_TO_PROMPT:
-            print(f'SKIPPING {dset_subset}')
-            continue
+            # Retrieve metadata
+            split = 'test'
+            if 'test' in nlu_dset.keys():
+                test_dset = nlu_dset['test']
+            else:
+                test_dset = nlu_dset['train']
+                split = 'train'
+            print(f'Processing {dset_subset}')
 
-        # Retrieve metadata
-        split = 'test'
-        if 'test' in nlu_dset.keys():
-            test_dset = nlu_dset['test']
-        else:
-            test_dset = nlu_dset['train']
-            split = 'train'
-        print(f'Processing {dset_subset}')
+            # Retrieve & preprocess labels
+            try:
+                label_names = test_dset.features['label'].names
+            except:
+                label_names = list(set(test_dset['label']))
+                
+            # normalize some labels for more natural prompt:
+            label_mapping = get_label_mapping(dset_subset, prompt_lang)
+            label_names = list(map(lambda x: label_mapping[x], label_mapping))
 
-        # Retrieve & preprocess labels
-        try:
-            label_names = test_dset.features['label'].names
-        except:
-            label_names = list(set(test_dset['label']))
+            label_to_id_dict = { l : i for i, l in enumerate(label_names)}
             
-        # normalize some labels for more natural prompt:
-        label_mapping = get_label_mapping(dset_subset, prompt_lang)
-        label_names = list(map(lambda x: label_mapping[x], label_mapping))
+            for prompt_id, prompt_template in enumerate(TASK_TYPE_TO_PROMPT[task_type.value]):
+                inputs, preds, golds = [], [], []
+                
+                # Check saved data
+                if exists(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
+                    print("Output exist, use partial log instead")
+                    with open(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
+                        reader = csv.DictReader(csvfile)
+                        for row in reader:
+                            inputs.append(row["Input"])
+                            preds.append(row["Pred"])
+                            golds.append(row["Gold"])
+                    print(f"Skipping until {len(preds)}")
 
-        label_to_id_dict = { l : i for i, l in enumerate(label_names)}
-        
-        for prompt_id, prompt_template in enumerate(TASK_TYPE_TO_PROMPT[task_type.value]):
-            inputs, preds, golds = [], [], []
-            
-            # Check saved data
-            if exists(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv'):
-                print("Output exist, use partial log instead")
-                with open(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv') as csvfile:
-                    reader = csv.DictReader(csvfile)
-                    for row in reader:
-                        inputs.append(row["Input"])
-                        preds.append(row["Pred"])
-                        golds.append(row["Gold"])
-                print(f"Skipping until {len(preds)}")
+                # sample prompt
+                print("= LABEL NAME =")
+                print(label_names)
+                print("= SAMPLE PROMPT =")
+                
+                print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
+                print("\n")
 
-            # sample prompt
-            print("= LABEL NAME =")
-            print(label_names)
-            print("= SAMPLE PROMPT =")
-            
-            print(to_prompt(test_dset[0], prompt_template, label_names, prompt_lang))
-            print("\n")
+                # zero-shot inference
+                prompts, labels = [], []
+                count = 0
+                with torch.inference_mode():
+                    for e, sample in tqdm(enumerate(test_dset)):
+                        if e < len(preds):
+                            continue
 
-            # zero-shot inference
-            prompts, labels = [], []
-            count = 0
-            with torch.inference_mode():
-                for e, sample in tqdm(enumerate(test_dset)):
-                    if e < len(preds):
-                        continue
+                        prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
+                        prompts.append(prompt_text)
+                        labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
 
-                    prompt_text = to_prompt(sample, prompt_template, label_names, prompt_lang)
-                    prompts.append(prompt_text)
-                    labels.append(label_to_id_dict[sample['label']] if type(sample['label']) == str else sample['label'])
-
-                    # Batch Inference
-                    if len(prompts) == BATCH_SIZE:
+                        # Batch Inference
+                        if len(prompts) == BATCH_SIZE:
+                            out = predict_classification(model, tokenizer, prompts, label_names)
+                            hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
+                            for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
+                                inputs.append(prompt_text)
+                                preds.append(hyp)
+                                golds.append(label)
+                            prompts, labels = [], []
+                            count += 1
+                            
+                        if count == SAVE_EVERY:
+                            # partial saving
+                            inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
+                            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+                            count = 0
+                            
+                    if len(prompts) > 0:
                         out = predict_classification(model, tokenizer, prompts, label_names)
                         hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
                         for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
@@ -210,50 +231,35 @@ if __name__ == '__main__':
                             preds.append(hyp)
                             golds.append(label)
                         prompts, labels = [], []
-                        count += 1
-                        
-                    if count == SAVE_EVERY:
-                        # partial saving
-                        inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-                        inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
-                        count = 0
-                        
-                if len(prompts) > 0:
-                    out = predict_classification(model, tokenizer, prompts, label_names)
-                    hyps = argmax(stack(out, axis=-1), axis=-1).tolist()
-                    for (prompt_text, hyp, label) in zip(prompts, hyps, labels):
-                        inputs.append(prompt_text)
-                        preds.append(hyp)
-                        golds.append(label)
-                    prompts, labels = [], []
 
-            # partial saving
-            inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
-            inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
+                # partial saving
+                inference_df = pd.DataFrame(list(zip(inputs, preds, golds)), columns =["Input", 'Pred', 'Gold'])
+                inference_df.to_csv(f'{out_dir}/{dset_subset}_{prompt_lang}_{prompt_id}_{MODEL.split("/")[-1]}.csv', index=False)
 
-            cls_report = classification_report(golds, preds, output_dict=True)
-            micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
-            print(dset_subset)
-            print('accuracy', cls_report['accuracy'])
-            print('f1 micro', micro_f1)
-            print('f1 macro', cls_report['macro avg']['f1-score'])
-            print('f1 weighted', cls_report['weighted avg']['f1-score'])
-            print("===\n\n")       
+                cls_report = classification_report(golds, preds, output_dict=True)
+                micro_f1, micro_prec, micro_rec, _ = precision_recall_fscore_support(golds, preds, average='micro')
+                print(dset_subset)
+                print('accuracy', cls_report['accuracy'])
+                print('f1 micro', micro_f1)
+                print('f1 macro', cls_report['macro avg']['f1-score'])
+                print('f1 weighted', cls_report['weighted avg']['f1-score'])
+                print("===\n\n")       
 
-            metrics.append({
-                'dataset': dset_subset,
-                'prompt_id': prompt_id,
-                'prompt_lang': prompt_lang,
-                'accuracy': cls_report['accuracy'], 
-                'micro_prec': micro_prec,
-                'micro_rec': micro_rec,
-                'micro_f1_score': micro_f1,
-                'macro_prec': cls_report['macro avg']['precision'],
-                'macro_rec': cls_report['macro avg']['recall'],
-                'macro_f1_score': cls_report['macro avg']['f1-score'],
-                'weighted_prec': cls_report['weighted avg']['precision'],
-                'weighted_rec': cls_report['weighted avg']['recall'],
-                'weighted_f1_score': cls_report['weighted avg']['f1-score'],
-            })
+                metrics.append({
+                    'dataset': dset_subset,
+                    'prompt_id': prompt_id,
+                    'prompt_lang': prompt_lang,
+                    'accuracy': cls_report['accuracy'], 
+                    'micro_prec': micro_prec,
+                    'micro_rec': micro_rec,
+                    'micro_f1_score': micro_f1,
+                    'macro_prec': cls_report['macro avg']['precision'],
+                    'macro_rec': cls_report['macro avg']['recall'],
+                    'macro_f1_score': cls_report['macro avg']['f1-score'],
+                    'weighted_prec': cls_report['weighted avg']['precision'],
+                    'weighted_rec': cls_report['weighted avg']['recall'],
+                    'weighted_f1_score': cls_report['weighted avg']['f1-score'],
+                })
 
+    print(f'{metric_dir}/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv')
     pd.DataFrame(metrics).reset_index().to_csv(f'{metric_dir}/nlu_results_{prompt_lang}_{MODEL.split("/")[-1]}.csv', index=False)
