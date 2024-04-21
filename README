@@ -1,0 +1,4 @@
+# IndoT0
+Potential Modeling Code for Conditional Generation:
+- [MT fine-tuning HuggingFace](https://github.com/huggingface/transformers/tree/main/examples/pytorch/translation)
+- [deepseed-flan-t5-summarization.ipynb](https://github.com/huggingface/transformers/tree/main/examples/pytorch/translation)
