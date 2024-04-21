@@ -1,20 +1,30 @@
 # **Cendol: Open Instruction-tuned Generative Large Language Models for Indonesian Languages**
-Cendol is an open-source collection of fine-tuned generative large language models in Indonesian languages covering decoder-only and encoder-decoder transformer model architectures ranging in scale from 300 million to 13 billion parameters. This is the repository for the {XXM} model. Links to other models can be found in the index at the bottom.
+Cendol is an open-source collection of fine-tuned generative large language models in Indonesian languages covering decoder-only and encoder-decoder transformer model architectures ranging in scale from 300 million to 13 billion parameters.
+This is the code repository for Cendol. Links to the models and datasets can be found below.
 
 ## Model Details
-*Note: Use of Cendol is licensed under the [Apache 2.0 license](https://choosealicense.com/licenses/apache-2.0/). IndoNLP developed and publicly released the Cendol family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 560 million to 13 billion parameters. Our Indonesian LLMs cover two fine-tuned versions: (1) Cendol-Instruct that is instruction-tuned on tasks-specific NLP data such as machine translation, summarization, question answering, etc; and (2) Cendol-Chat that is continuously instruction-tuned on general knowledge and human-centric prompts. Both Cendol-Instruct and Cendol-Chat are only designed for a single turn conversation. Cendol outperform open-source multilingual and region-specific LLMs on most benchmarks we tested by a huge margin, with the smaller version (<1B parameters) of Cendol  can be highly competitive with other LLMs with 7B parameters.
+*Note*: Use of Cendol is licensed under the [Apache 2.0 license](https://choosealicense.com/licenses/apache-2.0/)
 
-**Model Developers** IndoNLP
+**Overview**
+
+IndoNLP developed and publicly released the Cendol family of large language models (LLMs), a collection of pretrained and fine-tuned generative text models ranging in scale from 560 million to 13 billion parameters. 
+
+Cendol models cover two instruction-tuned versions: 
+1.  Cendol-Instruct that is instruction-tuned on tasks-specific NLP data such as sentiment analysis, topic modeling, machine translation, summarization, question answering, paraphrasing, etc
+2.  Cendol-Chat that is continuously instruction-tuned from **Cendol-Instruct** on general knowledge and human-centric prompts.
+
+Both Cendol-Instruct and Cendol-Chat are designed for a single-turn conversation. Cendol outperforms open-source multilingual and region-specific LLMs on most benchmarks we tested by a huge margin, with the smaller version (<1B parameters) of Cendol being highly competitive with other LLMs with 7B parameters.
+
+**Model Developers**: IndoNLP
 
 **Variations** 
 
 Cendol comes from 2 base models (mT5 and LLaMA-2) each with a range of parameter sizes. mT5-based Cendol comes with 300M (mT5-small), 580M (mT5-base), 1.2B (mT5-large), 3.7B (mT5-XL), and 13B (mT5-XXL) models, while LLaMA-2-based Cendol comes with 7B (LLaMA2-7B) and 13B (LLaMA2-13B) models. Both variants come with Cendol-Instruct and Cendol-Chat variations. All 13B parameter models are tuned with LoRA, while others are fully fine-tuned.
 
-In our paper, we showcase that adapting region-specific LLMs using LoRA is ineffective and inefficient, i.e., the 13B (mT5-XXL) Cendol models perform slightly worse than the 1.2B (mT5-large) Cendol models, while having 3x slower training time and 4x slower inference time. As an alternative to LoRA, we showcase the benefits of vocabulary substitution as an effective and efficient strategy for region-specific adaptation, where we improve the efficiency by 11.50% and 18.71% for training and inference times, respectively. In terms of evaluation performance, we also showcase that the model performs on par with the Cendol model trained with the original vocabulary. We also release the Indonesian vocabulary-adapted model [here](https://huggingface.co/indonlp/cendol-llama2-ind-vocab-inst).
+In our paper, we showcase that adapting region-specific LLMs using LoRA is ineffective and inefficient, i.e., the 13B (mT5-XXL) Cendol models perform slightly worse than the 1.2B (mT5-large) Cendol models, while having 3x slower training time and 4x slower inference time. As an alternative to LoRA, we showcase the benefits of vocabulary substitution as an effective and efficient strategy for region-specific adaptation, where we improve the efficiency by **11.50%** and **18.71%** for training and inference times, respectively. 
+In terms of evaluation performance, we also showcase that the model performs on par with the Cendol model trained with the original vocabulary. We also release the Indonesian vocabulary-adapted model denoted as `Indonesian-Vocab Instruct`.
 
-**Input** Models input text only.
-
-**Output** Models generate text only.
+**Input-Output**: Models input and output are text only.
 
 **Model Architecture**
 
@@ -26,7 +36,7 @@ In our paper, we showcase that adapting region-specific LLMs using LoRA is ineff
 |[Cendol mT5-xl Instruct](https://huggingface.co/indonlp/cendol-mt5-xl-inst)|[NusaT2T v1]()|3.7B|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
 |[Cendol mT5-xxl Instruct](https://huggingface.co/indonlp/cendol-mt5-xxl-merged-inst)|[NusaT2T v1]()|13B|LoRA|2.0 x 10<sup>-4</sup>|
 |[Cendol LLaMA-2 (7B) Instruct](https://huggingface.co/indonlp/cendol-llama2-7b-inst)|[NusaT2T v1]()|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
-|[Cendol LLaMA-2 (7B) Indonesian Vocab Instruct](https://huggingface.co/indonlp/cendol-llama2-ind-vocab-inst)|[NusaT2T v1]()|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
+|[Cendol LLaMA-2 (7B) Indonesian-Vocab Instruct](https://huggingface.co/indonlp/cendol-llama2-ind-vocab-inst)|[NusaT2T v1]()|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
 |[Cendol LLaMA-2 (13B) Instruct](https://huggingface.co/indonlp/cendol-llama2-13b-merged-inst)|[NusaT2T v1]()|13B|LoRA|2.0 x 10<sup>-5</sup>|
 |[Cendol mT5-small Chat](https://huggingface.co/indonlp/cendol-mt5-small-chat)|[NusaT2T v2]()|300M|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
 |[Cendol mT5-base Chat](https://huggingface.co/indonlp/cendol-mt5-base-chat)|[NusaT2T v2]()|580M|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
@@ -52,12 +62,17 @@ In our paper, we showcase that adapting region-specific LLMs using LoRA is ineff
 In this section, we report the results for the Cendol models on large-scale NLU and NLG benchmarks. For all the evaluations, we use our internal evaluations library.
 
 #### NLU Performance
+<img width="938" alt="NLU Performance" src="https://github.com/IndoNLP/indo-t0/assets/2826602/7656f005-f261-4982-ad06-f18dc57d5e3b">
 
 #### NLG Performance
+<img width="940" alt="NLG Performance" src="https://github.com/IndoNLP/indo-t0/assets/2826602/4942caea-35df-44e1-a95b-53a027c6115f">
+
+#### Human evaluation
+<img width="456" alt="Human Evaluation" src="https://github.com/IndoNLP/indo-t0/assets/2826602/6128257f-d36c-4dbb-8f6c-4b936bc2ea66">
 
 
 ## Ethical Considerations and Limitations
-Cendol is a new technology that carries risks with use. Testing conducted to date has been in Indonesian, and has not covered, nor could it cover all scenarios. For these reasons, as with all LLMs, Cendol’s potential outputs cannot be predicted in advance, and the model may in some instances produce inaccurate, biased or other objectionable responses to user prompts. Therefore, before deploying any applications of Cendol, developers should perform safety testing and tuning tailored to their specific applications of the model.
+Cendol is a new technology that carries risks with its use. Testing conducted to date has been in Indonesian, and has not covered, nor could it cover all scenarios. For these reasons, as with all LLMs, Cendol’s potential outputs cannot be predicted in advance, and the model may in some instances produce inaccurate, biased or other objectionable responses to user prompts. Therefore, before deploying any applications of Cendol, developers should perform safety testing and tuning tailored to their specific applications of the model.
 
 ## Citation
 If you are using any resources including Cendol models, code, or data, please cite the following articles:
@@ -254,8 +269,7 @@ Additionally, if you are inspired by our work on region-specific language models
     publisher = "Association for Computational Linguistics",
     url = "https://aclanthology.org/2021.emnlp-main.699",
     doi = "10.18653/v1/2021.emnlp-main.699",
-    pages = "8875--8898",
-    abstract = "Natural language generation (NLG) benchmarks provide an important avenue to measure progress and develop better NLG systems. Unfortunately, the lack of publicly available NLG benchmarks for low-resource languages poses a challenging barrier for building NLG systems that work well for languages with limited amounts of data. Here we introduce IndoNLG, the first benchmark to measure natural language generation (NLG) progress in three low-resource{---}yet widely spoken{---}languages of Indonesia: Indonesian, Javanese, and Sundanese. Altogether, these languages are spoken by more than 100 million native speakers, and hence constitute an important use case of NLG systems today. Concretely, IndoNLG covers six tasks: summarization, question answering, chit-chat, and three different pairs of machine translation (MT) tasks. We collate a clean pretraining corpus of Indonesian, Sundanese, and Javanese datasets, Indo4B-Plus, which is used to pretrain our models: IndoBART and IndoGPT. We show that IndoBART and IndoGPT achieve competitive performance on all tasks{---}despite using only one-fifth the parameters of a larger multilingual model, mBART-large (Liu et al., 2020). This finding emphasizes the importance of pretraining on closely related, localized languages to achieve more efficient learning and faster inference at very low-resource languages like Javanese and Sundanese.",
+    pages = "8875--8898"
 }
 
 @inproceedings{wilie-etal-2020-indonlu,
