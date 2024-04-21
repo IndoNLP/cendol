@@ -30,21 +30,22 @@ In terms of evaluation performance, we also showcase that the model performs on 
 
 |Model|Training Data|Params|Tuning Strategy|LR|
 |---|---|---|---|---|
-|[Cendol mT5-small Instruct](https://huggingface.co/indonlp/cendol-mt5-small-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|300M|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
-|[Cendol mT5-base Instruct](https://huggingface.co/indonlp/cendol-mt5-base-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|580M|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
-|[Cendol mT5-large Instruct](https://huggingface.co/indonlp/cendol-mt5-large-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|1.2B|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
-|[Cendol mT5-xl Instruct](https://huggingface.co/indonlp/cendol-mt5-xl-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|3.7B|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
-|[Cendol mT5-xxl Instruct](https://huggingface.co/indonlp/cendol-mt5-xxl-merged-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|13B|LoRA|2.0 x 10<sup>-4</sup>|
-|[Cendol LLaMA-2 (7B) Instruct](https://huggingface.co/indonlp/cendol-llama2-7b-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
-|[Cendol LLaMA-2 (7B) Indonesian-Vocab Instruct](https://huggingface.co/indonlp/cendol-llama2-ind-vocab-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
-|[Cendol LLaMA-2 (13B) Instruct](https://huggingface.co/indonlp/cendol-llama2-13b-merged-inst)|[NusaT2T v1](https://huggingface.co/datasets/indonlp/nusa_t2t_v1)|13B|LoRA|2.0 x 10<sup>-5</sup>|
-|[Cendol mT5-small Chat](https://huggingface.co/indonlp/cendol-mt5-small-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|300M|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
-|[Cendol mT5-base Chat](https://huggingface.co/indonlp/cendol-mt5-base-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|580M|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
-|[Cendol mT5-large Chat](https://huggingface.co/indonlp/cendol-mt5-large-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|1.2B|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
-|[Cendol mT5-xl Chat](https://huggingface.co/indonlp/cendol-mt5-xl-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|3.7B|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
-|[Cendol mT5-xxl Chat](https://huggingface.co/indonlp/cendol-mt5-xxl-merged-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|13B|LoRA|2.0 x 10<sup>-4</sup>|
-|[Cendol LLaMA-2 (7B) Chat](https://huggingface.co/indonlp/cendol-llama2-7b-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|7B|Fully-Finetuned|1.0 x 10<sup>-5</sup>|
-|[Cendol LLaMA-2 (13B) Chat](https://huggingface.co/indonlp/cendol-llama2-13b-merged-chat)|[NusaT2T v2](https://huggingface.co/datasets/indonlp/nusa_t2t_v2)|13B|LoRA|2.0 x 10<sup>-4</sup>|
+|[Cendol mT5-small Instruct](https://huggingface.co/indonlp/cendol-mt5-small-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|300M|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
+|[Cendol mT5-base Instruct](https://huggingface.co/indonlp/cendol-mt5-base-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|580M|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
+|[Cendol mT5-large Instruct](https://huggingface.co/indonlp/cendol-mt5-large-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|1.2B|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
+|[Cendol mT5-xl Instruct](https://huggingface.co/indonlp/cendol-mt5-xl-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|3.7B|Fully-Finetuned|3.0 x 10<sup>-4</sup>|
+|[Cendol mT5-xxl Instruct](https://huggingface.co/indonlp/cendol-mt5-xxl-merged-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|13B|LoRA|2.0 x 10<sup>-4</sup>|
+|[Cendol LLaMA-2 (7B) Instruct](https://huggingface.co/indonlp/cendol-llama2-7b-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
+|[Cendol LLaMA-2 (7B) Indonesian-Vocab Instruct](https://huggingface.co/indonlp/cendol-llama2-ind-vocab-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|7B|Fully-Finetuned|2.0 x 10<sup>-5</sup>|
+|[Cendol LLaMA-2 (13B) Instruct](https://huggingface.co/indonlp/cendol-llama2-13b-merged-inst)|[Cendol Collection v1](https://huggingface.co/datasets/indonlp/cendol_collection_v1)|13B|LoRA|2.0 x 10<sup>-5</sup>|
+|[Cendol mT5-small Chat](https://huggingface.co/indonlp/cendol-mt5-small-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|300M|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
+|[Cendol mT5-base Chat](https://huggingface.co/indonlp/cendol-mt5-base-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|580M|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
+|[Cendol mT5-large Chat](https://huggingface.co/indonlp/cendol-mt5-large-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|1.2B|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
+|[Cendol mT5-xl Chat](https://huggingface.co/indonlp/cendol-mt5-xl-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|3.7B|Fully-Finetuned|3.0 x 10<sup>-5</sup>|
+|[Cendol mT5-xxl Chat](https://huggingface.co/indonlp/cendol-mt5-xxl-merged-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|13B|LoRA|2.0 x 10<sup>-4</sup>|
+|[Cendol LLaMA-2 (7B) Chat](https://huggingface.co/indonlp/cendol-llama2-7b-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|7B|Fully-Finetuned|1.0 x 10<sup>-5</sup>|
+|[Cendol LLaMA-2 (13B) Chat](https://huggingface.co/indonlp/cendol-llama2-13b-merged-chat)|[Cendol Collection v2](https://huggingface.co/datasets/indonlp/cendol_collection_v2)|13B|LoRA|2.0 x 10<sup>-4</sup>|
+
 
 **Model Dates** Cendol was trained between October 2023 and January 2024.
 
