@@ -1,0 +1,101 @@
+prompts,responses
+Apa itu STNK?,<pad> Apa itu STNK?</s>
+Gimana caranya perpanjang STNK?,<pad> Bagaimana cara memperpanjang STNK?</s>
+Tutorial perpanjang STNK?,<pad> STNK?</s>
+Di mana perpanjang STNK?,<pad> Dimana perpanjangan STNK?</s>
+Cara mengurus STNK yang sudah tidak berlaku?,<pad> Cara mengurus STNK yang sudah tidak berlaku?</s>
+Cara mengurus KTP hilang?,<pad> How do I get my ID when it ilang?</s>
+KTP gue ilang coy?,<pad> KTP w ilang woi?</s>
+Kapan harus bayar pajak?,<pad> Kapan saya harus membayar pajak?</s>
+Gimana cara ngurus NPWP?,<pad> Cara apa yang harus diikuti untuk mengurus NPWP?</s>
+Cara pembuatan NPWP?,<pad> Cara Pembuatan NPWP</s>
+Apa itu BPJS?,<pad> Apa itu BPJS?</s>
+Gimana caranya daftar BPJS?,<pad> Caranya masuk BPJS?</s>
+Bagaimana prosedur daftar BPJS Ketenagakerjaan?,<pad> Bagaimana prosedur daftar BPJS ketenagakerjaan?</s>
+5 tips lolos tes CPNS:?,<pad> 5 Tips untuk lolos tes CPNS?</s>
+Trik diterima tes masuk PNS?,<pad> Trik untuk diterima dalam tes masuk PNS?</s>
+Bagaimana supaya bisa masuk PNS?,<pad> Pelatihan apa yang harus saya ikuti agar bisa masuk PNS?</s>
+Tips dan trik masuk kuliah di UI?,<pad> Tips and Tricks for Entrance to the UI?</s>
+Cara ampuh diterima kuliah di ITB?,<pad> Upaya ampuh untuk diterima kuliah di ITB?</s>
+Bagaimana caranya lolos SIMAK UI?,<pad> Bagaimana saya bisa lolos SIMAK UI?</s>
+Bagaimana cara lolos SNMBTN?,<pad> How to escape SNMBTN?</s>
+Gimana caranya bisa masuk Binus?,<pad> Bagaimana saya bisa masuk ke Binus?</s>
+Tips masuk UGM dong?,"<pad> Ok, berikut tips untuk masuk ke UGM.</s>"
+Siapa Jokowi?,<pad> Sapa Jokowi?</s>
+Siapa Anies?,<pad> Who Are the Anies?</s>
+Siapa Ridwan Kamil?,<pad> Siapa Ridwan Kamil?</s>
+Siapa Aldi Taher?,<pad> Siapa Aldi Taher?</s>
+Siapa Megawati?,<pad> Megawati?</s>
+Siapa Nadiem Makarim?,<pad> Siapa Nadiem Makarim?</s>
+Siapa Prabowo Subianto?,<pad> Siapa Prabowo Subianto?</s>
+Siapa Syahrini?,<pad> Sapa Syahrini?</s>
+Siapa Sherina?,<pad> Who is Sherina?</s>
+5 destinasi wisata favorit di Bali?,<pad> 5 destinasi wisata favorit di Bali?</s>
+Buat travel plan healing ke Jogja?,<pad> Solusi rencana liburan ke Jogja?</s>
+"Kalau lagi di Jakarta, bagusnya main ke mana aja?","<pad> If lagi Jakarta, bagusnya main ke mana saja?</s>"
+Apa tempat wisata paling bagus di Medan?,<pad> Apa tempat wisata terbaik di Medan?</s>
+Bagaimana caranya jadi mitra GoJek?,<pad> Bagaimana caranya menjadi mitra GoJek?</s>
+Akun GoPay saya terblokir?,<pad> Bagaimana saya bisa membuka akun gopay saya?</s>
+Gimana caranya top-up OVO?,<pad> Gimana caranya top-up OVO?</s>
+Pesen cendol gimana?,<pad> Order cendol gimana?</s>
+Pesen gojek gimana?,<pad> Pesan gojek bagaimana?</s>
+Belanja di tokped caranya gimana?,<pad> Belanja di tokped caranya bagaimana</s>
+Cara sukses jualan di Shopee?,<pad> Sukses berdagang di Shopee?</s>
+Tips healing ampuh dong?,<pad> Bagaimana cara menyembuhkan penyakit ampuh?</s>
+Tips anti galau ala anak jaksel?,<pad> Tips Anti galau ala Anak Jaksel</s>
+Pesen grab gimana?,<pad> Pesan grab gimana?</s>
+Pesen taksi gimana?,<pad> Taksi online yang mana?</s>
+Tips sukses jualan di Tiktok?,<pad> Tips sukses berdagang di Tiktok?</s>
+Tips sukses dalam semalam?,<pad> Sukses tips dalam semalam</s>
+Tips sukses cpns?,<pad> Tips sukses cpns</s>
+Tips sukses sistem kebut semalam?,<pad> Sukses mlm ini kebut sistem kebut?</s>
+"Mau jalan-jalan di Pluit, kemana ya?","<pad> Mau berjalan-jalan di Pluit, kemana ya?</s>"
+"Mau jalan-jalan di Jaksel, kemana ya?","<pad> I'm going to explore around Jaksel, where should I go?</s>"
+"Mau jalan-jalan di PIM, kemana ya?","<pad> I'm going to walk-jalan at PIM, where is it?</s>"
+"Mau jalan-jalan di GI, kemana ya?","<pad> Mau jalan-jalan di GI, kemana ya?</s>"
+"Kalau mau kuliah, bagusnya kuliah kemana ya?","<pad> If wanted to go to university, where would you rather go?</s>"
+"Kalau mau kuliah, apa cuma kuliah negeri aja yang bagus?","<pad> Kalau mau kuliah, apa cuma kuliah negeri saja yang bagus?</s>"
+"Kalau mau kuliah, apa cuma kuliah swasta aja yang bagus?","<pad> If going to kuliah, apa cuma kuliah swasta jak yang bagus?</s>"
+Siapa anaknya Jokowi?,<pad> Sapa anaknya Jokowi?</s>
+Siapa anaknya Soekarno?,<pad> Siapa anaknya Soekarno?</s>
+Siapa presiden Indonesia yang pertama?,<pad> Siapa presiden Indonesia pertama?</s>
+Siapa presiden Indonesia yang kedua?,<pad> Siapa presiden Indonesia yang kedua?</s>
+Apa artinya sebelum negara api menyerang?,<pad> Apa yang akan kita lakukan sebelum api negara menyerang?</s>
+Jual mobil perlu BPKB ngga?,<pad> Million car needs BPKB not?</s>
+Jual mobil tanpa BPKB?,<pad> Million car without BPKB?</s>
+Mendingan gw mampir pegadaian ngga ya?,<pad> Apakah sebaiknya saya mampir ke pegadaian sementara?</s>
+Cicil rumah bisa via KPR?,<pad> Bagaimana rumah cicil dapat menggunakan KPR?</s>
+Gimana caranya KPR murah?,<pad> Bagaimana caranya KPR dibuat lebih murah?</s>
+Tips sukses KPR?,<pad> Sukses selalu untuk KPR?</s>
+Kredit bunga rendah?,<pad> Low-interest bank loan?</s>
+Kredit motor dong?,<pad> Motor kredit dong?</s>
+Gimana cara manfaatin KTP ganda?,<pad> Pengguna Keamanan ID KTPganda?</s>
+Tips sukses jualan di Tokped?,<pad> Tips sukses berjualan di Tokped?</s>
+Tips sukses jualan di Tokopedia?,<pad> Tips sukses berjualan di Tokopedia</s>
+Gimana cara beli ketoprak?,<pad> Bagaimana cara saya membeli ketoprak?</s>
+Gimana cara bikin ketoprak?,<pad> Cara Membuat Ketoprang</s>
+Ketoprak yg enak yg kayak apa?,<pad> Minuman ketoprak yang enak</s>
+Gimana cara beli gado-gado?,<pad> Bagaimana cara membeli gado-gado?</s>
+Gimana cara bikin gado-gado?,<pad> Bagaimana cara membuatnya lebih cepat?</s>
+Gado-gado yg enak yg kayak apa?,<pad> Gado-gado yang enak yang kayak apa</s>
+Makanan khas Indo apa ya yang enak?,<pad> Makanan khas indo apa ya yang enak?</s>
+Minta saran oleh-oleh khas Indo dong?,<pad> Bisa tolong nyarankan oleh-oleh khas Indo?</s>
+Makanan khas Jakarta apa ya yang enak?,<pad> Makanan khas jakarta apa ya yang enak?</s>
+Minta saran oleh-oleh khas Jakarta dong?,<pad> Minta saran oleh-oleh khas Jakarta oleh karena saya mau</s>
+Makanan khas Bandung apa ya yang enak?,<pad> Makanan khas Bandung apa ya yang enak?</s>
+Minta saran oleh-oleh khas Bandung dong?,<pad> Tolong berikan saya contoh oleh-oleh dari Bandung</s>
+Apa bedanya pecel lele sama lele?,<pad> Apa bedanya kulit lele dengan lele?</s>
+Apa bedanya pecel lele sama pecel?,<pad> Apa bedanya makanan pecel lele dengan makanan pecel?</s>
+Apa bedanya ketoprak dan gado-gado?,<pad> Bagaimana cara kerja ketoprak dan gado-gado?</s>
+Apa bedanya ketoprak dan karedok?,<pad> Apa bedanya ketoprak dan karedok?</s>
+Apa bedanya gado-gado dan karedok?,<pad> Bagaimana membedakan gado-gado dan karedok?</s>
+Akun Grab saya terblokir?,<pad> Akun Grab ku terblokir?</s>
+Kenapa Jakarta macet banget ya?,<pad> Kenapa Jakarta macet banget ya?</s>
+Gimana caranya jadi presiden?,<pad> What’s the point of being president?</s>
+Gimana caranya jadi gubernur?,<pad> How to be a governor that's how to be an gubernur.</s>
+Gimana caranya jadi ketua RT?,<pad> How to be RT leader</s>
+Kenapa ngga ada yang mau jadi ketua RT?,<pad> Kena apa tidak ada yang mau jadi ketua RT?</s>
+Apa sih bedanya RT dan RW?,<pad> Apa sih bedanya RT dan RW?</s>
+Apaan itu kelurahan dan kecamatan?,<pad> Kelurahan dan kecamatan</s>
+Minta review product Wardah dong?,<pad> Minta review produk Wardah dong?</s>
+Bisakah Anda jelaskan ulasan pelanggan yang negatif dan positif dari pelanggan yang telah membeli dan menggunakan Wardah untuk waktu yang cukup lama?,<pad> Bisakah Anda jelaskan ulasan pelanggan yang negatif dan positif dari pelanggan yang telah membeli dan menggunakan Wardah untuk waktu yang cukup lama?</s>
