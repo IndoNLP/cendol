@@ -1,0 +1,289 @@
+dataset: nusatranslation_mt
+subset: nusatranslation_mt_ind_rej_nusantara_t2t
+templates:
+  01ac0273-2efb-48b9-88a4-6fb919c25823: !Template
+    answer_choices: null
+    id: 01ac0273-2efb-48b9-88a4-6fb919c25823
+    jinja: 'Bahasa Indonesia: {{text_1}}
+
+      Bahasa Rejang: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: simple_translation_2
+    reference: ''
+  db78775d-f1df-4d8f-a0c1-3fb0d94db0f2: !Template
+    answer_choices: null
+    id: db78775d-f1df-4d8f-a0c1-3fb0d94db0f2
+    jinja: '"{{text_2}}" dalam bahasa Indonesia: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: dalam_bahasa_2
+    reference: ''
+  15847b0a-c18e-4038-aa15-16e13372a0f6: !Template
+    answer_choices: null
+    id: 15847b0a-c18e-4038-aa15-16e13372a0f6
+    jinja: '"{{text_1}}" dalam bahasa Rejang: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: dalam_bahasa
+    reference: ''
+  1d39425f-b25f-43b8-99cd-479cbd5860d7: !Template
+    answer_choices: null
+    id: 1d39425f-b25f-43b8-99cd-479cbd5860d7
+    jinja: 'Terjemahkan kalimat berikut ini dari bahasa Rejang ke bahasa Indonesia:
+      "{{text_2}}"|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: terjemahkan_kalimat
+    reference: ''
+  2a281674-592e-4b77-94b0-84cbf7515d59: !Template
+    answer_choices: null
+    id: 2a281674-592e-4b77-94b0-84cbf7515d59
+    jinja: '"{{text_1}}"
+
+      Teks di atas dalam bahasa Rejang: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: teks_di_atas
+    reference: ''
+  e9d46b9f-66a6-4290-9b46-4f99f05bc05f: !Template
+    answer_choices: null
+    id: e9d46b9f-66a6-4290-9b46-4f99f05bc05f
+    jinja: Apa itu "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: apa_itu
+    reference: ''
+  322c632c-8a73-46f0-a6a0-0fcabe7ce328: !Template
+    answer_choices: null
+    id: 322c632c-8a73-46f0-a6a0-0fcabe7ce328
+    jinja: 'Terjemahkan kalimat berikut ini dari bahasa Indonesia ke bahasa Rejang:
+      "{{text_1}}"|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: terjemahkan_kalimat_2
+    reference: ''
+  3c515ec7-48e9-4c5c-8144-be2b31ca4038: !Template
+    answer_choices: null
+    id: 3c515ec7-48e9-4c5c-8144-be2b31ca4038
+    jinja: 'Translasi ke bahasa Indonesia: {{text_2}}.|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translate_to
+    reference: ''
+  c2565ffd-1d87-4ec3-ba28-5cf58d35d679: !Template
+    answer_choices: null
+    id: c2565ffd-1d87-4ec3-ba28-5cf58d35d679
+    jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_2}}|||Rejang'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: identifikasi_bahasa_2
+    reference: ''
+  4ca21811-fcf3-4e76-aecc-83ebd4c47bbc: !Template
+    answer_choices: null
+    id: 4ca21811-fcf3-4e76-aecc-83ebd4c47bbc
+    jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_1}}"?|||Indonesia'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: apa_bahasa
+    reference: ''
+  54e6b4ca-bd16-45e5-b7d0-505785cea0ac: !Template
+    answer_choices: null
+    id: 54e6b4ca-bd16-45e5-b7d0-505785cea0ac
+    jinja: Apa itu "{{text_1}}" dalam bahasa Indonesia?|||{{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: apa_itu_2
+    reference: ''
+  84db86ce-8c27-4a7a-974a-072e6625121e: !Template
+    answer_choices: null
+    id: 84db86ce-8c27-4a7a-974a-072e6625121e
+    jinja: 'Translasi ke bahasa Rejang: {{text_1}}.|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translate_to_2
+    reference: ''
+  9584e722-1da0-44a5-a99a-d51fb98c86b6: !Template
+    answer_choices: null
+    id: 9584e722-1da0-44a5-a99a-d51fb98c86b6
+    jinja: Apa terjemahan dari "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: apa_terjemahan_2
+    reference: ''
+  a5b7d432-499c-457d-95a7-3ba63dce1ac1: !Template
+    answer_choices: null
+    id: a5b7d432-499c-457d-95a7-3ba63dce1ac1
+    jinja: 'Translasikan teks berikut dalam bahasa Indonesia: "{{text_2}}"|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translasikan_2
+    reference: ''
+  bb614e52-4d61-460a-a0ac-87858c3cf5e6: !Template
+    answer_choices: null
+    id: bb614e52-4d61-460a-a0ac-87858c3cf5e6
+    jinja: Apa terjemahan dari "{{text_1}}" dalam bahasa Rejang?|||{{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: apa_terjemahan
+    reference: ''
+  c7bfab7c-e562-46a8-bc27-d0ee92876085: !Template
+    answer_choices: null
+    id: c7bfab7c-e562-46a8-bc27-d0ee92876085
+    jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_2}}"?|||Rejang'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: apa_bahasa_2
+    reference: ''
+  decd8de8-4593-4c53-8fdb-fb40ad51ac43: !Template
+    answer_choices: null
+    id: decd8de8-4593-4c53-8fdb-fb40ad51ac43
+    jinja: 'Bahasa Rejang: {{text_2}}
+
+      Bahasa Indonesia: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: simple_translation
+    reference: ''
+  df260c8e-c804-4cf3-a15e-9c3c4e47b351: !Template
+    answer_choices: null
+    id: df260c8e-c804-4cf3-a15e-9c3c4e47b351
+    jinja: '"{{text_2}}"
+
+      Teks di atas dalam bahasa Indonesia: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: teks_di_atas_2
+    reference: ''
+  e2af8dbe-1b98-4476-9c44-244ab6a3e761: !Template
+    answer_choices: null
+    id: e2af8dbe-1b98-4476-9c44-244ab6a3e761
+    jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_1}}|||Indonesia'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: identifikasi_bahasa
+    reference: ''
+  e890c771-7fee-4ef9-ba02-4b7b93af3510: !Template
+    answer_choices: null
+    id: e890c771-7fee-4ef9-ba02-4b7b93af3510
+    jinja: 'Translasikan teks berikut dalam bahasa Rejang: "{{text_1}}"|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translasikan
+    reference: ''

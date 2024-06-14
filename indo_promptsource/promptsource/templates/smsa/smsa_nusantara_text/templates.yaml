@@ -4,7 +4,7 @@ templates:
   50d1ece5-1329-4df7-839c-a4953e092029: !Template
     answer_choices: negative ||| neutral ||| positive
     id: 50d1ece5-1329-4df7-839c-a4953e092029
-    jinja: '{{sentence}}
+    jinja: '{{text}}
 
       Apakah sentiment dari paragraf diatas?
 
@@ -22,7 +22,7 @@ templates:
   7b8ca335-9d01-4f93-806d-973d936e6bea: !Template
     answer_choices: negative ||| neutral ||| positive
     id: 7b8ca335-9d01-4f93-806d-973d936e6bea
-    jinja: 'Apa sentiment dari kalimat berikut: {{sentence}}
+    jinja: 'Apa sentiment dari kalimat berikut: {{text}}
 
       |||
 
@@ -48,7 +48,7 @@ templates:
   9c406336-8412-49d2-8907-c12069d70e3d: !Template
     answer_choices: negative ||| neutral ||| positive
     id: 9c406336-8412-49d2-8907-c12069d70e3d
-    jinja: '{{sentence}}
+    jinja: '{{text}}
 
       Apakah paragraf diatas bersifat positive, negative or neutral?
 
@@ -66,7 +66,7 @@ templates:
   bded77e3-97e9-44dd-88e7-5490534e879e: !Template
     answer_choices: negative ||| neutral ||| positive
     id: bded77e3-97e9-44dd-88e7-5490534e879e
-    jinja: '{{sentence}}
+    jinja: '{{text}}
 
       Tentukan sentiment dari kalimat diatas.
 

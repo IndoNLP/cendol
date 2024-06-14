@@ -4,7 +4,7 @@ templates:
   4dcca527-bda4-48a5-a14b-2a3a81101b02: !Template
     answer_choices: not_abusive ||| abusive ||| abusive_and_offensive
     id: 4dcca527-bda4-48a5-a14b-2a3a81101b02
-    jinja: 'Apakah kalimat {{text}} bersifat abusive?
+    jinja: 'Apakah kalimat {{text bersifat abusive?
 
       |||
 
@@ -19,7 +19,7 @@ templates:
   6eed6c3b-7f8c-498b-b922-00e414770395: !Template
     answer_choices: not_abusive ||| abusive ||| abusive_and_offensive
     id: 6eed6c3b-7f8c-498b-b922-00e414770395
-    jinja: '{{text}}
+    jinja: '{{text
 
       Apakah kalimat diatas mengandung unsur abusive atau tidak?
 
@@ -38,7 +38,7 @@ templates:
     id: 707f561a-2a35-4c33-88c0-fbce20e70666
     jinja: 'Tentukan apakah kalimat berikut terindikasi abusive dan offensif
 
-      Kalimat: {{text}}
+      Kalimat: {{text
 
       |||
 
