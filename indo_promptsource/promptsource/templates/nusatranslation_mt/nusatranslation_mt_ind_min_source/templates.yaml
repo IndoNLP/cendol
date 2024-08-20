@@ -1,0 +1,141 @@
+dataset: korpus_nusantara
+subset: korpus_nusantara_ind_min_source
+templates:
+  0dc57053-28de-471e-ab6a-055553dbb84a: !Template
+    answer_choices: null
+    id: 0dc57053-28de-471e-ab6a-055553dbb84a
+    jinja: "Apakah Anda bisa menerjemahkan kalimat Minangkabau ini menjadi Bahasa\
+      \ Indonesia? \n{{label}}\n|||\nTerjemahan ke Bahasa Indonesia: {{text}}"
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_3
+    reference: ''
+  2acc729e-6c06-452b-b74d-d03e5fcafa4a: !Template
+    answer_choices: null
+    id: 2acc729e-6c06-452b-b74d-d03e5fcafa4a
+    jinja: 'Bahasa Minangkabau dari kalimati ini {{text}} apa?
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_6
+    reference: ''
+  452ea5bb-2097-4fe9-82fc-fbaead562c46: !Template
+    answer_choices: null
+    id: 452ea5bb-2097-4fe9-82fc-fbaead562c46
+    jinja: 'Translate dari bahasa minangkabau ke bahasa indonesia {{label}}
+
+      |||
+
+      text
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_9
+    reference: ''
+  632ce391-ca87-49ac-abe8-1403d99d2552: !Template
+    answer_choices: null
+    id: 632ce391-ca87-49ac-abe8-1403d99d2552
+    jinja: 'translate dari bahasa Indonesia ke bahasa Minangkabau {{text}}
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_8
+    reference: ''
+  64d1d740-9f2e-4740-b8d5-8fa5165ca321: !Template
+    answer_choices: null
+    id: 64d1d740-9f2e-4740-b8d5-8fa5165ca321
+    jinja: 'Coba terjemahkan paragraf ini ke Bahasa Minangkabau, {{text}}
+
+      |||
+
+      {{label}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_7
+    reference: ''
+  6d4b04b8-50b4-41b5-a3a1-4d7237d41996: !Template
+    answer_choices: null
+    id: 6d4b04b8-50b4-41b5-a3a1-4d7237d41996
+    jinja: 'Tolong terjemahkan kalimat ini ke dalam Bahasa Indonesia: {{label}}
+
+      |||
+
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_5
+    reference: ''
+  858f73a2-64bf-4ec7-b7f4-b67019d8b082: !Template
+    answer_choices: null
+    id: 858f73a2-64bf-4ec7-b7f4-b67019d8b082
+    jinja: 'Mohon bantu terjemahkan paragraf dalam bahasa Minangkabau ini ke dalam
+      Bahasa Indonesia. {{label}}
+
+      |||
+
+      Terjemahannya: {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_4
+    reference: ''
+  8f757075-4684-4ddd-bbaf-63eeb9cfcb5d: !Template
+    answer_choices: null
+    id: 8f757075-4684-4ddd-bbaf-63eeb9cfcb5d
+    jinja: 'Apa Bahasa Indonesia dari kalimat berikut: {{label}} ?
+
+      |||
+
+      {{text}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_1
+    reference: ''
+  f37dea05-222b-4c94-aa6b-d8b689431c25: !Template
+    answer_choices: null
+    id: f37dea05-222b-4c94-aa6b-d8b689431c25
+    jinja: 'Dapatkah Anda menerjemahkan teks Minangkabau berikut ke dalam Bahasa Indonesia?
+      {{label}}
+
+      |||
+
+      {{text}}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: korpus_nusantara_ind_min_2
+    reference: ''

@@ -1,0 +1,192 @@
+dataset: nusatranslation_senti
+subset: nusatranslation_senti_jav_nusantara_text
+templates:
+  3492c169-0d95-4e9e-a038-74c6e8d593e1: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 3492c169-0d95-4e9e-a038-74c6e8d593e1
+    jinja: 'Berikan hasil analisis sentimen dari text ini!
+
+      {{text}}
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_5
+    reference: ''
+  43aa3cd0-20e8-4253-80df-a229669855f5: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 43aa3cd0-20e8-4253-80df-a229669855f5
+    jinja: 'Teks berbahasa Jawa ini "{{text}}" memiliki sentimen apa?
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_2
+    reference: ''
+  4f81be0a-2ad8-486c-ab64-287ead4cfda8: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 4f81be0a-2ad8-486c-ab64-287ead4cfda8
+    jinja: 'Jika terdapat teks berikut dalam hasil ulasan "{{text}}", beri tendensi
+      yang cocok!
+
+      |||
+
+      {{ answer_choices [label] }}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_1
+    reference: ''
+  5acf0d64-40e2-4b21-a487-5202c240494d: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 5acf0d64-40e2-4b21-a487-5202c240494d
+    jinja: 'Kalau kamu dikasih teks "{{text}}" dalam bahasa Jawa, bisa nebak sentimennya
+      nggak ya?
+
+      |||
+
+      Kemungkinan besar sih sentimennya itu {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_9
+    reference: ''
+  7a978397-47f0-4959-8a07-94c5c4eea8fc: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 7a978397-47f0-4959-8a07-94c5c4eea8fc
+    jinja: '"{{text}}"
+
+      Aku nemu teks ini yang katanya berbahasa Jawa, kira-kira apakah dia memiliki
+      tendensi yang tersirat?
+
+      |||
+
+      {%+ if answer_choices["label"] !=neutral +%}Ya, tendensinya adalah {{answer_choices
+      [label]}}. {%+ else +%}Nggak, tidak ada tendensi tertentu.{%+ endif +%}
+
+      '
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_3
+    reference: ''
+  9a44db51-9a57-467c-925c-09b3f8272c99: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 9a44db51-9a57-467c-925c-09b3f8272c99
+    jinja: '"{{text}}"
+
+      Dalam bahasa Jawa, apakah ada emosi yang terkandung di dalamnya?
+
+      |||
+
+      {%+ if answer_choices["label"] !=neutral +%}Ya, kecenderungan emosinya adalah
+      {{answer_choices [label]}}. {%+ else +%}Tidak ada.{%+ endif +%}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_4
+    reference: ''
+  a16d3126-91ee-42f3-a13d-8387eb2cbd03: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: a16d3126-91ee-42f3-a13d-8387eb2cbd03
+    jinja: 'Apa sentimen dari teks ini?
+
+      "{{text}}"
+
+      |||
+
+      Sepertinya, sentimennya itu adalah {{answer_choices[label]}}.'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_10
+    reference: ''
+  a505d97b-5f7b-4f99-88c9-df2dd8354727: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: a505d97b-5f7b-4f99-88c9-df2dd8354727
+    jinja: 'Aduh, ada temen ku yang nulis "{{text}}" dalam bahasa Jawa nih, kira-kira
+      perasaannya lagi senang, sedih, atau biasa aja ya?
+
+      |||
+
+      Kayaknya sih lagi {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_8
+    reference: ''
+  b03e1c45-98af-4107-ac29-7f59ea1d172a: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: b03e1c45-98af-4107-ac29-7f59ea1d172a
+    jinja: 'Diberikan teks "{{text}}". Kalau ada orang lain yang pengen tau apakah
+      ada emosi yang tersirat di balik tulisan ini, jawabannya apa ya?
+
+      |||
+
+      Berdasarkan hasil analisis, jawabannya itu {{answer_choices[label]}}.'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_7
+    reference: ''
+  b414db88-199f-429f-87ee-8062e5e8cb66: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: b414db88-199f-429f-87ee-8062e5e8cb66
+    jinja: 'Text ini kira-kira apa ya sentimennya?
+
+      {{text}}
+
+      |||
+
+      Sentimennya itu {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - jv
+      metrics:
+      - Accuracy
+      original_task: true
+    name: nusatranslation_senti_jav_6
+    reference: ''

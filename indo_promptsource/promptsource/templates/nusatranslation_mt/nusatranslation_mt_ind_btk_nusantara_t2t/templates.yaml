@@ -1,0 +1,289 @@
+dataset: nusatranslation_mt
+subset: nusatranslation_mt_ind_btk_nusantara_t2t
+templates:
+  01ac0273-2efb-48b9-88a4-6fb919c25821: !Template
+    answer_choices: null
+    id: 01ac0273-2efb-48b9-88a4-6fb919c25821
+    jinja: 'Bahasa Indonesia: {{text_1}}
+
+      Bahasa Batak: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: simple_translation_2
+    reference: ''
+  60838c8b-7c62-4301-a571-4b97f0bea1dd: !Template
+    answer_choices: null
+    id: 60838c8b-7c62-4301-a571-4b97f0bea1dd
+    jinja: '"{{text_2}}" dalam bahasa Indonesia: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: dalam_bahasa_2
+    reference: ''
+  15847b0a-c18e-4038-aa15-16e13372a0f5: !Template
+    answer_choices: null
+    id: 15847b0a-c18e-4038-aa15-16e13372a0f5
+    jinja: '"{{text_1}}" dalam bahasa Batak: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: dalam_bahasa
+    reference: ''
+  1d39425f-b25f-43b8-99cd-479cbd5860d6: !Template
+    answer_choices: null
+    id: 1d39425f-b25f-43b8-99cd-479cbd5860d6
+    jinja: 'Terjemahkan kalimat berikut ini dari bahasa Batak ke bahasa Indonesia:
+      "{{text_2}}"|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: terjemahkan_kalimat
+    reference: ''
+  2a281674-592e-4b77-94b0-84cbf7515d58: !Template
+    answer_choices: null
+    id: 2a281674-592e-4b77-94b0-84cbf7515d58
+    jinja: '"{{text_1}}"
+
+      Teks di atas dalam bahasa Batak: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: teks_di_atas
+    reference: ''
+  f95b9dd1-d035-470c-a65a-a7a3b7f0d4bd: !Template
+    answer_choices: null
+    id: f95b9dd1-d035-470c-a65a-a7a3b7f0d4bd
+    jinja: Apa itu "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: apa_itu
+    reference: ''
+  322c632c-8a73-46f0-a6a0-0fcabe7ce327: !Template
+    answer_choices: null
+    id: 322c632c-8a73-46f0-a6a0-0fcabe7ce327
+    jinja: 'Terjemahkan kalimat berikut ini dari bahasa Indonesia ke bahasa Batak:
+      "{{text_1}}"|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: terjemahkan_kalimat_2
+    reference: ''
+  3c515ec7-48e9-4c5c-8144-be2b31ca4037: !Template
+    answer_choices: null
+    id: 3c515ec7-48e9-4c5c-8144-be2b31ca4037
+    jinja: 'Translasi ke bahasa Indonesia: {{text_2}}.|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translate_to
+    reference: ''
+  e849a8ae-df51-4db7-8b56-7628c7ce88ff: !Template
+    answer_choices: null
+    id: e849a8ae-df51-4db7-8b56-7628c7ce88ff
+    jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_2}}|||Batak'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: identifikasi_bahasa_2
+    reference: ''
+  5d968a4f-ab52-4694-bcd0-30ea981a479f: !Template
+    answer_choices: null
+    id: 5d968a4f-ab52-4694-bcd0-30ea981a479f
+    jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_1}}"?|||Indonesia'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: apa_bahasa
+    reference: ''
+  14e0c40f-ae18-441e-aed7-15589a4920f4: !Template
+    answer_choices: null
+    id: 14e0c40f-ae18-441e-aed7-15589a4920f4
+    jinja: Apa itu "{{text_1}}" dalam bahasa Indonesia?|||{{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: apa_itu_2
+    reference: ''
+  84db86ce-8c27-4a7a-974a-072e6625121d: !Template
+    answer_choices: null
+    id: 84db86ce-8c27-4a7a-974a-072e6625121d
+    jinja: 'Translasi ke bahasa Batak: {{text_1}}.|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translate_to_2
+    reference: ''
+  9584e722-1da0-44a5-a99a-d51fb98c86b5: !Template
+    answer_choices: null
+    id: 9584e722-1da0-44a5-a99a-d51fb98c86b5
+    jinja: Apa terjemahan dari "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: apa_terjemahan_2
+    reference: ''
+  a5b7d432-499c-457d-95a7-3ba63dce1ac0: !Template
+    answer_choices: null
+    id: a5b7d432-499c-457d-95a7-3ba63dce1ac0
+    jinja: 'Translasikan teks berikut dalam bahasa Indonesia: "{{text_2}}"|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translasikan_2
+    reference: ''
+  bb614e52-4d61-460a-a0ac-87858c3cf5e5: !Template
+    answer_choices: null
+    id: bb614e52-4d61-460a-a0ac-87858c3cf5e5
+    jinja: Apa terjemahan dari "{{text_1}}" dalam bahasa Batak?|||{{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: apa_terjemahan
+    reference: ''
+  c7bfab7c-e562-46a8-bc27-d0ee92876084: !Template
+    answer_choices: null
+    id: c7bfab7c-e562-46a8-bc27-d0ee92876084
+    jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_2}}"?|||Batak'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: apa_bahasa_2
+    reference: ''
+  decd8de8-4593-4c53-8fdb-fb40ad51ac42: !Template
+    answer_choices: null
+    id: decd8de8-4593-4c53-8fdb-fb40ad51ac42
+    jinja: 'Bahasa Batak: {{text_2}}
+
+      Bahasa Indonesia: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: simple_translation
+    reference: ''
+  df260c8e-c804-4cf3-a15e-9c3c4e47b350: !Template
+    answer_choices: null
+    id: df260c8e-c804-4cf3-a15e-9c3c4e47b350
+    jinja: '"{{text_2}}"
+
+      Teks di atas dalam bahasa Indonesia: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: teks_di_atas_2
+    reference: ''
+  e2af8dbe-1b98-4476-9c44-244ab6a3e760: !Template
+    answer_choices: null
+    id: e2af8dbe-1b98-4476-9c44-244ab6a3e760
+    jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_1}}|||Indonesia'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: identifikasi_bahasa
+    reference: ''
+  e890c771-7fee-4ef9-ba02-4b7b93af3509: !Template
+    answer_choices: null
+    id: e890c771-7fee-4ef9-ba02-4b7b93af3509
+    jinja: 'Translasikan teks berikut dalam bahasa Batak: "{{text_1}}"|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translasikan
+    reference: ''

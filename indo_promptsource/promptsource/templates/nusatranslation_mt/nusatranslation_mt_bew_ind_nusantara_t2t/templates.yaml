@@ -1,0 +1,289 @@
+dataset: nusatranslation_mt
+subset: nusatranslation_mt_bew_ind_nusantara_t2t
+templates:
+  01ac0273-2efb-48b9-88a4-6fb919c25891: !Template
+    answer_choices: null
+    id: 01ac0273-2efb-48b9-88a4-6fb919c25891
+    jinja: 'Bahasa Indonesia: {{text_2}}
+
+      Bahasa betawi: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: simple_translation_2
+    reference: ''
+  0794ca73-a143-42c8-ad04-52124c04d642: !Template
+    answer_choices: null
+    id: 0794ca73-a143-42c8-ad04-52124c04d642
+    jinja: '"{{text_1}}" dalam bahasa Indonesia: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: dalam_bahasa_2
+    reference: ''
+  15847b0a-c18e-4038-aa15-16e13372a03f: !Template
+    answer_choices: null
+    id: 15847b0a-c18e-4038-aa15-16e13372a03f
+    jinja: '"{{text_2}}" dalam bahasa betawi: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: dalam_bahasa
+    reference: ''
+  1d39425f-b25f-43b8-99cd-479cbd58604d: !Template
+    answer_choices: null
+    id: 1d39425f-b25f-43b8-99cd-479cbd58604d
+    jinja: 'Terjemahkan kalimat berikut ini dari bahasa betawi ke bahasa Indonesia:
+      "{{text_1}}"|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: terjemahkan_kalimat
+    reference: ''
+  2a281674-592e-4b77-94b0-84cbf7515d65: !Template
+    answer_choices: null
+    id: 2a281674-592e-4b77-94b0-84cbf7515d65
+    jinja: '"{{text_2}}"
+
+      Teks di atas dalam bahasa betawi: |||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: teks_di_atas
+    reference: ''
+  98b2d1c7-f2ce-45cb-982e-c266dfb87032: !Template
+    answer_choices: null
+    id: 98b2d1c7-f2ce-45cb-982e-c266dfb87032
+    jinja: Apa itu "{{text_1}}" dalam bahasa Indonesia?|||{{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: apa_itu
+    reference: ''
+  322c632c-8a73-46f0-a6a0-0fcabe7ce352: !Template
+    answer_choices: null
+    id: 322c632c-8a73-46f0-a6a0-0fcabe7ce352
+    jinja: 'Terjemahkan kalimat berikut ini dari bahasa Indonesia ke bahasa betawi:
+      "{{text_2}}"|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: terjemahkan_kalimat_2
+    reference: ''
+  3c515ec7-48e9-4c5c-8144-be2b31ca4053: !Template
+    answer_choices: null
+    id: 3c515ec7-48e9-4c5c-8144-be2b31ca4053
+    jinja: 'Translasi ke bahasa Indonesia: {{text_1}}.|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translate_to
+    reference: ''
+  787087ec-23a4-4249-87ed-1495dcccc9c7: !Template
+    answer_choices: null
+    id: 787087ec-23a4-4249-87ed-1495dcccc9c7
+    jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_1}}|||betawi'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: identifikasi_bahasa_2
+    reference: ''
+  f6191c62-2ca2-4951-a5c0-2002db429239: !Template
+    answer_choices: null
+    id: f6191c62-2ca2-4951-a5c0-2002db429239
+    jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_2}}"?|||Indonesia'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: apa_bahasa
+    reference: ''
+  c365af2e-a273-4ed6-97b2-d6d8f17967c1: !Template
+    answer_choices: null
+    id: c365af2e-a273-4ed6-97b2-d6d8f17967c1
+    jinja: Apa itu "{{text_2}}" dalam bahasa Indonesia?|||{{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: apa_itu_2
+    reference: ''
+  84db86ce-8c27-4a7a-974a-072e662512b1: !Template
+    answer_choices: null
+    id: 84db86ce-8c27-4a7a-974a-072e662512b1
+    jinja: 'Translasi ke bahasa betawi: {{text_2}}.|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translate_to_2
+    reference: ''
+  9584e722-1da0-44a5-a99a-d51fb98c863b: !Template
+    answer_choices: null
+    id: 9584e722-1da0-44a5-a99a-d51fb98c863b
+    jinja: Apa terjemahan dari "{{text_1}}" dalam bahasa Indonesia?|||{{text_2}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: apa_terjemahan_2
+    reference: ''
+  a5b7d432-499c-457d-95a7-3ba63dce1a8b: !Template
+    answer_choices: null
+    id: a5b7d432-499c-457d-95a7-3ba63dce1a8b
+    jinja: 'Translasikan teks berikut dalam bahasa Indonesia: "{{text_1}}"|||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translasikan_2
+    reference: ''
+  bb614e52-4d61-460a-a0ac-87858c3cf53e: !Template
+    answer_choices: null
+    id: bb614e52-4d61-460a-a0ac-87858c3cf53e
+    jinja: Apa terjemahan dari "{{text_2}}" dalam bahasa betawi?|||{{text_1}}
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: apa_terjemahan
+    reference: ''
+  c7bfab7c-e562-46a8-bc27-d0ee92876028: !Template
+    answer_choices: null
+    id: c7bfab7c-e562-46a8-bc27-d0ee92876028
+    jinja: 'Apa bahasa yang digunakan dalam teks berikut: "{{text_1}}"?|||betawi'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: apa_bahasa_2
+    reference: ''
+  decd8de8-4593-4c53-8fdb-fb40ad51ac04: !Template
+    answer_choices: null
+    id: decd8de8-4593-4c53-8fdb-fb40ad51ac04
+    jinja: 'Bahasa betawi: {{text_1}}
+
+      Bahasa Indonesia: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: simple_translation
+    reference: ''
+  df260c8e-c804-4cf3-a15e-9c3c4e47b384: !Template
+    answer_choices: null
+    id: df260c8e-c804-4cf3-a15e-9c3c4e47b384
+    jinja: '"{{text_1}}"
+
+      Teks di atas dalam bahasa Indonesia: |||{{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: teks_di_atas_2
+    reference: ''
+  e2af8dbe-1b98-4476-9c44-244ab6a3e785: !Template
+    answer_choices: null
+    id: e2af8dbe-1b98-4476-9c44-244ab6a3e785
+    jinja: 'Identifikasi bahasa yang digunakan dalam teks berikut: {{text_2}}|||Indonesia'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - Accuracy
+      original_task: false
+    name: identifikasi_bahasa
+    reference: ''
+  e890c771-7fee-4ef9-ba02-4b7b93af3570: !Template
+    answer_choices: null
+    id: e890c771-7fee-4ef9-ba02-4b7b93af3570
+    jinja: 'Translasikan teks berikut dalam bahasa betawi: "{{text_2}}"|||{{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: translasikan
+    reference: ''

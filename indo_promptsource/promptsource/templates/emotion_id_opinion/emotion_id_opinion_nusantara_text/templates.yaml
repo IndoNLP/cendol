@@ -4,7 +4,7 @@ templates:
   98f07ca1-6098-4a3a-94ac-4f878d289ffc: !Template
     answer_choices: Joy ||| Love ||| Fear ||| Anger ||| Sad ||| Neutral
     id: 98f07ca1-6098-4a3a-94ac-4f878d289ffc
-    jinja: "apa emosi yang ingin diekspresikan oleh kalimat {{tweet}}?\n\n      |||\n\
+    jinja: "apa emosi yang ingin diekspresikan oleh kalimat {{text}}?\n\n      |||\n\
       \n      {{answer_choices[label]}}"
     metadata: !TemplateMetadata
       choices_in_prompt: false
@@ -29,7 +29,7 @@ templates:
     id: 75cf0f36-862a-470b-90fc-57c31de3589b
     jinja: 'Tentukan emosi yang diekspresikan oleh kalimat berikut
 
-      Kalimat: {{tweet}}
+      Kalimat: {{text}}
 
 
       |||
@@ -45,7 +45,7 @@ templates:
   847fb18b-f901-4984-bc61-540aad6a969a: !Template
     answer_choices:  Joy ||| Love ||| Fear ||| Anger ||| Sad ||| Neutral
     id: 847fb18b-f901-4984-bc61-540aad6a969a
-    jinja: '{{tweet}}
+    jinja: '{{text}}
 
       Perasaan apa yang diekspresikan oleh kalimat diatas?
 
@@ -62,7 +62,7 @@ templates:
   a54b6f53-43b9-48ac-b45e-c14d319d98e7: !Template
     answer_choices:  Joy ||| Love ||| Fear ||| Anger ||| Sad ||| Neutral
     id: a54b6f53-43b9-48ac-b45e-c14d319d98e7
-    jinja: '{{tweet}}
+    jinja: '{{text}}
 
       Emosi apa yang diekspresikan oleh kalimat diatas?
 

@@ -1,0 +1,61 @@
+dataset: nusatranslation_senti
+subset: nusatranslation_senti_mak_nusantara_text
+templates:
+  614e522d-3f7b-48b8-ba5d-09c5129fd64f: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 614e522d-3f7b-48b8-ba5d-09c5129fd64f
+    jinja: '{{text}}
+
+      Tentukan sentiment dari kalimat diatas.
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: true
+    name: nusatranslation_senti_ind_source_prompt
+    reference: ''
+  8eea3f69-e42b-4963-9fba-a04a6adda758: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: 8eea3f69-e42b-4963-9fba-a04a6adda758
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: nusatranslation_senti_ind_2
+    reference: ''
+  dd8a23e0-9042-40dc-80b9-afceb178be8d: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: dd8a23e0-9042-40dc-80b9-afceb178be8d
+    jinja: ''
+    metadata: !TemplateMetadata
+      choices_in_prompt: null
+      languages: null
+      metrics: null
+      original_task: null
+    name: '{{text}} Tentukan sentiment dari kalimat diatas. ||| {{answer_choices[label]}}'
+    reference: ''
+  ef7ff156-086b-47ee-8c6b-d0cd6e99d0ec: !Template
+    answer_choices: negative ||| neutral ||| positive
+    id: ef7ff156-086b-47ee-8c6b-d0cd6e99d0ec
+    jinja: '{{text}}
+
+      Tentukan sentiment dari kalimat diatas.
+
+
+      |||
+
+      {{answer_choices[label]}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages: []
+      metrics: []
+      original_task: false
+    name: nusatranslation_senti_ind_1
+    reference: ''

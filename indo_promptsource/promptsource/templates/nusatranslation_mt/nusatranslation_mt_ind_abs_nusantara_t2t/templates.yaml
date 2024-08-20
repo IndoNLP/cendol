@@ -1,0 +1,219 @@
+dataset: nusatranslation_mt
+subset: nusatranslation_mt_ind_abs_nusantara_t2t
+templates:
+  0fb92154-1ef1-48e0-ba5b-5f39b66aa95b: !Template
+    answer_choices: null
+    id: 0fb92154-1ef1-48e0-ba5b-5f39b66aa95b
+    jinja: 'Apa terjemahan bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="abs"
+      +%}Ambon{%+ endif +%} dari bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="abs" +%}Ambon{% endif %}, jika diberikan teks berikut?
+
+      "{{text_2}}"
+
+      |||
+
+      "{{text_1}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_8
+    reference: ''
+  26614f2c-162b-4dbb-8a4c-4895607b881a: !Template
+    answer_choices: null
+    id: 26614f2c-162b-4dbb-8a4c-4895607b881a
+    jinja: 'Apa padanan terjemahan dari bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="abs" +%}Ambon{%+ endif +%} untuk text berikut dalam
+      {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{%
+      endif %}?
+
+      "{{text_2}}"
+
+      |||
+
+      "{{text_1}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_10
+    reference: ''
+  3d8630dc-610f-4098-abb7-9d1c33796d4c: !Template
+    answer_choices: null
+    id: 3d8630dc-610f-4098-abb7-9d1c33796d4c
+    jinja: 'Diberikan teks {{text_1}} dalam bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
+      elif text_1_name=="abs" +%}Ambon{%+ endif +%}, buatkan padanannya dalam
+      bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="abs" +%}Ambon{% endif %}!
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_1
+    reference: ''
+  52ea76f4-bd22-4d4a-b116-576e5f2f008f: !Template
+    answer_choices: null
+    id: 52ea76f4-bd22-4d4a-b116-576e5f2f008f
+    jinja: 'Jika teks {{text_2}} dalam bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="abs" +%}Ambon{%+ endif +%} ditranslate kedalam bahasa
+      {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{%
+      endif +%}, apa hasilnya?
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_6
+    reference: ''
+  53e98f5f-2584-4354-980c-b2a2508f901f: !Template
+    answer_choices: null
+    id: 53e98f5f-2584-4354-980c-b2a2508f901f
+    jinja: '"{{text_1}}"
+
+      Tolong buat hasil translate dalam bahasa {%+ if text_2_name=="ind" +%}Indonesia{%+
+      elif text_2_name=="abs" +%}Ambon{%+ endif +%} dari bahasa {%+ if text_1_name=="ind"
+      +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{% endif %}!
+
+      |||
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: true
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_4
+    reference: ''
+  a9ba2668-9bc9-4703-8fb0-32907a26c9d3: !Template
+    answer_choices: null
+    id: a9ba2668-9bc9-4703-8fb0-32907a26c9d3
+    jinja: 'Apa hasil translate teks {{text_2}} berbahasa {%+ if text_2_name=="ind"
+      +%}Indonesia{%+ elif text_2_name=="abs" +%}Ambon{%+ endif +%} dalam bahasa
+      {%+ if text_1_name=="ind" +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{%
+      endif %}?
+
+      |||
+
+      {{text_1}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_5
+    reference: ''
+  bd5877c7-36c5-46ac-acc2-526447aa1671: !Template
+    answer_choices: null
+    id: bd5877c7-36c5-46ac-acc2-526447aa1671
+    jinja: 'Berikan hasil translasi bahasa {%+ if text_1_name=="ind" +%}Indonesia{%+
+      elif text_1_name=="abs" +%}Ambon{%+ endif +%} dari bahasa {%+ if text_2_name=="ind"
+      +%}Indonesia{%+ elif text_2_name=="abs" +%}Ambon{% endif %}!
+
+      "{{text_2}}"
+
+      |||
+
+      "{{text_1}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_7
+    reference: ''
+  cdb53117-c084-4018-9ec2-047e5e6d191f: !Template
+    answer_choices: null
+    id: cdb53117-c084-4018-9ec2-047e5e6d191f
+    jinja: 'Boleh tolong translate-in {{text_1}} dari bahasa {%+ if text_1_name=="ind"
+      +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{%+ endif +%} ke bahasa
+      {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="abs" +%}Ambon{%+
+      endif +%}?
+
+      |||
+
+      Ya, hasilnya ini:
+
+      {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - ROUGE
+      - BLEU
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_2
+    reference: ''
+  de18b66c-3df9-473a-ae8d-a1fb41c9d576: !Template
+    answer_choices: null
+    id: 3d8630dc-610f-4098-abb7-9d1c33796d4c
+    jinja: 'Apa hasil translasi dari teks {{text_1}} berbahasa {%+ if text_1_name=="ind"
+      +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{%+ endif +%} dalam bahasa
+      {%+ if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="abs" +%}Ambon{%
+      endif %}?
+
+      |||
+
+      Hasilnya adalah {{text_2}}'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_3
+    reference: ''
+  f76c2646-d6f0-47a6-b1c0-5cf763f9b4ca: !Template
+    answer_choices: null
+    id: f76c2646-d6f0-47a6-b1c0-5cf763f9b4ca
+    jinja: 'Tolong terjemahin teks "{{text_1}}" dong dari bahasa {%+ if text_1_name=="ind"
+      +%}Indonesia{%+ elif text_1_name=="abs" +%}Ambon{% endif %} ke bahasa {%+
+      if text_2_name=="ind" +%}Indonesia{%+ elif text_2_name=="abs" +%}Ambon{%+
+      endif +%}.
+
+      |||
+
+      "{{text_2}}"'
+    metadata: !TemplateMetadata
+      choices_in_prompt: false
+      languages:
+      - id
+      metrics:
+      - BLEU
+      - ROUGE
+      original_task: true
+    name: korpus_nusantara_ind_abs_mt_9
+    reference: ''
